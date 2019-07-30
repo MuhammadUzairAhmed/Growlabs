@@ -1,0 +1,1048 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #1e262e;
+    margin: 0px;
+}
+
+
+/* Start Sidbar css */
+
+section.sidebar {
+    width: 12%;
+    background: #0c0e10;
+    color: #fff;
+    float: left;
+
+}
+
+.header_top ul li span {
+    position: absolute;
+    right: 16px;
+    font-size: 16px;
+    top: 7px;
+}
+
+.header_center:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header_top:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.score_section {
+    padding: 20px 20px;
+}
+
+.time_section {
+    color: #fefefe;
+    padding: 32px 22px 32px 57px;
+    background: #0c0e10;
+    height: 61px;
+    float: right;
+    width: 270px;
+}
+.time_section_text {
+    float: left;
+    width: 155px;
+}
+.time_section_img {
+    float: left;
+    width: 20%;
+}
+.time_section_img img {
+    border: 1px solid #1d1d1d;
+    border-radius: 35px;
+    position: relative;
+    top: 5px;
+}
+.time_section_rgt {
+    float: right;
+    margin: 17px 0px 0px 0px;
+}
+.time_section h1 {
+    margin: 0px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.time_section p {
+    margin: 0px 0px 0px 2px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 7px;
+}
+
+.score {
+    background-color: #1E272E;
+    margin: 0px 0px 6px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px 8px;
+}
+.score_section img {
+    width: 100%;
+}
+.score p {
+    margin: 0px;
+}
+
+.jquery-accordion-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.jquery-accordion-menu ul li {
+    width: 100%;
+    display: block;
+    float: left;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.menu {
+    min-height: 522px;
+}
+
+.jquery-accordion-menu ul li a {
+    width: -webkit-fill-available;
+    padding: 14px 22px;
+    float: left;
+    text-decoration: none;
+    color: #6d6e6f;
+    font-size: 12px;
+    -o-transition: color .2s linear, background .2s linear;
+    -moz-transition: color .2s linear, background .2s linear;
+    -webkit-transition: color .2s linear, background .2s linear;
+    transition: color .2s linear, background .2s linear;
+    font-family: "Space Mono";
+    letter-spacing: 1px;
+}
+
+.jquery-accordion-menu>ul>li:hover>a img {
+    opacity: 1;
+}
+
+.jquery-accordion-menu>ul>li.active>a,
+.jquery-accordion-menu>ul>li:hover>a {
+    color: #fefefe;
+    background: #16191d;
+}
+
+.jquery-accordion-menu ul li a i {
+    width: 40px;
+    float: left;
+    line-height: 18px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.user_sec img {
+    border: 1.5px solid #555555;
+    border-radius: 100%;
+    width: 20%;
+}
+
+.logo_user {
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+}
+
+.logo_sec img {
+    width: 100%;
+}
+
+.logo_sec {
+    display: table;
+    margin: 0 auto;
+    width: 50%;
+    opacity: 0.7;
+}
+
+.user_sec {
+    margin: 0px 0px 22px 0px;
+}
+
+.jquery-accordion-menu img {
+    width: 24px;
+    margin: 0px 13px 0px 0px;
+    float: left;
+    opacity: 0.3;
+}
+
+.jquery-accordion-menu .active img {
+    opacity: 1;
+}
+
+
+/* End Sidbar css */
+
+
+/* Start Header css */
+
+section.header {
+    background: #0c0e10;
+    height: 124px;
+    position: relative;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+
+}
+section.header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header_box {
+    float: right;
+    width: 256.64px;
+    border-right: 1px solid #22252B;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+}
+
+.header_top ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+.header_top ul li {
+    float: left;
+    font-size: 11px;
+    margin: 0px 14px 0px 0px;
+    color: #ffffff;
+    opacity: 0.27;
+}
+
+.header_top {
+    position: relative;
+    padding: 15px 15px 0px 15px;
+}
+
+.header_box.active .header_center {
+    background: #171b1e;
+    padding: 0px 15px;
+    margin: 30px 0px;
+    padding-right: 10px;
+}
+
+.header_center {
+    margin: 24px 15px;
+    margin-right: 10px;
+}
+
+.header_center .header_flt {
+    float: left;
+    width: 78%;
+    height: 39px;
+    position: relative;
+}
+
+.header_center .header_rgt {
+    float: right;
+    width: 25px;
+    height: 25px;
+    background: #171b1e;
+    padding: 8px 9px;
+    border-radius: 100%;
+}
+
+.header_center .header_rgt img {
+    width: 90%;
+    display: table;
+    margin: 0 auto;
+}
+
+.header_box:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header_center .header_flt h1 {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin: 0px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.header_top ul li:first-child {
+    color: #fff;
+    opacity: 1;
+}
+
+.header_box.active .header_top ul li:first-child {
+    background: #fff;
+    color: #000;
+    padding: 0px 6px;
+    border-radius: 4px;
+}
+
+
+/* End Header css */
+
+
+/* Start Chatroom css */
+
+section.chat_room {
+    background: #161c20;
+    width: 350px;
+    position: absolute;
+    right: 0;
+    top: 124px;
+    height:90%;
+}
+
+.chatroom_header {
+    background-color: #13181C;
+    border-bottom: 1px solid #2b363d;
+    padding: 10px 20px 10px 20px;
+
+}
+
+.chatroom_header_lft {
+    float: left;
+}
+
+.chatroom_header-rgt {
+    float: right;
+}
+
+.chatroom_header-rgt img {
+    width: 14px;
+    margin: 28px 10px 0px 10px;
+}
+
+.chatroom_header_img {
+    float: left;
+    width: 20%;
+    margin: 11px 10px 0px 0px;
+}
+
+.chatroom_header_text {
+    float: left;
+}
+
+.chatroom_header_img img {
+    width: 100%;
+}
+
+.chatroom_header_text h2 {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+.chatroom_header_text p {
+    margin-top: 4px;
+    color: #fff;
+    opacity: 0.1;
+    font-size: 12px;
+}
+
+.chatroom_header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.received_massage {
+    border-radius: 15px 15px 0 15px;
+    background: #336a77;
+    float: right;
+    color: #fff;
+    font-size: 12px;
+    width: 80%;
+    padding: 15px 15px 15px 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.chatroom_Content {
+    padding: 20px 20px;
+}
+
+.send_massage {
+    border-radius: 15px 15px 15px 0px;
+    background: #1e262a;
+    float: left;
+    color: #fff;
+    font-size: 12px;
+    width: 80%;
+    padding: 15px 15px 15px 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.massage_time {
+    float: right;
+    width: 100%;
+    text-align: right;
+    font-size: 11px;
+    opacity: 0.3;
+    color: #999c9e;
+    margin: 0px 0px 10px 0px;
+    letter-spacing: 1px;
+}
+
+.massage_olddate {
+    clear: both;
+    color: #36424a;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.massage_olddate:after {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid #242d33;
+    width: 100px;
+    transform: translateY(-4px);
+    margin: 0px 0px 0px 10px;
+}
+
+.massage_olddate:before {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid #242d33;
+    width: 100px;
+    transform: translateY(-4px);
+    margin: 0px 10px 0px 0px;
+}
+
+.massage_newdate {
+    clear: both;
+    color: #a9a9a9;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.massage_newdate:after {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid #a9a9a9;
+    width: 42%;
+    transform: translateY(-4px);
+    margin: 0px 0px 0px 10px;
+}
+
+.massage_newdate:before {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid #a9a9a9;
+    width: 42%;
+    transform: translateY(-4px);
+    margin: 0px 10px 0px 0px;
+}
+
+.chat_home {
+    border-radius: 15px 15px 15px 0px;
+    background: #1e262a;
+    float: left;
+    color: #fff;
+    font-size: 12px;
+    width: 80%;
+    padding: 15px 15px 10px 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.chat_home h1 {
+    font-weight: 400;
+    margin: 5px 0px 2px 0px;
+}
+
+.chat_home p {
+    margin: 0px;
+    font-size: 10px;
+    opacity: 0.3;
+    margin-bottom: 30px;
+}
+
+.chat_home_icon {
+    background: #101010;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 100%;
+    position: absolute;
+    right: 21px;
+    top: 23px;
+}
+
+.chat_home_icon h4 {
+    margin: 0px;
+    font-weight: 400;
+    padding: 4px 4px;
+    font-size: 9px;
+}
+
+.chat_home_img {
+    float: left;
+}
+
+.chat_home_code {
+    float: right;
+    opacity: 0.6;
+    color: #999c9e;
+    font-size: 11px;
+}
+
+.chatroom_footer {
+    background-color: #13181C;
+    border-top: 1px solid #2b363d;
+    padding: 20px 20px 20px 20px;
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.chatroom_footer input {
+    background: none;
+    border: 1.2px solid #4a7f80;
+    padding: 10px 10px;
+    border-radius: 30px;
+    width: 94%;
+    color: #336a77;
+    position: relative;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.chatroom_footer button {
+    background: none;
+    border: 0px;
+    position: absolute;
+    right: 11px;
+    width: 43px;
+    top: 21px;
+}
+
+.chatroom_footer button img {
+    width: 100%;
+}
+
+.chatroom_footer input:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    /* Edge */
+    color: #336a77;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #336a77;
+}
+
+::placeholder {
+    color: #336a77;
+}
+
+
+/* End Chatroom css */
+
+
+/* Start Content css */
+
+section.Content_main {
+    width: 100%;
+}
+section.Content_main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.center_part {
+    float: left;
+    padding: 20px 20px;
+    width: 85%;
+}
+
+
+/* End Content css */
+
+
+/* Start Backlog css */
+
+.backlog_box {
+    border: 1px solid #495059;
+    border-radius: 10px;
+    padding: 20px 20px;
+    color: #fff;
+    margin: 20px 20px 0px 0px;
+    position: relative;
+    float: left;
+    height: 80px;
+    width: 203px;
+}
+
+.backlog_box_img {
+    display: table;
+    margin: 0 auto;
+}
+
+.backlog_box_flt h1 {
+    font-size: 20px;
+    margin: 0px;
+    font-weight: 400;
+}
+
+.backlog_box_botum p {
+    position: absolute;
+    right: 22px;
+    bottom: 0;
+}
+
+.backlog_box_flt p {
+    font-size: 10px;
+    margin: 0px;
+    opacity: 0.5;
+}
+
+.backlog_box_botum {
+    text-align: right;
+    font-size: 11px;
+    opacity: 0.3;
+}
+
+.backlog_box_rgt {
+    position: absolute;
+    right: 20px;
+    top: 24px;
+    background: #171717;
+    border-radius: 100%;
+    font-size: 10px;
+    padding: 2px 3px;
+}
+
+section.backlog {}
+
+.backlog ul.ui-tabs-nav {
+    padding: 0px;
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.backlog ul.ui-tabs-nav li {
+    float: left;
+    margin: 0px 10px;
+    text-align: center;
+    line-height: 26px;
+}
+
+.backlog ul.ui-tabs-nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.3;
+}
+.backlog ul.ui-tabs-nav li.active a {
+    opacity: 1;
+}
+.backlog ul.ui-tabs-nav li a:after {
+    border-bottom: 1px solid #ffffff47;
+    content: "";
+    display: block;
+    padding: 0px 40px;
+}
+
+.backlog ul.ui-tabs-nav li a:focus {
+    outline: none;
+}
+
+.backlog ul.ui-tabs-nav li:focus {
+    outline: none;
+}
+
+
+/* End Backlog css */
+
+
+
+
+/* Start colleborate css */
+
+.colleborate_top {
+    height: 70px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+
+}
+.fancy-checkbox {
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 11px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.fancy-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.fancy-checkbox .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #fffcfc;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    border-radius: 100px;
+    background: #192027;
+    z-index: 9999;
+}
+.fancy-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+.fancy-checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.fancy-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.fancy-checkbox input:checked ~ .checkmark {
+    background-color: #7a7c7d;
+    border: 1px solid #ffffff;
+}
+.colleborate_box {
+    float: left;
+    text-align: center;
+    position: relative;
+    width: 103px;
+}
+
+.colleborate_box h1 {
+    margin: 5px 0px 4px 0px;
+    font-size: 9px;
+    color: #fff;
+    opacity: 0.3;
+    font-weight: 200;
+    text-align: center;
+}
+.colleborate_top_round {
+    clear: both;
+    display: table;
+    margin: 0 auto;
+}
+.colleborate_box p {
+    margin: 0px 0px 0px 0px;
+    font-size: 9px;
+    color: #fff;
+    opacity: 0.3;
+    font-weight: 200;
+    clear: both;
+}
+.colleborate_box:after {
+    content: "";
+
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 34px;
+    z-index: -1;
+    border-top: 1px solid #bfbfbf38;
+}
+
+.colleborate_box.disabled:after {
+    border-bottom: 1px solid #ffffffed;
+}
+
+.colleborate_box.active h1 {
+    opacity: 1;
+}
+
+.colleborate_box.active p {
+    opacity: 1;
+}
+
+.colleborate_box.active .fancy-checkbox .checkmark {
+    background: #fff;
+    height: 17px;
+    width: 17px;
+    top: 3px;
+    left: 4px;
+}
+
+.colleborate_box.active
+label.fancy-checkbox {border: 1.5px solid #fff;border-radius: 100%;width: 17px;height: 18px;padding: 4px 5px;line-height: 0px;margin-bottom: 1px;}
+
+.colleborate_box.disabled:before {
+    content: "";
+    /*background-image: url(images/background.png);*/
+    height: 16px;
+    width: -webkit-fill-available;
+    position: absolute;
+    top: 27px;
+    left: 0;
+    opacity: 0.3;
+}
+.colleborate_box.disabled.active:before {
+    width: 41px;
+}
+/* End Governance  css */
+
+
+
+
+
+/* Start colleborate css */
+.milestone_header_lft {
+    float: left;
+}
+.milestone_header_rgt {
+    float: right;
+    position: relative;
+    top: 6px;
+}
+.milestone_header {
+    padding: 30px 0px 20px 0px;
+}
+.milestone_section:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.milestone_header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.milestone_header_lft p {
+    font-size: 10px;
+    margin: 0px 0px 2px 0px;
+    color: #494C50;
+}
+
+.milestone_header_lft h2 {
+    font-size: 15px;
+    color: #E6E6EF;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.milestone_header_rgt a {
+    font-size: 13px;
+    color: #fff;
+    text-decoration: none;
+    background: #272f36;
+    padding: 5px 10px 5px 31px;
+    border-radius: 3px;
+    margin: 0px 3px;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.milestone_header_rgt img {
+    width: 18px;
+    position: absolute;
+    top: 4px;
+    left: 9px;
+}
+
+.milestone_box {
+    background-color: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    width: 29.7%;
+    float: left;
+    margin: 10px 10px 10px 0px;
+    color: #fff;
+    padding: 25px 9.8%;
+    height: 150px;
+}
+
+.milestone_box h1 {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.11px;
+    color: #494C50;
+    margin-bottom: 27px;
+}
+
+.milestone_box p {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: justify;
+    color: #E6E6EF;
+    font-family: 'Roboto';
+}
+
+.milestone_box:nth-child(2) {
+    margin-right: 0px;
+}
+
+.milestone_box label {
+    color: #494C50;
+    font-size: 10px;
+}
+.milestone_box input {
+    width: 100%;
+    background: none;
+    border: 0px;
+    padding: 6px 0px;
+    border-bottom: 1px solid #565656a1;
+    font-size: 15px;
+    color: #fff;
+    line-height: 26px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+}
+input:focus {
+    outline: none;
+}
+
+.milestone_slider {
+    background-color: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 20px 20px;
+    position: relative;
+    margin: 8px 0px;
+}
+
+.carousel-inner {
+    display: table;
+    margin: 0 auto;
+    width: 46%;
+}
+
+.milestone_slider h1 {
+    color: #E6E6EF;
+    font-size: 10px;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+    font-weight: 400;
+}
+
+.milestone_slider p {
+    color: #E6E6EF;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: 'Roboto';
+}
+
+a.left.carousel-control img {
+    position: absolute;
+    left: 30px;
+    top: 84px;
+    width: 13px;
+}
+
+a.right.carousel-control img {
+    position: absolute;
+    top: 84px;
+    width: 13px;
+    right: 30px;
+}
+
+ol.carousel-indicators {
+    padding: 0px;
+    display: table;
+    margin: 0 auto;
+}
+
+ol.carousel-indicators li {
+    float: left;
+    margin: 0px 10px;
+    list-style: circle;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.3;
+}
+
+ol.carousel-indicators li.active {
+    opacity: 1;
+}
+
+.milestone_add {
+    background-color: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 50px 20px;
+    position: relative;
+    margin: 8px 0px;
+    text-align: center;
+}
+
+.milestone_add p {
+    color: #E6E6EF;
+    font-size: 15px;
+    margin: 0px;
+}
+
+
+/* End colleborate css */
