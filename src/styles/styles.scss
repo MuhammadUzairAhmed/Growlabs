@@ -1016,14 +1016,14 @@ label.fancy-checkbox {border: 1.5px solid #fff;border-radius: 100%;width: 17px;h
 }
 
 .milestone_box {
-    background-color: rgba(0,0,0,0.15);
-    border: 1px solid rgba(255,255,255,0.05);
-    width: 29.7%;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 49.5%;
     float: left;
     margin: 10px 10px 10px 0px;
     color: #fff;
     padding: 25px 9.8%;
-    height: 150px;
+    height: 200px;
 }
 
 .milestone_box h1 {
@@ -1091,7 +1091,12 @@ input:focus {
     margin: 0 auto;
     width: 46%;
 }
-
+.carousel-caption{
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
 .milestone_slider h1 {
     color: #E6E6EF;
     font-size: 10px;
