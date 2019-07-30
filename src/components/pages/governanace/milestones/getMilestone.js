@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class GetMilestone extends Component {
     render(){
@@ -49,29 +51,13 @@ class GetMilestone extends Component {
                         )}
                       </div>
                   </section>
-                    <div className="milestone_slider">
-                        <div className="carousel-inner">
-                          {item.sprints.map((sprint)=>
-                            <div className="item" key={sprint.id}>
-                                <h1>SPRINT {sprint.id} </h1>
-                                <p>
-                                {sprint.desicription}
-                                </p>
-                            </div>
-                          )}
-                        </div>
-                        <ol className="carousel-indicators">
-                          {item.sprints.map((sprint)=>
-                                  <li data-target="#myCarousel"  key={sprint.id} data-slide-to={sprint.id} ></li>
-                            )}
-                        </ol>
-                        <a className="left carousel-control" href="#myCarousel" data-slide="prev">
-                          <img src="assets/img/arrow_rgt.png" /> 
-                        </a>
-                        <a className="right carousel-control" href="#myCarousel" data-slide="next">
-                          <img src="assets/img/aorrow_lft.png" />
-                        </a>
-                    </div>
+                  <Carousel>
+                    {item.sprints.map((sprint)=>
+                     <Carousel.Item key={sprint.id}>
+                        <Carousel.Caption><h3>SPRINT {sprint.id} </h3><p>{sprint.desicription} </p> </Carousel.Caption>
+                      </Carousel.Item>
+                      )}
+                  </Carousel>
                 </div>
                 
             )
