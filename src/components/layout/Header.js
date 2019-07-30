@@ -16,21 +16,7 @@ class Header extends Component {
          }
     }
   
-    testing = () => {
-        console.log('testing')
-        this.ws.send(JSON.stringify({
-            notificationsData:[
-                {
-                    date: "12/03/2019",
-                    description: "Weekly Code Quality has came Back Positve",
-                    group: "AGENDa",
-                    id: "0311",
-                    status: "active",
-                    type: "Commitment"
-                }
-            ]
-        }));
-    }
+  
     componentDidMount() {
         this.props.fetchData('http://demo2532200.mockable.io/notification','NOTIFICATIONS');
         this.props.fetchData('http://demo2532200.mockable.io/user','USER_DETAILS');
@@ -86,7 +72,7 @@ class Header extends Component {
 
 
                {this.state.notificationsData.map((item)=> 
-                    <div className={"header_box " + item.status} key={item.id} onClick={this.testing()}>
+                    <div className={"header_box " + item.status} key={item.id}>
                         <div className="header_top ">
                             <ul>
                                 <li>{item.date}</li>
