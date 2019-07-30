@@ -16,7 +16,6 @@ class Header extends Component {
          }
     }
   
-  
     componentDidMount() {
         this.props.fetchData('http://demo2532200.mockable.io/notification','NOTIFICATIONS');
         this.props.fetchData('http://demo2532200.mockable.io/user','USER_DETAILS');

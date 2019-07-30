@@ -1016,14 +1016,14 @@ label.fancy-checkbox {border: 1.5px solid #fff;border-radius: 100%;width: 17px;h
 }
 
 .milestone_box {
-    background-color: rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 49.5%;
+    background-color: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    width: 29.7%;
     float: left;
     margin: 10px 10px 10px 0px;
     color: #fff;
     padding: 25px 9.8%;
-    height: 200px;
+    height: 150px;
 }
 
 .milestone_box h1 {
@@ -1091,12 +1091,7 @@ input:focus {
     margin: 0 auto;
     width: 46%;
 }
-.carousel-caption{
-    position: relative;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
+
 .milestone_slider h1 {
     color: #E6E6EF;
     font-size: 10px;
@@ -1190,13 +1185,14 @@ ol.carousel-indicators li.active {
 	font-family: "Open Sans";
 }
 .agency .left_side .feild input {
-	width: 100%;
-	background: none;
-	border: none;
-	border-bottom: 1px solid #454B4F;
-	padding: 5px 7px;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #454B4F;
+    padding: 5px 7px;
     margin: 0px 0px 10px 0px;
-    color: #fff;
+    color: #ecececd6;
+    letter-spacing: 1px;
 }
 .agency .right_side {
 	float: right;
@@ -1205,7 +1201,8 @@ ol.carousel-indicators li.active {
 	background-color: rgba(0,0,0,0.15);
 	box-shadow: 0 0 20px 0 rgba(0,0,0,0.8);
 	position: relative;
-	padding: 117px 100px;
+    padding: 117px 100px;
+    min-height: 320px;
 }
 .agency .left_side .feild.half {
 	width: 45%;
@@ -1503,14 +1500,10 @@ ol.carousel-indicators li.active {
     font-weight: normal;
     border-radius: 1px;
     width: 97px;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
     transition: all 300ms ease;
     min-height: 160px;
     position: relative;
-    margin: 1px 1px 0;
+    margin: 1px 3px 0;
     display: inline-block;
     max-width: 100%;
 }
@@ -1583,10 +1576,12 @@ section.multi_step_form {
     margin: 0 auto;
 }
 .multi_step_form fieldset p {
-    color: #ffffff;
-    font-size: 20px;
-    line-height: 24px;
-    padding-top: 10px;
+    padding: 50px 100px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    font-weight: 300 !important;
+    letter-spacing: 1px !important;
 }
 .multi_step_form fieldset .form-group {
     padding: 0 0px;
@@ -1659,15 +1654,16 @@ section.multi_step_form .col-md-4 {
     display: block;
 }
 .drag-drop-function .selected-files .upload-system .upload-left {
-    width: 50%;
+    width: 49%;
     background: none;
     border-right: 5px solid #1d252c;
     padding: 0;
     position: relative;
     min-height: 359px;
-        border-radius: 8px 0 0 8px;
+    border-radius: 8px 0 0 8px;
     margin-right: 8px;
     float: left;
+    text-align: center;
 }
 
 
@@ -1684,7 +1680,7 @@ section.multi_step_form .col-md-4 {
     font-weight: 500;
     line-height: 24px;
     overflow: hidden;
-    float: left;
+    float: left
 }
 .drop input {
     width: 100%;
@@ -1701,9 +1697,33 @@ section.multi_step_form .col-md-4 {
 }
 .drag-drop-function .selected-files .upload-system .upload-right .ur-dd {
     position: absolute;
-    top: 37%;
+    top: 13%;
     left: 0%;
+    width: 80%;
+    right: 0px;
+    display: table;
+    margin: 0 auto;
+    margin-right: 30px;
+}
+.drag-drop-function .selected-files .upload-system .upload-right ul li {
+    text-align: left;
     width: 100%;
+    padding: 3px 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: capitalize;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+.drag-drop-function .selected-files .upload-system .upload-right ul li span {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.2);
+}
+.drag-drop-function .selected-files .upload-system .upload-right ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
 }
 .drag-drop-function .selected-files .upload-system .upload-left .beforeUpload {
     padding: 0;
@@ -1725,7 +1745,7 @@ section.multi_step_form .col-md-4 {
 }
 
 .multi_step_form  fieldset.half {
-    width: calc(43.5% - -1px);
+    width: calc(41% - -2px);
     float: left;
     clear: none;
 }
@@ -1746,7 +1766,7 @@ section.multi_step_form .col-md-4 {
     text-align: center;
 }
 
-.multi_step_form fieldset h3, .multi_step_form fieldset h3 small{ padding-bottom: 0;}
+
 
 
 /*----------- Dail Page end ------------*/
@@ -1967,7 +1987,7 @@ section.multi_step_form .col-md-4 {
 
 .according_box .form_date {
    float: left;
-   width: 6%;
+   width: 7%;
 }
 
 .according_box  .arrow {
@@ -2003,19 +2023,23 @@ section.multi_step_form .col-md-4 {
 
 .according_box .button img {
      width: 17px;
-   margin-right: 16px;
+   margin-right: 14px;
    position: relative;
    top: 0px;
 }
 
 .according_box span.checkmark {
-         border: 1px solid #757575;
-   left: 22px;
-   border-radius: 4px !important;
-   background: #1e262e;
-   height: 15px;
-   width: 15px;
-   top: 5px;
+    border: 1px solid #757575;
+    left: 0;
+    border-radius: 4px !important;
+    background: #1e262e;
+    height: 15px;
+    width: 15px;
+    top: 5px;
+    display: table;
+    margin: 0 auto;
+    float: none;
+    right: 0;
 }
 .according_box .fancy-checkbox .checkmark:after {
    left: 5px;
@@ -2059,16 +2083,16 @@ section.multi_step_form .col-md-4 {
    font-size: 14px;
 }
 .according_box .check_box:after {
-   content: "";
-   display: block;
-   border: 0.6px solid #464646;
-   position: absolute;
-   left: 4px;
-   right: 0;
-   top: -15px;
-   height: 74px;
-   width: 0px;
-   margin: 0 auto;
+    content: "";
+    display: block;
+    border: 0.6px solid #464646;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    top: -14px;
+    height: 74px;
+    width: 0px;
+    margin: 0 auto;
 }
 .according_box-hea p {
       font-family: "Space Mono";
@@ -2113,22 +2137,22 @@ section.multi_step_form .col-md-4 {
    height: 70px;;
 }
 .according_box.release span.checkmark:before {
-   content: "";
-   display: block;
-   border: 1px solid #fff;
-   width: 31px;
-   height: 30px;
-   position: absolute;
-   top: -6px;
-   left: -6px;
-   border-radius: 6px;
+    content: "";
+    display: block;
+    border: 1px solid #fff;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    border-radius: 6px;
 }
 .according_box.release span.checkmark {
-   background: #fff;
-   border: 1px solid #ffffff;
-   height: 20px;
-   width: 20px;
-   left: 18px;
+    background: #fff;
+    border: 1px solid #ffffff;
+    height: 18px;
+    width: 18px;
+    left: 0;
 }
 .according_box.release .check_box:after {
    border: 0.6px solid #ffffff;
@@ -2146,3 +2170,122 @@ section.multi_step_form .col-md-4 {
 }
 /* End Finance  css */
 
+.DayPicker.Selectable {
+    width: 100%;
+}
+
+.DayPicker-Month {
+    width: 30%;
+}
+
+.Selectable .DayPicker-Day {
+    color: #8B9898;
+}
+
+.DayPicker-Caption > div {
+    color: #8B9898;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+.rangeslider-horizontal {
+   height: 2px !important;
+    border-radius: 10px;
+    background: #e6e6e68a !important;
+    margin: 70px 0px 50px 0px;
+}
+.rangeslider-horizontal .rangeslider__fill {
+    height: 100%;
+    background-color: #e6e6e68a;
+    border-radius: 10px;
+    top: 0;
+}
+.rangeslider-horizontal .rangeslider__handle:after {
+   
+    background-color: #d2d2d2;
+    box-shadow: none;
+	width: 6px;
+    height: 6px;
+}
+.rangeslider-horizontal .rangeslider__handle {
+    width: 20px;
+    height: 20px;
+	background: #d2d2d2;
+   
+}
+.ps-slide-col p {
+    display: none;
+}
+.rangeslider__handle-tooltip {
+  background: none !important;
+  margin: 0px 0px !important;
+  padding: 0px 0px !important;
+  line-height: 0px !important;
+  display: Block !important;
+}
+.rangeslider__handle:focus {
+    outline: none !important;
+}
+.DayPicker.Selectable span.DayPicker-NavButton.DayPicker-NavButton--prev {
+    position: absolute;
+    left: -21px;
+    top: 173px;
+}
+.DayPicker-wrapper:focus {
+    outline: none;
+}
+.DayPicker.Selectable span.DayPicker-NavButton.DayPicker-NavButton--next {
+    position: absolute;
+    right: -21px;
+    top: 173px;
+}
+:focus {
+    outline: none;
+}
+.drag-drop-function .selected-files .upload-system .upload-left h1 {
+    display: none;
+}
+.drag-drop-function .selected-files .upload-system .upload-left img {
+    width: 10% !important;
+    margin: 123px 0px;
+    cursor: pointer;
+}
+.content_form .first_day {
+    color: #8B9898 !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    padding: 0px !important;
+}
+.DayPicker-WeekdaysRow {
+    display: table-row;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.form-group.custom {
+    float: left;
+    width: 50%;
+}
+
+.form-group.custom h3 {
+    margin: 0px;
+    padding: 0px 0px 14px 0px;
+}
+
+.form-group.custom p {
+    margin: 0px;
+    padding: 0px !important;
+    font-size: 18px !important;
+}
+.form-group.custom_email p {
+    margin: 0px;
+    padding: 0px !important;
+    font-size: 18px !important;
+}
+.form-group.custom_email h3 {
+    margin: 0px;
+    padding: 0px 0px 14px 0px;
+}
