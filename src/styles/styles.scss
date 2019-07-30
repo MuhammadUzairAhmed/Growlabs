@@ -2289,3 +2289,19 @@ section.multi_step_form .col-md-4 {
     margin: 0px;
     padding: 0px 0px 14px 0px;
 }
+
+
+section.chat_room{
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+section.chat_room[active="false"] {
+    margin-right: -350px;
+}
+
+section.chat_room[active="true"] {
+    margin-right: 0;
+}

@@ -31,8 +31,8 @@ class Chatbot extends Component {
     render() {
         if(!this.state.showMe){
             return (
-                <section className="chat_room">
-
+                <section className="chat_room" active={this.props.actionChat}>
+                    {console.log(this.props)}
                     { this.props.chat.map((item)=>
                         <div className="chatroom_header_boxes" key={item.id} id={item.id}  onClick={(value,event) => this.startchat(item.id,event)}>
                             <div className="chatroom_header_lft">
@@ -40,8 +40,8 @@ class Chatbot extends Component {
                                     <img src={item.image} />
                                     <div class="right">
                                         {/* <div className="badge total-message">1</div> */}
-                                        <div className="time">Yesterday, 12:30</div>   
-                                        <div className="go-icon">></div> 
+                                        <div className="time">Yesterday, 12:30</div>
+                                        <div className="go-icon">></div>
                                     </div>
                                 </div>
                                 <div className="chatroom_header_text">
@@ -68,11 +68,12 @@ const mapStateToProps = (state) => {
     return {
         chat:state.fuelSavings.CHAT,
         users:state.fuelSavings.USER_DETAILS,
+        actionChat:state.fuelSavings.ACTIVEWIDGET,
     };
-  };
-  const mapDispatchToProps = (dispatch) => {
+};
+const mapDispatchToProps = (dispatch) => {
     return {
         fetchData: (url,action) => dispatch(itemsFetchData(url,action)),
     };
-  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Chatbot);

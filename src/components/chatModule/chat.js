@@ -6,9 +6,9 @@ import Message from './message';
 const URL = 'ws://localhost:3030'
 
 class Chat extends Component {
-    
+
     state = {
-        id:'',  
+        id:'',
         message:[],
     }
 
@@ -16,28 +16,28 @@ class Chat extends Component {
 
     componentDidMount() {
 
-    fetch('http://demo2532200.mockable.io/meeting/'+this.props.dataID)
-      .then(response => response.json())
-      .then(state => this.setState(state))
-     
-      this.ws.onopen = () => {
-        // on connecting, do nothing but log it to the console
-        console.log('connected')
-      }
-  
-      this.ws.onmessage = evt => {
-        // on receiving a message, add it to the list of messages
-        const message = JSON.parse(evt.data)
-        this.addMessage(message)
-      }
-  
-      this.ws.onclose = () => {
-        console.log('disconnected')
-        // automatically try to reconnect on connection loss
-        this.setState({
-          ws: new WebSocket(URL),
-        })
-      }
+        fetch('http://demo2532200.mockable.io/meeting/'+this.props.dataID)
+            .then(response => response.json())
+            .then(state => this.setState(state))
+
+        this.ws.onopen = () => {
+            // on connecting, do nothing but log it to the console
+            console.log('connected')
+        }
+
+        this.ws.onmessage = evt => {
+            // on receiving a message, add it to the list of messages
+            const message = JSON.parse(evt.data)
+            this.addMessage(message)
+        }
+
+        this.ws.onclose = () => {
+            console.log('disconnected')
+            // automatically try to reconnect on connection loss
+            this.setState({
+                ws: new WebSocket(URL),
+            })
+        }
 
     }
 
@@ -55,7 +55,7 @@ class Chat extends Component {
         const message = { id: this.state.id, message: messageString}
         this.ws.send(JSON.stringify(message))
         this.addMessage(message)
-    
+
 
     }
     backHistory(){
@@ -89,16 +89,16 @@ class Chat extends Component {
                         </div>
                     </div>
 
-                    {this.state.message.map((message, index) =>
+                    {this.state.message.slice(0).reverse().map((message, index) =>
                         <Message  key={index}
-                                message={message.message}
-                                id={message.id} />
+                                  message={message.message}
+                                  id={message.id} />
                     )}
                     <Input  ws={this.ws} data={this.props.dataID} onSubmitMessage={messageString => this.submitMessage(messageString)} currentUserId={this.props.userDetails} />
                 </section>
             )
-            
-                
+
+
         }
     }
 }
