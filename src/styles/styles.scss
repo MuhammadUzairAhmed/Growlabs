@@ -1098,7 +1098,7 @@ input:focus {
     width: 46%;
 }
 
-.carousel.slide h3{
+.carousel.slide h3 {
     color: #E6E6EF;
     font-size: 10px;
     text-align: center;
@@ -1541,6 +1541,7 @@ ol.carousel-indicators li.active {
 }
 .box label.box-label i:after {
     
+    background-image: url(../assets/img/Line.png);
     font-family: FontAwesome;
     position: absolute;
     right: 10px;
@@ -1557,6 +1558,7 @@ ol.carousel-indicators li.active {
     -o-transition: all 0.50s;
     transition: all 0.50s;
 }
+
 .box label.box-label input[type="checkbox"] {
     display: none;
 }
@@ -1578,7 +1580,6 @@ ol.carousel-indicators li.active {
     background: #fff;
 }
 .box label.box-label.check, .box label.box-label.check:hover {
-    background: rgba(255, 255, 255, 0.70);
     color: #191919;
     opacity: 1;
     font-weight: bold;
@@ -1797,6 +1798,7 @@ section.multi_step_form .col-md-4 {
    margin: 100px 0px;
    position: relative;
    border: 1px solid #ffffff59;
+   line-height: 25px;
 }
 
 .progress-bar {
@@ -1815,7 +1817,8 @@ section.multi_step_form .col-md-4 {
    padding: 0px 12px 0px 3px;
    border: 1px solid #2bb8bb87;
    position: relative;
-    transition: width .2s ease-in}
+    transition: width .2s ease-in;
+    line-height: 25px;}
 
    .progress_paid {
    position: absolute;
@@ -1844,6 +1847,7 @@ section.multi_step_form .col-md-4 {
    padding: 0px 12px 0px 3px;
    border: 1px solid #ffffff59;
    position: relative;
+   line-height: 25px;
 }
 .progress_funded {
    position: absolute;
@@ -2206,7 +2210,7 @@ section.multi_step_form .col-md-4 {
    height: 2px !important;
     border-radius: 10px;
     background: #e6e6e68a !important;
-    margin: 70px 0px 50px 0px;
+    margin: 17px 0px 35px 0px;
 }
 .rangeslider-horizontal .rangeslider__fill {
     height: 100%;
@@ -2227,8 +2231,14 @@ section.multi_step_form .col-md-4 {
 	background: #d2d2d2;
    
 }
-.ps-slide-col p {
-    display: none;
+.price-slider .ps-slide-col p {
+    padding:0px !important;
+    margin:0px;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    width: auto;
+    display: flex;
+    position: relative;
 }
 .rangeslider__handle-tooltip {
   background: none !important;
@@ -2309,6 +2319,7 @@ section.chat_room{
     -ms-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
+    margin-right: -350px;
 }
 section.chat_room[active="false"] {
     margin-right: -350px;
@@ -2447,7 +2458,7 @@ h1 {}
     top: 14px;
 }
 .score p {
-    
+
     color: #64696D !important;
 }
 .score {
@@ -2464,7 +2475,7 @@ h1 {}
     stroke-width: 4px;
 }
 .CircularProgressbar {
-    
+
     margin-bottom: 3px;
 }
 .jquery-accordion-menu .active {
@@ -2480,3 +2491,69 @@ h1 {}
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+.checklist label.box-label.check, .radioList label.box-label.check {
+    background:#fff;
+    color: #191919;
+    opacity: 1;
+    font-weight: bold;
+}
+.box label.box-label.check  input[type="checkbox"]:checked + i::after {
+    margin-right: 70px;
+    max-width: 10px;
+    height: 10px;
+    opacity: 1;
+    width: 18px;
+    background-size: cover !important;
+}
+.milestone_main a.carousel-control-prev {
+    text-decoration: none;
+    position: absolute;
+    left: 63px;
+    top: 63px;
+}
+.milestone_main a.carousel-control-prev span.sr-only {
+    color: #1a2027;
+    width: 15px;
+    height: 16px;
+    border-top: 2px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 2px solid white;
+    right: 10%;
+    transform: rotate(-139deg);
+}
+.milestone_main a.carousel-control-next {
+    text-decoration: none;
+    position: absolute;
+    right: 63px;
+    top: 63px;
+}
+.milestone_main a.carousel-control-next span.sr-only {
+    color: #1a2027;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 2px solid white;
+    right: 10%;
+    transform: rotate(46deg);
+}
+.first_day button.link {
+    background: none;
+    border: 1px solid #8B9898;
+    color: #8B9898;
+    cursor: pointer;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.carousel.slide .carousel-item.carousel-item {
+    display: none;
+}
+
+.carousel.slide .carousel-item.active.carousel-item {
+    display: block;
+}
+

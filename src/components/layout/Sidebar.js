@@ -24,23 +24,23 @@ const Sidebar = () => {
               </div>
               <div className="score ">
                   {/* <img src="./assets/img/img_2.png" /> */}
-                  <table>       
+                  <table>
                       <tr>
-                          <td>           
+                          <td>
                       <ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/>
-                  
+
                   </td>
-                  <td>           
+                  <td>
                       <ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/>
-                 
+
                   </td>
-                  <td>           
+                  <td>
                       <ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/>
-                 
+
                   </td>
-                  <td>           
+                  <td>
                       <ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/>
-                
+
                   </td>
                   </tr>
                   </table>
@@ -56,7 +56,7 @@ const Sidebar = () => {
                           <td style={{color:'#1E9D74'}}>32</td>
                       </tr>
                   </table>
-                 
+
                   <p style={{fontSize:'10px',color:'#64696D'}}>Velocity</p>
               </div>
               <div className="score ">
@@ -71,7 +71,7 @@ const Sidebar = () => {
                           <td style={{color:'#4355C8'}}>16</td>
                       </tr>
                   </table>
-                  
+
                   <p style={{fontSize:'10px',color:'#64696D'}}>Commits</p>
               </div>
               <div className="score">

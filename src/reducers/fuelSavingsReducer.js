@@ -53,6 +53,11 @@ export default function fuelSavingsReducer(state = initialState.fuelSavings, act
                 ...state,
                 MILESTONE : action.items,
             }
+        case 'BACKLOGWIDGET':
+            return {
+                ...state,
+                BACKLOGWIDGET : {boolen:action.items, items:[action.id]},
+            }
         default:
             return state;
     }

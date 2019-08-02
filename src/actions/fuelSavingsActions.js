@@ -56,6 +56,14 @@ export function activeChatSystemAction(items,action){
         items
     }
 }
+export function backlogWidgetAction(items,id){
+    return{
+        type:"BACKLOGWIDGET",
+        items,
+        id
+    }
+}
+
 
 export function itemsFetchData(url,action) {
     return (dispatch) => {
@@ -83,5 +91,10 @@ export function currentStateData(items,action){
 export function activeChatSystem(items,action){
     return (dispatch)=>{
         dispatch(activeChatSystemAction(items,action))
+    }
+}
+export function backlogWidget(items,id){
+    return (dispatch)=>{
+        dispatch(backlogWidgetAction(items,id))
     }
 }

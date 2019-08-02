@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 
 class GetMilestone extends Component {
@@ -14,8 +15,8 @@ class GetMilestone extends Component {
                             <h2>Framework setup</h2>
                         </div>
                         <div className="milestone_header_rgt">	
-                            <a href="#"><img src="assets/img/Password.png" />   Locked </a>
-                            <a href="#"><img src="assets/img/Finance-Money-icon.png" />funded</a>
+                            <NavLink key="locked" to="/locked"><img src="assets/img/Password.png" /> Locked</NavLink>
+                            <NavLink key="finance" to="/financial"><img src="assets/img/Finance-Money-icon.png" /> Funded</NavLink>
                         </div>
                       </div>
                       <div className="milestone_Content">

@@ -18,6 +18,7 @@ import NotFoundPage from "./NotFoundPage";
 import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
+import { get } from "http";
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless

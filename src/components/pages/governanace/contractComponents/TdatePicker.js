@@ -12,13 +12,15 @@ class TDataPicker extends Component {
       
       getInitialState() {
         return {
-          from: undefined,
-          to: undefined,
+          from:new Date(this.props.timelineStart),
+          to:new Date(this.props.timelineEnd),
         };
       }
       handleDayClick = (day) =>{
         const range = DateUtils.addDayToRange(day, this.state);
         this.setState(range);
+        console.log(day,'day')
+        console.log(range,'range')
       }
       handleResetClick = () => {
         this.setState(this.getInitialState());
@@ -29,26 +31,11 @@ class TDataPicker extends Component {
         return (
           <div className="RangeExample">
             
-            <p class=" first_day">
-              {!from && !to && 'Please select the first day.'}
-              {from && !to && 'Please select the last day.'}
-              {from &&
-                to &&
-                `Selected from ${from.toLocaleDateString()} to
-                    ${to.toLocaleDateString()}`}{' '}
-              {from &&
-                to && (
-                  <button className="link" onClick={this.handleResetClick}>
-                    Reset
-                  </button>
-                )}
-            </p>
             
-
             <DayPicker
               className="Selectable"
               numberOfMonths={3}
-              selectedDays={[from, { from, to }]}
+              selectedDays={[from, {from, to}]}
               modifiers={modifiers}
               onDayClick={this.handleDayClick}
             />
@@ -66,9 +53,13 @@ class TDataPicker extends Component {
                 }
                 .Selectable .DayPicker-Day--start {
                   border-radius: 100px !important;
+                  border-top-right-radius: 0px !important;
+                  border-bottom-right-radius: 0px !important
                 }
                 .Selectable .DayPicker-Day--end {
                   border-radius: 100px !important;
+                  border-top-left-radius: 0px !important;
+                  border-bottom-left-radius: 0px !important
                 }
                 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
                   position: relative;
