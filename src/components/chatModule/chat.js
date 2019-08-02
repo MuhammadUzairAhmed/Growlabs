@@ -86,7 +86,12 @@ class Chat extends Component {
                             </div>
                         </div>
                         <div className="chatroom_header-rgt">
-                            <img src="./assets/img/chat_exp.png" />
+                           
+                        <div class="tooltip"><img src="./assets/img/chat_exp.png" class="" />  <span class="tooltiptext">Tooltip text</span></div>
+
+
+
+                            
                             <img src="./assets/img/400952499.png" onClick={this.backHistory.bind(this)} />
                         </div>
                     </div>

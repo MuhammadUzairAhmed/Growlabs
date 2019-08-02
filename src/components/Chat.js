@@ -50,7 +50,7 @@ class Chatbot extends Component {
                                         <div class="right">
                                             {/* <div className="badge total-message">1</div> */}
                                             <div className="time">Yesterday, 12:30</div>
-                                            <div className="go-icon">></div>
+                                            <div className="go-icon"></div>
                                         </div>
                                     </div>
                                     <div className="chatroom_header_text">

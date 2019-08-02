@@ -2557,3 +2557,51 @@ h1 {}
     display: block;
 }
 
+
+
+
+
+
+
+
+.tooltip img {
+    width: 24px;
+    position: relative;
+    top: 4px;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 0px dotted black;
+    cursor: pointer;
+}
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    background-color: #fffffff5;
+    color: #1a2027;
+    text-align: left;
+    border-radius: 0px;
+    padding: 6px 8px;
+    position: absolute;
+    z-index: 1;
+    font-size: 10px;
+    top: 3px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  .rangeslider__handle-label {
+    position: absolute;
+    top: -30px;
+    left: -24px;
+    right: 0;
+    text-align: center;
+    width: max-content;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: none;
+}
