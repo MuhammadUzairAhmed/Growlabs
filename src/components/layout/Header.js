@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import { itemsFetchData, currentStateData } from '../../actions/fuelSavingsActions';
+import { itemsFetchData, currentStateData, activeChatSystem, backlogWidget } from '../../actions/fuelSavingsActions';
 import  Clock  from '../../components/widget/clock';
 import { setInterval } from 'timers';
 const URL = 'ws://localhost:3030'
@@ -46,29 +46,32 @@ class Header extends Component {
         this.setState({
             notificationsData:props.notifications
         })
-        console.log(state)
     }
-   
+
+    activeChat(event,value){
+        if(this.props.actionChat == "true"){
+            this.props.activeChat('false','ACTIVECHAT')
+        }else{
+            this.props.activeChat('true','ACTIVECHAT')
+            this.props.backlogWidgetData(false,"backlogPlus");
+        }
+    }
+
     render(){
         if(this.state){
         return (
-            <section className="header" >
-                
-               
-                <div className="time_section " >
-                   
+            <section className="header">
+                <div className="time_section">
                     <div className="time_section_text">
                          <Clock />
                     </div>
                     <div className="time_section_img">
                         <img src={"./assets/img/"+this.props.users.profileimage} />
                     </div>
-                    <div className="time_section_rgt">
+                    <div className="time_section_rgt" onClick={(event,value) => this.activeChat(event,true)} active={this.props.activeChat}>
                         <img src="./assets/img/time_icon.jpg" />
                     </div>
                 </div>
-                
-
 
                {this.state.notificationsData.map((item)=> 
                     <div className={"header_box " + item.status} key={item.id}>
@@ -103,12 +106,15 @@ const mapStateToProps = (state) => {
     return {
         notifications:state.fuelSavings.NOTIFICATIONS,
         users:state.fuelSavings.USER_DETAILS,
+        actionChat:state.fuelSavings.ACTIVEWIDGET,
     };
   };
   const mapDispatchToProps = (dispatch) => {
     return {
         fetchData: (url,action) => dispatch(itemsFetchData(url,action)),
-        currentState: (id) =>  dispatch(currentStateData(id))
+        currentState: (id) =>  dispatch(currentStateData(id)),
+        activeChat: (boolen,action) =>  dispatch(activeChatSystem(boolen,action)),
+        backlogWidgetData: (value,event) => dispatch(backlogWidget(value,event)),
     };
   };
   export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import Dropzone from 'react-dropzone';
-import files from './../contractComponents/dragCloud.png';
+import files from '../../../../assets/img/dragCloud.png';
 
 var arr = [];
 class FileUpload extends Component

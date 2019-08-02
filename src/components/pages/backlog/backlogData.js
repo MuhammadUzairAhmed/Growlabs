@@ -1,35 +1,24 @@
 import React, { Component } from 'react';
+import {connect} from "react-redux";
+import { backlogWidget } from '../../../actions/fuelSavingsActions';
+
 class BacklogDataD extends Component {
     constructor(prop){
         super(prop)
         this.state = {isLoggedIn: false};
-        
         //this.props.dispatchCurrentId('1');
     }
-    addBacklog() {
-        this.setState({isLoggedIn: true});
-    }
-    addedBacklog() {
-        this.setState({isLoggedIn: false});
+    backlogCreate(value,event){
+        this.props.backlogWidgetData(value,event);
     }
     render(){
-        const isLoggedIn = this.state.isLoggedIn;
         return(
         <div>
-             {isLoggedIn ? (
-                <div class="backlog_box" onClick={(value,event) => this.addedBacklog(value,event)}>
-                    <div class="backlog_box_img">
-                       testing
-                    </div>
+            <div class="backlog_box" onClick={(value,event) => this.backlogCreate(true,"backlogPlus")}>
+                <div class="backlog_box_img">
+                    <img src="./assets/img/plus.png" />
                 </div>
-            ) : (
-                <div class="backlog_box" onClick={(value,event) => this.addBacklog(value,event)}>
-                    <div class="backlog_box_img">
-                        <img src="./assets/img/plus.png" />
-                    </div>
-                </div>
-            )}
-           
+            </div>
            {this.props.data.map((items)=>
                 <div class="backlog_box" key={items.id}>
                     <div class="backlog_box_flt">
@@ -49,4 +38,16 @@ class BacklogDataD extends Component {
       )
     }
 }
-export default BacklogDataD
+
+const mapStateToProps = (state) => {
+    return {
+        backlogWidgetState:state.fuelSavings.BACKLOGWIDGET,
+    };
+  };
+  const mapDispatchToProps = (dispatch) => {
+   
+    return {
+        backlogWidgetData: (value,event) => dispatch(backlogWidget(value,event)),
+    };
+  };
+  export default connect(mapStateToProps, mapDispatchToProps)(BacklogDataD);

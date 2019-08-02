@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './input';
 import Message from './message';
+import {connect} from "react-redux";
+import { itemsFetchData, currentId } from '../../actions/fuelSavingsActions';
 
 const URL = 'ws://localhost:3030'
 
@@ -71,7 +73,7 @@ class Chat extends Component {
             )
         } else {
             return (
-                <section className="chat_room">
+                <section className="chat_room" active={this.props.actionChat}>
                     <div className="chatroom_header">
                         <div className="chatroom_header_lft">
                             <div className="chatroom_header_img">
@@ -105,4 +107,14 @@ class Chat extends Component {
 
 
 
-export default Chat
+const mapStateToProps = (state) => {
+    return {
+        actionChat:state.fuelSavings.ACTIVEWIDGET,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url,action) => dispatch(itemsFetchData(url,action)),
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);

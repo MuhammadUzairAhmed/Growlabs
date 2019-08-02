@@ -33,14 +33,10 @@ const Sidebar = () => {
           </div>
           <div className="menu ">
               <div className="jquery-accordion-menu">
-                
-                   
-                  
                     {routes.map((links)=><NavLink key={links.name} to={links.path} activeClassName="active"><img src={"./assets/img/"+links.icon+".png"} />{links.name}</NavLink>)}
-                 
               </div>
           </div>
-          <div className="logo_user ">
+          <div className="logo_user">
               <div className="logo_sec ">
                   <img src="./assets/img/logo.png" />
               </div>

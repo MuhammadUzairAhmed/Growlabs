@@ -5,17 +5,18 @@ import 'react-rangeslider/lib/index.css'
 
 class RangeSlider extends Component
 {
+  
     constructor(props, context) {
         super(props, context)
         this.state = {
           maxVolume: false,  
-          volume: 0
+          volume: this.props.range,
         }
       }
      
       handleOnChange = (value) => {
         this.setState({
-          volume: value
+          volume: value,
         },()=>{
             if(this.state.volume == 50000)
             {
@@ -24,25 +25,25 @@ class RangeSlider extends Component
             {
                 this.setState({maxVolume: false})
             }
-            console.log('volume ',this.state.volume)
         })
       }
-     
+      
       render() {
-        let { volume } = this.state
+        let { volume} = this.state
         return (
             
-          <div><p>€{volume}</p>
+          <div>
           <Slider
             value={volume}
             min={1000}
             max={50000}
+            handleLabel={'€ '+volume}
             orientation="horizontal"
             onChange={this.handleOnChange}
           />
           {this.state.maxVolume &&
           <span>
-              €<input type="text" value="250000" name="price" placeholder="Budget" class="btn btn-cb int-price">100</input>
+              € <input type="text" value="250000" name="price" placeholder="Budget" class="btn btn-cb int-price">100</input>
           </span>
           }
           </div>

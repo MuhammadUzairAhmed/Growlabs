@@ -3,6 +3,9 @@ export default {
         NOTIFICATIONS : [],
         BACKLOG : [],
         BACKLOGCURRENTSTATE: [],
+        BACKLOGWIDGET: [
+           { items:[],boolen:'' }
+        ],
         FINANCIAL: [],
         FILES : [],
         CHAT : [],
