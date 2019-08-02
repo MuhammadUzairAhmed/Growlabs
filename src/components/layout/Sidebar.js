@@ -1,5 +1,9 @@
 import React from 'react';
 import { NavLink,  BrowserRouter, Route, Switch } from 'react-router-dom';
+import LineChart from './../../components/pages/LineChart';
+import CommitLineChart from './../pages/CommitLineChart';
+import ProgressBars from './../pages/sidebarComponents/ProgressBars';
+import StraightProgressBar from './../pages/sidebarComponents/StraightProgressBar';
 
 const routes = [
     { path: '/statistics', name: 'Statistics', icon:'401382365'},
@@ -19,16 +23,60 @@ const Sidebar = () => {
                   <img src="./assets/img/img_1.png" />
               </div>
               <div className="score ">
-                  <img src="./assets/img/img_2.png" />
+                  {/* <img src="./assets/img/img_2.png" /> */}
+                  <table>       
+                      <tr>
+                          <td>           
+                      <ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/>
+                  
+                  </td>
+                  <td>           
+                      <ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/>
+                 
+                  </td>
+                  <td>           
+                      <ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/>
+                 
+                  </td>
+                  <td>           
+                      <ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/>
+                
+                  </td>
+                  </tr>
+                  </table>
+
               </div>
               <div className="score ">
-                  <img src="./assets/img/img_3.png" />
+                  {/* linchart */}
+                  {/* <h2>Line chart</h2>
+                  <img src="./assets/img/img_3.png" /> */}
+                  <table>
+                      <tr>
+                          <td> < div className="line_chatw"><LineChart fillshadow={false} showDatalables={false} lineHeight={38} lineWidth={145}/></div></td>
+                          <td style={{color:'#1E9D74'}}>32</td>
+                      </tr>
+                  </table>
+                 
+                  <p style={{fontSize:'10px',color:'#64696D'}}>Velocity</p>
               </div>
               <div className="score ">
-                  <img src="./assets/img/img_4.png" />
+                  {/* <img src="./assets/img/img_4.png" /> */}
+                  {/* <div class="row">
+                      <div class="col-sm-6">6</div>
+                      <div class="col-sm-6">6</div>
+                  </div> */}
+                  <table>
+                      <tr>
+                          <td><CommitLineChart /></td>
+                          <td style={{color:'#4355C8'}}>16</td>
+                      </tr>
+                  </table>
+                  
+                  <p style={{fontSize:'10px',color:'#64696D'}}>Commits</p>
               </div>
-              <div className="score ">
-                  <img src="./assets/img/img_5.png" />
+              <div className="score">
+                 <StraightProgressBar dispStraightValue={75} percentage={75}/>
+                  <p style={{fontSize:'10px',color:'#64696D'}}>Expenditure</p>
               </div>
           </div>
           <div className="menu ">
@@ -36,7 +84,7 @@ const Sidebar = () => {
                 
                    
                   
-                    {routes.map((links)=><NavLink key={links.name} to={links.path} activeClassName="active"><img src={"./assets/img/"+links.icon+".png"} />{links.name}</NavLink>)}
+                    {routes.map((links)=><NavLink key={links.name} to={links.path} activeClassName="active"><img src={"./assets/img/"+links.icon+".png"} /><span>{links.name}</span></NavLink>)}
                  
               </div>
           </div>

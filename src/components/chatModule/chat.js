@@ -84,7 +84,7 @@ class Chat extends Component {
                             </div>
                         </div>
                         <div className="chatroom_header-rgt">
-                            <img src="./assets/img/400952499.png" />
+                            <img src="./assets/img/chat_exp.png" />
                             <img src="./assets/img/400952499.png" onClick={this.backHistory.bind(this)} />
                         </div>
                     </div>

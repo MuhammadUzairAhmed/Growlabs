@@ -357,11 +357,17 @@ section.header:after {
 }
 
 .chatroom_header_boxes .go-icon {
-    color: #fff;
+    color: #1a2027;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid white;
     position: absolute;
-    right: 14px;
-    top: 34px;
-    opacity: 0.9;
+    cursor: pointer;
+    border-right: 1px solid white;
+    right: 5%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(44deg);
+    top: 46px;
 }
 
 .chatroom_header_boxes .badge.total-message {
@@ -1078,7 +1084,7 @@ input:focus {
     outline: none;
 }
 
-.milestone_slider {
+.carousel.slide {
     background-color: rgba(0,0,0,0.15);
     border: 1px solid rgba(255,255,255,0.05);
     padding: 20px 20px;
@@ -1092,7 +1098,7 @@ input:focus {
     width: 46%;
 }
 
-.milestone_slider h1 {
+.carousel.slide h3{
     color: #E6E6EF;
     font-size: 10px;
     text-align: center;
@@ -1100,7 +1106,7 @@ input:focus {
     font-weight: 400;
 }
 
-.milestone_slider p {
+.carousel.slide p {
     color: #E6E6EF;
     font-size: 14px;
     line-height: 22px;
@@ -1125,6 +1131,12 @@ ol.carousel-indicators {
     padding: 0px;
     display: table;
     margin: 0 auto;
+    bottom: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    float: none;
+    width: fit-content;
 }
 
 ol.carousel-indicators li {
@@ -2304,4 +2316,167 @@ section.chat_room[active="false"] {
 
 section.chat_room[active="true"] {
     margin-right: 0;
+}
+.carousel.slide .carousel-item.carousel-item {
+    display: none;
+}
+
+.carousel.slide .carousel-item.active.carousel-item {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.milestone_main a.carousel-control-prev {
+    text-decoration: none;
+    position: absolute;
+    left: 63px;
+    top: 63px;
+}
+.milestone_main a.carousel-control-prev span.sr-only {
+    color: #1a2027;
+    width: 15px;
+    height: 16px;
+    border-top: 2px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 2px solid white;
+    right: 10%;
+    transform: rotate(-139deg);
+}
+.milestone_main a.carousel-control-next {
+    text-decoration: none;
+    position: absolute;
+    right: 63px;
+    top: 63px;
+}
+.milestone_main a.carousel-control-next span.sr-only {
+    color: #1a2027;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 2px solid white;
+    right: 10%;
+    transform: rotate(46deg);
+}
+.first_day button.link {
+    background: none;
+    border: 1px solid #8B9898;
+    color: #8B9898;
+    cursor: pointer;
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.dashbord_left {
+    float: left;
+    width: 73%;
+}
+
+.dashbord_right {
+    width: 26%;
+    float: right;
+}
+
+.dashbord_left canvas.chartjs-render-monitor {
+    width: 100% !important;
+    height: 261px !important;
+}
+
+.dashbord_left section.colleborate {
+    margin-bottom: 20px;
+}
+.dashbord_left .colleborate_box {
+    width: 65px;
+}
+
+.dashbord_left .colleborate_box:before {
+    display: none;
+}
+
+.dashbord_left .fancy-checkbox .checkmark {
+    left: 0;
+    right: 0;
+    display: table;
+    margin: 0 auto;
+}
+
+.dashbord_left .colleborate_box:after {
+    border-top: 1px solid #bfbfbf;
+}
+
+h1 {}
+
+.dashbord_left .colleborate_box h1 {
+    opacity: 1;
+}
+
+.dashbord_left .colleborate_box p {
+    opacity: 1;
+}
+
+.dashbord_left .colleborate_top {
+    height: 68px;
+}
+.score canvas#myChart {
+    position: relative;
+    top: 14px;
+}
+.score p {
+    
+    color: #64696D !important;
+}
+.score {
+    position: relative;
+    overflow: hidden;
+}
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: white;
+    stroke-width: 4px;
+}
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: #4a5c69;
+    stroke-linecap: round;
+    stroke-width: 4px;
+}
+.CircularProgressbar {
+    
+    margin-bottom: 3px;
+}
+.jquery-accordion-menu .active {
+    color: #fff !important;
+}
+.menu a.active {
+    background: #16191D;
+}
+.jquery-accordion-menu a span {
+    margin: 1px 0px 0px 0px !important;
+    position: absolute;
+    top: 48%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }

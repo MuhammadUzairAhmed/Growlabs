@@ -8,6 +8,7 @@ body {
 }
 
 
+
 /* Start Sidbar css */
 
 section.sidebar {
@@ -1046,3 +1047,275 @@ ol.carousel-indicators li.active {
 
 
 /* End colleborate css */
+
+.dashboard-center .left-side {width: 70%;float: left;}
+
+.dashboard-center .right-side {width: 40%;float: right;}
+
+.card-base1 .base-420 {
+    height: 300px;
+    width: 30%;
+    float: left;
+    border: 1px solid rgba(255,255,255,0.05);
+    background-color:#15181d;
+
+}
+.card-base1 .base-86 {
+    background-color:#15181d;
+    border: 1px solid rgba(255,255,255,0.05);
+    width: 67%;
+    float: right;
+    height: 300px;
+}
+.dashboard-center {padding: 166px 114px 0px 0px;}
+
+.base-420-text h1 {
+    color: white;
+    font-weight: 300;
+    font-size: 40px;
+    margin: 0;
+}
+.base-420-text {text-align: center;    padding: 110px 0px;}
+
+.base-420-text p {
+    color: #FFFFFF;
+    font-size: 11px;
+    margin: 0;
+    font-weight: 600;
+    opacity: 0.2;
+}
+.base-86-text {text-align: center;padding: 74px 0px;}
+
+.base-86-text p {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.2;
+    margin: 0;
+}
+
+.card-base2 .oval {
+    width: 100%;
+    height: 100px;
+    background-color: #15181d;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 3px;
+}
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.card-base2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.card-base3 .card-base3-left {
+    float: left;
+    width: 50%;
+}
+
+.card-base3 .card-base3-right {
+    float: right;
+    width: 50%;
+}
+
+.card-base3-left .commits {
+    width: 46%;
+    height: 100px;
+    float: left;
+    background: #15181d;
+    margin: 0px 4px 0px 0px;
+}
+.card-base3 .del-add {
+    width: 47%;
+    height: 100px;
+    background-color: #15181d;
+    float: left;
+    margin-top: 5px;
+}
+.card-base3-right .average-code {
+    width: 100%;
+    height: 205px;
+    background-color: #15181d;
+}
+.commits .commits-text {
+    text-align: center;
+	padding: 16px 0px;
+}
+.commits-text h1 {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: 300;
+	opacity: 0.9;
+}
+.commits-text p {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+ opacity: 0.3;
+}
+.del-add .del-add-text {
+    width: 50%;
+    float: left;
+    padding: 15px 0px;
+    text-align: center;
+}
+.del-add .del-add-text h1 {
+    opacity: 0.8;
+    margin: 0;
+    color: #19D192;
+    font-size: 30px;
+    font-weight: 300;
+}
+.del-add-text span {
+    opacity: 0.8;
+    margin: 0;
+    color: #C33852;
+    font-size: 30px;
+    font-weight: 300;
+}
+.del-add-text p {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #FFFFFF;
+    opacity: 0.2;
+}
+.commits-text img {
+    WIDTH: 11%;
+}
+.base-420-text img {
+    WIDTH: 11%;
+}
+.del-add-text img {
+    WIDTH: 11%;
+}
+
+.average-code-text img {
+    WIDTH: 7%;
+}
+.average-code-text span {
+    font-size: 70px;
+    font-weight: 300;
+    color: #FFFFFF;
+    margin: 0;
+}
+.average-code-text {text-align: center;padding: 22px 0px;}
+
+.average-code-text P {
+    MARGIN: 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #FFFFFF;
+    opacity: 0.2;
+}
+.oval .oval-text {
+    width: 25%;
+    float: left;
+    text-align: center;
+	padding: 21px 0px 0px 0px;
+}
+.oval-text h1 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0;
+    color: #8D91AB;
+}
+.oval-text label {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0;
+    color: #4355C8;
+}
+.oval-text span {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0;
+    color: #5B66AB;
+}
+.oval-text p {
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0;
+    color: #2B333D;
+}
+
+
+/* cricle indicator for dashboard */
+.circleBar  .circle2 .CircularProgressbar {
+    width: 18%;
+}
+
+.circleBar  .circle2 {
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+.circleBar {
+    position: relative;
+    margin-top: 10px;
+}
+
+.circleBar  .circle3 .CircularProgressbar {
+    width: 44%;
+}
+
+.circleBar  .circle3 {
+    position: absolute;
+    top: -8px;
+}
+.circleBar  .circle1 .CircularProgressbar {
+    width: 31%;
+}
+.circleBar  .circle1 {
+    position: absolute;
+    top: -1px;
+}
+.circle3 .CircularProgressbar .CircularProgressbar-path {
+    stroke: #5B66AB;
+    /* stroke-width: 3px; */
+  
+}
+.circle2 .CircularProgressbar .CircularProgressbar-path {
+    stroke: #8D91AB;
+  
+}
+.circle1 .CircularProgressbar .CircularProgressbar-path {
+    
+    stroke: #4355C8;
+}
+.CircularProgressbar .CircularProgressbar-path
+{
+    stroke: white;
+}
+.CircularProgressbar .CircularProgressbar-text {
+    fill: white;
+}
+
+path.rc-progress-line-trail {
+    height: 2px;	width: 100px;	border-radius: 1px;	background-color: #1E272E;
+}
+
+
+.score .score-para {
+    float: right;
+    font-size: 14px;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    width: 15%;
+    color: #2DB59B !important;
+    position: absolute;
+    right: 3px;
+    top: 16px;
+}
+.score svg.rc-progress-line {
+    width: 84%;
+    float: left;
+    margin: 17px 0px 11px 0px;
+}

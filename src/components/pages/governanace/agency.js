@@ -62,7 +62,7 @@ class Agency extends Component {
                      <input type="text" name="address" value={this.state.currentAgent.address} placeholder="Felix" />
                   </div>
             </div>
-            )}
+            
             <div className="right_side">
                <div className="profile" onClick={(event,value) => this.getProfile(event,1)}>
                   <img src="./assets/img/user2.png"/>
@@ -98,6 +98,35 @@ class Agency extends Component {
                   <p>Add</p>
                </div>
             </div>
+
+
+         
+           <div className="right_side">
+
+           <div className="profile_name">
+               <div className="profile_name_img">
+               <img src="./assets/img/user2.png"/>
+               </div>   
+               <div className="profile_name_text">
+                 <h3>Name</h3>
+                 <p>Function</p>
+               </div>
+  
+           </div>
+
+
+           
+
+         
+
+
+
+            </div>
+
+
+
+
+
          </div>
         )
     }
