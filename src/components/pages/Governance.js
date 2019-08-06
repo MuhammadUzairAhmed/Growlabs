@@ -9,19 +9,28 @@ class Govermance extends Component {
     super(props)
     this.state = {
       activePage: '1',
-      TotalPage: [{"id":"1","name":"MILESTONES"},{"id":"2","name":"AGREEMEMTS"},{"id":"3","name":"[AGENCY]"},{"id":"4","name":"CONTRACT"}]
+      TotalPage: [{"id":"1","name":"MILESTONES"},{"id":"2","name":"AGREEMEMTS"},{"id":"3","name":"[AGENCY]"},{"id":"4","name":"CONTRACT"}],
+      height:''
     }
   }
   CurrentPage(value,event){
       this.setState({
         activePage:value
       })
+      setTimeout(function(){
+        var elmnt = document.querySelector(".center_part");
+        var sidebarHeight = document.querySelector(".sidebar");
+        sidebarHeight.style.minHeight = elmnt.clientHeight+'px'
+      },500)
   }
+
+
+
   render(){
     const CurrentPageKey = this.state.activePage
     let activePage;
     if(CurrentPageKey == 1){
-      activePage = <MILESTONES />
+      activePage = <MILESTONES  />
     } 
     if(CurrentPageKey == 4){
       activePage = <CONTRACT />

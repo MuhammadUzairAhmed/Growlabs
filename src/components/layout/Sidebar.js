@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {Component} from 'react';
 import { NavLink,  BrowserRouter, Route, Switch } from 'react-router-dom';
 import LineChart from './../../components/pages/LineChart';
 import CommitLineChart from './../pages/CommitLineChart';
