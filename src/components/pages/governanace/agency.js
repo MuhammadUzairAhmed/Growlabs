@@ -98,35 +98,17 @@ class Agency extends Component {
                   <p>Add</p>
                </div>
             </div>
-
-
-         
            <div className="right_side">
-
-           <div className="profile_name">
-               <div className="profile_name_img">
-               <img src="./assets/img/user2.png"/>
-               </div>   
-               <div className="profile_name_text">
-                 <h3>Name</h3>
-                 <p>Function</p>
+               <div className="profile_name">
+                     <div className="profile_name_img">
+                     <img src="./assets/img/user2.png"/>
+                     </div>   
+                     <div className="profile_name_text">
+                     <h3>Name</h3>
+                     <p>Function</p>
+                     </div>
                </div>
-  
-           </div>
-
-
-           
-
-         
-
-
-
             </div>
-
-
-
-
-
          </div>
         )
     }

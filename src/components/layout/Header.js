@@ -4,8 +4,6 @@ import { itemsFetchData, currentStateData, activeChatSystem, backlogWidget } fro
 import  Clock  from '../../components/widget/clock';
 import { setInterval } from 'timers';
 const URL = 'ws://localhost:3030'
-
-// Since this component is simple and static, there's no parent container for it.
 class Header extends Component {
     
     ws = new WebSocket(URL)
@@ -41,6 +39,7 @@ class Header extends Component {
                 ws: new WebSocket(URL),
             })
         }
+        
     }
     componentWillReceiveProps(props,state){
         this.setState({

@@ -48,7 +48,6 @@ class Chat extends Component {
     }
     submitMessage = messageString => {
 
-        console.log(messageString)
         fetch('http://demo2532200.mockable.io/meeting/'+this.props.dataID, {
             method: 'POST',
             body: JSON.stringify({id:this.props.dataID,message: messageString})
@@ -88,9 +87,6 @@ class Chat extends Component {
                         <div className="chatroom_header-rgt">
                            
                         <div class="tooltip"><img src="./assets/img/chat_exp.png" class="" />  <span class="tooltiptext">Tooltip text</span></div>
-
-
-
                             
                             <img src="./assets/img/400952499.png" onClick={this.backHistory.bind(this)} />
                         </div>
@@ -105,12 +101,9 @@ class Chat extends Component {
                 </section>
             )
 
-
         }
     }
 }
-
-
 
 const mapStateToProps = (state) => {
     return {

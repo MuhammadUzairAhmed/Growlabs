@@ -33,20 +33,6 @@ class Backlog extends Component {
     })
     
   }
-  componentWillMount(){
-   
-    // if(this.state.SprintId == ''){
-    //   this.setState({
-    //     SprintId:this.props.currentStateID[1].sprintID
-    //   })
-    // }
-    // if(this.state.CurrentId == ''){
-    //   this.setState({
-    //     CurrentId:this.props.currentStateID[1].currentID
-    //   })
-    // }
-  }
-
   selectedCatId(ev){
       this.setState({
         CurrentId:ev

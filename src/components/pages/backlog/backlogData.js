@@ -6,7 +6,6 @@ class BacklogDataD extends Component {
     constructor(prop){
         super(prop)
         this.state = {isLoggedIn: false};
-        //this.props.dispatchCurrentId('1');
     }
     backlogCreate(value,event){
         this.props.backlogWidgetData(value,event);
