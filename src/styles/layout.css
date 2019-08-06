@@ -1056,8 +1056,9 @@ ol.carousel-indicators li.active {
     height: 300px;
     width: 30%;
     float: left;
-    border: 1px solid rgba(255,255,255,0.05);
-    background-color:#15181d;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #15181d;
+    position: relative;
 
 }
 .card-base1 .base-86 {
@@ -1066,6 +1067,7 @@ ol.carousel-indicators li.active {
     width: 67%;
     float: right;
     height: 300px;
+    position: relative;
 }
 .dashboard-center {padding: 166px 114px 0px 0px;}
 
@@ -1100,6 +1102,7 @@ ol.carousel-indicators li.active {
     background-color: #15181d;
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 3px;
+    position: relative;
 }
 .clearfix:after {
     content: "";
@@ -1120,6 +1123,7 @@ ol.carousel-indicators li.active {
 .card-base3 .card-base3-right {
     float: right;
     width: 50%;
+    position: relative;
 }
 
 .card-base3-left .commits {
@@ -1128,6 +1132,8 @@ ol.carousel-indicators li.active {
     float: left;
     background: #15181d;
     margin: 0px 4px 0px 0px;
+    position: relative;
+    padding-top: 16px;
 }
 .card-base3 .del-add {
     width: 47%;
@@ -1138,8 +1144,10 @@ ol.carousel-indicators li.active {
 }
 .card-base3-right .average-code {
     width: 100%;
-    height: 205px;
+    height: 202px;
     background-color: #15181d;
+    position: relative;
+    padding-top: 18px;
 }
 .commits .commits-text {
     text-align: center;

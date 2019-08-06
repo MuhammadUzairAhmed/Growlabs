@@ -426,6 +426,12 @@ class Statistics extends Component {
 
           <div class="card-base1 clearfix">
             <div class="base-420">
+
+            <div class="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
+               <span class="tooltiptext">Tooltip text</span>
+            </div>
+
               <div class="base-420-text">
                 <h1>{this.state.dahsboardValues.velocity}</h1>
                 <p>VELOCITY</p>
@@ -433,6 +439,11 @@ class Statistics extends Component {
               </div>
             </div>
             <div class="base-86">
+               <div class="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
+               <span class="tooltiptext">Tooltip text</span>
+            </div>
+            
               <div class="base-86-text">
                 <img src={rpm} />
                 <p>GROW LABS SCORE</p>
@@ -443,6 +454,10 @@ class Statistics extends Component {
 
           <div class="card-base2">
             <div class="oval">
+            <div class="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
+               <span class="tooltiptext">Tooltip text</span>
+            </div>
               <div class="oval-text">
                 {/* <img src={circle1} /> */}
                 <div className="circleBar">
@@ -476,6 +491,7 @@ class Statistics extends Component {
           <div class="card-base3">
             <div class="card-base3-left">
               <div class="commits">
+                
                 <div class="commits-text">
                   <h1>{lineDataVal}</h1>
                   <p>COMMITS</p>
@@ -483,6 +499,10 @@ class Statistics extends Component {
                 </div>
               </div>
               <div class="commits">
+              <div class="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
+               <span class="tooltiptext">Tooltip text</span>
+            </div>
                 <div class="commits-text">
                   <h1>{this.state.dahsboardValues.codeChanged}</h1>
                   <p>CODE CHANGED</p>
@@ -494,6 +514,10 @@ class Statistics extends Component {
 
             <div class="card-base3-right">
               <div class="average-code">
+              <div class="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
+               <span class="tooltiptext">Tooltip text</span>
+            </div>
                 <div class="average-code-text">
                   <span >{this.state.dahsboardValues.avgCodeQuality}</span>
                   <p>AVERAGE</p><p>CODE QUALITY</p>
