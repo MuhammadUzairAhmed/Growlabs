@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React , {Component} from 'react';
 import { NavLink,  BrowserRouter, Route, Switch } from 'react-router-dom';
 import LineChart from './../../components/pages/LineChart';
 import CommitLineChart from './../pages/CommitLineChart';
@@ -25,7 +25,9 @@ class Sidebar extends Component {
             fetchListData:[],
             fetchLineData:[],
             xAxisLabels:[],
-            count:1
+            count:1,
+            height:'',
+            minHeight:''
         }
     }
 componentWillReceiveProps(nextprops)
@@ -33,102 +35,123 @@ componentWillReceiveProps(nextprops)
     console.log('next ',nextprops)
     if (this.state.count === 1) {
         for (var i = 0; i < nextprops.Chart.length; i++) {
-       
+
           this.state.fetchListData.push(nextprops.Chart[i].charts.listData)
           this.state.fetchLineData.push(nextprops.Chart[i].charts.lineData)
           this.state.xAxisLabels.push(nextprops.Chart[i].sprintId)
-         
+
           // this.setState({smallData:[...this.state.smallData,nextprops.Chart[i].charts.smallBarData]})
         }
         this.setState({ count: 2 })
       }
 }
-    render(){
-    return (
-      <section className="sidebar ">
-          <div className="score_section ">
-              <div className="score ">
-                  <img src="./assets/img/img_1.png" />
-              </div>
-              <div className="score ">
-                  {/* <img src="./assets/img/img_2.png" /> */}
-                  <table>
-                      <tr>
-                          <td>
-                      <ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/>
+    refCallback = element => {
+        if (element) {
+            var elmnt = document.querySelector(".center_part");
+            setTimeout(() => {
+                this.setState({
+                    height:elmnt.clientHeight
+                })
+            }, 500)
+        }
+    };
+    render() {
+        let styleHeight = {
+            minHeight: this.state.height
+        }
 
-                  </td>
-                  <td>
-                      <ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/>
+        return (
 
-                  </td>
-                  <td>
-                      <ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/>
+            <section className="sidebar " style={styleHeight}>
+                <div className="score_section ">
+                    <div className="score ">
+                        <img src="./assets/img/img_1.png"/>
+                    </div>
+                    <div className="score ">
+                        {/* <img src="./assets/img/img_2.png" /> */}
+                        <table>
+                            <tr>
+                                <td>
+                                    <ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/>
 
-                  </td>
-                  <td>
-                      <ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/>
+                                </td>
+                                <td>
+                                    <ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/>
 
-                  </td>
-                  </tr>
-                  </table>
+                                </td>
+                                <td>
+                                    <ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/>
 
-              </div>
-              <div className="score ">
-                  {/* linchart */}
-                  {/* <h2>Line chart</h2>
+                                </td>
+                                <td>
+                                    <ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div className="score ">
+                        {/* linchart */}
+                        {/* <h2>Line chart</h2>
                   <img src="./assets/img/img_3.png" /> */}
-                  <table>
-                      <tr>
-                          <td> < div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels} data={this.state.fetchLineData} tension={tnesion2} color={'#1E9D74'}/></div></td>
-                          <td style={{color:'#1E9D74'}}>32</td>
-                      </tr>
-                  </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    < div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels}
+                                                                                  data={this.state.fetchLineData}
+                                                                                  tension={tnesion2} color={'#1E9D74'}/>
+                                    </div>
+                                </td>
+                                <td style={{color: '#1E9D74'}}>32</td>
+                            </tr>
+                        </table>
 
-                  <p style={{fontSize:'10px',color:'#64696D'}}>Velocity</p>
-              </div>
-              <div className="score ">
-                  {/* <img src="./assets/img/img_4.png" /> */}
-                  {/* <div class="row">
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
+                    </div>
+                    <div className="score ">
+                        {/* <img src="./assets/img/img_4.png" /> */}
+                        {/* <div class="row">
                       <div class="col-sm-6">6</div>
                       <div class="col-sm-6">6</div>
                   </div> */}
-                  <table>
-                      <tr>
-                          <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels} tension={tension} color={'#4355C8'} /></td>
-                          <td style={{color:'#4355C8'}}>16</td>
-                      </tr>
-                  </table>
+                        <table>
+                            <tr>
+                                <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels}
+                                                     tension={tension} color={'#4355C8'}/></td>
+                                <td style={{color: '#4355C8'}}>16</td>
+                            </tr>
+                        </table>
 
-                  <p style={{fontSize:'10px',color:'#64696D'}}>Commits</p>
-              </div>
-              <div className="score">
-                 <StraightProgressBar dispStraightValue={75} percentage={75}/>
-                  <p style={{fontSize:'10px',color:'#64696D'}}>Expenditure</p>
-              </div>
-          </div>
-          <div className="menu ">
-              <div className="jquery-accordion-menu">
-                
-                   
-                  
-                    {routes.map((links)=><NavLink key={links.name} to={links.path} activeClassName="active"><img src={"./assets/img/"+links.icon+".png"} /><span>{links.name}</span></NavLink>)}
-                 
-              </div>
-          </div>
-          <div className="logo_user ">
-              <div className="logo_sec ">
-                  <img src="./assets/img/logo.png" />
-              </div>
-          </div>
-      </section>
-    );
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Commits</p>
+                    </div>
+                    <div className="score">
+                        <StraightProgressBar dispStraightValue={75} percentage={75}/>
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Expenditure</p>
+                    </div>
+                </div>
+                <div className="menu ">
+                    <div className="jquery-accordion-menu">
+
+
+                        {routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img
+                            src={"./assets/img/" + links.icon + ".png"}/><span>{links.name}</span></NavLink>)}
+
+                    </div>
+                </div>
+                <div className="logo_user ">
+                    <div className="logo_sec ">
+                        <img src="./assets/img/logo.png"/>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 }
-};
 
 const mapStateToProps = state => ({
     // chartValues: state.fuelSavings.chartValues,
     Chart: state.fuelSavings.CHART,
   })
-  export default connect(mapStateToProps)(Sidebar);
-  
+export default connect(mapStateToProps)(Sidebar);
+
