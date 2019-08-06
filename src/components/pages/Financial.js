@@ -31,6 +31,7 @@ class Financial extends Component {
     if(this.state.data){ 
       return (
         <section className="finance">
+        {console.log(this.state)}
           <div className="progress">
               <div className="progress-bar" role="progressbar" style={paidPer} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 ${this.props.financial.paid}

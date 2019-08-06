@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink,  BrowserRouter, Route, Switch } from 'react-router-dom';
 import LineChart from './../../components/pages/LineChart';
 import CommitLineChart from './../pages/CommitLineChart';
 import ProgressBars from './../pages/sidebarComponents/ProgressBars';
 import StraightProgressBar from './../pages/sidebarComponents/StraightProgressBar';
-import $ from 'jquery';
 
 const routes = [
     { path: '/statistics', name: 'Statistics', icon:'401382365'},
@@ -16,84 +15,86 @@ const routes = [
 ]
 
 // Since this component is simple and static, there's no parent container for it.
+const Sidebar = () => {
+  return (
+      <section className="sidebar ">
+          <div className="score_section ">
+              <div className="score ">
+                  <img src="./assets/img/img_1.png" />
+              </div>
+              <div className="score ">
+                  {/* <img src="./assets/img/img_2.png" /> */}
+                  <table>
+                      <tr>
+                          <td>
+                      <ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/>
 
-class Sidebar extends Component  {
+                  </td>
+                  <td>
+                      <ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/>
 
-    constructor(props){
-        super(props)
-        this.state={
-            height:'',
-            minHeight:''
-        }
-    }
-    refCallback = element => {
-        if (element) {
-            var elmnt = document.querySelector(".center_part");
-            setTimeout(() => {
-            this.setState({
-                height:elmnt.clientHeight
-             })
-            }, 500)
-        }
-    };
+                  </td>
+                  <td>
+                      <ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/>
 
-    render(){
-        let styleHeight = {
-            minHeight : this.state.height
-        }
-        return (
-            <section className="sidebar" style={styleHeight}>
-                <div className="score_section ">
-                    <div className="score ">
-                        <img src="./assets/img/img_1.png" />
-                    </div>
-                    <div className="score ">
-                        <table>
-                            <tr>
-                                <td><ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/></td>
-                                <td><ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/></td>
-                                <td><ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/></td>
-                                <td><ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div className="score ">
-                        <table>
-                            <tr>
-                                <td> < div className="line_chatw"><LineChart fillshadow={false} showDatalables={false} lineHeight={38} lineWidth={145}/></div></td>
-                                <td style={{color:'#1E9D74'}}>32</td>
-                            </tr>
-                        </table>
-                        <p style={{fontSize:'10px',color:'#64696D'}}>Velocity</p>
-                    </div>
-                    <div className="score ">
-                        <table>
-                            <tr>
-                                <td><CommitLineChart /></td>
-                                <td style={{color:'#4355C8'}}>16</td>
-                            </tr>
-                        </table>
+                  </td>
+                  <td>
+                      <ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/>
 
-                        <p style={{fontSize:'10px',color:'#64696D'}}>Commits</p>
-                    </div>
-                    <div className="score">
-                        <StraightProgressBar dispStraightValue={75} percentage={75}/>
-                        <p style={{fontSize:'10px',color:'#64696D'}}>Expenditure</p>
-                    </div>
-                </div>
-                <div className="menu ">
-                    <div className="jquery-accordion-menu">
-                        {routes.map((links)=><NavLink key={links.name} to={links.path} activeClassName="active"  onClick={this.refCallback}><img src={"./assets/img/"+links.icon+".png"} /><span>{links.name}</span></NavLink>)}
-                    </div>
-                </div>
-                <div className="logo_user ">
-                    <div className="logo_sec ">
-                        <img src="./assets/img/logo.png" />
-                    </div>
-                </div>
-            </section>
-            );
-        }
+                  </td>
+                  </tr>
+                  </table>
+
+              </div>
+              <div className="score ">
+                  {/* linchart */}
+                  {/* <h2>Line chart</h2>
+                  <img src="./assets/img/img_3.png" /> */}
+                  <table>
+                      <tr>
+                          <td> < div className="line_chatw"><LineChart fillshadow={false} showDatalables={false} lineHeight={38} lineWidth={145}/></div></td>
+                          <td style={{color:'#1E9D74'}}>32</td>
+                      </tr>
+                  </table>
+
+                  <p style={{fontSize:'10px',color:'#64696D'}}>Velocity</p>
+              </div>
+              <div className="score ">
+                  {/* <img src="./assets/img/img_4.png" /> */}
+                  {/* <div class="row">
+                      <div class="col-sm-6">6</div>
+                      <div class="col-sm-6">6</div>
+                  </div> */}
+                  <table>
+                      <tr>
+                          <td><CommitLineChart /></td>
+                          <td style={{color:'#4355C8'}}>16</td>
+                      </tr>
+                  </table>
+
+                  <p style={{fontSize:'10px',color:'#64696D'}}>Commits</p>
+              </div>
+              <div className="score">
+                 <StraightProgressBar dispStraightValue={75} percentage={75}/>
+                  <p style={{fontSize:'10px',color:'#64696D'}}>Expenditure</p>
+              </div>
+          </div>
+          <div className="menu ">
+              <div className="jquery-accordion-menu">
+                
+                   
+                  
+                    {routes.map((links)=><NavLink key={links.name} to={links.path} activeClassName="active"><img src={"./assets/img/"+links.icon+".png"} /><span>{links.name}</span></NavLink>)}
+                 
+              </div>
+          </div>
+          <div className="logo_user ">
+              <div className="logo_sec ">
+                  <img src="./assets/img/logo.png" />
+              </div>
+          </div>
+      </section>
+    );
 };
 
 export default Sidebar;

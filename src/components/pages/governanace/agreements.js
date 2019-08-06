@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class Agreements extends Component {
+    
+    //   send() {
+    //     const method = "POST";
+    //     const body = new FormData(this.form);
+    //     fetch("http://demo2532200.mockable.io/agreement", { method, body })
+    //       .then(res => res.json())
+    //       .then(data => console.log(JSON.stringify(data.form, null, "\t")));
+    //   }
     constructor(props){
         super(props)
         this.state = {

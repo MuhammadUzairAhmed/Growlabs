@@ -22,7 +22,9 @@ class Contact extends Component {
 
     handleInput =(x)=>
     {
+     console.log('result ',x)
      this.setState({fileUploaded: x})
+     console.log('filesUploaded ',this.state.formData.fileUpload.map((items)=> items))
 
     }
      render(){

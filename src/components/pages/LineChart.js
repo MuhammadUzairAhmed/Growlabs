@@ -23,6 +23,9 @@ class LineChart extends Component {
             //getting xvalue
             var getIndex = tickData[0]._index;
             var xValue = tickData[0]._xScale.ticks[getIndex];
+
+            console.log('x ', xValue);
+            console.log('y ', yValue);
             // console.log(tickData, " tickData ")
         }
         catch
@@ -45,6 +48,7 @@ class LineChart extends Component {
             listValue: listData[i],
         }));
         // this.setState({output:output})
+        console.log('complete Data ', output);
         var ctx = document.getElementById('myChart').getContext("2d")
         var gradient = ctx.createLinearGradient(0, 0, 0, 200);
         gradient.addColorStop(0, 'rgba(63,245,183,0.4)');
@@ -110,10 +114,10 @@ class LineChart extends Component {
         })
 
         setTimeout(function () {
-            //console.log('getData ', getData)
+            console.log('getData ', getData)
         }, 5000)
         this.setState({ value: getData }, () => {
-            //console.log('getData2 ', this.state.value)
+            console.log('getData2 ', this.state.value)
             if (this.state.value != undefined) {
                 this.props.accessVal(this.state.value.listValue)
             }

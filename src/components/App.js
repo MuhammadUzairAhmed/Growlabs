@@ -25,17 +25,16 @@ import { get } from "http";
 // component at the top-level.
 
 class App extends React.Component {
-  
   render() {
     return (
       <section>
           <Header />
-          <section className="Content_main" >
+          <section className="Content_main">
           <Router>
               <Sidebar />
               <div className="center_part">
                   <Switch>
-                      <Route exact path="/"  component={HomePage}/>
+                      <Route exact path="/"  component={HomePage} />
                       <Route path="/statistics" component={Statisitcs} />
                       <Route path="/collaboration" component={Collaboration} />
                       <Route path="/financial" component={Financial} />
