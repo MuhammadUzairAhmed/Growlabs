@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { NavLink,  BrowserRouter, Route, Switch } from 'react-router-dom';
 import LineChart from './../../components/pages/LineChart';
 import CommitLineChart from './../pages/CommitLineChart';
 import ProgressBars from './../pages/sidebarComponents/ProgressBars';
 import StraightProgressBar from './../pages/sidebarComponents/StraightProgressBar';
-
+import { connect } from "react-redux";
 const routes = [
     { path: '/statistics', name: 'Statistics', icon:'401382365'},
     { path: '/collaboration', name: 'Collaboration', icon:'401382288' },
@@ -13,10 +13,38 @@ const routes = [
     { path: '/files', name: 'Files', icon:'401385364'},
     { path: '/Governance', name: 'Governance', icon:'401385365' },
 ]
-
+const tension =  {tension: 0}
+const tnesion2 = {}
 // Since this component is simple and static, there's no parent container for it.
-const Sidebar = () => {
-  return (
+
+class Sidebar extends Component {
+    constructor(props)
+    {
+        super(props)
+        this.state={
+            fetchListData:[],
+            fetchLineData:[],
+            xAxisLabels:[],
+            count:1
+        }
+    }
+componentWillReceiveProps(nextprops)
+{
+    console.log('next ',nextprops)
+    if (this.state.count === 1) {
+        for (var i = 0; i < nextprops.Chart.length; i++) {
+       
+          this.state.fetchListData.push(nextprops.Chart[i].charts.listData)
+          this.state.fetchLineData.push(nextprops.Chart[i].charts.lineData)
+          this.state.xAxisLabels.push(nextprops.Chart[i].sprintId)
+         
+          // this.setState({smallData:[...this.state.smallData,nextprops.Chart[i].charts.smallBarData]})
+        }
+        this.setState({ count: 2 })
+      }
+}
+    render(){
+    return (
       <section className="sidebar ">
           <div className="score_section ">
               <div className="score ">
@@ -52,7 +80,7 @@ const Sidebar = () => {
                   <img src="./assets/img/img_3.png" /> */}
                   <table>
                       <tr>
-                          <td> < div className="line_chatw"><LineChart fillshadow={false} showDatalables={false} lineHeight={38} lineWidth={145}/></div></td>
+                          <td> < div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels} data={this.state.fetchLineData} tension={tnesion2} color={'#1E9D74'}/></div></td>
                           <td style={{color:'#1E9D74'}}>32</td>
                       </tr>
                   </table>
@@ -67,7 +95,7 @@ const Sidebar = () => {
                   </div> */}
                   <table>
                       <tr>
-                          <td><CommitLineChart /></td>
+                          <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels} tension={tension} color={'#4355C8'} /></td>
                           <td style={{color:'#4355C8'}}>16</td>
                       </tr>
                   </table>
@@ -95,6 +123,12 @@ const Sidebar = () => {
           </div>
       </section>
     );
+}
 };
 
-export default Sidebar;
+const mapStateToProps = state => ({
+    // chartValues: state.fuelSavings.chartValues,
+    Chart: state.fuelSavings.CHART,
+  })
+  export default connect(mapStateToProps)(Sidebar);
+  

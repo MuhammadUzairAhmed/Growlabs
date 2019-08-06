@@ -8,6 +8,11 @@ import initialState from './initialState';
 export default function fuelSavingsReducer(state = initialState.fuelSavings, action) {
 
     switch (action.type){
+        case 'SPRINT_ACTION':
+        return {
+            ...state,
+            chartValues: action.payload
+        }
         case 'NOTIFICATIONS':
             return {
                 ...state,
@@ -48,6 +53,11 @@ export default function fuelSavingsReducer(state = initialState.fuelSavings, act
                 ...state,
                 CHAT : action.items,
             }
+            case 'CHART':
+                return {
+                    ...state,
+                    CHART : action.items,
+                }
         case 'MILESTONE':
             return {
                 ...state,

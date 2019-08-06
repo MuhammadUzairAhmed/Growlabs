@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
+import { connect } from "react-redux";
+import { FetchSprintData } from '../../actions/fuelSavingsActions';
 
 var yVal = '';
 var output;
@@ -11,6 +13,7 @@ const xLabels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
 
 class LineChart extends Component {
+
 
     getDatasetAtEventick = (tickData) => {
         try {
@@ -38,91 +41,86 @@ class LineChart extends Component {
         this.state = {
             chartData: {},
             value: 0,
+            lineData: [],
+            xLabel: []
         }
     }
+
     componentDidMount() {
 
+        if (this.props.xaxes) {
+            console.log('recivedDidMount', this.props.xaxes)
+            output = this.props.xaxes.map((data, i) => ({
+                id: i + 1,
+                listValue: this.props.checkData[i],
+            }));
+            console.log(output, 'output')
+            // this.setState({output:output})
+            console.log('complete Data ', output);
+            var ctx = document.getElementById('myChart').getContext("2d")
+            var gradient = ctx.createLinearGradient(0, 0, 0, 200);
+            gradient.addColorStop(0, 'rgba(63,245,183,0.4)');
+            gradient.addColorStop(1, 'rgba(25,209,146,0)');
+            var changeShadow = ''
+            if (this.props.displayChart == 1) {
+                changeShadow = gradient;
+                this.setState({ dispYLine: true })
+            } else {
+                changeShadow = ''
+                this.setState({ dispYLine: false })
+            }
+            const data = {
+                datasets: [
+                    {
 
-        output = xLabels.map((data, i) => ({
-            id: i + 1,
-            listValue: listData[i],
-        }));
-        // this.setState({output:output})
-        console.log('complete Data ', output);
-        var ctx = document.getElementById('myChart').getContext("2d")
-        var gradient = ctx.createLinearGradient(0, 0, 0, 200);
-        gradient.addColorStop(0, 'rgba(63,245,183,0.4)');
-        gradient.addColorStop(1, 'rgba(25,209,146,0)');
-        var changeShadow = ''
-        if (this.props.displayChart == 1) {
-            changeShadow = gradient;
-            this.setState({ dispYLine: true })
-        } else {
-            changeShadow = ''
-            this.setState({ dispYLine: false })
+                        label: 'Line Dataset',
+                        fill: this.props.fillshadow, // below shadow will be hidden
+                        data: this.props.checkData,
+                        backgroundColor: changeShadow,
+                        pointRadius: 0, //to hidden the points
+                        borderColor: '#1E9D74',
+                        borderWidth: 2,
+                        // Changes this dataset to become a line
+                        type: 'line',
+                        pointHoverRadius: 0,
+                        pointHoverBackgroundColor: 'red',
+                        dispYLine: true,
+                        datalabels: {
+                            color: 'black',
+                            align: 'end',
+                            //    display: function(context) {
+                            //        console.log('context.dataIndex % 2 ',context.dataset.data[1])
+                            //         return context.dataset.data[1]; // display labels with an odd index
+                            //     },
+                            display: this.props.showDatalables
+                            ,
+
+                            borderWidth: 8,
+                            borderRadius: 10,
+                            color: 'black',
+                            backgroundColor: '#30C391',
+                            borderWidth: 8,
+                            borderRadius: 10,
+
+                        }
+
+                    },
+
+                ],
+                labels: this.props.xaxes
+            }
+            this.setState({ chartData: data })
         }
-        const data = {
-            datasets: [
-                {
-
-                    label: 'Line Dataset',
-                    fill: this.props.fillshadow, // below shadow will be hidden
-                    data: listData,
-                    backgroundColor: changeShadow,
-                    pointRadius: 0, //to hidden the points
-                    borderColor: '#1E9D74',
-                    borderWidth: 2,
-                    // Changes this dataset to become a line
-                    type: 'line',
-                    pointHoverRadius: 0,
-                    pointHoverBackgroundColor: 'red',
-                    dispYLine: true,
-                    datalabels: {
-                        color: 'black',
-                        align: 'end',
-                        //    display: function(context) {
-                        //        console.log('context.dataIndex % 2 ',context.dataset.data[1])
-                        //         return context.dataset.data[1]; // display labels with an odd index
-                        //     },
-                        display: this.props.showDatalables
-                        ,
-
-                        borderWidth: 8,
-                        borderRadius: 10,
-                        color: 'black',
-                        backgroundColor: '#30C391',
-                        borderWidth: 8,
-                        borderRadius: 10,
-
-                    }
-
-                },
-
-            ],
-            labels: xLabels
-        }
-        this.setState({ chartData: data })
         //use ref for getting any value of chart  
         // console.log(this.chartReference.props.data.labels[1]); // returns a Chart.js instance reference
 
     }
     componentWillReceiveProps(nextprops) {
-        let getData = output.find((data) => {
-
-            return data.id == this.props.getListValue
-
-        })
-
-        setTimeout(function () {
-            console.log('getData ', getData)
-        }, 5000)
-        this.setState({ value: getData }, () => {
-            console.log('getData2 ', this.state.value)
-            if (this.state.value != undefined) {
-                this.props.accessVal(this.state.value.listValue)
-            }
-        })
-
+        console.log('chekced ', nextprops.xaxes)
+        var chek = nextprops.getListValue - 1;
+        console.log('getData ', nextprops.lstVal, nextprops.barVal, output[chek])
+        this.props.FetchSprintData(nextprops.lstVal, nextprops.barVal, output[chek].listValue)
+        // this.props.accessVal(output[chek].listValue);
 
     }
 
@@ -206,4 +204,9 @@ class LineChart extends Component {
         );
     }
 }
-export default LineChart;
+
+const mapDispatchToProps = dispatch => ({
+    // fetchData: (url,action) => dispatch(itemsFetchData(url,action)),
+    FetchSprintData: (lineData1, bardata, lineData2) => dispatch(FetchSprintData(lineData1, bardata, lineData2))
+})
+export default connect(null, mapDispatchToProps)(LineChart);

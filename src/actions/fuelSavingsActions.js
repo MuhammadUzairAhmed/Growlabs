@@ -2,6 +2,20 @@ import * as types from '../constants/actionTypes';
 
 import {getFormattedDateTime} from '../utils/dates';
 
+
+   export const FetchSprintData = (lstData,barData,lineData) => dispatch => {
+    var data={
+        lstData,
+        barData,
+        lineData
+    }
+    dispatch({
+     type: types.SPRINT_ACTION,
+     payload: data
+    })
+   }
+
+
 // example of a thunk using the redux-thunk middleware
 export function saveFuelSavings(settings) {
     return function (dispatch) {

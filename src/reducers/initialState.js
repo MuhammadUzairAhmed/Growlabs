@@ -9,9 +9,11 @@ export default {
         FINANCIAL: [],
         FILES : [],
         CHAT : [],
+        CHART : [],
         ACTIVEWIDGET: [],
         USER_DETAILS : [],
         MILESTONE : [],
-        IS_LOADING : false
+        IS_LOADING : false,
+        chartValues:{}
     }
 };
