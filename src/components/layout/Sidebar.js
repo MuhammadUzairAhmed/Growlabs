@@ -5,6 +5,7 @@ import CommitLineChart from './../pages/CommitLineChart';
 import ProgressBars from './../pages/sidebarComponents/ProgressBars';
 import StraightProgressBar from './../pages/sidebarComponents/StraightProgressBar';
 import { connect } from "react-redux";
+import { itemsFetchData } from '../../actions/fuelSavingsActions';
 const routes = [
     { path: '/statistics', name: 'Statistics', icon:'401382365'},
     { path: '/collaboration', name: 'Collaboration', icon:'401382288' },
@@ -29,6 +30,11 @@ class Sidebar extends Component {
             height:'',
             minHeight:''
         }
+    }
+    componentDidMount()
+    {
+        this.props.fetchData('https://demo9810618.mockable.io/fetchSprintData', 'CHART');
+
     }
 componentWillReceiveProps(nextprops)
 {
@@ -149,9 +155,12 @@ componentWillReceiveProps(nextprops)
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    fetchData: (url, action) => dispatch(itemsFetchData(url, action)),
+  })
 const mapStateToProps = state => ({
     // chartValues: state.fuelSavings.chartValues,
     Chart: state.fuelSavings.CHART,
   })
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps,mapDispatchToProps)(Sidebar);
 

@@ -34,7 +34,11 @@ class Agency extends Component {
          Function: '',
          lastname: '',
          formSubmitted: false,
+         editId:null,
+         editSubId:null,
+         saveId:true,
          index: [],
+         EditKey:null,
          numbers: [
 
          ],
@@ -44,7 +48,7 @@ class Agency extends Component {
          leftUser: [
 
          ],
-
+         agentDetail:[]
 
       }
    }
@@ -63,8 +67,8 @@ class Agency extends Component {
          }
       })
    }
-   midClick = (id) => {
-      console.log('id ', id)
+   midClick = () => {
+      
       var RC = {
          id: 0,
          key: 'RC',
@@ -73,11 +77,13 @@ class Agency extends Component {
       var LC = {
          id: 0,
          key: 'LC',
-         status: false
+         status: false,
+         fname:'',
+         lname:''
       }
       var addChild =
       {
-         id: id + 1,
+         id: this.state.formId + 1,
          key: 'mid',
          status: false,
          Rchild: [RC],
@@ -89,16 +95,19 @@ class Agency extends Component {
 
    }
 
-   rightClick = (mid, rid) => {
-      var rc = rid + 1;
+   rightClick = () => {
+      console.log(this.state.formMainId,this.state.formChildId,'cheking')
+      var rc = this.state.formChildId + 1;
       var ObjRC = {
          id: rc,
          key: 'RC',
-         status: false
+         status: false,
+         fname: '',
+         lname: ''
       }
       this.setState({
          data: this.state.data.filter(item => {
-            if (item['id'] == mid) {
+            if (item['id'] == this.state.formMainId) {
                item['Rchild'] = [...item['Rchild'], ObjRC];
                return item;
             }
@@ -107,40 +116,128 @@ class Agency extends Component {
       })
 
    }
+   editLeftChild =(id,lid )=>{
+   var displayDetail = this.state.data.find(item=>{
+       if(item['id'] == id)
+       { return item}
+      })
+    var foundData= displayDetail.Lchild.find(item=>{
+       if(item['id']==lid)
+       {return item}
+    })
+    this.setState({
+      EditKey:'LeftChild',
+      editId: id,
+      editSubId: lid,
+      fname:foundData.fname,
+      lastname: foundData.lname,
+      saveId: false
+   })
+    console.log(foundData,'displayDetail')
+   }
 
-   leftClick = (mid, lid) => {
-      var lc = lid + 1;
+   editRightChild =(id,rid )=>{
+      var displayDetail = this.state.data.find(item=>{
+          if(item['id'] == id)
+          { return item}
+         })
+       var foundData= displayDetail.Rchild.find(item=>{
+          if(item['id']==rid)
+          {return item}
+       })
+       this.setState({
+         EditKey:'RightChild',
+         editId: id,
+         editSubId: rid,
+         fname:foundData.fname,
+         lastname: foundData.lname,
+         saveId: false
+      })
+       console.log(foundData,'displayDetail')
+      }
+
+   leftClick = () => {
+      var lc = this.state.formChildId + 1;
       var ObjLC = {
          id: lc,
          key: 'LC',
-         status: false
+         status: false,
+         fname: '',
+         lname: ''
       }
       this.setState({
          data: this.state.data.filter(item => {
-            if (item['id'] == mid) {
+            if (item['id'] == this.state.formMainId) {
                item['Lchild'] = [...item['Lchild'], ObjLC];
                return item;
             }
             return item;
          })
       })
-      // this.setState({
-      //    data: this.state.data.filter(item => {
-      //       if (item['id'] == mid) {
-      //          item['Lchild'] = [<img src="./assets/img/close.png" onClick={() => this.leftClick(mid, lid + 1)} />, ...item['Lchild']];
-      //          return item;
-      //       }
-      //       return item;
-      //    })
-      // })
+      
    }
 
-   addUser = (id) => {
-      this.setState({ formId: id })
+   addUser = (id,key) => {
+      this.setState({ formId: id, childKey: key })
+      console.log(id)
    }
 
+  
    addUserForChilds = (id, cid, key) => {
       this.setState({ formMainId: id, formChildId: cid, childKey: key })
+   }
+   handleEdit = () =>{
+    this.setState({saveId:true},()=>{ 
+       if(this.state.EditKey == 'LeftChild'){
+      this.setState({
+         data: this.state.data.map(item => {
+            if (item['id'] == this.state.editId) {
+               item['Lchild'].filter((subItem) => {
+                  if (subItem['id'] == this.state.editSubId) {
+                    subItem['status'] = true;
+                    subItem['fname'] = this.state.fname;
+                    subItem['lname'] = this.state.lastname;
+                     return subItem;
+                     // return item;
+                  }
+                  return subItem;
+               })
+            }
+           return item;
+         })
+         
+      }, () => {
+        
+         this.setState({ childKey: '',fname:'',lastname:'' })
+        console.log('saveId',this.state.saveId) 
+      })
+   }else  if(this.state.EditKey == 'RightChild'){
+      this.setState({
+         data: this.state.data.map(item => {
+            if (item['id'] == this.state.editId) {
+               item['Rchild'].filter((subItem) => {
+                  if (subItem['id'] == this.state.editSubId) {
+                    subItem['status'] = true;
+                    subItem['fname'] = this.state.fname;
+                    subItem['lname'] = this.state.lastname;
+                     return subItem;
+                     // return item;
+                  }
+                  return subItem;
+               })
+            }
+           return item;
+         })
+         
+      }, () => {
+        
+         this.setState({ childKey: '',fname:'',lastname:'' })
+        console.log('saveId',this.state.saveId) 
+      })
+   }
+   
+   
+   })
    }
    handleSave = () => {
       if (this.state.childKey === 'child') {
@@ -151,18 +248,26 @@ class Agency extends Component {
                      if (subItem['id'] == this.state.formChildId) {
                         console.log(this.state.formMainId, this.state.formChildId, 'main')
                         subItem['status'] = true;
+                        subItem['fname'] = this.state.fname;
+                        subItem['lname'] = this.state.lastname;
                         return subItem;
                         // return item;
                      }
                      return subItem;
                   })
+                  
 
                }
-               return item
+              
+               return item;
             })
+            
          }, () => {
+           
             this.setState({ childKey: '' })
+            
          })
+         this.rightClick()
       }else if (this.state.childKey === 'Lchild') {
          this.setState({
             data: this.state.data.map(item => {
@@ -171,6 +276,8 @@ class Agency extends Component {
                      if (subItem['id'] == this.state.formChildId) {
                         console.log(this.state.formMainId, this.state.formChildId, 'main')
                         subItem['status'] = true;
+                        subItem['fname'] = this.state.fname;
+                        subItem['lname'] = this.state.lastname;
                         return subItem;
                         // return item;
                      }
@@ -183,8 +290,9 @@ class Agency extends Component {
          }, () => {
             this.setState({ childKey: '' })
          })
+         this.leftClick()
       }
-       else {
+       else if(this.state.childKey === 'mid'){
          this.setState({
             data: this.state.data.filter(item => {
                if (item['id'] == this.state.formId) {
@@ -194,6 +302,7 @@ class Agency extends Component {
                return item;
             })
          })
+         this.midClick()
       }
    }
    handleChange = (e) => {
@@ -212,32 +321,34 @@ class Agency extends Component {
              </div>
 
             {console.log('dataMap', data)}
-            {/* <td>
-               <div className="left" >
-                  {data.Lchild}
-               </div>
-            </td> */}
+            
 
          <div class="boxes">
             <div className="left_box">
-            {Object.values(data.Lchild).map((subData, rid) =>
+            {Object.values(data.Lchild).map((subData, lid) =>
                subData.status == true ?
-                  <div className="plus"  onClick={() => this.addUserForChilds(data.id, subData.id, 'Lchild')}>
+                  <div className="plus"  onClick={() => this.editLeftChild(data.id, subData.id)}>
 
                      <img src="./assets/img/user2.png" />
                      <p style={{ color: 'green' }}>added</p>
                   </div>
                   :
-                  <div className="plus_Function" attr={rid}>
-                     <div className="plus_Function_img" >
-                          <img key={subData.id} src="./assets/img/user2.png" onClick={() => this.leftClick(data.id, subData.id)} />
-                     </div>
-                     <div className="plus_Function_text" >
-                        <h3>Name</h3>
-                        <p onClick={() => this.addUserForChilds(data.id, subData.id, 'Lchild')}>add</p>
-                     </div>
+                  // <div className="plus_Function" attr={rid}>
+                  //    <div className="plus_Function_img" >
+                  //         <img key={subData.id} src="./assets/img/user2.png"onClick={() => this.addUserForChilds(data.id, subData.id, 'Lchild')} />
+                  //    </div>
+                  //    <div className="plus_Function_text" >
+                  //       <h3>Name</h3>
+                  //       <p onClick={() => this.addUserForChilds(data.id, subData.id, 'Lchild')}>add</p>
+                  //    </div>
 
+                  // </div>
+
+                  <div className="plus" attr={lid}>
+                  <img key={subData.id} src="./assets/img/close.png"  onClick={() => this.addUserForChilds(data.id, subData.id, 'Lchild')}  />
+                  <p >add</p>
                   </div>
+                  
                 )}
             </div>
             <div className="first_box">
@@ -253,20 +364,22 @@ class Agency extends Component {
 
                      </div>
                      :
-                     <div >
-                        <div className="plus_Function" >
+                     <div>
+                        <div className="plus" >
+                      <img key={index} src="./assets/img/close.png" onClick={() => this.addUser(index,'mid')}  />
+                     <p >add</p>
+                  </div>
+                        {/* <div className="plus_Function" >
                            <div className="plus_Function_img" >
-                              <img src="./assets/img/usere.png" onClick={() => this.midClick(index)} />
-                              <div className="close_sect" >
-                              <img src="./assets/img/close_ions.png" class="close_user" />
-                              </div>
+                              <img src="./assets/img/close.png" onClick={() => this.addUser(index,'mid')} />
+                              
                            </div>
 
                            <div className="plus_Function_text" >
                              <h3>Name</h3>
                              <p onClick={() => this.addUser(index)}>Function</p>
                            </div>
-                        </div>
+                        </div> */}
 
                      </div>
                   }
@@ -276,7 +389,7 @@ class Agency extends Component {
             <div className="third_box">
             {Object.values(data.Rchild).map((subData, rid) =>
                subData.status == true ?
-                  <div className="plus" style={{ marginTop: '-45px' }} onClick={() => this.addUserForChilds(data.id, subData.id, 'child')}>
+                  <div className="plus" style={{ marginTop: '-45px' }} onClick={() => this.editRightChild(data.id, subData.id)}>
 
                      <img src="./assets/img/user2.png" />
                      <p style={{ color: 'green' }}>added</p>
@@ -286,7 +399,7 @@ class Agency extends Component {
                   </div>
                   :
                   <div className="plus" attr={rid}>
-                     <img key={subData.id} src="./assets/img/close.png" onClick={() => this.rightClick(data.id, subData.id)} />
+                      <img key={subData.id} src="./assets/img/close.png"  onClick={() => this.addUserForChilds(data.id, subData.id, 'child')}  />
                      <p onClick={() => this.addUserForChilds(data.id, subData.id, 'child')}>add</p>
                   </div>
 
@@ -303,8 +416,10 @@ class Agency extends Component {
          <div className="agency">
             <div className="left_side">
                <div className="profile">
-                  <img src={this.state.currentAgent.image} />
-               </div>
+                  {this.state.saveId
+                 ? <img typeof="file" src={this.state.currentAgent.image} />
+                  :<img src="./assets/img/user2.png" />}
+                 </div>
                <div className="feild half">
                   <label>first name</label>
                   <input onChange={this.handleChange} type="text" name="fname" value={this.state.fname} placeholder="Name" />
@@ -334,7 +449,7 @@ class Agency extends Component {
                   <label>address</label>
                   <input onChange={this.handleChange} type="text" name="address" value={this.state.address} placeholder="Felix" />
                </div>
-               <button color="primary" onClick={this.handleSave}>Save</button>
+               <button color="primary" onClick={this.state.saveId ? this.handleSave : this.handleEdit}>Save</button>
 
             </div>
 
