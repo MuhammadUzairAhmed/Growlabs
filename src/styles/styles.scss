@@ -427,6 +427,7 @@ section.chat_room {
     background-color: #13181C;
     border-bottom: 1px solid #2b363d;
     padding: 10px 20px 10px 20px;
+    position: relative;
 
 }
 
@@ -641,19 +642,20 @@ section.chat_room {
     border: 1.2px solid #4a7f80;
     padding: 10px 10px;
     border-radius: 30px;
-    width: 94%;
+    width: 90%;
     color: #336a77;
     position: relative;
     font-size: 11px;
     letter-spacing: 1px;
+    padding-left: 23px;
 }
 
 .chatroom_footer button {
     background: none;
     border: 0px;
     position: absolute;
-    right: 11px;
-    width: 43px;
+    right: 13px;
+    width: 41px;
     top: 21px;
 }
 
@@ -1023,13 +1025,13 @@ label.fancy-checkbox {border: 1.5px solid #fff;border-radius: 100%;width: 17px;h
 }
 
 .milestone_box {
-    background-color: rgba(0,0,0,0.15);
-    border: 1px solid rgba(255,255,255,0.05);
-    width: 29.7%;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 37.7%;
     float: left;
     margin: 10px 10px 10px 0px;
     color: #fff;
-    padding: 25px 9.8%;
+    padding: 20px 5.8%;
     height: 150px;
 }
 
@@ -1039,7 +1041,7 @@ label.fancy-checkbox {border: 1.5px solid #fff;border-radius: 100%;width: 17px;h
     font-weight: 600;
     letter-spacing: 1.11px;
     color: #494C50;
-    margin-bottom: 27px;
+    margin-bottom: 23px;
 }
 
 .milestone_box p {
@@ -1177,12 +1179,12 @@ ol.carousel-indicators li.active {
     margin: 0 auto;
 }
 .agency .left_side {
-	padding: 50px 100px;
-	float: left;
-	width: 33%;
-	background-color: rgba(0,0,0,0.15);
-	box-shadow: 0 0 20px 0 rgba(0,0,0,0.8);
-	border: 1px solid rgba(255,255,255,0.05);
+    padding: 50px 90px;
+    float: left;
+    width: 32%;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 
 }
 .agency .left_side .feild label {
@@ -1212,14 +1214,14 @@ ol.carousel-indicators li.active {
     line-height: 20px;
 }
 .agency .right_side {
-	float: right;
-	width: 32%;
-	border: 1px solid rgba(255,255,255,0.05);
-	background-color: rgba(0,0,0,0.15);
-	box-shadow: 0 0 20px 0 rgba(0,0,0,0.8);
-	position: relative;
+    float: right;
+    width: 32%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.8);
+    position: relative;
     padding: 117px 100px;
-    min-height: 320px;
+    min-height: 386px;
 }
 .agency .left_side .feild.half {
 	width: 45%;
@@ -1760,7 +1762,7 @@ section.multi_step_form .col-md-4 {
 }
 
 .multi_step_form  fieldset.half {
-    width: calc(41% - -2px);
+    width: calc(41% - 2px);
     float: left;
     clear: none;
 }
@@ -2162,7 +2164,7 @@ section.multi_step_form .col-md-4 {
     height: 26px;
     position: absolute;
     top: -5px;
-    left: -6px;
+    left: -5px;
     border-radius: 6px;
 }
 .according_box.release span.checkmark {
@@ -2321,14 +2323,14 @@ section.chat_room{
     -ms-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-    margin-right: -350px;
+    // margin-right: -350px;
 }
 section.chat_room[active="false"] {
-    margin-right: -350px;
+    // margin-right: -350px;
 }
 
 section.chat_room[active="true"] {
-    margin-right: 0;
+    // margin-right: 0;
 }
 .carousel.slide .carousel-item.carousel-item {
     display: none;
@@ -2476,6 +2478,11 @@ h1 {}
     stroke-linecap: round;
     stroke-width: 4px;
 }
+.CircularProgressbar .CircularProgressbar-text {
+   
+    font-size: 28px;
+   
+}
 .CircularProgressbar {
 
     margin-bottom: 3px;
@@ -2572,7 +2579,7 @@ h1 {}
     top: 4px;
 }
 .tooltip {
-    position: relative;
+   
     display: inline-block;
     border-bottom: 0px dotted black;
     cursor: pointer;
@@ -2580,16 +2587,20 @@ h1 {}
   
   .tooltip .tooltiptext {
     visibility: hidden;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
-    background-color: #fffffff5;
-    color: #1a2027;
+    background-color: #000000b3;
+    color: #d0d0d0;
     text-align: left;
-    border-radius: 0px;
-    padding: 6px 8px;
+    border-radius: 100px;
+    padding: 6px 20px;
     position: absolute;
     z-index: 1;
-    font-size: 10px;
+    font-size: 12px;
     top: 3px;
+ 
+    right: 25px;
   }
   
   .tooltip:hover .tooltiptext {
@@ -2890,4 +2901,39 @@ h1 {}
 }
 .score td p {
     width: 36px;
+    font-size: 8px !important;
+    color: #64696D !important;
+}
+.tooltip .tooltiptext:after {
+    content: "";
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #0c0e10;
+    position: absolute;
+    right: 0;
+    left: 45px;
+    bottom: -6px;
+    display: table;
+    margin: 0px auto;
+}
+.score .rc-progress-circle {
+    -webkit-mask-box-image: url(../assets/img/score.png) 0 0 70 0;
+}
+.scoreText {
+    margin-top: -130px;
+    position: relative;
+}
+
+.scoreText p {
+    font-size: 12px;
+    margin: 14px 0px;
+}
+
+.scoreText h1 {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 0px;
+    margin: 22px 0px 35px 0px;
+    color: #3882a7;
 }
