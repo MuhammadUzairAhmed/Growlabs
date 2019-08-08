@@ -29,7 +29,7 @@ class Statistics extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayData: [],
+     displayData: [],
       dispSpecificGreenValue: {},
       dispSpecificRedValue: {},
       ChartData: {},
@@ -60,19 +60,18 @@ class Statistics extends Component {
 
   componentWillReceiveProps(nextprops) {
     console.log(nextprops, 'came')
-    if (this.state.count === 1) {
-      for (var i = 0; i < nextprops.Chart.length; i++) {
-        this.state.fetchData.push(nextprops.Chart[i])
-        this.state.fetchListData.push(nextprops.Chart[i].charts.listData)
-        this.state.fetchBarData.push(nextprops.Chart[i].charts.barData)
-        this.state.fetchLineData.push(nextprops.Chart[i].charts.lineData)
-        this.state.xAxisLabels.push(nextprops.Chart[i].sprintId)
-        this.state.smallData.push(nextprops.Chart[i].charts.smallBarData)
+    console.log(this.props, 'camePrevious')
+   for (var i = 0; i < this.props.Chart.length; i++) {
+        
+        this.state.fetchData.push(this.props.Chart[i])
+        this.state.fetchListData.push(this.props.Chart[i].charts.listData)
+        this.state.fetchBarData.push(this.props.Chart[i].charts.barData)
+        this.state.fetchLineData.push(this.props.Chart[i].charts.lineData)
+        this.state.xAxisLabels.push(this.props.Chart[i].sprintId)
+        this.state.smallData.push(this.props.Chart[i].charts.smallBarData)
         // this.setState({smallData:[...this.state.smallData,nextprops.Chart[i].charts.smallBarData]})
       }
-      this.setState({ count: 2 })
-    }
-    console.log('this.state.fetchData ', this.state.smallData);
+     
     output = this.state.xAxisLabels.map((data, i) => ({
       id: i + 1,
       barValue: this.state.fetchBarData[i],
@@ -151,9 +150,14 @@ console.log('final',finalData)
   }
  
   componentDidMount() {
+    fetch("https://demo9810618.mockable.io/fetchSprintData")
+    .then(res => res.json())
+    .then(data =>
+       data
+    );
     this.props.fetchData('https://demo9810618.mockable.io/fetchSprintData', 'CHART');
 
-    console.log(this.props.Chart)
+    console.log(this.props.Chart,'charts')
    
   }
   getDatasetAtEventick = (tickData) => {
