@@ -3,6 +3,8 @@ import CurrentLocation from './contractComponents/CurrentLocation';
 import TDataPicker from './contractComponents/TdatePicker';
 import RangeSlider from './contractComponents/RangeSlider';
 import FileUpload from './contractComponents/FileUpload';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 
 class Contact extends Component {
@@ -307,7 +309,12 @@ class Contact extends Component {
          </section>
          )
         }else{
-            return <h1>Loading...</h1>
+            return <Loader
+            type="Oval"
+            color="white"
+            height="50"
+            width="50"
+            className="loading" />
         }
      }
  }

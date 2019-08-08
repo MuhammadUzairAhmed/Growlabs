@@ -2957,3 +2957,12 @@ h1 {}
 .score_section .scoreText {
     margin-top: -37px;
 }
+
+.loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50vh;
+    margin: 0 auto;
+    text-align: center;
+}

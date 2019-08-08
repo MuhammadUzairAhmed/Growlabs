@@ -4,6 +4,8 @@ import { itemsFetchData, currentStateData } from '../../actions/fuelSavingsActio
 import  Category  from './backlog/categories';
 import  Sprints  from './backlog/sprints';
 import  BacklogData  from './backlog/backlogData';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 class Backlog extends Component {
   constructor(props){
@@ -12,7 +14,8 @@ class Backlog extends Component {
       categoryData:[],
       sprintData:[],
       CurrentId:'',
-      SprintId:''
+      SprintId:'',
+      loaded: true
     }
     this.props.fetchData('http://demo2532200.mockable.io/backlog','BACKLOG');
   }
@@ -31,22 +34,13 @@ class Backlog extends Component {
             }
       })
     })
-    
-  }
-  componentWillMount(){
    
-    // if(this.state.SprintId == ''){
-    //   this.setState({
-    //     SprintId:this.props.currentStateID[1].sprintID
-    //   })
-    // }
-    // if(this.state.CurrentId == ''){
-    //   this.setState({
-    //     CurrentId:this.props.currentStateID[1].currentID
-    //   })
-    // }
   }
-
+  componentWillReceiveProps(){
+    this.setState({
+      loaded:false
+    })
+  }
   selectedCatId(ev){
       this.setState({
         CurrentId:ev
@@ -74,13 +68,24 @@ class Backlog extends Component {
     })
   }
   render(){
-    return (
-      <section class="backlog">
-        <Category data={this.props.backlog.map((items)=> items.categoryId)} activeId={this.state.CurrentId} selectedCat={this.selectedCatId.bind(this)}  />
-        <Sprints data={this.state.categoryData} selectedSpt={this.selectedSptId.bind(this)} />
-        <BacklogData data={this.state.sprintData} />
-      </section>
-    );  
+   
+        return (
+          this.state.loaded ? <Loader
+            type="Oval"
+            color="white"
+            height="50"
+            width="50"
+            className="loading"
+         />
+          :  
+          <section class="backlog">
+            <Category data={this.props.backlog.map((items)=> items.categoryId)} activeId={this.state.CurrentId} selectedCat={this.selectedCatId.bind(this)}  />
+            <Sprints data={this.state.categoryData} selectedSpt={this.selectedSptId.bind(this)} />
+            <BacklogData data={this.state.sprintData} />
+          </section>
+        
+        );  
+   
   };  
 };
 

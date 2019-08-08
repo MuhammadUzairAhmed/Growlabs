@@ -27,13 +27,13 @@ class LineChart extends Component {
             var getIndex = tickData[0]._index;
             var xValue = tickData[0]._xScale.ticks[getIndex];
 
-            console.log('x ', xValue);
-            console.log('y ', yValue);
+            //console.log('x ', xValue);
+            //console.log('y ', yValue);
             // console.log(tickData, " tickData ")
         }
         catch
         {
-            console.log("please click on correct value")
+            //console.log("please click on correct value")
         }
     }
     constructor(props) {
@@ -49,14 +49,14 @@ class LineChart extends Component {
     componentDidMount() {
 
         if (this.props.xaxes) {
-            console.log('recivedDidMount', this.props.xaxes)
+           // console.log('recivedDidMount', this.props.xaxes)
             output = this.props.xaxes.map((data, i) => ({
                 id: i + 1,
                 listValue: this.props.checkData[i],
             }));
-            console.log(output, 'output')
+           // console.log(output, 'output')
             // this.setState({output:output})
-            console.log('complete Data ', output);
+           // console.log('complete Data ', output);
             var ctx = document.getElementById('myChart').getContext("2d")
             var gradient = ctx.createLinearGradient(0, 0, 0, 200);
             gradient.addColorStop(0, 'rgba(63,245,183,0.4)');
@@ -116,9 +116,9 @@ class LineChart extends Component {
 
     }
     componentWillReceiveProps(nextprops) {
-        console.log('chekced ', nextprops.xaxes)
+       // console.log('chekced ', nextprops.xaxes)
         var chek = nextprops.getListValue - 1;
-        console.log('getData ', nextprops.lstVal, nextprops.barVal, output[chek])
+        //console.log('getData ', nextprops.lstVal, nextprops.barVal, output[chek])
         this.props.FetchSprintData(nextprops.lstVal, nextprops.barVal, output[chek].listValue)
         // this.props.accessVal(output[chek].listValue);
 
