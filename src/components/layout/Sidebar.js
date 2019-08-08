@@ -1,11 +1,15 @@
-import React , {Component} from 'react';
+
+import 'rc-progress/assets/index.css';
+import React, { Component } from 'react';
 import { NavLink,  BrowserRouter, Route, Switch } from 'react-router-dom';
 import LineChart from './../../components/pages/LineChart';
+import {connect} from "react-redux";
+import { itemsFetchData} from '../../actions/fuelSavingsActions';
 import CommitLineChart from './../pages/CommitLineChart';
 import ProgressBars from './../pages/sidebarComponents/ProgressBars';
 import StraightProgressBar from './../pages/sidebarComponents/StraightProgressBar';
-import { connect } from "react-redux";
-import { itemsFetchData } from '../../actions/fuelSavingsActions';
+import { Circle  } from 'rc-progress';
+
 const routes = [
     { path: '/statistics', name: 'Statistics', icon:'401382365'},
     { path: '/collaboration', name: 'Collaboration', icon:'401382288' },
@@ -28,7 +32,8 @@ class Sidebar extends Component {
             xAxisLabels:[],
             count:1,
             height:'',
-            minHeight:''
+            minHeight:'',
+            score:'86'
         }
     }
     componentDidMount()
@@ -71,7 +76,8 @@ componentWillReceiveProps(nextprops)
             <section className="sidebar " style={styleHeight}>
                 <div className="score_section ">
                     <div className="score ">
-                        <img src="./assets/img/img_1.png"/>
+                         <Circle percent={this.state.score} gapDegree={140} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
+                        <div className="scoreText"><h1>{this.state.score}</h1><p>Growlabs Score</p></div>
                     </div>
                     <div className="score ">
                         {/* <img src="./assets/img/img_2.png" /> */}
