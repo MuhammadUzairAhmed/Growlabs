@@ -76,7 +76,9 @@ componentWillReceiveProps(nextprops)
             <section className="sidebar " style={styleHeight}>
                 <div className="score_section ">
                     <div className="score ">
-                         <Circle percent={this.state.score} gapDegree={140} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
+                    <div className="score_height ">
+                         <Circle percent={this.state.score} gapDegree={138} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
+                         </div>
                         <div className="scoreText"><h1>{this.state.score}</h1><p>Growlabs Score</p></div>
                     </div>
                     <div className="score ">

@@ -13,6 +13,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import { itemsFetchData } from '../../actions/fuelSavingsActions';
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import 'rc-progress/assets/index.css';
+import { Circle  } from 'rc-progress';
+
 
 var output;
 var yVal = '';
@@ -50,7 +53,8 @@ class Statistics extends Component {
       fetchData: [],
       smallData:[],
       count: 1,
-      loaded: true
+      loaded: true,
+      score:'86'
     }
   }
 
@@ -377,8 +381,12 @@ console.log('xaxeslabels',this.state.xAxisLabels)
             </div>
             
               <div class="base-86-text">
-                <img src={rpm} />
-                <p>GROW LABS SCORE</p>
+              <div className="score ">
+              <div className="score_height ">
+              <Circle percent={this.state.score} gapDegree={130} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
+              </div>
+              <div className="scoreText"><h1>{this.state.score}</h1><p>Growlabs Score</p></div>
+              </div>
               </div>
             </div>
           </div>

@@ -2921,7 +2921,7 @@ h1 {}
     -webkit-mask-box-image: url(../assets/img/score.png) 0 0 70 0;
 }
 .scoreText {
-    margin-top: -130px;
+    margin-top: -46px;
     position: relative;
 }
 
@@ -2936,4 +2936,24 @@ h1 {}
     line-height: 0px;
     margin: 22px 0px 35px 0px;
     color: #3882a7;
+}
+.base-86 .score {
+    background: none;
+    border: 0px;
+}
+.score_height {
+    height: 96px;
+    overflow: hidden;
+}
+
+.base-86 .score .scoreText p {
+    color: #fff !important;
+    opacity: 0.3;
+}
+.score_section .score_height {
+    height: 82px;
+}
+
+.score_section .scoreText {
+    margin-top: -37px;
 }
