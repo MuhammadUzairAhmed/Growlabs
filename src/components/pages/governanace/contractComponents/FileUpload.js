@@ -29,8 +29,10 @@ class FileUpload extends Component
           var dataList ={
             id: i,
             acceptedFile : acceptedFiles[i].name,
-            size: fileSize
+            size: fileSize,
+            
           }
+          this.setState({arrayList:[]})
           this.setState({arrayList: [...this.state.arrayList, dataList]})
         }
         
@@ -49,7 +51,7 @@ class FileUpload extends Component
         );
         return(
 <div>
-<h1>file Upload</h1>
+{/* <h1>file Upload</h1> */}
 <Dropzone onDrop={this.fileUploader}>
   {({getRootProps, getInputProps}) => (
     <section>
