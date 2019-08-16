@@ -31,8 +31,6 @@ class Sidebar extends Component {
             fetchLineData:[],
             xAxisLabels:[],
             count:1,
-            height:'',
-            minHeight:'',
             score:'86'
         }
     }
@@ -56,24 +54,13 @@ componentWillReceiveProps(nextprops)
         this.setState({ count: 2 })
       }
 }
-    refCallback = element => {
-        if (element) {
-            var elmnt = document.querySelector(".center_part");
-            setTimeout(() => {
-                this.setState({
-                    height:elmnt.clientHeight
-                })
-            }, 500)
-        }
-    };
+   
     render() {
-        let styleHeight = {
-            minHeight: this.state.height
-        }
+      
 
         return (
 
-            <section className="sidebar " style={styleHeight}>
+            <section className="sidebar ">
                 <div className="score_section ">
                     <div className="score ">
                     <div className="score_height ">

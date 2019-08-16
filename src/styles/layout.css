@@ -114,7 +114,7 @@ section.sidebar {
 }
 
 .menu {
-    min-height: 522px;
+    min-height: auto;
 }
 
 .jquery-accordion-menu ul li a {

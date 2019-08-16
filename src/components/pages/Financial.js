@@ -61,6 +61,7 @@ class Financial extends Component {
                 <div className="eur">EUR  </div>
               </div>
               {this.state.data.financial.paymentData.map((items) =>
+              <section>
                 <div className={"according_box "+items.status}>
                   <div className="check_box">
                       <label className="fancy-checkbox">
@@ -71,11 +72,14 @@ class Financial extends Component {
                       <a target="_blank" href="#"><img 
                       src={'./assets/img/'+ 
                         (() => {
-                          if (items.status == 'funded' || items.status == 'fund') {
+                          if (items.status == 'fund') {
                             return 'ARROW.png';
                           }
-                          if (items.status == 'release') {
+                          if (items.status == 'funded') {
                             return 'Finance-Money-icon.png';
+                          }
+                          if (items.status == 'release') {
+                            return 'book.png';
                           }
                           else{
                             return '126157@3x.png';
@@ -116,7 +120,10 @@ class Financial extends Component {
                       <a target="_blank" href="#">${items.eur}</a>
                   </div>
                 </div>
+                {items.status == 'release' ? <div class="according_box according_box-hea"> <div class="check_box"></div> <p>PREVIOUS</p> </div>:''}
+              </section>
               )}
+            
           </div>
         </section>
       );  
