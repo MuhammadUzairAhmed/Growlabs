@@ -492,10 +492,11 @@ class Agency extends Component {
                   {Object.values(data.Lchild).map((subData, lid) =>
                      subData.status == true ?
                         <div className="plus" onClick={() => this.editLeftChild(data.id, subData.id)}>
-
-                           <img src="./assets/img/user2.png" />
-                           <h3>{subData.fname}</h3>
-                           <p>{subData.Function}</p>
+                           {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
+                           <div className="text">
+                              <h3>{subData.fname}</h3>
+                              <p>{subData.Function}</p>
+                           </div>
                         </div>
                         :
 
@@ -511,8 +512,10 @@ class Agency extends Component {
                   <div className="mid">
                      {data.status === true ?
                         <div>
-                           <div className="profile" style={{ marginTop: "5px" }}>
-                              <img src="./assets/img/user2.png" onClick={() => this.editMidChild(data.id)} />
+                           <div className="profile">
+                           <div className="profile_img">
+                              <img src={data.image} width="100%" onClick={() => this.editMidChild(data.id)} class="profile-fix-img" />
+                           </div>
                               <div className="text">
                               <h3>{data.fname}</h3>
                               <p>{data.Function}</p>
@@ -522,7 +525,7 @@ class Agency extends Component {
                         </div>
                         :
                         <div>
-                           <div className="plus" >
+                           <div className="plus">
                               <img key={index} src="./assets/img/close.png" onClick={() => this.addUser(index, 'mid')} />
                               <p>add</p>
                            </div>
@@ -536,12 +539,12 @@ class Agency extends Component {
                <div className="third_box">
                   {Object.values(data.Rchild).map((subData, rid) =>
                      subData.status == true ?
-                        <div className="plus" style={{ marginTop: '-45px' }} onClick={() => this.editRightChild(data.id, subData.id)}>
-
-                           <img src="./assets/img/user2.png" />
-                           <h3>{subData.fname}</h3>
-                           <p>{subData.Function}</p>
-
+                        <div className="plus" attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}>
+                           {data.image != '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image}/>}
+                           <div className="text">
+                              <h3>{subData.fname}</h3>
+                              <p>{subData.Function}</p>
+                           </div>
                         </div>
                         :
                         <div className="plus" attr={rid}>
@@ -561,13 +564,15 @@ class Agency extends Component {
       return (
          <div className="agency">
             <div className="left_side">
-               <FileUpload getInput={this.handleInput} />
-               <h3>{this.state.message}</h3>
+           
                <div className="profile">
-                  {this.state.saveId
-                     ? <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />
-                     : <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />}
-
+                  {/* {this.state.saveId
+                     ? <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={} />
+                     : <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />} */}
+<img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={this.state.image != '' ? "upload_user":"blank_user"} />
+<div className="proflie_upload">
+               <FileUpload getInput={this.handleInput} />
+              </div>
                </div>
                <div className="feild half">
                   <label>first name</label>
