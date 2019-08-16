@@ -679,7 +679,7 @@ section.backlog {}
     border-bottom: 1px solid #ffffff47;
     content: "";
     display: block;
-    padding: 0px 50px;
+    padding: 0px 40px;
 }
 
 .backlog ul.ui-tabs-nav li a:focus {
