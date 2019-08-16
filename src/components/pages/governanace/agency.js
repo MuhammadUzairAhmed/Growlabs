@@ -491,11 +491,15 @@ class Agency extends Component {
                <div className="left_box">
                   {Object.values(data.Lchild).map((subData, lid) =>
                      subData.status == true ?
-                        <div className="plus" onClick={() => this.editLeftChild(data.id, subData.id)}>
-                           {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
+                        <div onClick={() => this.editLeftChild(data.id, subData.id)}>
+                             <div className="profile">
+                             <div className="profile_img">
+                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
+                              </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
                               <p>{subData.Function}</p>
+                           </div>
                            </div>
                         </div>
                         :
@@ -514,7 +518,7 @@ class Agency extends Component {
                         <div>
                            <div className="profile">
                            <div className="profile_img">
-                              <img src={data.image} width="100%" onClick={() => this.editMidChild(data.id)} class="profile-fix-img" />
+                               {data.image == '' ? <img src="./assets/img/user2.png" /> : <img src={data.image} onClick={() => this.editMidChild(data.id)}  class="profile-fix-img"/>}
                            </div>
                               <div className="text">
                               <h3>{data.fname}</h3>
@@ -539,11 +543,15 @@ class Agency extends Component {
                <div className="third_box">
                   {Object.values(data.Rchild).map((subData, rid) =>
                      subData.status == true ?
-                        <div className="plus" attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}>
-                           {data.image != '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image}/>}
+                        <div attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}>
+                         <div className="profile">
+                           <div className="profile_img">
+                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
+                           </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
                               <p>{subData.Function}</p>
+                           </div>
                            </div>
                         </div>
                         :
