@@ -9,7 +9,7 @@ class messages extends Component {
                     <div className="send_massage">
                         {this.props.message}
                     </div>
-                    <div className="massage_time"></div>
+                    <div className="massage_time">{this.props.time}</div>
                 </div>
             )
         }else{
@@ -18,7 +18,7 @@ class messages extends Component {
                     <div className="received_massage">
                         {this.props.message}
                     </div>
-                    <div className="massage_time"></div>
+                    <div className="massage_time">{this.props.time}</div>
                 </div>
             )
         }

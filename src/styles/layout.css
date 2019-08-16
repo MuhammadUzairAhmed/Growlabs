@@ -314,6 +314,18 @@ section.chat_room {
     right: 0;
     top: 124px;
     height:90%;
+    /* transform: translateX(0%); */
+}
+
+section.chat_room_active{
+    /* background: #161c20;
+    width: 350px;
+    position: absolute;
+    right: 0;
+    top: 124px;
+    height:90%; */
+    /* transform: translateX(100%);
+    transition: transform 0.5s ease-in; */
 }
 
 .chatroom_header {
@@ -370,9 +382,9 @@ section.chat_room {
     clear: both;
 }
 
-.received_massage {
+.chatroom_Content .received_massage {
     border-radius: 15px 15px 0 15px;
-    background: #336a77;
+    background-image: linear-gradient(#336a77, #ffffff82);
     float: right;
     color: #fff;
     font-size: 12px;
@@ -387,9 +399,9 @@ section.chat_room {
     padding: 20px 20px;
 }
 
-.send_massage {
+.chatroom_Content .send_massage {
     border-radius: 15px 15px 15px 0px;
-    background: #1e262a;
+    background-image: linear-gradient(#1e262a, #ffffff82);
     float: left;
     color: #fff;
     font-size: 12px;
@@ -437,6 +449,12 @@ section.chat_room {
     margin: 0px 10px 0px 0px;
 }
 
+.messageScrollable
+{
+    max-height: 110vh;
+    overflow-y: scroll;
+    
+}
 .massage_newdate {
     clear: both;
     color: #a9a9a9;
@@ -521,10 +539,9 @@ section.chat_room {
 .chatroom_footer {
     background-color: #13181C;
     border-top: 1px solid #2b363d;
-    padding: 20px 20px 20px 20px;
+    padding: 14px 20px 14px 20px;
     clear: both;
     position: absolute;
-    bottom: 0;
     left: 0;
     right: 0;
 }
@@ -547,7 +564,7 @@ section.chat_room {
     position: absolute;
     right: 11px;
     width: 43px;
-    top: 21px;
+    top: 15px;
 }
 
 .chatroom_footer button img {
@@ -613,6 +630,9 @@ section.Content_main:after {
 .backlog_box_img {
     display: table;
     margin: 0 auto;
+}
+.backlog_box_img:hover{
+   background-image: url('./../assets/img/img_1.png');
 }
 
 .backlog_box_flt h1 {

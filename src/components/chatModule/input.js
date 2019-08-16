@@ -9,12 +9,17 @@ class ChatInput extends Component {
     
     render() {
         return (
-            <div className="chatroom_footer">
+            <div className="chatroom_footer" style={{bottom:'0'}}>
             <form
                 action="."
                 onSubmit={e => {
+                    
+                    // this.setState({timing: time})
                     e.preventDefault()
-                    this.props.onSubmitMessage(this.state.message)
+                    var today = new Date();
+                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    console.log(time,'times')
+                    this.props.onSubmitMessage(this.state.message,time)
                     this.setState({ message: '' })
                 }}
                 className="example"

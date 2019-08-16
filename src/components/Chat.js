@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import { itemsFetchData, currentId, backlogWidget } from '../actions/fuelSavingsActions';
 
 
-
 class Chatbot extends Component {
     state = {
         chat:[],
@@ -13,13 +12,13 @@ class Chatbot extends Component {
     }
 
     constructor(props){
-        super(props)
+        super(props);
+        
     }
     componentDidMount() {
         this.props.fetchData(`http://demo2532200.mockable.io/meeting`,'CHAT');
     }
     startchat(value,event){
-
         this.setState({ showMe : true} );
         let dataID = value;
         this.setState({selectedChat: dataID})
@@ -63,10 +62,35 @@ class Chatbot extends Component {
                         )}
 
                     </section>
+                   
                 )
             }  else {
                 return (
-                    <StartChat dataID={this.state.selectedChat} userDetails={this.props.users.id} true={this.backHistoryChatroom.bind(this)}  />
+                    <div>
+                    <section className="chat_room" active={this.props.actionChat} style={{zIndex:'-1',position:'absolute',height:'132vh'}}>
+                        { this.props.chat.map((item)=>
+                            <div className="chatroom_header_boxes" key={item.id} id={item.id}  >
+                                <div className="chatroom_header_lft">
+                                    <div className="chatroom_header_img">
+                                        <img src={item.image} />
+                                        <div class="right">
+                                            {/* <div className="badge total-message">1</div> */}
+                                            <div className="time">Yesterday, 12:30</div>
+                                            <div className="go-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div className="chatroom_header_text">
+                                        <h2>{item.name} </h2>
+                                        <p>{item.designation}</p>
+                                        <span className="message">TEsting data</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                    </section>
+                     <StartChat dataID={this.state.selectedChat} userDetails={this.props.users.id} true={this.backHistoryChatroom.bind(this)}  />
+                     </div>
                 )
             }
         }
