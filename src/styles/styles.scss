@@ -802,17 +802,21 @@ section.Content_main:after {
 .backlog ul.ui-tabs-nav li a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 11px;
     opacity: 0.3;
+    letter-spacing: 2px;
+    font-family: "Space Mono";
 }
 .backlog ul.ui-tabs-nav li.active a {
-    opacity: 1;
+    opacity: 0.6;
 }
 .backlog ul.ui-tabs-nav li a:after {
-    border-bottom: 1px solid #ffffff47;
+    border-bottom: 2px solid #ffffff47;
     content: "";
     display: block;
-    padding: 0px 40px;
+    padding: 0px 50px;
+    opacity: 0.5;
+    border-radius: 100px;
 }
 
 .backlog ul.ui-tabs-nav li a:focus {
@@ -1211,11 +1215,11 @@ ol.carousel-indicators {
 
 ol.carousel-indicators li {
     float: left;
-    margin: 0px 10px;
-    list-style: circle;
+    margin: 0px 6px;
+    list-style: disc;
     color: #fff;
     font-size: 20px;
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 ol.carousel-indicators li.active {
@@ -2443,36 +2447,44 @@ section.chat_room[active="true"] {
 .milestone_main a.carousel-control-prev {
     text-decoration: none;
     position: absolute;
-    left: 63px;
+    left: 40px;
     top: 63px;
 }
 .milestone_main a.carousel-control-prev span.sr-only {
     color: #1a2027;
-    width: 15px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     border-top: 2px solid white;
     position: absolute;
     cursor: pointer;
     border-right: 2px solid white;
     right: 10%;
+    -webkit-transform: rotate(-139deg);
     transform: rotate(-139deg);
+
+overflow: hidden;
+    text-indent: 999px;
 }
 .milestone_main a.carousel-control-next {
     text-decoration: none;
     position: absolute;
-    right: 63px;
+    right: 40px;
     top: 63px;
 }
 .milestone_main a.carousel-control-next span.sr-only {
     color: #1a2027;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     border-top: 2px solid white;
     position: absolute;
     cursor: pointer;
     border-right: 2px solid white;
     right: 10%;
+    -webkit-transform: rotate(46deg);
     transform: rotate(46deg);
+
+overflow: hidden;
+    text-indent: 999px;
 }
 .first_day button.link {
     background: none;
@@ -2606,13 +2618,13 @@ h1 {}
 .milestone_main a.carousel-control-prev {
     text-decoration: none;
     position: absolute;
-    left: 63px;
+    left: 40px;
     top: 63px;
 }
 .milestone_main a.carousel-control-prev span.sr-only {
     color: #1a2027;
-    width: 15px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     border-top: 2px solid white;
     position: absolute;
     cursor: pointer;
@@ -2623,13 +2635,13 @@ h1 {}
 .milestone_main a.carousel-control-next {
     text-decoration: none;
     position: absolute;
-    right: 63px;
+    right: 40px;
     top: 63px;
 }
 .milestone_main a.carousel-control-next span.sr-only {
     color: #1a2027;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     border-top: 2px solid white;
     position: absolute;
     cursor: pointer;
