@@ -1,10 +1,16 @@
+
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap-carousel";
 
 class GetMilestone extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        autoplay: true
+      };
+    }
     render(){
-        console.log(this.props.data)
         return (
            this.props.data.map((item)=>
                 <div className="milestone_main" key={item.milestoneId}>
@@ -51,11 +57,11 @@ class GetMilestone extends Component {
                         )}
                       </div>
                   </section>
-                  <Carousel>
+                  <Carousel >
                     {item.sprints.map((sprint)=>
-                     <Carousel.Item key={sprint.id}>
-                        <Carousel.Caption><h3>SPRINT {sprint.id} </h3><p>{sprint.desicription} </p> </Carousel.Caption>
-                      </Carousel.Item>
+                     <div key={sprint.id}>
+                        <div><h3>SPRINT {sprint.id} </h3><p>{sprint.desicription} </p> </div>
+                      </div>
                       )}
                   </Carousel>
                 </div>
