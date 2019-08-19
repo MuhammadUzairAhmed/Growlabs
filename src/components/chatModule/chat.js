@@ -112,7 +112,7 @@ class Chat extends Component {
                     position: 'absolute',
                     right: '-400px',
                     top: '124px',
-                    height:'132vh',
+                    height:'100vh',
                    
                 }}>
                    

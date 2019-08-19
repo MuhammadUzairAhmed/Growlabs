@@ -67,7 +67,7 @@ class Chatbot extends Component {
             }  else {
                 return (
                     <div>
-                    <section className="chat_room" active={this.props.actionChat} style={{zIndex:'-1',position:'absolute',height:'132vh'}}>
+                    <section className="chat_room" active={this.props.actionChat} >
                         { this.props.chat.map((item)=>
                             <div className="chatroom_header_boxes" key={item.id} id={item.id}  >
                                 <div className="chatroom_header_lft">

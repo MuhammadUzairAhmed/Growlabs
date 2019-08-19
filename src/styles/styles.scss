@@ -18,7 +18,7 @@ section.sidebar {
     position: fixed;
     z-index: 99999;
     top: 0;
-    padding-top: 20px;
+    padding-top: 125px;
     height: 100vh;
 
 }
@@ -64,7 +64,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     color: #fefefe;
     padding: 32px 22px 32px 57px;
     background: #0c0e10;
-    height: 61px;
+    height: 60px;
     float: right;
     width: 270px;
     position: fixed;
@@ -105,7 +105,10 @@ section.sidebar::-webkit-scrollbar-thumb {
     font-weight: 300;
     line-height: 7px;
 }
-
+.score:first-child {
+    padding-bottom: 0px;
+    padding-top: 30px;
+}
 .score {
     background-color: #1E272E;
     margin: 0px 0px 6px 0px;
@@ -113,6 +116,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     border-radius: 5px;
     text-align: center;
     padding: 8px 8px;
+    
 }
 .score_section img {
     width: 100%;
@@ -252,10 +256,10 @@ section.sidebar::-webkit-scrollbar-thumb {
 section.header {
     background: #0c0e10;
     height: 124px;
-    position: relative;
+    position: fixed;
     left: 0;
     right: 0;
-    z-index: 9;
+    z-index: 99999999;
     overflow: hidden;
 
 }
@@ -725,6 +729,7 @@ section.Content_main:after {
     width: calc(100% - 620px);
     margin: 0 auto;
     margin-left: 229px;
+    padding-top: 154px;
 }
 
 
@@ -2510,7 +2515,7 @@ overflow: hidden;
 
 .dashbord_left {
     float: left;
-    width: calc(100% - 300px);
+    width: calc(99% - 300px);
 }
 
 .dashbord_right {
@@ -2565,6 +2570,10 @@ h1 {}
 .score p {
 
     color: #64696D !important;
+    font-size: 6px !important;
+    font-weight: 600;
+    text-align: center;
+    font-family: "Open Sans";
 }
 .score {
     position: relative;
@@ -2586,7 +2595,8 @@ h1 {}
 }
 .CircularProgressbar {
 
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    width: 34px;
 }
 .jquery-accordion-menu .active {
     color: #fff !important;
@@ -2691,17 +2701,21 @@ h1 {}
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
-    background-color: #000000b3;
     color: #d0d0d0;
     text-align: left;
-    border-radius: 100px;
-    padding: 6px 20px;
+    border-radius: 2px;
+    padding: 10px 10px;
     position: absolute;
-    z-index: 1;
     font-size: 12px;
-    top: 3px;
- 
-    right: 25px;
+    top: 7px;
+    right: 31px;
+    background-color: #202830;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+    width: 118px;
+    z-index: 999999;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border: 1px solid #79797930;
   }
   
   .tooltip:hover .tooltiptext {
@@ -3001,9 +3015,11 @@ h1 {}
     padding-top: 2px;
 }
 .score td p {
-    width: 36px;
-    font-size: 8px !important;
-    color: #64696D !important;
+    width: 39px;
+    font-size: 6px !important;
+    font-family: "Open Sans";
+    font-weight: 600;
+    text-align: center;
 }
 .tooltip .tooltiptext:after {
     content: "";
@@ -3019,7 +3035,7 @@ h1 {}
     margin: 0px auto;
 }
 .score .rc-progress-circle {
-    -webkit-mask-box-image: url(../assets/img/score.png) 0 0 70 0;
+    -webkit-mask: url(http://localhost:3000/score.png) bottom center / contain;
 }
 .scoreText {
     margin-top: -46px;
@@ -3027,16 +3043,19 @@ h1 {}
 }
 
 .scoreText p {
-    font-size: 12px;
-    margin: 14px 0px;
+    font-size: 6px;
+    margin: 35px 0px;
+    margin-bottom: 6px;
+    font-family: "Open Sans";
 }
 
 .scoreText h1 {
-    font-size: 50px;
+    font-size: 38px;
     font-weight: 500;
     line-height: 0px;
     margin: 22px 0px 35px 0px;
-    color: #3882a7;
+    color: #2a95d1;
+    font-family: "Space Mono";
 }
 .base-86 .score {
     background: none;
@@ -3049,11 +3068,12 @@ h1 {}
     margin: 0 auto;
 }
 section.sidebar .score_height {
-    height: 95px;
-    width: 151px;
+    height: 70px;
+    overflow: hidden;
+    width: 88%;
 }
 section.sidebar .score_section .scoreText {
-    margin-top: -52px;
+    margin-top: -35px;
 }
 .base-86 .score .scoreText p {
     color: #fff !important;

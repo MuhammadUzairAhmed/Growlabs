@@ -275,6 +275,7 @@ console.log('xaxeslabels',this.state.xAxisLabels)
          color="white"
          height="50"
          width="50"
+         className="loading" 
       />
     
     :  
@@ -369,7 +370,7 @@ console.log('xaxeslabels',this.state.xAxisLabels)
 
             <div class="tooltip">
               <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
-               <span class="tooltiptext">Tooltip text</span>
+               <span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span>
             </div>
 
               <div class="base-420-text">
