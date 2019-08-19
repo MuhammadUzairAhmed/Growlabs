@@ -59,8 +59,8 @@ class Statistics extends Component {
   }
 
   componentWillReceiveProps(nextprops) {
-    console.log(nextprops, 'came')
-    console.log(this.props, 'camePrevious')
+    // console.log(nextprops, 'came')
+    // console.log(this.props, 'camePrevious')
    for (var i = 0; i < this.props.Chart.length; i++) {
         
         this.state.fetchData.push(this.props.Chart[i])
@@ -78,7 +78,7 @@ class Statistics extends Component {
       listValue: this.state.fetchListData[i],
     }));
     // this.setState({output:output})
-    console.log('complete Data ', output);
+    // console.log('complete Data ', output);
 
     var ctx = document.getElementById('myChart').getContext("2d")
     var gradient = ctx.createLinearGradient(0, 0, 0, 200);
@@ -137,7 +137,7 @@ var datasetConst = [
   },
 ]
 var finalData = [...this.state.smallData,...datasetConst]
-console.log('final',finalData)
+// console.log('final',finalData)
     var data = {
       labels: this.state.xAxisLabels,
       datasets: finalData 
@@ -157,22 +157,22 @@ console.log('final',finalData)
     );
     this.props.fetchData('https://demo9810618.mockable.io/fetchSprintData', 'CHART');
 
-    console.log(this.props.Chart,'charts')
+    // console.log(this.props.Chart,'charts')
    
   }
   getDatasetAtEventick = (tickData) => {
     try {
-      console.log('dataTick ', tickData)
+      // console.log('dataTick ', tickData)
       //---------------------------------------------------
       var yValue = yVal.replace(/\D/g, '');
 
       //getting xvalue
       var getIndex = tickData[0]._index;
-      console.log('getIndex ', getIndex)
+      // console.log('getIndex ', getIndex)
       var colr = tickData[getIndex]._model.backgroundColor;
 
 
-      console.log('colr ', colr)
+      // console.log('colr ', colr)
       var xValue = tickData[0]._xScale.ticks[getIndex];
       var finalData =
       {
@@ -180,21 +180,21 @@ console.log('final',finalData)
         y: yValue
       }
       this.state.displayData.push(finalData)
-      console.log('displayData ', this.state.displayData)
-      console.log('x ', xValue);
-      console.log('y ', yValue);
+      // console.log('displayData ', this.state.displayData)
+      // console.log('x ', xValue);
+      // console.log('y ', yValue);
       // console.log(tickData, " tickData ")
       if (colr == 'rgb(186, 23, 58)') {
         this.setState({
           dispSpecificGreenValue: finalData
         }, () => {
-          console.log('check ', this.state.dispSpecificGreenValue)
+          // console.log('check ', this.state.dispSpecificGreenValue)
         })
       } else if (colr == 'rgb(1, 137, 96)') {
         this.setState({
           dispSpecificRedValue: finalData
         }, () => {
-          console.log('check ', this.state.dispSpecificRedValue)
+          // console.log('check ', this.state.dispSpecificRedValue)
         })
       }
 
@@ -202,7 +202,7 @@ console.log('final',finalData)
     }
     catch
     {
-      console.log("please click on correct value")
+      // console.log("please click on correct value")
     }
   }
   selectSprintId = (dataVal) => {
@@ -223,7 +223,7 @@ console.log('final',finalData)
             delete: data.charts.smallBarData.data[1]
           }
         })
-        console.log('get it', data)
+        // console.log('get it', data)
       }
     })
 
@@ -247,11 +247,11 @@ console.log('final',finalData)
     lineDataVal = data;
   }
   chartReference = (x) => {
-    console.log('color ', x);
+    // console.log('color ', x);
   }
 
   render() {
-console.log('xaxeslabels',this.state.xAxisLabels)
+    // console.log('xaxeslabels',this.state.xAxisLabels)
     var displaySprint = this.state.xAxisLabels.map(data =>
       <div class={"colleborate_box "} key={data} onClick={() => this.selectSprintId(data)}>
         <h1>Sprint {data}</h1>
@@ -394,8 +394,6 @@ console.log('xaxeslabels',this.state.xAxisLabels)
               </div>
             </div>
           </div>
-
-
           <div class="card-base2">
             <div class="oval">
             <div class="tooltip">

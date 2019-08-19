@@ -25,9 +25,6 @@ import { get } from "http";
 // component at the top-level.
 
 class App extends React.Component {
-  componentDidMount(){
-
-  }
   render() {
     return (
       <section>
@@ -37,7 +34,8 @@ class App extends React.Component {
               <Sidebar />
               <div className="center_part">
                   <Switch>
-                      <Route exact path="/statistics"  component={Statisitcs} />
+                      <Route exact path="/"  component={HomePage} />
+                      <Route path="/statistics" component={Statisitcs} />
                       <Route path="/collaboration" component={Collaboration} />
                       <Route path="/financial" component={Financial} />
                       <Route path="/backlog" component={Backlog} />
