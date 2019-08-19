@@ -3137,3 +3137,874 @@ section.sidebar .score_section .scoreText {
     text-align: center;
     margin: 3px 0px 0px 0px;
 }
+
+
+/* Start Technology css */
+.technology_center {
+    background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.41);
+    width: 900px;
+    display: table;
+    margin: 0 auto;
+    padding: 40px 95px;
+    margin-bottom: 9px;
+}
+.technology_top h1 {
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+.technology_top {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 35px;
+}
+.technology_top p {
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 0px;
+}
+.technology_center h1 {
+    color: #60666A;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.67px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0px;
+	margin-bottom: 26px;
+	text-transform: uppercase;	
+}
+.technology_box {
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.5);
+    border: 1px solid #dbdbdbc9;
+    height: 60px;
+    width: 28%;
+    float: left;
+    margin: 3px 23px;
+}
+.technology_box p {
+        color: #8E8D92;
+    /* font-family: "Avenir Next"; */
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    margin: 20px 0px;
+    text-transform: capitalize;
+}
+.technology_center h4 {
+    color: #8E8D92;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.44px;
+    line-height: 33px;
+    text-align: center;
+}
+.technology_center a.button {
+    background: #19D192;
+    border: 1.5px solid rgba(0,0,0,0.7);
+    border-radius: 100px;
+    clear: both;
+    padding: 13px 4px;
+    width: 46%;
+    display: table;
+    margin: 0 auto;
+    font-size: 17px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 18px;
+    position: relative;
+    top: 18px;
+}
+
+.technology_center a.button span {
+    font-size: 12px;
+}
+.technology_box.active {
+    box-shadow: 0 2px 15px 0 rgba(0,0,0,0.1);
+    background-color: #D6D8DA;
+    border: 1px solid #D6D8DA;
+}
+
+.technology_box.active p {
+    color: #323232;
+    font-weight: bold;
+}
+
+/* End Technology css */
+
+
+/* start legal css */
+
+.legal_top {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 35px;
+}
+.legal_top h1 {
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+
+.legal_top p {
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 0px;
+	    margin-bottom: 80px;
+}
+.legal_center {
+       background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.41);
+    width: 1040px;
+    display: table;
+    margin: 0 auto;
+    padding: 50px 50px;
+    margin-bottom: 9px;
+}
+.legal_box-main{
+      float: left;
+    width: 49%;
+    margin: 0px 4px;
+}
+.legal_box{
+    background: #192025;
+    padding: 20px 0px;
+    position: relative;
+	    padding-bottom: 2px;
+   
+}
+.legal_box h1 {
+    text-align: center;
+    margin: 0px;
+    color: #8E8D92;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.67px;
+    line-height: 20px;
+    margin-bottom: 25px;
+}
+
+.legal_green {
+    background: #19D192;
+    width: 16%;
+    display: table;
+    margin: 0 auto;
+    border-radius: 4px;
+    padding: 30px 25px 0px 13px;
+    position: relative;
+    height: 145px;
+}
+.legal_green:after {
+    content: "";
+    height: 0;
+    border-top: 45px solid #192025;
+    border-left: 45px solid transparent;
+    position: absolute;
+    top: 0px;
+    right: 0;
+}
+.legal_green p {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+	
+}
+.legal_green h2 {
+    opacity: 0.18;
+    color: #000000;
+    font-family: "Space Mono";
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    position: absolute;
+    bottom: 8px;
+    margin: 0px;
+}
+.legal_box img {
+    display: table;
+    margin: 0 auto;
+    padding: 19px 0px;
+    width: 30px;
+}
+.legal_box label.fancy-checkbox {
+      position: absolute;
+    right: 20px;
+    bottom: 22px;
+}
+.legal_box-main p.last {
+    color: #BBBBBB;
+    font-family: "Open Sans";
+    font-size: 10px;
+    line-height: 14px;
+    padding: 0px 59px;
+}
+.legal_box span.checkmark {
+    background-color: #181f24;
+    border: 1px solid #19d192;
+}
+.legal_box .checkmark:after {
+	left: 7px;top: 3px;width: 5px;
+	height: 9px;border: solid #19d192;
+	border-width: 0 1px 1px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);}
+
+.legal_box input:checked ~ .checkmark {
+    background-color: #ffffff;
+    border: 1px solid #19d192;
+}
+section.legal a.button {
+    background: #19D192;
+    border: 1.5px solid rgba(0,0,0,0.7);
+    border-radius: 100px;
+    clear: both;
+    padding: 14px 4px;
+    width: 38%;
+    display: table;
+    margin: 0 auto;
+    font-size: 17px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 18px;
+    position: relative;
+    top: 90px;
+}
+
+section.legal a.button span {
+    font-size: 13px;
+}
+/* End legal css */
+
+/* Start Deccription css */
+
+.descriptions_top {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 35px;
+}
+.descriptions_top h1 {
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+.descriptions_top p {
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 0px;
+}
+.descriptions_product {
+      background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    width: 84%;
+    display: table;
+    margin: 0 auto;
+    padding: 40px 70px;
+    color: #fff;
+    padding-bottom: 150px;
+    position: relative;
+	margin-bottom: 15px;
+}
+.descriptions_date_back {
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.24);
+    text-align: center;
+    padding: 27px 0px;
+}
+
+.descriptions_end_back {
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.24);
+    text-align: center;
+    padding: 8px 100px;
+}
+
+.descriptions_total_back {
+     background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.24);
+    text-align: center;
+    padding: 48px 0px 20px 0px;
+}
+
+.descriptions_product h2 {
+    color: #61676C;
+    font-family: "Open Sans";
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.11px;
+    line-height: 14px;
+    text-align: center;
+}
+
+
+
+.descriptions_date_back h1 {
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 31px;
+    margin: 0px;
+	position: relative;
+}
+
+.descriptions_date_back h1 span {
+     color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 20px;
+    position: absolute;
+    right: 50px;
+    top: 0px;
+}
+
+.descriptions_date_back p {
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 22px;
+    margin: 0px;
+}
+
+.descriptions_end_back p {
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.descriptions_total_back h1 {
+ color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 22px;
+    line-height: 30px;
+    margin: 0px;
+    font-weight: 300;
+}
+
+.descriptions_total_back p {
+    color: #19D192;
+    font-family: "Open Sans";
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15px;
+    margin: 0px;
+}
+
+.descriptions_date {
+    float: left;
+    width: 13%;
+    margin: 0px 0.5%;
+}
+
+.descriptions_end {
+    float: left;
+    width: 71%;
+    margin: 0px 0px;
+}
+
+.descriptions_total {
+    float: left;
+    width: 13%;
+    margin: 0px 0.5%;
+}
+
+section.colleborate.descriptions {
+    clear: both;
+    position: absolute;
+    bottom: 35px;
+    left: 0px;
+    right: 0px;
+}
+
+section.colleborate.descriptions .colleborate_top {
+    background: none;
+    border: 0px;
+    box-shadow: none;
+}
+
+section.descriptions {
+    clear: both;
+}
+
+section.colleborate.descriptions .colleborate_box:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 33px;
+    z-index: 999;
+    border-top: 1px solid #bfbfbf38;
+    clear: both;
+}
+section.colleborate.descriptions .fancy-checkbox .checkmark {
+    border-radius: 2px;
+}
+.descriptions_milestone {
+        background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    width: 84%;
+    display: table;
+    margin: 0 auto;
+    padding: 40px 70px;
+    color: #fff;
+    padding-bottom: 114px;
+    position: relative;
+}
+
+.descriptions_milestone_box {
+    float: left;
+    width: 20%;
+    margin: 0px 0px;
+    position: relative;
+}
+
+.descriptions_milestone_box label {
+    opacity: 0.3;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 11px;
+    width: 100%;
+}
+
+.descriptions_milestone_box input {
+    width: 94%;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid #19D192;
+    border-radius: 1.5px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 38px;
+}
+
+.descriptions_milestone_box p {position: absolute;left: -31px;margin: 0px;top: 33px;font-size: 16px;}
+
+.descriptions_milestone_box img {
+    position: absolute;
+    width: 23px;
+    right: 14px;
+    top: 32px;
+}
+.descriptions_milestone h1 {
+    color: #61676C;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.11px;
+    line-height: 26px;
+    text-align: center;
+}
+.milestone_slider.descriptions .carousel-inner {
+    width: 86%;
+    text-align: center;
+}
+
+
+.milestone_slider.descriptions a.left.carousel-control img {
+    position: absolute;
+    left: 80px;
+    top: 200px;
+}
+
+.milestone_slider.descriptions a.right.carousel-control img {
+    position: absolute;
+    right: 80px;
+    top: 200px;
+}
+.milestone_slider.descriptions {
+    position: initial;
+}
+section.colleborate.milestone {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 32px;
+}
+
+section.colleborate.milestone .colleborate_top {
+    background: none;
+    border: 0px;
+    box-shadow: none;
+	    height: 76px;
+}
+section.colleborate.milestone .colleborate_box:after {
+   content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 48px;
+    z-index: 1;
+    border-top: 1px solid #bfbfbf38;
+    clear: both;
+}
+
+.descriptions_milestone_center {
+    display: table;
+    margin: 0 auto;
+    width: 78%;
+}
+section.descriptions .colleborate_box {
+    width: 10%;
+}
+/* End Deccription css */
+
+/* Start Timeframe css */
+
+.timeframe_top {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 35px;
+}
+.timeframe_top h1 {
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+.timeframe_top p {
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 0px;
+}
+.timeframe_tabs {
+    background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    width: 92%;
+    display: table;
+    margin: 0 auto;
+    padding: 25px 0px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.timeframe_tabs h2 {
+    color: #8E8D92;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.44px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 15px;
+}
+
+.timeframe_tabs ul {
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.timeframe_tabs ul li {
+    float: left;
+    background: rgba(0,0,0,0.15);
+    width: 50px;
+    margin: 0px 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+    padding: 4px 4px;
+    color: #969696;
+    font-weight: 700;
+}
+
+.timeframe_tabs ul li.active {
+    background: #fff;
+    color: #404040;
+}
+.timeframe_milestones {
+      background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    width: 92%;
+    display: table;
+    margin: 0 auto;
+    padding: 25px 0px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.timeframe_milestones a.button {
+      box-shadow: 0 2px 10px 0 rgba(0,0,0,0.5);
+    background-color: #D6D8DA;
+    border-radius: 5px;
+    color: #0D0D0D;
+    padding: 6px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 26px;
+}
+
+.timeframe_box {
+    clear: both;
+	margin: 0px 18%;
+}
+
+.timeframe_box .timeframe_first {
+    float: left;
+    width: 9%;
+}
+
+.timeframe_box  .timeframe_secound {
+    float: left;
+    width: 23%;
+}
+
+.timeframe_box  .timeframe_third {
+    float: left;
+    width: 46%;
+    position: relative;
+}
+
+.timeframe_box  .timeframe_for {
+    float: left;
+    width: 14%;
+}
+
+.timeframe_box  .timeframe_five {
+    float: left;
+    width: 8%;
+}
+
+.timeframe_box input {
+    width: 94%;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid #464a48;
+    border-radius: 1.5px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 38px;
+}
+
+.timeframe_box label {
+    opacity: 0.3;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 11px;
+}
+
+.timeframe_box .timeframe_first p {
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+}
+
+.timeframe_box .timeframe_third img {
+    position: absolute;
+    width: 20px;
+    right: 30px;
+    bottom: 10px;
+}
+.timeframe_add {
+    clear: both;
+    background: rgba(255,255,255,0.05);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 20px 18%;
+}
+
+.timeframe_add:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.timeframe_add .timeframe_add_number p {
+    opacity: 0.3;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    margin: 11px 0px;
+}
+
+.timeframe_add .timeframe_add_number {
+    float: left;
+}
+
+.timeframe_add .timeframe_add_plus {display: table;margin: 0 auto;}
+
+.timeframe_add .timeframe_add_plus img {
+    width: 26px;
+    display: table;
+    margin: 0 auto;
+    opacity: 0.4;
+    margin-top: -3px;
+}
+
+.timeframe_add .timeframe_add_plus p {color: #FFFFFF;font-family: "Open Sans";font-size: 11px;line-height: 15px;text-align: center;margin: 0px 0px;opacity: 0.4;}
+
+.timeframe_add:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.timeframe_box:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.timeframe_milestones h2 {
+    color: #8E8D92;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.44px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 15px;
+}
+
+.timeframe_box .timeframe_for p {
+    opacity: 0.5;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 20px 0px 0px 0px;
+}
+
+.timeframe_box .timeframe_five p {
+    opacity: 0.5;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 20px 0px 0px 0px;
+}
+.timeframe_calander {
+    background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    width: 92%;
+    display: table;
+    margin: 0 auto;
+    padding: 25px 0px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* End Timeframe css */
+
+/* Stat Agreements_popup css */
+.agreements_popup_form {
+   background: linear-gradient(142.16deg, #202A32 0%, #171C20 100%);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    width: 85%;
+    display: table;
+    margin: 0 auto;
+    padding: 60px 0px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+   
+}
+
+.agreements_popup_header {
+    text-align: center;
+    position: relative;
+    width: 10%;
+    display: table;
+    margin: 0 auto;
+	    margin-bottom: 50px;
+}
+
+.agreements_popup_header img.user {
+    background: #fff;
+    border-radius: 108px;
+    padding: 1px 0px;
+    width: 100px;
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+}
+
+.agreements_popup_header img.pancil {
+    width: 24px;
+    background: #fff;
+    border-radius: 100px;
+    padding: 6px;
+    border: 1px solid #dedede;
+    position: absolute;
+    bottom: 0px;
+    right: 7px;
+}
+
+.agreements_popup_box {
+        width: 42%;
+    float: left;
+    position: relative;
+    margin: 0px 4% 35px 4%;
+}
+
+.agreements_popup_box label {
+    opacity: 0.3;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 11px;
+    clear: both;
+}
+
+.agreements_popup_box input {
+       width: 100%;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid #464a48;
+    border-radius: 1.5px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 38px;
+}
+
+.agreements_popup_box img {
+    position: absolute;
+    width: 20px;
+    right: 0px;
+    bottom: 10px;
+}
+
+
+
+/* End Agreements_popup css */
+
+
+

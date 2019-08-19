@@ -12,7 +12,8 @@ class Header extends Component {
     constructor(props){
         super(props)
         this.state = {
-            notificationsData:[]
+            notificationsData:[],
+            userStatus:''
          }
     }
   
@@ -41,11 +42,14 @@ class Header extends Component {
                 ws: new WebSocket(URL),
             })
         }
+        
     }
-    componentWillReceiveProps(props,state){
+    componentWillReceiveProps(props,state){ 
         this.setState({
-            notificationsData:props.notifications
+            notificationsData:props.notifications,
+            userStatus:props.users.status
         })
+       
     }
 
     activeChat(event,value){
@@ -58,12 +62,54 @@ class Header extends Component {
     }
 
     render(){
-        if(this.state){
+        
+        if(this.state.userStatus != 'pre'){
+            if(this.state){
+            return (
+                <section className="header">
+                    <div className="time_section">
+                        <div className="time_section_text">
+                            <Clock />
+                        </div>
+                        <div className="time_section_img">
+                            <img src={"./assets/img/"+this.props.users.profileimage} />
+                        </div>
+                        <div className="time_section_rgt" onClick={(event,value) => this.activeChat(event,true)} active={this.props.activeChat}>
+                            <img src="./assets/img/time_icon.jpg" />
+                        </div>
+                    </div>
+
+                {this.state.notificationsData.map((item)=> 
+                        <div className={"header_box " + item.status} key={item.id}>
+                            <div className="header_top ">
+                                <ul>
+                                    <li>{item.date}</li>
+                                    <li>{item.type}</li>
+                                    <li>#{item.id}</li>
+                                    <li><span>...</span></li>
+                                </ul>
+                            </div>
+                            <div className="header_center ">
+                                <div className="header_flt ">
+                                    <h1>{item.description}</h1>
+                                </div>
+                                <div className="header_rgt ">
+                                    <img src={"./assets/img/"+item.group+".png"}/>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </section>
+            );
+        }else{
+            return <h1>Loading...</h1>
+        }
+    }else{
         return (
             <section className="header">
                 <div className="time_section">
                     <div className="time_section_text">
-                         <Clock />
+                        <Clock />
                     </div>
                     <div className="time_section_img">
                         <img src={"./assets/img/"+this.props.users.profileimage} />
@@ -72,31 +118,8 @@ class Header extends Component {
                         <img src="./assets/img/time_icon.jpg" />
                     </div>
                 </div>
-
-               {this.state.notificationsData.map((item)=> 
-                    <div className={"header_box " + item.status} key={item.id}>
-                        <div className="header_top ">
-                            <ul>
-                                <li>{item.date}</li>
-                                <li>{item.type}</li>
-                                <li>#{item.id}</li>
-                                <li><span>...</span></li>
-                            </ul>
-                        </div>
-                        <div className="header_center ">
-                            <div className="header_flt ">
-                                <h1>{item.description}</h1>
-                            </div>
-                            <div className="header_rgt ">
-                                <img src={"./assets/img/"+item.group+".png"}/>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </section>
-        );
-    }else{
-        return <h1>Loading...</h1>
+        )
     }
 }
   
