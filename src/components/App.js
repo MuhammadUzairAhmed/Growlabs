@@ -32,7 +32,7 @@ class App extends React.Component {
           <section className="Content_main">
           <Router>
               <Sidebar />
-              <div className="center_part">
+              <div className="center_part pre">
                   <Switch>
                       <Route exact path="/"  component={HomePage} />
                       <Route path="/statistics" component={Statisitcs} />

@@ -8,7 +8,7 @@ import  Technology  from './predashboard/technology';
 class PreDashboard extends Component {
   render(){
     return (
-      <section >
+      <section className="preDashboard">
         <Agreement />
         <Description />
         <Legal />

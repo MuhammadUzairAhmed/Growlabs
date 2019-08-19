@@ -5,9 +5,10 @@ class Technology extends Component {
       return (
         <section className="technology">
                <div className="technology_top">
-                  <h1>Technology</h1>
+                  
                   <p>Define the terms on Which You will Collaborate</p>
                </div>
+               <div className="technology_back">
                <div className="technology_center">
                   <h1>Technology</h1>
                   <div className="technology_box">
@@ -34,7 +35,7 @@ class Technology extends Component {
                   <div className="technology_box">
                      <p>Golang</p>
                   </div>
-                  <div className="technology_box active">
+                  <div className="technology_box ">
                      <p>Perl</p>
                   </div>
                   <div className="technology_box">
@@ -51,7 +52,7 @@ class Technology extends Component {
                   </div>
                </div>
                <div className="technology_center">
-                  <h1>Technology</h1>
+                 
                   <h4>FRAMEWORK</h4>
                   <div className="technology_box">
                      <p>Angular.js</p>
@@ -77,7 +78,6 @@ class Technology extends Component {
                   <div className="technology_box">
                      <p>Other</p>
                   </div>
-                  <a target="_blank" href="#" className="button">Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
                </div>
                <div className="technology_center">
                   <h1>PROJECT TYPE</h1>
@@ -91,6 +91,10 @@ class Technology extends Component {
                      <p>Computer Program</p>
                   </div>
                </div>
+
+               </div>
+               <a target="_blank" href="#" className="button">Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
+
         </section>
       );  
     };  
