@@ -16,12 +16,10 @@ class Legal extends Component {
                         <p>NDA With Zepcom</p>
                         <h2>PDF</h2>
                     </div>
-                    <img src="images/download.png"/>
-                    <label className="fancy-checkbox">
-                    <input type="checkbox" />
-                    <span className="checkmark"></span> </label>
+                    <img src="./assets/img/download.png"/>
+                    <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
+
                     </div>
-                    <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
                 </div>
                 <div className="legal_box-main">
                     <div className="legal_box">
@@ -30,12 +28,10 @@ class Legal extends Component {
                         <p>Official Contract With Zepcom 00/00/000</p>
                         <h2>PDF</h2>
                     </div>
-                    <img src="images/download.png"/>
-                    <label className="fancy-checkbox">
-                    <input type="checkbox" />
-                    <span className="checkmark"></span> </label>
+                    <img src="./assets/img/download.png"/>
+                    <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
+
                     </div>
-                    <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
                 </div>
             </div>
             <a target="_blank" href="#" className="button">Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
