@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { itemsFetchData } from '../actions/fuelSavingsActions';
-import Statisitcs from "./pages/Statistics";
+import Dashboard from "./pages/Statistics";
+import Projects from "./pages/Projects";
 import PreDashboard from "./pages/PreDashboard";
 
 class HomePage extends Component {
@@ -9,16 +10,20 @@ class HomePage extends Component {
     this.props.fetchData('http://demo2532200.mockable.io/notification','NOTIFICATIONS');
   }
   render(){
-    if(this.props.users.status != 'pre'){
-      return (
-        <Statisitcs />
-      );  
-    }else{
+    if(this.props.users.status == 'project'){
       return (
         <PreDashboard />
+      );  
+    }else if(this.props.users.status == 'pre'){
+      return(
+        <Projects />
       )
     }
-   
+    else{
+      return (
+        <Dashboard />
+      )
+    }
   };  
 };
 
