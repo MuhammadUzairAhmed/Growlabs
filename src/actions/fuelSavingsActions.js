@@ -83,7 +83,8 @@ export function itemsFetchData(url,action) {
     return (dispatch) => {
 
         dispatch(itemsIsLoading(true));
-        fetch(url)
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxyurl + url)
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);

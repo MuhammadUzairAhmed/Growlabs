@@ -17,7 +17,7 @@ class Contact extends Component {
     }
     
     componentDidMount(){
-        fetch("http://demo5740270.mockable.io/contract")
+        fetch("http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
           .then(data => this.setState({formData: data}));
     }

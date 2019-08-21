@@ -42,11 +42,9 @@ class App extends React.Component {
     this.setState({
       status:e
     })
-    console.log(e);
 
   }
   render() {
-    console.log(this.state,'test')
     if(this.state.status == 'pre'){
       return (
         <section>

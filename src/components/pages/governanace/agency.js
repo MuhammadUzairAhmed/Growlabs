@@ -69,11 +69,11 @@ class Agency extends Component {
       const method = "POST";
       const body = new FormData(this.form);
 
-      fetch("http://demo2532200.mockable.io/milestone", { method, body: {} })
+      fetch("http://react2.zepcomtesting.com/api/milestone.json", { method, body: {} })
          .then(res => res.json())
          .then(data => JSON.stringify(data));
 
-      fetch("https://demo9810618.mockable.io/agent")
+      fetch("http://react2.zepcomtesting.com/api/agent.json")
          .then(res => res.json())
          .then(data =>
             this.setState({ fetchData: data.agents }, () => {
