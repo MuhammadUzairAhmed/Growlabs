@@ -4,7 +4,6 @@ import  Description  from './predashboard/descriptions';
 import  Legal  from './predashboard/legal';
 import  Milestone  from './predashboard/milestone';
 import  Technology  from './predashboard/technology';
-import  Contactinfo  from './predashboard/contactinfo';
 
 class PreDashboard extends Component {
   render(){
@@ -15,7 +14,6 @@ class PreDashboard extends Component {
         <Legal />
         <Milestone />
         <Technology />
-        <Contactinfo />
       </section>
     );  
   };  
