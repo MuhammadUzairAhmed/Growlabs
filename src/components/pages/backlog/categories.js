@@ -5,8 +5,8 @@ class BacklogCategory extends Component {
     }
     render(){
         return(
-        <ul class="ui-tabs-nav">
-            {this.props.data.map((items)=> <li key={items} class={this.props.activeId == items ? 'active':'null'} onClick={(value, event) => this.selectId(items, event)}><a>{items}</a></li>)}
+        <ul className="ui-tabs-nav">
+            {this.props.data.map((items)=> <li key={items} className={this.props.activeId == items ? 'active':'null'} onClick={(value, event) => this.selectId(items, event)}><a>{items}</a></li>)}
           <li><a><img src="./assets/img/Group.png" /></a></li>
         </ul>
         )

@@ -120,7 +120,7 @@ class Financial extends Component {
                       <a target="_blank" href="#">${items.eur}</a>
                   </div>
                 </div>
-                {items.status == 'release' ? <div class="according_box according_box-hea"> <div class="check_box"></div> <p>PREVIOUS</p> </div>:''}
+                {items.status == 'release' ? <div className="according_box according_box-hea"> <div className="check_box"></div> <p>PREVIOUS</p> </div>:''}
               </section>
               )}
             

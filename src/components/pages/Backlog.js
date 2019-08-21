@@ -78,7 +78,7 @@ class Backlog extends Component {
             className="loading"
          />
           :  
-          <section class="backlog">
+          <section className="backlog">
             <Category data={this.props.backlog.map((items)=> items.categoryId)} activeId={this.state.CurrentId} selectedCat={this.selectedCatId.bind(this)}  />
             <Sprints data={this.state.categoryData} selectedSpt={this.selectedSptId.bind(this)} />
             <BacklogData data={this.state.sprintData} />

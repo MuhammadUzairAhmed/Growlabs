@@ -12,11 +12,11 @@ class HomePage extends Component {
   render(){
     if(this.props.users.status == 'project'){
       return (
-        <PreDashboard />
+        <Projects />
       );  
     }else if(this.props.users.status == 'pre'){
       return(
-        <Projects />
+        <PreDashboard />
       )
     }
     else{

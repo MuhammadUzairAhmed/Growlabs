@@ -36,7 +36,7 @@ class CreateMilestone extends Component {
          } 
          for (var i = 1; i < numrows; i++) {
             sprintSlide.push(
-            <div class="item">
+            <div className="item">
                 <h1>SPRINT {i} </h1>
                 <p>
                    <textarea name="sprintDescription">Testing</textarea>
@@ -48,57 +48,57 @@ class CreateMilestone extends Component {
         return (
             <section>
             <form ref={el => (this.form = el)}>
-            <div class="milestone_main">
-                <div class="milestone_section">
-                    <div class="milestone_header">
-                      <div class="milestone_header_lft">
+            <div className="milestone_main">
+                <div className="milestone_section">
+                    <div className="milestone_header">
+                      <div className="milestone_header_lft">
                           <p>MILESTONE {this.props.id}</p>
                           <h2>Framework setup</h2>
                       </div>
-                      <div class="milestone_header_rgt">	
+                      <div className="milestone_header_rgt">	
                           <a href="#"><img src="assets/img/Password.png" />   Locked </a>
                           <a href="#"><img src="assets/img/Finance-Money-icon.png" />funded</a>
                       </div>
                     </div>
-                    <div class="milestone_Content">
-                      <div class="milestone_box">
+                    <div className="milestone_Content">
+                      <div className="milestone_box">
                           <h1>MILESTONE DESCRIPTION </h1>
                             <p>
                                <textarea name='milestoneDescription'></textarea>
                             </p>
                       </div>
-                      <div class="milestone_box">
+                      <div className="milestone_box">
                           <h1>BUDGET </h1>
                           <label>EUR</label>
                           <input type="text" name="price" placeholder="$ 10.000" />
                       </div>
                     </div>
                 </div>
-                <section class="colleborate">
-                    <div class="colleborate_top">
+                <section className="colleborate">
+                    <div className="colleborate_top">
                         {sprintList}
                     </div>
                 </section>
                     
-                  <div class="milestone_slider">
-                      <div class="carousel-inner">
+                  <div className="milestone_slider">
+                      <div className="carousel-inner">
                         {sprintSlide}
                       </div>
-                      <ol class="carousel-indicators">
+                      <ol className="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" ></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1" className="active"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                       </ol>
-                      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                      <a className="left carousel-control" href="#myCarousel" data-slide="prev">
                         <img src="assets/img/arrow_rgt.png" /> 
                       </a>
-                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                      <a className="right carousel-control" href="#myCarousel" data-slide="next">
                         <img src="assets/img/aorrow_lft.png" />
                       </a>
                   </div>

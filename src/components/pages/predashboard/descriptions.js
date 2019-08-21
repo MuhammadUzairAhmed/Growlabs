@@ -31,7 +31,7 @@ class Description extends Component {
 			   </div>
 			   </div>
 			   
-			   <a href="" class="button"> 10  Milestones </a>
+			   <a href="" className="button"> 10  Milestones </a>
 			   
 			   
 			   
@@ -224,14 +224,14 @@ class Description extends Component {
 			      <div className="descriptions_milestone_box">
 			         <label>MILESTONES NAME</label>
 					 <input type="text" name="fname" placeholder="Milestone 01" />
-                <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
+                <div className="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className="" /><span className="tooltiptext">Tooltip text</span></div>
 			   
 			       </div>
 			     
 				   <div className="descriptions_milestone_box budget">
 			         <label>MILESTONES BUDGET</label>
 					 <input type="text" name="fname" placeholder="€5.000 (estimation based on sprints)" />
-					 <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
+					 <div className="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className="" /><span className="tooltiptext">Tooltip text</span></div>
 			   
 			       </div>
 			    
@@ -272,7 +272,7 @@ class Description extends Component {
                                
                            </a>
                         </div>
-                        <a href="" class="button"> 7  SPRINTS </a>
+                        <a href="" className="button"> 7  SPRINTS </a>
                     </div>
 			   
 			   <section className="colleborate milestone">
@@ -351,7 +351,7 @@ class Description extends Component {
 
                         
 			     </div>
-              <a target="_blank" class="buttons">Accept Descriptions<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
+              <a target="_blank" className="buttons">Accept Descriptions<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
             </section>
       );  
     };  

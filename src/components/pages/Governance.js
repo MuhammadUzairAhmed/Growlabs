@@ -42,10 +42,10 @@ class Govermance extends Component {
       activePage = <AGENCY />
     }
     return (
-      <section class="backlog">
+      <section className="backlog">
         <div>
-          <ul class="ui-tabs-nav">
-              {this.state.TotalPage.map((items)=> <li class={items.id === this.state.activePage ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)}
+          <ul className="ui-tabs-nav">
+              {this.state.TotalPage.map((items)=> <li className={items.id === this.state.activePage ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)}
           </ul>
          {activePage}
         </div>

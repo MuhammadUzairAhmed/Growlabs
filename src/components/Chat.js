@@ -46,7 +46,7 @@ class Chatbot extends Component {
                                 <div className="chatroom_header_lft">
                                     <div className="chatroom_header_img">
                                         <img src={item.image} />
-                                        <div class="right">
+                                        <div className="right">
                                             {/* <div className="badge total-message">1</div> */}
                                             <div className="time">Yesterday, 12:30</div>
                                             <div className="go-icon"></div>
@@ -73,7 +73,7 @@ class Chatbot extends Component {
                                 <div className="chatroom_header_lft">
                                     <div className="chatroom_header_img">
                                         <img src={item.image} />
-                                        <div class="right">
+                                        <div className="right">
                                             {/* <div className="badge total-message">1</div> */}
                                             <div className="time">Yesterday, 12:30</div>
                                             <div className="go-icon"></div>
