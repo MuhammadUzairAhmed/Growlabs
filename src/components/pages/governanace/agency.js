@@ -69,11 +69,12 @@ class Agency extends Component {
       const method = "POST";
       const body = new FormData(this.form);
 
-      fetch("http://react2.zepcomtesting.com/api/milestone.json", { method, body: {} })
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      fetch(proxyurl+"http://react2.zepcomtesting.com/api/milestone.json", { method, body: {} })
          .then(res => res.json())
          .then(data => JSON.stringify(data));
 
-      fetch("http://react2.zepcomtesting.com/api/agent.json")
+      fetch(proxyurl+"http://react2.zepcomtesting.com/api/agent.json")
          .then(res => res.json())
          .then(data =>
             this.setState({ fetchData: data.agents }, () => {
