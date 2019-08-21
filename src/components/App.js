@@ -12,6 +12,7 @@ import Files from "./pages/Files";
 import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import '../styles/layout.css';
+import '../styles/preDashboard.css';
 
 import FuelSavingsPage from "./containers/FuelSavingsPage";
 import NotFoundPage from "./NotFoundPage";
@@ -32,7 +33,8 @@ class App extends React.Component {
           <section className="Content_main">
           <Router>
               <Sidebar />
-              <div className="center_part pre">
+              {/* <div className="center_part pre"> */}
+              <div className="center_part">
                   <Switch>
                       <Route exact path="/"  component={HomePage} />
                       <Route path="/statistics" component={Statisitcs} />

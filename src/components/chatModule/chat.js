@@ -98,10 +98,10 @@ class Chat extends Component {
             return (
                 <div  style={{
                     width: '350px',
-                    position: 'absolute',
+                    position: 'fixed',
                     right: '0',
                     top: '0',
-                    height:'90%',
+                    height:'100vh',
                     overflowX:`${this.state.overflow}`,
                     overflowY:`${this.state.overflow}`
                 }}>
@@ -111,7 +111,7 @@ class Chat extends Component {
                     width: '350px',
                     position: 'absolute',
                     right: '-400px',
-                    top: '124px',
+                    top: '0',
                     height:'100vh',
                    
                 }}>

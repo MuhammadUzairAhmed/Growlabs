@@ -470,6 +470,7 @@ section.chat_room {
 .chatroom_header-rgt img {
     width: 14px;
     margin: 28px 10px 0px 10px;
+    cursor: pointer;
 }
 
 .chatroom_header_img {
@@ -519,8 +520,13 @@ section.chat_room {
     margin-bottom: 10px;
 }
 
+.chatroom_Content:after {
+    content: "";
+    display: block;
+    clear: both;
+}
 .chatroom_Content {
-    padding: 20px 20px;
+    padding: 0px 10px 0px 20px;
 }
 
 .send_massage {
@@ -1178,6 +1184,7 @@ input:focus {
     -ms-transition: all 200ms ease-out;
     -o-transition: all 200ms ease-out;
     transition: all 200ms ease-out;
+    transition: all 1.5s ease;
 }
 .carousel.slide .item.left {
     position: absolute;
@@ -1205,7 +1212,7 @@ a.left.carousel-control {
 }
 
 a.right.carousel-control {
-    right: 79px;
+    right: 50px;
     border-right: 2px solid white;
     transform: rotate(43deg);
 }
@@ -1525,7 +1532,7 @@ ol.carousel-indicators li.active {
 }
 
 .agreements_form .tooltip .tooltiptext {
-    top: -40px;
+    top: -80px;
     right: 0px !important;
     left: -121px;
 }
@@ -2481,18 +2488,9 @@ section.chat_room[active="true"] {
 .carousel.slide .carousel-item.active.carousel-item {
     display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+.milestone_main .fancy-checkbox input:checked ~ .checkmark {
+    background-color: #192027;
+}
 .milestone_main a.carousel-control-prev {
     text-decoration: none;
     position: absolute;
@@ -2547,19 +2545,17 @@ overflow: hidden;
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .dashbord_left {
     float: left;
     width: calc(99% - 300px);
+}
+.dashbord_right .tooltip .tooltiptext:after {
+    top: -8px;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(-180deg);
+    border-top: 8px solid #27303a;
+    right: 0;
+    left: 62px;
 }
 
 .dashbord_right {
@@ -3070,13 +3066,13 @@ h1 {}
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid #0c0e10;
+    border-top: 8px solid #202830;
     position: absolute;
-    right: 0;
-    left: 45px;
-    bottom: -6px;
     display: table;
-    margin: 0px auto;
+    margin: 0 auto;
+    left: 63px;
+    right: 0;
+    bottom: -9px;
 }
 .score .rc-progress-circle {
     -webkit-mask: url(http://localhost:3000/score.png) bottom center / contain;
@@ -3175,8 +3171,16 @@ section.sidebar .score_section .scoreText {
     padding: 17px 8px 0px;
     height: 38px;
     width: 38px;
+    position: relative;
+    overflow: hidden;
 }
-
+img.profile-fix-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 0;
+}
 .agency .boxes .text {
     text-align: center;
     margin: 3px 0px 0px 0px;
