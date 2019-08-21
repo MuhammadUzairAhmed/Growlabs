@@ -56,7 +56,7 @@ class Header extends Component {
         })
        
         if (props.users.status !== this.props.users.status) {
-            this.layoutChange('yes')
+            this.layoutChange(props.users.status)
         }
     }
 

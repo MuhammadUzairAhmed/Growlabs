@@ -15,6 +15,9 @@ import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import '../styles/layout.css';
 import '../styles/preDashboard.css';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 
 import FuelSavingsPage from "./containers/FuelSavingsPage";
 import NotFoundPage from "./NotFoundPage";
@@ -32,7 +35,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      status:'t'
+      status:''
     }
   }
   layout(e){
@@ -76,8 +79,7 @@ class App extends React.Component {
             </Router>
             </section>
         </section>
-    }
-    else{
+    }else if(this.state.status == 'dashboard'){
       return (
         <section>
             <Header checkData={this.layout.bind(this)}/>
@@ -101,6 +103,14 @@ class App extends React.Component {
             </section>
         </section>
       );
+    }
+    else{
+      return (
+        <section>
+          <Header checkData={this.layout.bind(this)}/>
+          <Loader type="Oval" color="white" height="50" width="50" className="loading" />
+        </section>
+      )
     }
   }
 }
