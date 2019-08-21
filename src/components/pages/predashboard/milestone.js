@@ -162,7 +162,7 @@ class Milestone extends Component {
 			   
 			 
 			   </div>
-			   <a target="_blank" href="#" class="buttons">Accept Milestone<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
+			   <a target="_blank" href="#" className="buttons">Accept Milestone<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
             </section>
       );  
     };  

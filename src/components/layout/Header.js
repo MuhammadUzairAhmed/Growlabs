@@ -16,11 +16,14 @@ class Header extends Component {
             userStatus:''
          }
     }
-  
-    componentDidMount() {
+    componentWillMount()
+    {
         this.props.fetchData('http://demo2532200.mockable.io/notification','NOTIFICATIONS');
         this.props.fetchData('http://demo2532200.mockable.io/user','USER_DETAILS');
         this.props.currentState([{"currentID":"1"},{"sprintID":"1"}])
+    }  
+    componentDidMount() {
+      
 
         this.ws.onopen = () => {
             // on connecting, do nothing but log it to the console
@@ -43,6 +46,8 @@ class Header extends Component {
             })
         }
         
+       
+        
     }
     componentWillReceiveProps(props,state){ 
         this.setState({
@@ -50,6 +55,9 @@ class Header extends Component {
             userStatus:props.users.status
         })
        
+        if (props.users.status !== this.props.users.status) {
+            this.layoutChange('yes')
+        }
     }
 
     activeChat(event,value){
@@ -60,8 +68,12 @@ class Header extends Component {
             this.props.backlogWidgetData(false,"backlogPlus");
         }
     }
+    layoutChange(s){
+        this.props.checkData(s)
+    }
 
     render(){
+        
         
         if(this.state.userStatus != 'pre'){
             if(this.state){

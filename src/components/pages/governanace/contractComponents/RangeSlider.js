@@ -43,7 +43,7 @@ class RangeSlider extends Component
           />
           {this.state.maxVolume &&
           <span>
-              € <input type="text" value="250000" name="price" placeholder="Budget" class="btn btn-cb int-price">100</input>
+              € <input type="text" value="250000" name="price" placeholder="Budget" className="btn btn-cb int-price">100</input>
           </span>
           }
           </div>

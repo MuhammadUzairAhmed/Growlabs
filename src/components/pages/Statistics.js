@@ -253,13 +253,13 @@ var finalData = [...this.state.smallData,...datasetConst]
   render() {
     // console.log('xaxeslabels',this.state.xAxisLabels)
     var displaySprint = this.state.xAxisLabels.map(data =>
-      <div class={"colleborate_box "} key={data} onClick={() => this.selectSprintId(data)}>
+      <div className={"colleborate_box "} key={data} onClick={() => this.selectSprintId(data)}>
         <h1>Sprint {data}</h1>
-        <div class="colleborate_top_round" className={data}>
+        <div className="colleborate_top_round" className={data}>
           <span>
-            <label class="fancy-checkbox">
+            <label className="fancy-checkbox">
               <input type="checkbox" />
-              <span class="checkmark"></span> </label>
+              <span className="checkmark"></span> </label>
           </span>
         </div>
         <p>{data}</p>
@@ -279,9 +279,9 @@ var finalData = [...this.state.smallData,...datasetConst]
       />
     
     :  
-      <div>  <div class="dashbord_left">
-          <section class="colleborate" >
-            <div class="colleborate_top" >
+      <div>  <div className="dashbord_left">
+          <section className="colleborate" >
+            <div className="colleborate_top" >
               {displaySprint}
             </div>
           </section>
@@ -363,29 +363,29 @@ var finalData = [...this.state.smallData,...datasetConst]
           />
         </div>
         
-        <div class="dashbord_right">
+        <div className="dashbord_right">
 
-          <div class="card-base1 clearfix">
-            <div class="base-420">
+          <div className="card-base1 clearfix">
+            <div className="base-420">
 
-            <div class="tooltip">
-              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
-               <span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span>
+            <div className="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className=""/> 
+               <span className="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span>
             </div>
 
-              <div class="base-420-text">
+              <div className="base-420-text">
                 <h1>{this.state.dahsboardValues.velocity}</h1>
                 <p>VELOCITY</p>
                 <img src="images/Up@3x.png" />
               </div>
             </div>
-            <div class="base-86">
-               <div class="tooltip">
-              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
-               <span class="tooltiptext">Tooltip text</span>
+            <div className="base-86">
+               <div className="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className=""/> 
+               <span className="tooltiptext">Tooltip text</span>
             </div>
             
-              <div class="base-86-text">
+              <div className="base-86-text">
               <div className="score ">
               <div className="score_height ">
               <Circle percent={this.state.score} gapDegree={130} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
@@ -395,13 +395,13 @@ var finalData = [...this.state.smallData,...datasetConst]
               </div>
             </div>
           </div>
-          <div class="card-base2">
-            <div class="oval">
-            <div class="tooltip">
-              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
-               <span class="tooltiptext">Tooltip text</span>
+          <div className="card-base2">
+            <div className="oval">
+            <div className="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className=""/> 
+               <span className="tooltiptext">Tooltip text</span>
             </div>
-              <div class="oval-text">
+              <div className="oval-text">
                 {/* <img src={circle1} /> */}
                 <div className="circleBar">
 
@@ -413,15 +413,15 @@ var finalData = [...this.state.smallData,...datasetConst]
                   <div className="circle3"><CircularProgressbar value={50} className=" topParent" /></div>
                 </div>
               </div>
-              <div class="oval-text">
+              <div className="oval-text">
                 <h1>{this.state.dahsboardValues.daysLeft}</h1>
                 <p>DAYS LEFT</p>
               </div>
-              <div class="oval-text">
+              <div className="oval-text">
                 <label>{this.state.dahsboardValues.stories}</label>
                 <p>STORIES</p>
               </div>
-              <div class="oval-text">
+              <div className="oval-text">
                 <span>{this.state.dahsboardValues.point}</span>
                 <p>POINT</p>
               </div>
@@ -431,22 +431,22 @@ var finalData = [...this.state.smallData,...datasetConst]
           </div>
 
 
-          <div class="card-base3">
-            <div class="card-base3-left">
-              <div class="commits">
+          <div className="card-base3">
+            <div className="card-base3-left">
+              <div className="commits">
                 
-                <div class="commits-text">
+                <div className="commits-text">
                   <h1>{this.state.dahsboardValues.commits}</h1>
                   <p>COMMITS</p>
                   <img src="images/Up@3x.png" />
                 </div>
               </div>
-              <div class="commits">
-              <div class="tooltip">
-              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
-               <span class="tooltiptext">Tooltip text</span>
+              <div className="commits">
+              <div className="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className=""/> 
+               <span className="tooltiptext">Tooltip text</span>
             </div>
-                <div class="commits-text">
+                <div className="commits-text">
                   <h1>{this.state.dahsboardValues.codeChanged}</h1>
                   <p>CODE CHANGED</p>
                   <img src={down} />
@@ -455,13 +455,13 @@ var finalData = [...this.state.smallData,...datasetConst]
 
             </div>
 
-            <div class="card-base3-right">
-              <div class="average-code">
-              <div class="tooltip">
-              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/> 
-               <span class="tooltiptext">Tooltip text</span>
+            <div className="card-base3-right">
+              <div className="average-code">
+              <div className="tooltip">
+              <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" className=""/> 
+               <span className="tooltiptext">Tooltip text</span>
             </div>
-                <div class="average-code-text">
+                <div className="average-code-text">
                   <span >{this.state.dahsboardValues.avgCodeQuality}</span>
                   <p>AVERAGE</p><p>CODE QUALITY</p>
                   <img src={up3x} />
@@ -469,14 +469,14 @@ var finalData = [...this.state.smallData,...datasetConst]
 
               </div>
             </div>
-            <div class="del-add">
-              <div class="del-add-text">
+            <div className="del-add">
+              <div className="del-add-text">
                 {/* <span >{this.state.dispSpecificRedValue.y || '0'}</span> */}
                 <span>{this.state.dahsboardValues.delete}</span>
                 <p>DELETED</p>
                 <img src="images/Up@3x.png" />
               </div>
-              <div class="del-add-text">
+              <div className="del-add-text">
                 {/* <h1>{this.state.dispSpecificGreenValue.y || '0'}</h1> */}
                 <h1>{this.state.dahsboardValues.add}</h1>
                 <p>ADDED</p>

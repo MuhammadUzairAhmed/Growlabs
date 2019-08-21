@@ -11,56 +11,77 @@ class Projects extends Component {
         super(props);
         this.state={
             fileUploaded:[],
-            formData:'',
+            formData:[],
             matches:[]
         }
+        this.handleClick = this.handleClick.bind(this)
     }
     
     componentDidMount(){
         fetch("http://demo5740270.mockable.io/contract")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}));
+          .then(data => this.setState({formData: data}, console.log(data,'contract')));
         fetch("https://demo5740270.mockable.io/review")
           .then(res => res.json())
-          .then(data => this.setState({matches: data}));
-        
+          .then(data => this.setState({matches: data}, console.log(data,'review')));
     }
-   
+    componentWillReceiveProps(props,state){
+        console.log(props)
+        console.log(state)
+    }
     handleInput =(x)=>
     {
         console.log('result ',x)
         this.setState({fileUploaded: x})
         console.log('filesUploaded ',this.state.formData.fileUpload.map((items)=> items))
     }
-    handleClick = (e) => {
+    handleClick(e){
        const posts  = this.state.formData.features;
-        const { id } = e.target;
+       const {id} = e.target
         posts[id].status = !this.state.formData.features[id].status
-       this.setState({ posts })
-      }
+        
+        this.setState({
+            formData : {
+                ...this.state.formData,
+                features:this.state.formData.features.map((items,index)=> 
+                    {
+                         if(index == id){
+                             if(items.status == 'false'){
+                                items.status = 'true'
+                             }else{
+                                items.status = 'false'
+                             }
+                            
+                            return items;
+                        }
+                    return items;
+                    }
+                )
+            }
+        })
+        //console.log(this.state)
+        
+    }
     
      render(){
         const listItems = [];
-        if(this.state.formData){this.state.formData.fileUpload.map((files)=> listItems.push(<li>{files.acceptedFile} <br/><span>{files.size}</span></li>))
+        if(this.state.formData){
+            console.log(this.state,'render  ')
          return (
              <section className="dial_page">
                  <div className="dp-matches clearfix">
-                    <div className="dp-mt-heading">
-                        <h1>Your Personal Top 5 Matches</h1>
-                        <small>Type something</small>
-                    </div>
                     <div className="dp-mt-matches-box">
-                        {this.state.matches.companies.map((items,index)=> 
+                        {/* {this.state.matches.companies.map((items,index)=> 
                             <div className="dp-mt-loop-box" key={index}>
                                 <div className="lb-box">
                                     <h1>{items.name} <small>{items.location}</small></h1>
                                     <i className="ico check-icon"></i>
                                 </div>
                             </div>
-                        )}
+                        )} */}
                     </div>
                 </div>
-                <section className="multi_step_form ">
+                {/* <section className="multi_step_form ">
                     <div className="content_form">
                         <fieldset>
                             <TDataPicker timelineStart={this.state.formData.timelineStart} timelineEnd={this.state.formData.timelineEnd} />
@@ -71,19 +92,261 @@ class Projects extends Component {
                                 <div className="price-slider">
                                     <div id="slider"></div>
                                     <div className="ps-slide-col">
-                                    <RangeSlider range={this.state.formData.budget} />
+                                        <RangeSlider range={this.state.formData.budget} />
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
+                            
+                     <fieldset>
+                        <h3>Features</h3>
+                        <div class="form-row">
+                            <div class="box">
+                                <label class="box-label check" id="0">
+                                <div class="box-title"><span>Profile</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="1">
+                                <div class="box-title"><span>Ratings</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="2">
+                                <div class="box-title"><span>Labels</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="3">
+                                <div class="box-title"><span>Cloud Sync</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="4">
+                                <div class="box-title"><span>Sensors</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="5">
+                                <div class="box-title"><span>Phone apps</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="6">
+                                <div class="box-title"><span>App Icon</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="7">
+                                <div class="box-title"><span>Calender</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="8">
+                                <div class="box-title"><span>Maps</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="9">
+                                <div class="box-title"><span>API's</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="10">
+                                <div class="box-title"><span>Name</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="11">
+                                <div class="box-title"><span>Settings</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="12">
+                                <div class="box-title"><span>Messaging</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="13">
+                                <div class="box-title"><span>Search</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="14">
+                                <div class="box-title"><span>Dashboard</span></div>
+                                <input type="checkbox" name="features" class="hidden" value="" checked=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="15">
+                                <div class="box-title"><span>CMS</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="16">
+                                <div class="box-title"><span>Payments</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="17">
+                                <div class="box-title"><span>Marketplace</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="18">
+                                <div class="box-title"><span>Subscriptions</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label " id="19">
+                                <div class="box-title"><span>Forum</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                                <label class="box-label check" id="20">
+                                <div class="box-title"><span>Notifications</span></div>
+                                <input type="checkbox" name="features" class="hidden" value=""><i class="check"></i>
+                                </label>
+                            </div>
+                        </div>
+                        </fieldset>
+
+                      <fieldset>
+                        <h3>Description</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend. Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi. Sed consectetur dignissim</p>
+                            </div>
+                        </div>
+                        </fieldset>
+                        <fieldset>
+                        <h3>Reasoning behind project</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula</p>
+                            </div>
+                        </div>
+                        </fieldset>
+                        <fieldset>
+                        <h3>Similar products</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula</p>
+                            </div>
+                        </div>
+                        </fieldset>
+                        <fieldset>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <h3>Location</h3>
+                                <div class="form-row full">
+                                    <div class="radioList"><label class="box-label "><span>Doesn't Matter</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Pakistan</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label check"><span>Specific country</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <h3>Quality Level</h3>
+                                <div class="form-row full">
+                                    <div class="radioList"><label class="box-label "><span>Perfect</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Prime</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label check"><span>Prototype</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <h3>Team dynamics</h3>
+                                <div class="form-row full">
+                                    <div class="radioList"><label class="box-label check"><span>Ideation</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Staff augmentation</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Project team</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <h3>Technology</h3>
+                            <div class="form-row">
+                                <div class="checklist"><label class="box-label check"><span>Java</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>C</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Python</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label check"><span>C++</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Javascript</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>.NET</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>PHP</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label check"><span>swift</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Objectice C</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label check"><span>GoLang</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Perl</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Ruby</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Other</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Don't know, don't care</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label></div>
+                            </div>
+                            </fieldset>
+                            <fieldset>
+                            <h3>Framework</h3>
+                            <div class="form-row ">
+                                <div class="checklist"><label class="box-label check"><span>Angular.JS</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Laravel</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>React.js</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label check"><span>Node.js</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Ruby on rails</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Symphony</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>ASP.NET</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Other</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Don't know, don't care</span><input type="checkbox" name="location" id="ol1" value="" checked=""></label></div>
+                            </div>
+                            </fieldset>
+                            <fieldset>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h3>project type</h3>
+                                    <div class="form-row full">
+                                        <div class="radioList"><label class="box-label check"><span>Online Website</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Mobile Application</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Computer Program</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Other</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h3>Current stage</h3>
+                                    <div class="form-row full">
+                                        <div class="radioList"><label class="box-label check"><span>Concept</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Design availability</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Design and Functionality</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>New feautures to existing product</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h3>Team dynamics</h3>
+                                    <div class="form-row full">
+                                        <div class="radioList"><label class="box-label check"><span>Ideation</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Staff augmentation</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Project team</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </fieldset>
+                            <fieldset>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h3>Organisation</h3>
+                                    <div class="form-row full">
+                                        <div class="radioList"><label class="box-label check"><span>Startup</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Scale Up</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>SME</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Corperate</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h3>Funding</h3>
+                                    <div class="form-row full">
+                                        <div class="radioList"><label class="box-label check"><span>Bootstrap</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>External Investment</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Own Revenue</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>No Funding (Yet!)</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h3>Internal structure</h3>
+                                    <div class="form-row full">
+                                        <div class="radioList"><label class="box-label check"><span>No Team</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Internal</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Outsourced</span><input type="radio" name="location" id="ol1" value="" checked=""></label><label class="box-label "><span>Blended Team</span><input type="radio" name="location" id="ol1" value="" checked=""></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            </fieldset>
+                            <fieldset class="half">
+                            <div class="form-group custom">
+                                <h3>first name</h3>
+                                <p> Felix</p>
+                            </div>
+                            <div class="form-group custom">
+                                <h3>phone</h3>
+                                <p> (06) 472 387 492 73</p>
+                            </div>
+                            </fieldset>
+                            <fieldset class="half rt">
+                            <div class="form-group custom">
+                                <h3>skype</h3>
+                                <p> 537092357</p>
+                            </div>
+                            <div class="form-group custom">
+                                <h3>last name</h3>
+                                <p> Bouma</p>
+                            </div>
+                            </fieldset>
+                            <fieldset>
+                            <div class="form-row">
+                                <div class="form-group custom_email">
+                                    <h3>Email</h3>
+                                    <p> Felix@growlabs.tech</p>
+                                </div>
+                            </div>
+                            </fieldset>
+
+
+
+
+
                         <fieldset>
                             <h3>Features</h3>
                             <div className="form-row">
                                 <div className="box">
                                     {this.state.formData.features.map((items,index)=> 
-                                    <label className={items.status ? "box-label check":"box-label "}  id={index} key={index}  onClick={this.handleClick}>
+                                    <label className={this.state.formData.features[index].status == 'true' ? "box-label check":"box-label "} id={index} key={index} onClick={this.handleClick}>
+                                        {console.log(items,'render console')}
                                         <div className="box-title"><span>{items.name}</span></div>
-                                        <input type="checkbox" name="features" value="" className="hidden"   checked={items.status}   />
+                                        <input type="checkbox" name="features" value="" className="hidden" checked={items.status} />
                                         <i className="check"></i>
                                     </label>
                                     )}
@@ -122,7 +385,7 @@ class Projects extends Component {
                                     <div className="form-row full">
                                         <div className="radioList">
                                             {this.state.formData.location.map((items,index)=> 
-                                                <label className={items.status ? "box-label check":"box-label "}  key={index}>
+                                                <label className={items.status ? "box-label check":"box-label "}  key={index}  onClick={(e,s)=>this.handleClick(index,'location')}>
                                                     <span>{items.name}</span>
                                                     <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
                                                 </label>
@@ -137,7 +400,7 @@ class Projects extends Component {
                                     <div className="form-row full">
                                         <div className="radioList">
                                             {this.state.formData.quality.map((items,index)=> 
-                                                    <label className={items.status ? "box-label check":"box-label "}  key={index}>
+                                                    <label className={items.status ? "box-label check":"box-label "}  key={index} onClick={(e,s)=>this.handleClick(index,'quality')}>
                                                         <span>{items.name}</span>
                                                         <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
                                                     </label>
@@ -151,12 +414,12 @@ class Projects extends Component {
                                     <h3>Team dynamics</h3>
                                     <div className="form-row full">
                                         <div className="radioList">
-                                                {this.state.formData.dynamics.map((items,index)=> 
-                                                    <label className={items.status ? "box-label check":"box-label "}  key={index}>
-                                                        <span>{items.name}</span>
-                                                        <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
-                                                    </label>
-                                                )}
+                                            {this.state.formData.dynamics.map((items,index)=> 
+                                                <label className={items.status ? "box-label check":"box-label "}  key={index}>
+                                                    <span>{items.name}</span>
+                                                    <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
+                                                </label>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -241,12 +504,12 @@ class Projects extends Component {
                                     <h3>Organisation</h3>
                                     <div className="form-row full">
                                         <div className="radioList">
-                                            {this.state.formData.organisation.map((items,index)=> 
+                                            {this.state.formData.organisation? this.state.formData.organisation.map((items,index)=> 
                                                 <label className={items.status ? "box-label check":"box-label "} key={index}>
                                                     <span>{items.name}</span>
                                                     <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
                                                 </label>
-                                            )}
+                                            ):""}
                                         </div>
                                     </div>
                                 </div>
@@ -256,12 +519,12 @@ class Projects extends Component {
                                     <h3>Funding</h3>
                                     <div className="form-row full">
                                         <div className="radioList">
-                                            {this.state.formData.funding.map((items,index)=> 
+                                            {this.state.formData.funding? this.state.formData.funding.map((items,index)=> 
                                                 <label className={items.status ? "box-label check":"box-label "} key={index}>
                                                     <span>{items.name}</span>
                                                     <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
                                                 </label>
-                                            )}
+                                            ):''}
                                         </div>
                                     </div>
                                 </div>
@@ -271,17 +534,19 @@ class Projects extends Component {
                                     <h3>Internal structure</h3>
                                     <div className="form-row full">
                                         <div className="radioList">
-                                            {this.state.formData.structure.map((items,index)=> 
+                                             {this.state.formData.structure? this.state.formData.structure.map((items,index)=> 
                                                 <label className={items.status ? "box-label check":"box-label "} key={index}>
                                                     <span>{items.name}</span>
                                                     <input type="radio" name="location" id="ol1" value=""  checked={items.status ? "checked":"null"}/>
                                                 </label>
-                                            )}
-                                        </div>
+                                            ):''}
+                                        </div> 
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
+                        {this.state.formData.fileUpload ? '': this.state.formData.fileUpload.map((files,index)=> listItems.push(<li  key={index}>{files.acceptedFile} <br/><span>{files.size}</span></li>))}
+                        {this.state.formData.fileUpload ? '': 
                         <fieldset className="upload-fieldset">
                             <div className="form-row">
                                 <div className="drag-drop-function">
@@ -304,6 +569,7 @@ class Projects extends Component {
                                 </div>
                             </div>
                         </fieldset>
+                        }
                         <fieldset className="half">
                             <div className="form-group custom">
                                 <h3>first name</h3>
@@ -333,8 +599,9 @@ class Projects extends Component {
                             </div>
                         </fieldset>
                     </div>
-            </section>
+            </section> */}
          </section>
+       
          )
         }else{
             return <Loader
@@ -342,7 +609,7 @@ class Projects extends Component {
             color="white"
             height="50"
             width="50"
-            classNameName="loading" />
+            className="loading" />
         }
      }
 }
