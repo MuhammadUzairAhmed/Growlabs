@@ -17,7 +17,7 @@ class Backlog extends Component {
       SprintId:'',
       loaded: true
     }
-    this.props.fetchData('http://demo2532200.mockable.io/backlog','BACKLOG');
+    this.props.fetchData('http://react2.zepcomtesting.com/api/backlog.json','BACKLOG');
   }
   componentDidMount(){
     this.props.backlog.filter((menu) => {

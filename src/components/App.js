@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default */
+
 import { BrowserRouter as Router,  Route, Switch } from "react-router-dom";
 
 import Header from './layout/Header';
@@ -14,6 +14,10 @@ import Files from "./pages/Files";
 import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import '../styles/layout.css';
+import '../styles/preDashboard.css';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 
 import FuelSavingsPage from "./containers/FuelSavingsPage";
 import NotFoundPage from "./NotFoundPage";
@@ -21,27 +25,26 @@ import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
 import { get } from "http";
+
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 
 class App extends React.Component {
- 
+
   constructor(props){
     super(props)
     this.state = {
-      status:'t'
+      status:''
     }
   }
   layout(e){
     this.setState({
       status:e
     })
-    console.log(e);
-    
+
   }
   render() {
-    console.log(this.state,'test')
     if(this.state.status == 'pre'){
       return (
         <section>
@@ -74,8 +77,7 @@ class App extends React.Component {
             </Router>
             </section>
         </section>
-    }
-    else{
+    }else if(this.state.status == 'dashboard'){
       return (
         <section>
             <Header checkData={this.layout.bind(this)}/>
@@ -99,6 +101,14 @@ class App extends React.Component {
             </section>
         </section>
       );
+    }
+    else{
+      return (
+        <section>
+          <Header checkData={this.layout.bind(this)}/>
+          <Loader type="Oval" color="white" height="50" width="50" className="loading" />
+        </section>
+      )
     }
   }
 }

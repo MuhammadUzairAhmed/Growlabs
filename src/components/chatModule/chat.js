@@ -20,7 +20,7 @@ class Chat extends Component {
 
     componentDidMount() {
   
-        fetch('http://demo2532200.mockable.io/meeting/'+this.props.dataID)
+        fetch('http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
             .then(response => response.json())
             .then((state) => {this.setState(state); console.log(this.state,'statess');
             

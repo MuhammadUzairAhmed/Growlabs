@@ -16,7 +16,7 @@ class Chatbot extends Component {
         
     }
     componentDidMount() {
-        this.props.fetchData(`http://demo2532200.mockable.io/meeting`,'CHAT');
+        this.props.fetchData(`http://react2.zepcomtesting.com/api/meeting.json`,'CHAT');
     }
     startchat(value,event){
         this.setState({ showMe : true} );

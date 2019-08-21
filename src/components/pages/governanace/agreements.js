@@ -16,7 +16,7 @@ class Agreements extends Component {
         }
     }
     componentDidMount(){
-        fetch("http://demo2532200.mockable.io/agreement")
+        fetch("http://react2.zepcomtesting.com/api/agreement.json")
           .then(res => res.json())
           .then(data => this.setState({formData: data}));
     }

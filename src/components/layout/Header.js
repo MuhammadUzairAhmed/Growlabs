@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import { itemsFetchData, currentStateData, activeChatSystem, backlogWidget } from '../../actions/fuelSavingsActions';
 import  Clock  from '../../components/widget/clock';
 import { setInterval } from 'timers';
+import { conditionalExpression } from '@babel/types';
 const URL = 'ws://localhost:3030'
 
 // Since this component is simple and static, there's no parent container for it.
@@ -13,13 +14,14 @@ class Header extends Component {
         super(props)
         this.state = {
             notificationsData:[],
-            userStatus:''
+            user:'',
+            status:''
          }
     }
     componentWillMount()
     {
-        this.props.fetchData('http://demo2532200.mockable.io/notification','NOTIFICATIONS');
-        this.props.fetchData('http://demo2532200.mockable.io/user','USER_DETAILS');
+        this.props.fetchData('http://react2.zepcomtesting.com/api/notification.json','NOTIFICATIONS');
+         this.props.fetchData('http://react2.zepcomtesting.com/api/user.json','USER_DETAILS');
         this.props.currentState([{"currentID":"1"},{"sprintID":"1"}])
     }  
     componentDidMount() {
@@ -46,36 +48,40 @@ class Header extends Component {
             })
         }
         
-       
-        
     }
     componentWillReceiveProps(props,state){ 
         this.setState({
             notificationsData:props.notifications,
-            userStatus:props.users.status
+            status:props.users.status
         })
-       
         if (props.users.status !== this.props.users.status) {
-            this.layoutChange('yes')
+            this.layoutChange(props.users.status)
+        }
+        console.log(this.state)
+    }
+    componentWillUpdate(props,state){
+        if(state.status !== this.state.status) {
+            this.layoutChange(state.status)
         }
     }
 
     activeChat(event,value){
-        if(this.props.actionChat == "true"){
-            this.props.activeChat('false','ACTIVECHAT')
-        }else{
-            this.props.activeChat('true','ACTIVECHAT')
-            this.props.backlogWidgetData(false,"backlogPlus");
-        }
+        // if(this.props.actionChat == "true"){
+        //     this.props.activeChat('false','ACTIVECHAT')
+        // }else{
+        //     this.props.activeChat('true','ACTIVECHAT')
+        //     this.props.backlogWidgetData(false,"backlogPlus");
+        // }
+        this.setState({
+            status:"dashboard"
+        })
     }
     layoutChange(s){
         this.props.checkData(s)
     }
-
     render(){
         
-        
-        if(this.state.userStatus != 'pre'){
+        if(this.state.user.status != 'pre'){
             if(this.state){
             return (
                 <section className="header">
@@ -83,10 +89,10 @@ class Header extends Component {
                         <div className="time_section_text">
                             <Clock />
                         </div>
-                        <div className="time_section_img">
-                            <img src={"./assets/img/"+this.props.users.profileimage} />
+                        <div className="time_section_img"   onClick={this.activeChat.bind(this)} >
+                            <img src={"./assets/img/"+this.state.user.profileimage} />
                         </div>
-                        <div className="time_section_rgt" onClick={(event,value) => this.activeChat(event,true)} active={this.props.activeChat}>
+                        <div className="time_section_rgt">
                             <img src="./assets/img/time_icon.jpg" />
                         </div>
                     </div>
@@ -123,10 +129,10 @@ class Header extends Component {
                     <div className="time_section_text">
                         <Clock />
                     </div>
-                    <div className="time_section_img">
-                        <img src={"./assets/img/"+this.props.users.profileimage} />
+                    <div className="time_section_img" onClick={this.activeChat.bind(this)}>
+                        <img src={"./assets/img/"+this.state.user.profileimage} />
                     </div>
-                    <div className="time_section_rgt" onClick={(event,value) => this.activeChat(event,true)} active={this.props.activeChat}>
+                    <div className="time_section_rgt">
                         <img src="./assets/img/time_icon.jpg" />
                     </div>
                 </div>

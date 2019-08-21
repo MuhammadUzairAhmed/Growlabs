@@ -15,7 +15,7 @@ class Milestones extends Component {
      }
    
     componentDidMount(){
-      this.props.fetchData('http://demo2532200.mockable.io/milestone','MILESTONE'); 
+      this.props.fetchData('http://react2.zepcomtesting.com/api/milestone.json','MILESTONE'); 
     }
     createMilestoneAppend(){
       this.setState({

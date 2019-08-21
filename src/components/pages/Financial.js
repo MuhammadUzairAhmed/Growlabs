@@ -15,7 +15,7 @@ class Financial extends Component {
     
   }
   componentWillMount(){
-    this.props.fetchData('http://demo2532200.mockable.io/financial','FINANCIAL');
+    this.props.fetchData('http://react2.zepcomtesting.com/api/financial.json','FINANCIAL');
    
   }
   componentWillReceiveProps(props,state){
