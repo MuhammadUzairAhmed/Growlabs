@@ -16,7 +16,8 @@ class Agreements extends Component {
         }
     }
     componentDidMount(){
-        fetch("http://react2.zepcomtesting.com/api/agreement.json")
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxyurl+"http://react2.zepcomtesting.com/api/agreement.json")
           .then(res => res.json())
           .then(data => this.setState({formData: data}));
     }

@@ -12,7 +12,7 @@ class HomePage extends Component {
   render(){
     if(this.props.users.status == 'project'){
       return (
-        <Projects />
+          <Projects />
       );  
     }else if(this.props.users.status == 'pre'){
       return(
@@ -24,7 +24,8 @@ class HomePage extends Component {
         <Dashboard />
       )
     }
-  };  
+
+  };
 };
 
 const mapStateToProps = (state) => {

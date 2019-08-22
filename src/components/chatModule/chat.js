@@ -19,8 +19,9 @@ class Chat extends Component {
     ws = new WebSocket(URL)
 
     componentDidMount() {
-  
-        fetch('http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
+        
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
             .then(response => response.json())
             .then((state) => {this.setState(state); console.log(this.state,'statess');
             

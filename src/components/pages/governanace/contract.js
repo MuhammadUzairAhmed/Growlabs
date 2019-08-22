@@ -17,7 +17,8 @@ class Contact extends Component {
     }
     
     componentDidMount(){
-        fetch("http://react2.zepcomtesting.com/api/contract.json")
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
           .then(data => this.setState({formData: data}));
     }
