@@ -1364,3 +1364,17 @@ path.rc-progress-line-trail {
     right: 0;
     left: 62px;
 }
+
+/* .cheikg
+{
+    width: 240px;
+    height: 2px;
+    background: #19d192;
+   
+}
+.cheikg:hover
+{
+    width: 500px;
+    -webkit-transition: width 1s; For Safari 3.1 to 6.0
+    transition: width 1s;
+} */

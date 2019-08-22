@@ -34,10 +34,13 @@ class FileUpload extends Component
           }
           this.setState({arrayList:[]})
           this.setState({arrayList: [...this.state.arrayList, dataList]})
+          console.log('filePath ',this.state.arrayList)
         }
         
-        console.log('filePath ',this.state.arrayList)
-        this.props.getInput(this.state.arrayList);
+        
+        this.props.getInput1(this.state.arrayList,this.props.name);
+        // this.props.getInput2(this.state.arrayList);
+        // this.props.getInput(this.state.arrayList);
         if(rejected && rejected.length > 0)
         {
             console.log('rejected ',rejected)
