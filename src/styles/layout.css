@@ -327,7 +327,10 @@ section.chat_room_active{
     /* transform: translateX(100%);
     transition: transform 0.5s ease-in; */
 }
-
+section.chat_room_active .chatroom_header {
+    top: 124px;
+    z-index: 9999999;
+}
 .chatroom_header {
     background-color: #13181C;
     border-bottom: 1px solid #2b363d;
@@ -343,10 +346,6 @@ section.chat_room_active{
     float: right;
 }
 
-.chatroom_header-rgt img {
-    width: 14px;
-    margin: 28px 10px 0px 10px;
-}
 
 .chatroom_header_img {
     float: left;
@@ -385,21 +384,19 @@ section.chat_room_active{
 .chatroom_Content .received_massage {
     border-radius: 15px 15px 0 15px;
     float: right;
-    color: #fff;
+    color: #d2d2d2;
     font-size: 12px;
     width: 80%;
     padding: 15px 15px 15px 15px;
     font-weight: 400;
     letter-spacing: 1px;
-    margin-bottom: 10px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%), linear-gradient(270deg, #1D6061 0%, #21596E 100%);
+    margin-bottom: 3px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(270deg, #1D6061 0%, #21596E 100%);
     font-family: "Open Sans";
     text-transform: capitalize;
+    word-break: break-all;
 }
 
-.chatroom_Content {
-    padding: 20px 20px;
-}
 
 .chatroom_Content .send_massage {
     border-radius: 15px 15px 15px 0px;
@@ -1356,25 +1353,3 @@ path.rc-progress-line-trail {
     float: left;
     margin: 17px 0px 11px 0px;
 }
-.dashbord_right .tooltip .tooltiptext:after {
-    top: -8px;
-    -webkit-transform: rotate(-139deg);
-    transform: rotate(-180deg);
-    border-top: 8px solid #27303a;
-    right: 0;
-    left: 62px;
-}
-
-/* .cheikg
-{
-    width: 240px;
-    height: 2px;
-    background: #19d192;
-   
-}
-.cheikg:hover
-{
-    width: 500px;
-    -webkit-transition: width 1s; For Safari 3.1 to 6.0
-    transition: width 1s;
-} */

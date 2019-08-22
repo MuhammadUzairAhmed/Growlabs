@@ -16,7 +16,7 @@ class Chatbot extends Component {
         
     }
     componentDidMount() {
-        this.props.fetchData(`http://demo2532200.mockable.io/meeting`,'CHAT');
+        this.props.fetchData(`http://react2.zepcomtesting.com/api/meeting.json`,'CHAT');
     }
     startchat(value,event){
         this.setState({ showMe : true} );
@@ -46,7 +46,7 @@ class Chatbot extends Component {
                                 <div className="chatroom_header_lft">
                                     <div className="chatroom_header_img">
                                         <img src={item.image} />
-                                        <div class="right">
+                                        <div className="right">
                                             {/* <div className="badge total-message">1</div> */}
                                             <div className="time">Yesterday, 12:30</div>
                                             <div className="go-icon"></div>
@@ -73,7 +73,7 @@ class Chatbot extends Component {
                                 <div className="chatroom_header_lft">
                                     <div className="chatroom_header_img">
                                         <img src={item.image} />
-                                        <div class="right">
+                                        <div className="right">
                                             {/* <div className="badge total-message">1</div> */}
                                             <div className="time">Yesterday, 12:30</div>
                                             <div className="go-icon"></div>

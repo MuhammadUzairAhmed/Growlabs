@@ -18,7 +18,7 @@ class CurrentLocation extends Component
     render()
     {
         return(
-            <div class="getLocation"></div>
+            <div className="getLocation"></div>
         )
     }
 }

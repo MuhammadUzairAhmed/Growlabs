@@ -69,11 +69,12 @@ class Agency extends Component {
       const method = "POST";
       const body = new FormData(this.form);
 
-      fetch("http://demo2532200.mockable.io/milestone", { method, body: {} })
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      fetch(proxyurl+"http://react2.zepcomtesting.com/api/milestone.json", { method, body: {} })
          .then(res => res.json())
          .then(data => JSON.stringify(data));
 
-      fetch("https://demo9810618.mockable.io/agent")
+      fetch(proxyurl+"http://react2.zepcomtesting.com/api/agent.json")
          .then(res => res.json())
          .then(data =>
             this.setState({ fetchData: data.agents }, () => {
@@ -487,14 +488,14 @@ class Agency extends Component {
             {console.log('dataMap', data)}
 
 
-            <div class="boxes">
+            <div className="boxes">
                <div className="left_box">
                   {Object.values(data.Lchild).map((subData, lid) =>
                      subData.status == true ?
                         <div onClick={() => this.editLeftChild(data.id, subData.id)}>
                              <div className="profile">
                              <div className="profile_img">
-                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
+                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} className="profile-fix-img"/>}
                               </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
@@ -518,7 +519,7 @@ class Agency extends Component {
                         <div>
                            <div className="profile">
                            <div className="profile_img">
-                               {data.image == '' ? <img src="./assets/img/user2.png" /> : <img src={data.image} onClick={() => this.editMidChild(data.id)}  class="profile-fix-img"/>}
+                               {data.image == '' ? <img src="./assets/img/user2.png" /> : <img src={data.image} onClick={() => this.editMidChild(data.id)}  className="profile-fix-img"/>}
                            </div>
                               <div className="text">
                               <h3>{data.fname}</h3>
@@ -546,7 +547,7 @@ class Agency extends Component {
                         <div attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}>
                          <div className="profile">
                            <div className="profile_img">
-                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
+                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} className="profile-fix-img"/>}
                            </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
@@ -623,7 +624,7 @@ class Agency extends Component {
 
                <div className="center">
 
-                  <div class="added_center">{displayTree}</div>
+                  <div className="added_center">{displayTree}</div>
 
 
                </div></div>

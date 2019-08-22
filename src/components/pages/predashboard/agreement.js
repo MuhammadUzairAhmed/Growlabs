@@ -120,7 +120,7 @@ class Agreements extends Component {
         x13: this.state.x13
       }
       const {x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13} = this.state;
-      if(x1 != '' && x2 != '' && x3 != '' && x4 != '' && x5 != '' && x6 != ''  && x7 != '' && x8 != '' && x9 != '' 
+      if(x1 != '' && x2 != '' && x3 != '' && x4 != '' && x5 != '' && x6 != ''  && x7 != '' && x8 != '' && x9 != ''
       && x10 != '' && x11 != '' && x12 != '' && x13 != '' )
       {
         this.setState({colorButn: '#19D192'})
@@ -133,7 +133,7 @@ class Agreements extends Component {
   }
   handleAccept =()=>{
     const {x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13} = this.state;
-    if(x1 != '' && x2 != '' && x3 != '' && x4 != '' && x5 != '' && x6 != ''  && x7 != '' && x8 != '' && x9 != '' 
+    if(x1 != '' && x2 != '' && x3 != '' && x4 != '' && x5 != '' && x6 != ''  && x7 != '' && x8 != '' && x9 != ''
     && x10 != '' && x11 != '' && x12 != '' && x13 != '' )
     {
       this.setState({colorButn: 'green'})
@@ -143,7 +143,7 @@ class Agreements extends Component {
   render() {
     return (
       <section className="agreements">
-         
+
         <div className="agreements_top">
           <h1>agreements</h1>
           <p>Define the terms on Which You will Collaborate</p>

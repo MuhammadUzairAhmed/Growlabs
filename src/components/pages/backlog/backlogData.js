@@ -14,21 +14,21 @@ class BacklogDataD extends Component {
     render(){
         return(
         <div>
-            <div class="backlog_box" onClick={(value,event) => this.backlogCreate(true,"backlogPlus")}>
-                <div class="backlog_box_img">
+            <div className="backlog_box" onClick={(value,event) => this.backlogCreate(true,"backlogPlus")}>
+                <div className="backlog_box_img">
                     <img src="./assets/img/plus.png" />
                 </div>
             </div>
            {this.props.data.map((items)=>
-                <div class="backlog_box" key={items.id}>
-                    <div class="backlog_box_flt">
+                <div className="backlog_box" key={items.id}>
+                    <div className="backlog_box_flt">
                         <h1>{items.name}</h1>
                         <p>{items.discription}</p>
                     </div>
-                    <div class="backlog_box_rgt">
+                    <div className="backlog_box_rgt">
                         <span>{items.feedback}</span>
                     </div>
-                    <div class="backlog_box_botum">
+                    <div className="backlog_box_botum">
                         <p>#{items.id}</p>
                     </div>
                 </div>

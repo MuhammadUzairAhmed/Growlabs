@@ -24,8 +24,8 @@ class HomePage extends Component {
         <Dashboard />
       )
     }
-    
-  };  
+
+  };
 };
 
 const mapStateToProps = (state) => {

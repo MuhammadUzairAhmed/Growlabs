@@ -17,7 +17,7 @@ class Backlog extends Component {
       SprintId:'',
       loaded: true
     }
-    this.props.fetchData('http://demo2532200.mockable.io/backlog','BACKLOG');
+    this.props.fetchData('http://react2.zepcomtesting.com/api/backlog.json','BACKLOG');
   }
   componentDidMount(){
     this.props.backlog.filter((menu) => {
@@ -78,7 +78,7 @@ class Backlog extends Component {
             className="loading"
          />
           :  
-          <section class="backlog">
+          <section className="backlog">
             <Category data={this.props.backlog.map((items)=> items.categoryId)} activeId={this.state.CurrentId} selectedCat={this.selectedCatId.bind(this)}  />
             <Sprints data={this.state.categoryData} selectedSpt={this.selectedSptId.bind(this)} />
             <BacklogData data={this.state.sprintData} />

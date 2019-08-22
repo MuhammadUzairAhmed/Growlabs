@@ -19,8 +19,9 @@ class Chat extends Component {
     ws = new WebSocket(URL)
 
     componentDidMount() {
-  
-        fetch('http://demo2532200.mockable.io/meeting/'+this.props.dataID)
+        
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
             .then(response => response.json())
             .then((state) => {this.setState(state); console.log(this.state,'statess');
             
@@ -98,10 +99,10 @@ class Chat extends Component {
             return (
                 <div  style={{
                     width: '350px',
-                    position: 'absolute',
+                    position: 'fixed',
                     right: '0',
                     top: '0',
-                    height:'90%',
+                    height:'100vh',
                     overflowX:`${this.state.overflow}`,
                     overflowY:`${this.state.overflow}`
                 }}>
@@ -111,7 +112,7 @@ class Chat extends Component {
                     width: '350px',
                     position: 'absolute',
                     right: '-400px',
-                    top: '124px',
+                    top: '0',
                     height:'100vh',
                    
                 }}>
@@ -129,7 +130,7 @@ class Chat extends Component {
                         </div>
                         <div className="chatroom_header-rgt">
                            
-                        <div class="tooltip"><img src="./assets/img/chat_exp.png" class="" />  <span class="tooltiptext">Tooltip text</span></div>
+                        <div className="tooltip"><img src="./assets/img/chat_exp.png" className="" />  <span className="tooltiptext">Tooltip text</span></div>
                         <img src="./assets/img/400952499.png" onClick={this.backHistory.bind(this)} />
                         </div>
                     </div>

@@ -112,9 +112,9 @@ componentWillReceiveProps(nextprops)
                         </div>
                         <div className="score ">
                             {/* <img src="./assets/img/img_4.png" /> */}
-                            {/* <div class="row">
-                        <div class="col-sm-6">6</div>
-                        <div class="col-sm-6">6</div>
+                            {/* <div className="row">
+                        <div className="col-sm-6">6</div>
+                        <div className="col-sm-6">6</div>
                     </div> */}
                             <table>
                                 <tr>
@@ -148,7 +148,7 @@ componentWillReceiveProps(nextprops)
                 </section>
             );
         }else{
-            return <div class="offsidebar">Pre Dashboard</div>
+            return <div className="offsidebar">Pre Dashboard</div>
         }
     }
 }

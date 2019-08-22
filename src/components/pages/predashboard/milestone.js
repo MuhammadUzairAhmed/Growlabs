@@ -39,14 +39,14 @@ class Milestone extends Component {
 		console.log(val-1,'trysss')
 		// this.setState({
 		// 	data: this.state.data.filter(item => {
-		// 	   if (item['id'] == val-1) 
+		// 	   if (item['id'] == val-1)
 		// 	   {
 		// 		item['input1'] = this.state.x5;
 		// 		item['input2'] = this.state.x6
 		// 		return item
 		// 	   }
 		// 	})
-			
+
 		// })
 		var count = this.state.data.length;
 		var userid = count+1;
@@ -66,7 +66,7 @@ class Milestone extends Component {
 		console.log('ids',id)
 		this.setState({
 			data: this.state.data.filter(item => {
-			   if (item['id'] != id) 
+			   if (item['id'] != id)
 			   {
 				item['id'] = this.state.count++;
 				item['userd'] = this.state.count2++
@@ -76,25 +76,25 @@ class Milestone extends Component {
 			count:0,
 			count2:1,
 			changeWidth: this.state.changeWidth-10,
-			sprints:this.state.sprints-1	
+			sprints:this.state.sprints-1
 		 })
 	}
 	handleAccept =()=>{
-	
+
 		this.props.changeValue(3,'pending')
 	  }
 	//   setItemValue =(val)=>{
 	// 	  console.log(val,'keyPresses')
 	// 	  this.setState({
 	// 		data: this.state.data.filter(item => {
-	// 		   if (item['id'] == val) 
+	// 		   if (item['id'] == val)
 	// 		   {
 	// 			item['input1'] = this.state.x5;
 	// 			item['input2'] = this.state.x6
 	// 			return item
 	// 		   }
 	// 		})
-			
+
 	// 	})
 	//   }
 	handleChange = (e) => {
@@ -133,7 +133,7 @@ class Milestone extends Component {
 			}
 
 			var values = {
-				
+
 				x5: this.state.x5,
 				x6: this.state.x6,
 
@@ -152,7 +152,7 @@ class Milestone extends Component {
 	render() {
 		console.log(this.state.data,'stattes')
 		const rows = this.state.data.map(item=>{
-			 
+
 		return	<div className="timeframe_box">
 
 						<div className="timeframe_first">
@@ -185,7 +185,7 @@ class Milestone extends Component {
 							<p onClick={()=>this.deleteRow(item.id)}>delete</p>
 						</div>
 
-						
+
 
 					</div>
 		})
@@ -230,9 +230,9 @@ class Milestone extends Component {
 						<p>24  SPRINTS</p>
 					</div>
 
-					
 
-				
+
+
 					{/* <div className="timeframe_box"> */}
 
 						{/* <div className="timeframe_first">
@@ -246,7 +246,7 @@ class Milestone extends Component {
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
-							
+
 						</div>
 
 						<div className="timeframe_for">
