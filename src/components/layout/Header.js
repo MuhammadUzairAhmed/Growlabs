@@ -53,18 +53,20 @@ class Header extends Component {
     componentWillReceiveProps(props,state){ 
         this.setState({
             notificationsData:props.notifications,
-            status:props.users.status
         })
         if (props.users.status !== this.props.users.status) {
+            this.setState({
+                status:props.users.status
+            })
             this.layoutChange(props.users.status)
         }
         console.log(this.state)
     }
-    componentWillUpdate(props,state){
-        if(state.status !== this.state.status) {
-            this.layoutChange(state.status)
-        }
-    }
+    // componentWillUpdate(props,state){
+    //     if(state.status !== this.state.status) {
+    //         this.layoutChange(state.status)
+    //     }
+    // }
 
     activeChat(event,value){
         // if(this.props.actionChat == "true"){
@@ -74,15 +76,17 @@ class Header extends Component {
         //     this.props.backlogWidgetData(false,"backlogPlus");
         // }
         this.setState({
-            status:"dashboard"
+            status:"projects"
         })
+        this.layoutChange("projects")
+       
     }
     layoutChange(s){
         this.props.checkData(s)
     }
     render(){
         
-        if(this.state.user.status != 'pre'){
+        if(this.state.status != 'pre'){
             if(this.state){
             return (
                 <section className="header">

@@ -57,7 +57,6 @@ componentWillReceiveProps(nextprops)
    
     render() {
       
-        if(this.props.users.status != 'pre'){
             return (
 
                 <section className="sidebar ">
@@ -147,9 +146,6 @@ componentWillReceiveProps(nextprops)
                     </div>
                 </section>
             );
-        }else{
-            return <div className="offsidebar">Pre Dashboard</div>
-        }
     }
 }
 
