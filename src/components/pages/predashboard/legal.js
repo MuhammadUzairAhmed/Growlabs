@@ -44,7 +44,7 @@ class Legal extends Component {
                     <p>please Upload Your legal documents here</p>
                 </div>
                 <div className="legal_center">
-                    <div className="legal_box-main">
+                    <div className="legal_box-main" active={this.state.image ? 'active':''}>
                         <div className="legal_box">
                             <h1>NDA</h1>
                             <div className="legal_green">
@@ -58,7 +58,7 @@ class Legal extends Component {
 
                         </div>
                     </div>
-                    <div className="legal_box-main">
+                    <div className="legal_box-main" active={this.state.image2 ? 'active':''}>
                         <div className="legal_box">
                             <h1>CONTRACT</h1>
                             <div className="legal_green">
