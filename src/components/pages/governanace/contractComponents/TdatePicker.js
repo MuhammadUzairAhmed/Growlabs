@@ -34,12 +34,12 @@ class TDataPicker extends Component {
       }
       render() {
         const { from, to } = this.state;
-        if(from != undefined && to != undefined){
-        var time={
-          start: from,
-          end: to
-        }
-        this.props.times(time)}
+        // if(from != undefined && to != undefined){
+        // var time={
+        //   start: from,
+        //   end: to
+        // }
+        // this.props.times(time)}
         const modifiers = { start: from, end: to };
         return (
           <div className="RangeExample">
