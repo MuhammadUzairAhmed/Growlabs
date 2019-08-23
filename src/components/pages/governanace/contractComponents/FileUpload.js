@@ -37,10 +37,10 @@ class FileUpload extends Component
           console.log('filePath ',this.state.arrayList)
         }
         
-        
-        this.props.getInput1(this.state.arrayList,this.props.name);
-        // this.props.getInput2(this.state.arrayList);
-        // this.props.getInput(this.state.arrayList);
+        if(this.props.name && this.props.getInput ==''){
+        this.props.getInput1(this.state.arrayList,this.props.name);}
+        if(this.props.getInput1 =='')
+        {this.props.getInput(this.state.arrayList);}
         if(rejected && rejected.length > 0)
         {
             console.log('rejected ',rejected)

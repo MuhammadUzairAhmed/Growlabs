@@ -5,6 +5,7 @@ import  Legal  from './predashboard/legal';
 import  Milestone  from './predashboard/milestone';
 import  Technology  from './predashboard/technology';
 import  Contactinfo  from './predashboard/contactinfo';
+import Funding from './Financial'
 
 
 class PreDashboard extends Component {
@@ -17,17 +18,29 @@ class PreDashboard extends Component {
       technology:{},
       mileStone:{},
       legal:{},
+      funding:{},
+      contact:{},
       trnas:'width 1s',
       changeWidth:'240px',
       aggVal:1,
       techVal:null,
       milestoneVal:null,
       descVal:null,
-      legalVal:null
+      legalVal:null,
+      fundingVal: null,
+      numofpages:[
+        {"name":"Agreements","id":"1","description":"Explaining What neeeds to happen at this particulair step","status":"disable"},
+        {"name":"technology","id":"2","description":"Explaining What neeeds to happen at this particulair step","status":"active"},
+        {"name":"Milestons","id":"3","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"4","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"5","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"6","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"7","description":"Explaining What neeeds to happen at this particulair step","status":""}],
     }
   }
   acceptedAgreement =(value,info)=>{
-    this.setState({index: value})
+    this.setState({index: value}) 
+    
     if(value == 1)
     {
       this.setState({agreement: info, changeWidth:'500px',techVal:1})
@@ -48,8 +61,18 @@ class PreDashboard extends Component {
       })
     }else if(value == 5)
     {
-      this.setState({legal: info},()=>{
+      this.setState({legal: info,changeWidth:'1400px',fundingVal:1},()=>{
         console.log('valuesOflegal',this.state.legal)
+      })
+    }else if(value == 6)
+    {
+      this.setState({funding: info,changeWidth:'1600px',contactVal:1},()=>{
+        console.log('valuesOflegal',this.state.funding)
+      })
+    }else if(value == 7)
+    {
+      this.setState({contact: info},()=>{
+        console.log('valuesOflegal',this.state.contact)
       })
     }
 
@@ -68,6 +91,10 @@ class PreDashboard extends Component {
         return <Description changeValue={this.acceptedAgreement}/>;
       case 4:
         return <Legal changeValue={this.acceptedAgreement}/>;
+      case 5: 
+        return <Funding changeValue={this.acceptedAgreement} />;
+      case 6: 
+        return <Contactinfo changeValue={this.acceptedAgreement} />
       default:
         return null;
     }
@@ -96,25 +123,29 @@ class PreDashboard extends Component {
     console.log(this.state,'check')
     return (
       <section className="preDashboard">
-        <Agreement />
-        <Description />
-        <Legal />
-        <Milestone />
-        <Technology />
-        <Contactinfo />
-        <div style={{display: 'inline-flex'}}>
-        <p style={{ color:'white'}} onClick={()=>this.changePage(0)}>A heading with a A heading with a solid red top border A heading with a solid red top borderA heading with a solid red top border solid red top border</p>
-        <p style={{ color:'white'}} onClick={()=>this.changePage(1)}>A heading with a A heading with a solid red top border A heading with a solid red top borderA heading with a solid red top border solid red top border</p>
-        <p style={{ color:'white'}} onClick={()=>this.changePage(2)}>A heading with a A heading with a solid red top border A heading with a solid red top borderA heading with a solid red top border solid red top border</p>
-        <p style={{color:'white'}} onClick={()=>this.changePage(3)}>A  heading with a A heading with a solid red top border A heading with a solid red top borderA heading with a solid red top border solid red top border</p>
-        <p style={{ color:'white'}} onClick={()=>this.changePage(4)}>A heading with a A heading with a solid red top border A heading with a solid red top borderA heading with a solid red top border solid red top border</p>
-        </div>
-        <div style={{width:`${this.state.changeWidth}`,height: '2px',background:'#19d192',transition:'width 1s'}}></div>
-       {this.renderSwitch(this.state.index)}
-       {/* <Milestone /> */}
-       {/* <Legal />
-       */}
-       {/* <Technology /> */}
+        {this.state.numofpages.map((items,index)=>
+            <div className="NotiProgMain">
+            <div className="header_box" key={index} onClick={()=>this.changePage(index)}>
+              <div className="header_top">
+                  <ul>
+                      <li>STEP {items.id} </li>
+                      <li>{items.name}</li>
+                      <li><span>...</span></li>
+                  </ul>
+              </div>
+              <div className="header_center">
+                    <div className="header_flt">
+                        <h1>{items.description}</h1>
+                    </div>
+                    <div className="header_rgt">
+                        <img src={"./assets/img/.png"}/>
+                    </div>
+                </div>
+              </div>
+              <div className='PreNotifiProgress'>{items.status == 'disable' ? <div className="PreNotifiProgressadded"> </div> : items.status == 'active' ?  <div className="PreNotifiactive"> </div> : <div className="PreNotifidisable"> </div>  } </div>
+            </div>
+          )}
+         {this.renderSwitch(this.state.index)}
       </section>
     );  
   };  

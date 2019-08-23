@@ -7,6 +7,7 @@ class Legal extends Component {
         this.state = {
             image: '',
             image2: '',
+            actDiv:false
         }
     }
     handleAccept = () => {
@@ -14,7 +15,12 @@ class Legal extends Component {
             nda: this.state.image,
             contract: this.state.image2
         }
-        this.props.changeValue(5, values)
+        this.setState({actDiv:true},()=>{
+            setTimeout(() => {
+                this.props.changeValue(5, values)
+            }, 2000);
+          })
+       
     }
     handleInput = (x, val) => {
         console.log('dataFile1', val)
@@ -38,7 +44,7 @@ class Legal extends Component {
 
     render() {
         return (
-            <section className="legal">
+            <section className={this.state.actDiv ? "legal animations-disable" : "legal animations-check" }>
                 <div className="legal_top">
                     <h1>Legal</h1>
                     <p>please Upload Your legal documents here</p>
@@ -50,7 +56,7 @@ class Legal extends Component {
                             <div className="legal_green">
                                 <p>NDA With Zepcom</p>
                                 <h2>PDF</h2>
-                                <FileUpload getInput1={this.handleInput} name="1m" />
+                                <FileUpload getInput='' getInput1={this.handleInput} name="1m" />
                             </div>
                             <img src={this.state.image.length > 0 ? this.state.image : "./assets/img/download.png"} />
 
@@ -64,7 +70,7 @@ class Legal extends Component {
                             <div className="legal_green">
                                 <p>Official Contract With Zepcom 00/00/000</p>
                                 <h2>PDF</h2>
-                                <FileUpload getInput1={this.handleInput} name="2m" />
+                                <FileUpload getInput='' getInput1={this.handleInput} name="2m" />
 
                             </div>
                             <img src={this.state.image2.length > 0 ? this.state.image2 : "./assets/img/download.png"} />
