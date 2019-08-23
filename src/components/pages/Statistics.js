@@ -150,12 +150,13 @@ var finalData = [...this.state.smallData,...datasetConst]
   }
  
   componentDidMount() {
-    fetch("https://demo9810618.mockable.io/fetchSprintData")
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    fetch(proxyurl+"http://react2.zepcomtesting.com/api/fetchSprintData.json")
     .then(res => res.json())
     .then(data =>
        data
     );
-    this.props.fetchData('https://demo9810618.mockable.io/fetchSprintData', 'CHART');
+    this.props.fetchData('http://react2.zepcomtesting.com/api/fetchSprintData.json', 'CHART');
 
     // console.log(this.props.Chart,'charts')
    

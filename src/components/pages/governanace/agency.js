@@ -14,6 +14,7 @@ class Agency extends Component {
             { id: '3', name: 'Baran', image: './assets/img/account.png', lastname: 'abcd', function: 'testing', mail: 'mail', phone: '03481293669', skype: 'arsalan.usman@zep-com.com', address: 'testdfaf' }
          ],
          currentAgent: '',
+         activeLeftContainer:'',
          data: [
             {
                id: 0,
@@ -74,7 +75,7 @@ class Agency extends Component {
          .then(res => res.json())
          .then(data => JSON.stringify(data));
 
-      fetch(proxyurl + "http://react2.zepcomtesting.com/api/agent.json")
+      fetch(proxyurl+"http://react2.zepcomtesting.com/api/agent.json")
          .then(res => res.json())
          .then(data =>
             this.setState({ fetchData: data.agents }, () => {
@@ -139,6 +140,8 @@ class Agency extends Component {
       }
       this.setState({ data: [...this.state.data, addChild] }, () => {
          this.setState({ formId: null, childKey: '' })
+         if(this.props.chek  && this.props.chek == 'Predashboard')
+         {this.props.getValues(this.state.data)}
          console.log(this.state.data, "dataMid")
       })
 
@@ -168,6 +171,9 @@ class Agency extends Component {
             }
             return item;
          })
+      },()=>{
+         if(this.props.chek  && this.props.chek == 'Predashboard')
+         {this.props.getValues(this.state.data)}
       })
    }
    editLeftChild = (id, lid) => {
@@ -179,6 +185,7 @@ class Agency extends Component {
          if (item['id'] == lid) { return item }
       })
       this.setState({
+         activeLeftContainer: 'active',
          EditKey: 'LeftChild',
          message: 'You can update your left child',
          editId: id,
@@ -204,6 +211,7 @@ class Agency extends Component {
          if (item['id'] == rid) { return item }
       })
       this.setState({
+         activeLeftContainer: 'active',
          EditKey: 'RightChild',
          message: 'You can update your right child',
          editId: id,
@@ -222,7 +230,7 @@ class Agency extends Component {
    }
 
    editMidChild = (id) => {
-      this.setState({ message: `You can update, your id is: ${id}` })
+      this.setState({activeLeftContainer:'active', message: `You can update, your id is: ${id}` })
       console.log('midChild ', id)
       var foundData = this.state.data.find(item => {
          if (item['id'] == id) { return item }
@@ -265,17 +273,22 @@ class Agency extends Component {
             }
             return item;
          })
+      },()=>{
+         if(this.props.chek  && this.props.chek == 'Predashboard')
+         {this.props.getValues(this.state.data)}
       })
 
    }
 
    addUser = (id, key) => {
-      this.setState({ saveId: true, message: 'Please Fill The Form', formId: id, childKey: key,fname:'',lastname:'',mail:'',Function:'',phone:'',skype:'',address:'',image:'' })
+      this.setState({activeLeftContainer: 'active', saveId: true, message: 'Please Fill The Form', formId: id, childKey: key,fname:'',lastname:'',mail:'',Function:'',phone:'',skype:'',address:'',image:'' })
       console.log('here comes')
    }
 
 
    addUserForChilds = (id, cid, key) => {
+
+      this.setState({activeLeftContainer: 'active'})
       if (key == 'Lchild') {
          console.log(id, key, 'lchildsss')
          this.setState({ saveId: true, message: 'Fill Form for left child', formMainId: id, formChildId: cid, childKey: key,fname:'',lastname:'',mail:'',Function:'',phone:'',skype:'',address:'',image:'' })
@@ -287,7 +300,7 @@ class Agency extends Component {
 
    }
    handleEdit = () => {
-
+      this.setState({activeLeftContainer:''})
       this.setState({ saveId: true }, () => {
          if (this.state.EditKey == 'LeftChild') {
             this.setState({
@@ -316,6 +329,8 @@ class Agency extends Component {
             }, () => {
 
                this.setState({ childKey: '', fname: '', lastname: '', skype: '', phone: '', mail: '', address: '', Function: '', message: 'Successfully Updated Left Child', image: '' })
+               if(this.props.chek  && this.props.chek == 'Predashboard')
+                  {this.props.getValues(this.state.data)}
                console.log('saveId', this.state.saveId)
             })
          } else if (this.state.EditKey == 'RightChild') {
@@ -345,6 +360,8 @@ class Agency extends Component {
             }, () => {
 
                this.setState({ childKey: '', fname: '', lastname: '', skype: '', phone: '', mail: '', address: '', Function: '', message: 'Successfully Updated Right Child', image: '' })
+               if(this.props.chek  && this.props.chek == 'Predashboard')
+                  {this.props.getValues(this.state.data)}
                console.log('saveId', this.state.saveId)
             })
          } else if (this.state.EditKey == 'midChild') {
@@ -367,6 +384,8 @@ class Agency extends Component {
             }, () => {
 
                this.setState({ saveId: true, message: 'Successfully Updated', childKey: '', fname: '', lastname: '', skype: '', phone: '', mail: '', address: '', Function: '', image: '' })
+               if(this.props.chek  && this.props.chek == 'Predashboard')
+                  {this.props.getValues(this.state.data)}
                console.log('saveId', this.state.saveId)
             })
          }
@@ -375,6 +394,7 @@ class Agency extends Component {
       })
    }
    handleSave = () => {
+      this.setState({activeLeftContainer:''})
       if (this.state.childKey === 'child') {
          this.setState({
             data: this.state.data.map(item => {
@@ -408,7 +428,8 @@ class Agency extends Component {
             this.setState({ childKey: '', message: 'Right Child Created Successfully', Function: '', fname: '', lastname: '', skype: '', phone: '', mail: '', address: '', image: '' })
 
          })
-         this.rightClick()
+         if(this.state.formChildId < 1){
+         this.rightClick()}
       } else if (this.state.childKey === 'Lchild') {
          this.setState({
             data: this.state.data.map(item => {
@@ -437,7 +458,8 @@ class Agency extends Component {
          }, () => {
             this.setState({ childKey: '', message: 'Left Child Created Successfully', fname: '', lastname: '', skype: '', phone: '', mail: '', address: '', Function: '', image: '' })
          })
-         this.leftClick()
+         if(this.state.formChildId < 1){
+         this.leftClick()}
       }
       else if (this.state.childKey === 'mid') {
          this.setState({
@@ -488,14 +510,14 @@ class Agency extends Component {
             {console.log('dataMap', data)}
 
 
-            <div className="boxes">
+            <div class="boxes">
                <div className="left_box">
                   {Object.values(data.Lchild).map((subData, lid) =>
                      subData.status == true ?
                         <div onClick={() => this.editLeftChild(data.id, subData.id)}>
                              <div className="profile">
                              <div className="profile_img">
-                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} className="profile-fix-img"/>}
+                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
                               </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
@@ -519,7 +541,7 @@ class Agency extends Component {
                         <div>
                            <div className="profile">
                            <div className="profile_img">
-                               {data.image == '' ? <img src="./assets/img/user2.png" /> : <img src={data.image} onClick={() => this.editMidChild(data.id)}  className="profile-fix-img"/>}
+                               {data.image == '' ? <img src="./assets/img/user2.png" /> : <img src={data.image} onClick={() => this.editMidChild(data.id)}  class="profile-fix-img"/>}
                            </div>
                               <div className="text">
                               <h3>{data.fname}</h3>
@@ -547,7 +569,7 @@ class Agency extends Component {
                         <div attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}>
                          <div className="profile">
                            <div className="profile_img">
-                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} className="profile-fix-img"/>}
+                              {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
                            </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
@@ -558,7 +580,7 @@ class Agency extends Component {
                         :
                         <div className="plus" attr={rid}>
                            <img key={subData.id} src="./assets/img/close.png" onClick={() => this.addUserForChilds(data.id, subData.id, 'child')} />
-                           <p onClick={() => this.addUserForChilds(data.id, subData.id, 'child')}>add</p>
+                           <p >add</p>
                         </div>
 
 
@@ -572,7 +594,7 @@ class Agency extends Component {
 
       return (
          <div className="agency">
-            <div className="left_side">
+            <div className={this.state.activeLeftContainer == 'active'?"left_side active": "left_side"}>
            
                <div className="profile">
                   {/* {this.state.saveId
@@ -580,7 +602,7 @@ class Agency extends Component {
                      : <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />} */}
 <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={this.state.image != '' ? "upload_user":"blank_user"} />
 <div className="proflie_upload">
-               <FileUpload getInput={this.handleInput} />
+               <FileUpload getInput={this.handleInput} getInput1='' />
               </div>
                </div>
                <div className="feild half">
@@ -624,7 +646,7 @@ class Agency extends Component {
 
                <div className="center">
 
-                  <div className="added_center">{displayTree}</div>
+                  <div class="added_center">{displayTree}</div>
 
 
                </div></div>

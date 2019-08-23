@@ -42,7 +42,7 @@ class App extends React.Component {
     this.setState({
       status:e
     })
-
+    console.log(e)
   }
   render() {
     if(this.state.status == 'pre'){
@@ -54,7 +54,7 @@ class App extends React.Component {
                 <div className="center_part pre">
                     <Switch>
                         <Route exact path="/"  component={PreDashboard} />
-                        <Route component={PreDashboard} />
+                        <Route component={PreDashboard}  />
                     </Switch>
                 </div>
                 <Chat />
@@ -62,22 +62,8 @@ class App extends React.Component {
             </section>
         </section>
       );
-    }else if(this.state.status == 'projects'){
-          <section>
-            <Header checkData={this.layout.bind(this)}/>
-            <section className="Content_main">
-            <Router>
-                <div className="center_part pre">
-                    <Switch>
-                        <Route exact path="/"  component={Projects} />
-                        <Route component={Projects} />
-                    </Switch>
-                </div>
-                <Chat />
-            </Router>
-            </section>
-        </section>
-    }else if(this.state.status == 'dashboard'){
+    }
+    if(this.state.status == 'dashboard'){
       return (
         <section>
             <Header checkData={this.layout.bind(this)}/>
@@ -86,7 +72,7 @@ class App extends React.Component {
                 <Sidebar />
                 <div className="center_part">
                     <Switch>
-                        <Route exact path="/"  component={HomePage} />
+                        <Route exact path="/"  component={Statisitcs} />
                         <Route path="/statistics" component={Statisitcs} />
                         <Route path="/collaboration" component={Collaboration} />
                         <Route path="/financial" component={Financial} />
@@ -102,7 +88,25 @@ class App extends React.Component {
         </section>
       );
     }
-    else{
+    if(this.state.status == 'projects'){
+      return (
+        <section>
+          <Header checkData={this.layout.bind(this)}/>
+          <section className="Content_main">
+          <Router>
+              <div className="center_part pre">
+                  <Switch>
+                      <Route exact path="/"  component={Projects} />
+                      <Route component={Projects} />
+                  </Switch>
+              </div>
+              <Chat />
+          </Router>
+          </section>
+      </section>
+      )
+    }
+    if(this.state.status == ''){
       return (
         <section>
           <Header checkData={this.layout.bind(this)}/>

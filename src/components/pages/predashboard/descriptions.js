@@ -11,6 +11,7 @@ class Description extends Component {
          x1Err: 'Please Fill this field',
          x2Err: 'Please Fill this field',
          x3Err: 'Please Fill this field',
+         actDiv:false
       }
    }
    handleChange = (e) => {
@@ -51,11 +52,21 @@ class Description extends Component {
       const {x1,x2,x3} = this.state;
       console.log(x1,'yeah')
       if(x1 != '' && x2 != '' && x3 != '' )
-      {this.props.changeValue(4,values)}
+      {
+         this.setState({actDiv:true},()=>{
+            setTimeout(() => {
+               this.props.changeValue(4,values)
+            }, 2000);
+          })
+         }
+
+
+
     }
    render() {
       return (
-         <section className="descriptions animations-check">
+         {/*<section className="descriptions animations-check">*/}
+         <section className={this.state.actDiv ? "descriptions animations-disable" : "descriptions animations-check" }>
 
 
 
