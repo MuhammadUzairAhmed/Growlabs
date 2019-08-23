@@ -10,7 +10,8 @@ class Financial extends Component {
     this.state = {
       paid:'',
       funded:'',
-      data: ''
+      data: '',
+      fundChecked: false
     }
     
   }
@@ -27,6 +28,22 @@ class Financial extends Component {
       funded:Math.round((props.financial.funded * 100) / props.financial.total) +'%'
     })
   }
+  handleAccept = () => {
+    this.setState({actDiv:true},()=>{
+      setTimeout(() => {
+        this.props.changeValue(6, 'fundings..')
+      }, 2000);
+    })
+   
+}
+setChecked=(val)=>
+{
+  if(val == 'release')
+  {
+    this.setState({fundChecked: !this.state.fundChecked})
+    console.log(val,'cheked')
+  }
+}
   render(){
       let paidPer = {width:this.state.paid}
       let fundedPer = {width:this.state.funded}
@@ -60,12 +77,12 @@ class Financial extends Component {
                 <div className="source"> SOURCE    </div>
                 <div className="eur">EUR  </div>
               </div>
-              {this.state.data.financial.paymentData.map((items) =>
-              <section>
+              {this.state.data.financial.paymentData.map((items,index) =>
+              <section key={index}>
                 <div className={"according_box "+items.status}>
                   <div className="check_box">
                       <label className="fancy-checkbox">
-                      <input type="checkbox" />
+                      <input type="checkbox" onChange={()=>this.setChecked(items.status)} checked={items.status == 'release'?this.state.fundChecked:false} />
                       <span className="checkmark"></span> </label>
                   </div>
                   <div className="button">
@@ -122,9 +139,15 @@ class Financial extends Component {
                 </div>
                 {items.status == 'release' ? <div className="according_box according_box-hea"> <div className="check_box"></div> <p>PREVIOUS</p> </div>:''}
               </section>
+
               )}
-            
+           
+          {this.state.fundChecked ?
+          <a target="_blank" onClick={this.handleAccept} className="button">Accept Funding<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a> 
+            : <a target="_blank"  className="button"   style={{background:'rgb(212, 217, 221)'}}>Accept Funding<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
+              
           </div>
+          
         </section>
       );  
   }else{

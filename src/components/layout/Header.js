@@ -4,6 +4,8 @@ import { itemsFetchData, currentStateData, activeChatSystem, backlogWidget } fro
 import  Clock  from '../../components/widget/clock';
 import { setInterval } from 'timers';
 const URL = 'ws://localhost:3030'
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 // Since this component is simple and static, there's no parent container for it.
 class Header extends Component {
@@ -79,17 +81,16 @@ class Header extends Component {
             status:"projects"
         })
         this.layoutChange("projects")
-       
+
     }
     layoutChange(s){
         this.props.checkData(s)
     }
     render(){
-        
-        if(this.state.status != 'pre'){
+        if(this.state.status == 'dashboard'){
             if(this.state){
             return (
-                <section className="header">
+                <section className="header ">
                     <div className="time_section">
                         <div className="time_section_text">
                             <Clock />
@@ -127,9 +128,9 @@ class Header extends Component {
         }else{
             return <h1>Loading...</h1>
         }
-    }else{
+    }if(this.state.status == 'pre'){
         return (
-            <section className="header">
+            <section className="header pre">
                 <div className="time_section">
                     <div className="time_section_text">
                         <Clock />
@@ -143,6 +144,11 @@ class Header extends Component {
                 </div>
             </section>
         )
+    }else{
+        return(
+            <Loader type="Oval" color="white" height="50" width="50" className="loading" />
+        )
+
     }
 }
   

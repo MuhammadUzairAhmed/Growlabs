@@ -42,7 +42,7 @@ class Technology extends Component {
             proCount :0,
             x1:'',
             x2:'',
-            x3:''
+            x3:'',
          
       }
    }
@@ -98,19 +98,37 @@ class Technology extends Component {
    }
   
    handleAccepted =()=>{
-      console.log('correct')
-      console.log(this.state.x1,'x1')
-      console.log(this.state.x2,'x2')
-      console.log(this.state.x3,'x3')
+      // console.log('correct')
+      // console.log(this.state.x1,'x1')
+      // console.log(this.state.x2,'x2')
+      // console.log(this.state.x3,'x3')
+      // var values ={
+      //    techVal: this.state.x1,
+      //    frameVal:this.state.x2,
+      //    projVal:this.state.x3
+      // }
+      // if(this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' )
+      // {this.props.changeValue(2,values)}
+    }
+    componentDidUpdate()
+    {
+       console.log(this.state,'xyz')
+       console.log(this.props,'xyz2')
+    }
+    render(){
       var values ={
          techVal: this.state.x1,
          frameVal:this.state.x2,
          projVal:this.state.x3
       }
       if(this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' )
-      {this.props.changeValue(2,values)}
-    }
-    render(){
+      {
+
+            setTimeout(() => {
+              this.props.changeValue(2,values)
+            }, 2000);
+
+      }
      const Technology = this.state.technology.map(item=>
          {
             return <div className={item.status ? "technology_box active": "technology_box"} onClick={()=>this.activeTechnology(item.name)}>
@@ -132,7 +150,7 @@ class Technology extends Component {
             </div>
          })
       return (
-        <section className="technology">
+        <section className={this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' ? "technology animations-disable" : "technology animations-check"} >
                <div className="technology_top">
                   
                   <p>Define the terms on Which You will Collaborate</p>

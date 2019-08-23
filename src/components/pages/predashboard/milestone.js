@@ -32,7 +32,10 @@ class Milestone extends Component {
 			changeWidth:10,
 			sprints:1,
 			timelineStart:'',
-			timelineEnd:''
+			timelineEnd:'',
+			itemId:null,
+			itemId2:null,
+			actDiv: false
 		}
 	}
 	addNew =(val)=>{
@@ -53,8 +56,8 @@ class Milestone extends Component {
 		var addChild ={
 			id: count,
 			userd: userid,
-			input1:this.state.x5,
-			input2:this.state.x6,
+			input1:'',
+			input2:'',
 			strtTime:'00/00/00',
 			EndTime:'00/00/00'
 		}
@@ -81,7 +84,12 @@ class Milestone extends Component {
 	}
 	handleAccept =()=>{
 
-		this.props.changeValue(3,'pending')
+		this.setState({actDiv:true},()=>{
+			setTimeout(() => {
+				this.props.changeValue(3,'pending')
+			}, 2000);
+		  })
+
 	  }
 	//   setItemValue =(val)=>{
 	// 	  console.log(val,'keyPresses')
@@ -98,6 +106,7 @@ class Milestone extends Component {
 	// 	})
 	//   }
 	handleChange = (e) => {
+		console.log(e,'eventss')
 		this.setState({
 			[e.target.name]: e.target.value
 		}, () => {
@@ -149,11 +158,48 @@ class Milestone extends Component {
 		// this.setState({timelineStart: val.start,
 		// 		timelineEnd: val.end})
 	}
+	UpdateInput = (id) =>
+	{
+		this.setState({itemId:id},()=>{
+
+		this.setState({
+			data: this.state.data.filter(item => {
+			   if (item['id'] == id) {
+				  item['input1'] = this.state.x5;
+				  return item
+			   }
+			   return item;
+			})
+		 })
+
+		},()=>{
+			this.setState({x5:''})
+		})
+		console.log('chekcei',id)
+	}
+	UpdateInput2 = (id) =>
+	{
+		this.setState({itemId2:id},()=>{
+
+		this.setState({
+			data: this.state.data.filter(item => {
+			   if (item['id'] == id) {
+				  item['input2'] = this.state.x6;
+				  return item
+			   }
+			   return item;
+			})
+		 })
+		},()=>{
+			this.setState({x6:''})
+		})
+		console.log('chekcei',id)
+	}
 	render() {
 		console.log(this.state.data,'stattes')
 		const rows = this.state.data.map(item=>{
 
-		return	<div className="timeframe_box">
+		return	<div className={"timeframe_box"}>
 
 						<div className="timeframe_first">
 							<label></label>
@@ -163,13 +209,13 @@ class Milestone extends Component {
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
 							<input type="text" name="x5" placeholder="05" value={item.input1 != '' ? item.input1 : this.state.x5} onChange={this.handleChange} />
-							<span style={{ color: 'red' }}>{item.input1 != '' ? '' : this.state.x5Err}</span>
+							<span className="FildEror">{item.input1 != '' ? '' : this.state.x5Err}</span>
 						</div>
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
 							<input type="text" name="x6" placeholder="Milestones 01" value={item.input2 != '' ? item.input2 : this.state.x6} onChange={this.handleChange}  />
-							<span style={{ color: 'red' }}>{item.input2 != '' ? '' : this.state.x6Err}</span>
+							<span className="FildEror">{item.input2 != '' ? '' : this.state.x6Err}</span>
 						</div>
 
 						<div className="timeframe_for">
@@ -182,7 +228,7 @@ class Milestone extends Component {
 							<p>00/00/000</p>
 						</div>
 						<div className="delete_section">
-							<p onClick={()=>this.deleteRow(item.id)}>delete</p>
+							<p onClick={()=>this.deleteRow(item.id)}><img src="./assets/img/delete.png"/></p>
 						</div>
 
 
@@ -190,7 +236,7 @@ class Milestone extends Component {
 					</div>
 		})
 		return (
-			<section className="timeframe">
+			<section  className={this.state.actDiv ? "timeframe animations-disable" : "timeframe animations-check" }>
 
 				<div className="timeframe_top">
 					<h1>Milestones</h1>
