@@ -508,21 +508,46 @@ class Agency extends Component {
             </div>
 
             {console.log('dataMap', data)}
-
-
+            {/* <ul>
+               <li>
+                  <div className="plus">
+                     <img src="./assets/img/close.png" />
+                     <p >add</p>
+                  </div>
+               </li>
+               <li>
+                  <div className="plus">
+                     <img src="./assets/img/close.png" />
+                     <p >add</p>
+                  </div>
+                  <ul>
+                     <li>
+                     <div className="plus">
+                        <img src="./assets/img/close.png" />
+                        <p >add</p>
+                     </div>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <div className="plus">
+                     <img src="./assets/img/close.png" />
+                     <p >add</p>
+                  </div>
+               </li>
+            </ul> */}
+           
             <div class="boxes">
                <div className="left_box">
                   {Object.values(data.Lchild).map((subData, lid) =>
                      subData.status == true ?
-                        <div onClick={() => this.editLeftChild(data.id, subData.id)}>
-                             <div className="profile">
-                             <div className="profile_img">
+                        <div className="profile"  attr={lid} onClick={() => this.editLeftChild(data.id, subData.id)}>
+                           <div className="profile_img">
                               {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
-                              </div>
+                           </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
                               <p>{subData.Function}</p>
-                           </div>
                            </div>
                         </div>
                         :
@@ -538,8 +563,7 @@ class Agency extends Component {
                <div className="first_box">
                   <div className="mid">
                      {data.status === true ?
-                        <div>
-                           <div className="profile">
+                        <div className="profile">
                            <div className="profile_img">
                                {data.image == '' ? <img src="./assets/img/user2.png" /> : <img src={data.image} onClick={() => this.editMidChild(data.id)}  class="profile-fix-img"/>}
                            </div>
@@ -547,9 +571,8 @@ class Agency extends Component {
                               <h3>{data.fname}</h3>
                               <p>{data.Function}</p>
                               </div>
-                           </div>
-
                         </div>
+
                         :
                         <div>
                            <div className="plus">
@@ -566,15 +589,13 @@ class Agency extends Component {
                <div className="third_box">
                   {Object.values(data.Rchild).map((subData, rid) =>
                      subData.status == true ?
-                        <div attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}>
-                         <div className="profile">
+                        <div className="profile"  attr={rid} onClick={() => this.editRightChild(data.id, subData.id)}> 
                            <div className="profile_img">
                               {subData.image == '' ? <img src="./assets/img/user2.png" /> : <img src={subData.image} class="profile-fix-img"/>}
                            </div>
                            <div className="text">
                               <h3>{subData.fname}</h3>
                               <p>{subData.Function}</p>
-                           </div>
                            </div>
                         </div>
                         :

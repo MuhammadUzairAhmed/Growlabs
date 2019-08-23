@@ -7,6 +7,8 @@ class Legal extends Component {
         this.state = {
             image: '',
             image2: '',
+            fileName:'',
+            secondfileName:'',
             actDiv:false
         }
     }
@@ -24,9 +26,10 @@ class Legal extends Component {
     }
     handleInput = (x, val) => {
         console.log('dataFile1', val)
+        console.log('dataFile1', x)
         if (val == '1m') {
             this.setState({ image: `` }, () => {
-                this.setState({ image: `./assets/img/${x[0].acceptedFile}` }, () => {
+                this.setState({ image: `./assets/img/${x[0].acceptedFile}`, fileName:x[0].acceptedFile }, () => {
                     console.log('imagesss', this.state.image)
                 })
 
@@ -34,7 +37,7 @@ class Legal extends Component {
         } else if (val == '2m') {
 
             this.setState({ image2: `` }, () => {
-                this.setState({ image2: `./assets/img/${x[0].acceptedFile}` }, () => {
+                this.setState({ image2: `./assets/img/${x[0].acceptedFile}`, secondfileName:x[0].acceptedFile }, () => {
                     console.log('imagesss', this.state.image2)
                 })
 
@@ -54,11 +57,12 @@ class Legal extends Component {
                         <div className="legal_box">
                             <h1>NDA</h1>
                             <div className="legal_green">
-                                <p>NDA With Zepcom</p>
+                                {this.state.fileName ? <p>{this.state.fileName}</p>:<p>NDA With Zepcom</p>}
                                 <h2>PDF</h2>
                                 <FileUpload getInput='' getInput1={this.handleInput} name="1m" />
                             </div>
-                            <img src={this.state.image.length > 0 ? this.state.image : "./assets/img/download.png"} />
+                            {/* <img src={this.state.image.length > 0 ? this.state.image : "./assets/img/download.png"} /> */}
+                            <img src="./assets/img/download.png" />
 
                             <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
 
@@ -68,12 +72,13 @@ class Legal extends Component {
                         <div className="legal_box">
                             <h1>CONTRACT</h1>
                             <div className="legal_green">
-                                <p>Official Contract With Zepcom 00/00/000</p>
+                                {this.state.secondfileName ? <p>{this.state.secondfileName}</p>: <p>Official Contract With Zepcom 00/00/000</p>}
                                 <h2>PDF</h2>
                                 <FileUpload getInput='' getInput1={this.handleInput} name="2m" />
 
                             </div>
-                            <img src={this.state.image2.length > 0 ? this.state.image2 : "./assets/img/download.png"} />
+                            {/* <img src={this.state.image2.length > 0 ? this.state.image2 : "./assets/img/download.png"} /> */}
+                            <img src="./assets/img/download.png" />
                             <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
 
                         </div>
