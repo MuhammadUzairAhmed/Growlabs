@@ -10,18 +10,18 @@ class TDataPicker extends Component {
         this.state = this.getInitialState();
       }
       
-      getInitialState() {
-        return {
-          from:new Date(this.props.timelineStart),
-          to:new Date(this.props.timelineEnd),
-        };
-      }
       // getInitialState() {
       //   return {
-      //     from: undefined,
-      //     to: undefined,
+      //     from:new Date(this.props.timelineStart),
+      //     to:new Date(this.props.timelineEnd),
       //   };
       // }
+      getInitialState() {
+        return {
+          from: undefined,
+          to: undefined,
+        };
+      }
     
       handleDayClick = (day) =>{
         const range = DateUtils.addDayToRange(day, this.state);
@@ -34,12 +34,12 @@ class TDataPicker extends Component {
       }
       render() {
         const { from, to } = this.state;
-        // if(from != undefined && to != undefined){
-        // var time={
-        //   start: from,
-        //   end: to
-        // }
-        // this.props.times(time)}
+        if(from != undefined && to != undefined){
+        var time={
+          start: from,
+          end: to
+        }
+        this.props.times(time)}
         const modifiers = { start: from, end: to };
         return (
           <div className="RangeExample">

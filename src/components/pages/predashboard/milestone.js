@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TDataPicker from './../governanace/contractComponents/TdatePicker'
+import TDataPicker from './widget/TdatePicker'
 var finalRes;
 class Milestone extends Component {
 	constructor(props) {
@@ -83,7 +83,7 @@ if(val+1 <= this.state.weeks){
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
 				this.props.changeValue(3,values)
-			}, 2000);
+			}, 1000);
 		  })
 
 	  }
@@ -262,11 +262,11 @@ if(val+1 <= this.state.weeks){
 					<a href="" className="button"> {this.state.weeks}  SPRINTS </a>
 
 
-					<div className="timeframe_bar">
+					{/*<div className="timeframe_bar">*/}
 
-						<div className="timeframe_bar_persant" style={{width:`${this.state.changeWidth}%`,transition:'width 1s'}}> <p>{this.state.sprints}  SPRINTS</p> </div>
-						<p>24  SPRINTS</p>
-					</div>
+						{/*<div className="timeframe_bar_persant" style={{width:`${this.state.changeWidth}%`,transition:'width 1s'}}> <p>{this.state.sprints}  SPRINTS</p> </div>*/}
+						{/*<p>24  SPRINTS</p>*/}
+					{/*</div>*/}
 
 
 
