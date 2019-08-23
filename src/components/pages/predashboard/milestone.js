@@ -199,7 +199,7 @@ class Milestone extends Component {
 		console.log(this.state.data,'stattes')
 		const rows = this.state.data.map(item=>{
 
-		return	<div className={this.state.actDiv ? "timeframe_box animations-disable" : "timeframe_box animations-check" }>
+		return	<div className={"timeframe_box"}>
 
 						<div className="timeframe_first">
 							<label></label>
@@ -236,7 +236,7 @@ class Milestone extends Component {
 					</div>
 		})
 		return (
-			<section className="timeframe">
+			<section  className={this.state.actDiv ? "timeframe animations-disable" : "timeframe animations-check" }>
 
 				<div className="timeframe_top">
 					<h1>Milestones</h1>

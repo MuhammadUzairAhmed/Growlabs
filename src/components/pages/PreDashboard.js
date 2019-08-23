@@ -13,14 +13,14 @@ class PreDashboard extends Component {
     super(props);
     this.state = {
       index: 0,
-      // numofpages:[
-      //   {"name":"Agreements","id":"1","description":"Explaining What neeeds to happen at this particulair step","status":"disable"},
-      //   {"name":"technology","id":"2","description":"Explaining What neeeds to happen at this particulair step","status":"active"},
-      //   {"name":"Milestons","id":"3","description":"Explaining What neeeds to happen at this particulair step","status":""},
-      //   {"name":"Milestons","id":"4","description":"Explaining What neeeds to happen at this particulair step","status":""},
-      //   {"name":"Milestons","id":"5","description":"Explaining What neeeds to happen at this particulair step","status":""},
-      //   {"name":"Milestons","id":"6","description":"Explaining What neeeds to happen at this particulair step","status":""},
-      //   {"name":"Milestons","id":"7","description":"Explaining What neeeds to happen at this particulair step","status":""}],
+      numofpages:[
+        {"name":"Agreements","id":"1","description":"Explaining What neeeds to happen at this particulair step","status":"disable"},
+        {"name":"technology","id":"2","description":"Explaining What neeeds to happen at this particulair step","status":"active"},
+        {"name":"Milestons","id":"3","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"4","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"5","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"6","description":"Explaining What neeeds to happen at this particulair step","status":""},
+        {"name":"Milestons","id":"7","description":"Explaining What neeeds to happen at this particulair step","status":""}],
       agreement:{},
       description:{},
       technology:{},
@@ -35,41 +35,32 @@ class PreDashboard extends Component {
       milestoneVal:null,
       descVal:null,
       legalVal:null,
-      fundingVal: null,
-      numofpages:[
-        {"name":"Agreements","id":"1","description":"Explaining What neeeds to happen at this particulair step","status":"disable"},
-        {"name":"technology","id":"2","description":"Explaining What neeeds to happen at this particulair step","status":"active"},
-        {"name":"Milestons","id":"3","description":"Explaining What neeeds to happen at this particulair step","status":""},
-        {"name":"Milestons","id":"4","description":"Explaining What neeeds to happen at this particulair step","status":""},
-        {"name":"Milestons","id":"5","description":"Explaining What neeeds to happen at this particulair step","status":""},
-        {"name":"Milestons","id":"6","description":"Explaining What neeeds to happen at this particulair step","status":""},
-        {"name":"Milestons","id":"7","description":"Explaining What neeeds to happen at this particulair step","status":""}],
+      countingDiv:[]
     }
   }
   acceptedAgreement =(value,info)=>{
     this.setState({index: value})
-
     if(value == 1)
     {
-      this.setState({agreement: info, changeWidth:'500px',techVal:1})
+      this.setState({agreement: info, changeWidth:'500px',techVal:1,countingDiv: [...this.state.countingDiv,1]})
     }else if(value == 2)
     {
-      this.setState({technology: info,changeWidth:'700px', milestoneVal: 1},()=>{
+      this.setState({technology: info,changeWidth:'700px', milestoneVal: 1,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOfTechnology',this.state.technology)
       })
     }else if(value == 3)
     {
-      this.setState({mileStone: info,changeWidth:'900px',descVal:1},()=>{
+      this.setState({mileStone: info,changeWidth:'900px',descVal:1,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOfTechnologymileStone',this.state.mileStone)
       })
     }else if(value == 4)
     {
-      this.setState({description: info,changeWidth:'1250px',legalVal:1},()=>{
+      this.setState({description: info,changeWidth:'1250px',legalVal:1,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOfDwesc',this.state.description)
       })
     }else if(value == 5)
     {
-      this.setState({legal: info},()=>{
+      this.setState({legal: info,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOflegal',this.state.legal)
       })
     }else if(value == 6)
@@ -129,9 +120,14 @@ class PreDashboard extends Component {
   }
   render() {
     console.log(this.state,'check')
+    const addNewDiv = this.state.countingDiv.map(item=>
+       <div className="PreNotifiProgressadded"></div>
+      )
+
     return (
       <section className="preDashboard">
-        {this.state.numofpages.map((items,index)=>
+        <div className="preDashboard_notification">
+          {this.state.numofpages.map((items,index)=>
             <div className="NotiProgMain">
             <div className="header_box" key={index} onClick={()=>this.changePage(index)}>
               <div className="header_top">
@@ -153,7 +149,14 @@ class PreDashboard extends Component {
               <div className='PreNotifiProgress'>{items.status == 'disable' ? <div className="PreNotifiProgressadded"> </div> : items.status == 'active' ?  <div className="PreNotifiactive"> </div> : <div className="PreNotifidisable"> </div>  } </div>
             </div>
           )}
-         {this.renderSwitch(this.state.index)}
+        </div>
+
+
+       {this.renderSwitch(this.state.index)}
+       {/* <Milestone /> */}
+       {/* <Legal />
+       */}
+       {/* <Technology /> */}
       </section>
     );  
   };  

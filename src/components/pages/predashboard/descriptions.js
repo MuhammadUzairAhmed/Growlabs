@@ -65,7 +65,6 @@ class Description extends Component {
     }
    render() {
       return (
-         {/*<section className="descriptions animations-check">*/}
          <section className={this.state.actDiv ? "descriptions animations-disable" : "descriptions animations-check" }>
 
 

@@ -4537,15 +4537,26 @@ section.preDashboard .timeframe_calander {
 section.colleborate.milestone .colleborate_box {
     width: 201px;
 }
-.animations-check {
+.animations-check  {
     -webkit-animation-name: mymove; 
     -webkit-animation-duration: 2s; 
     animation-name: mymove;
     animation-duration: 2s;
   }
   @keyframes mymove {
-    0% {position: relative;right: 0px;}
-    10%   {position: fixed;right: -900px;}
-    100% {position: relative;right: 0px;}
+    0% {margin-right: 0px;}
+    10%   {margin-right: -1900px;width: 1280px;}
+    100% {margin-right: 0px;}
   }
+//   .animations-disable  {
+//       -webkit-animation-name: mymove2; 
+//       -webkit-animation-duration: 2s; 
+//       animation-name: mymove2;
+//       animation-duration: 2s;
+//     }
+//     @keyframes mymove {
+//       0% {margin-left: 0px;}
+//       10%   {margin-left: -900px;width: 1280px;}
+//       100% {margin-left: 0px;}
+//     }
 /*-------- PreDashboard Notification --------*/
