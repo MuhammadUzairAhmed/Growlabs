@@ -75,13 +75,14 @@ class PreDashboard extends Component {
     }else if(value == 6)
     {
       this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '6'){items.status='disable'; return items; } if(items.id == '7'){items.status='active'; return items; } return items; } )})
-      this.setState({funding: info,changeWidth:'1600px',contactVal:1},()=>{
-        console.log('valuesOflegal',this.state.funding)
+     
+      this.setState({contact: info},()=>{
+        console.log('valuesOflegal',this.state.contact)
       })
     }else if(value == 7)
     {
-      this.setState({contact: info},()=>{
-        console.log('valuesOflegal',this.state.contact)
+      this.setState({funding: info,changeWidth:'1600px',contactVal:1},()=>{
+        console.log('valuesOflegal',this.state.funding)
       })
     }
 
@@ -91,7 +92,7 @@ class PreDashboard extends Component {
   {
     switch (index) {
       case 0:
-        return <Contactinfo changeValue={this.acceptedAgreement}/>;
+        return <Agreement changeValue={this.acceptedAgreement}/>;
       case 1:
         return <Technology changeValue={this.acceptedAgreement}/>;
       case 2:
@@ -101,7 +102,7 @@ class PreDashboard extends Component {
       case 4:
         return <Legal changeValue={this.acceptedAgreement}/>;
       case 5:
-        return <Agreement  changeValue={this.acceptedAgreement} />;
+        return <Contactinfo  changeValue={this.acceptedAgreement} />;
       case 6:
         return <Funding changeValue={this.acceptedAgreement} />;
       default:
@@ -149,7 +150,7 @@ class PreDashboard extends Component {
                         <h1>{items.description}</h1>
                     </div>
                     <div className="header_rgt">
-                        <img src={"./assets/img/.png"}/>
+                        
                     </div>
                 </div>
               </div>

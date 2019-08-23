@@ -21,7 +21,7 @@ class ContactIfo extends Component {
     if(this.state.dataValues != ''){
       this.setState({actDiv:true},()=>{
         setTimeout(() => {
-          this.props.changeValue(7, this.state.dataValues)
+          this.props.changeValue(6, this.state.dataValues)
         }, 1000);
       })
 }
