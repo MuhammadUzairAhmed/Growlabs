@@ -14,8 +14,8 @@ class PreDashboard extends Component {
     this.state = {
       index: 0,
       numofpages:[
-        {"name":"Agreements","id":"1","description":"Explaining What neeeds to happen at this particulair step","status":"disable"},
-        {"name":"technology","id":"2","description":"Explaining What neeeds to happen at this particulair step","status":"active"},
+        {"name":"Agreements","id":"1","description":"Explaining What neeeds to happen at this particulair step","status":"active"},
+        {"name":"technology","id":"2","description":"Explaining What neeeds to happen at this particulair step","status":""},
         {"name":"Milestons","id":"3","description":"Explaining What neeeds to happen at this particulair step","status":""},
         {"name":"Milestons","id":"4","description":"Explaining What neeeds to happen at this particulair step","status":""},
         {"name":"Milestons","id":"5","description":"Explaining What neeeds to happen at this particulair step","status":""},
@@ -43,28 +43,38 @@ class PreDashboard extends Component {
     if(value == 1)
     {
       this.setState({agreement: info, changeWidth:'500px',techVal:1,countingDiv: [...this.state.countingDiv,1]})
+      this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '1'){items.status='disable'; return items; } if(items.id == '2'){items.status='active'; return items; } return items; })})
+      console.log(this.state.numofpages)
     }else if(value == 2)
     {
-      this.setState({technology: info,changeWidth:'700px', milestoneVal: 1,countingDiv:  [...this.state.countingDiv,1]},()=>{
+
+      this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '2'){items.status='disable'; return items; } if(items.id == '3'){items.status='active'; return items; } return items; } )})
+     this.setState({technology: info,changeWidth:'700px', milestoneVal: 1,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOfTechnology',this.state.technology)
       })
+      console.log(this.state.numofpages)
     }else if(value == 3)
     {
+      this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '3'){items.status='disable'; return items; } if(items.id == '4'){items.status='active'; return items; } return items; } )})
       this.setState({mileStone: info,changeWidth:'900px',descVal:1,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOfTechnologymileStone',this.state.mileStone)
       })
+      console.log(this.state.numofpages)
     }else if(value == 4)
     {
+      this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '4'){items.status='disable'; return items; } if(items.id == '5'){items.status='active'; return items; } return items; } )})
       this.setState({description: info,changeWidth:'1250px',legalVal:1,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOfDwesc',this.state.description)
       })
     }else if(value == 5)
     {
+      this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '5'){items.status='disable'; return items; } if(items.id == '6'){items.status='active'; return items; } return items; } )})
       this.setState({legal: info,countingDiv:  [...this.state.countingDiv,1]},()=>{
         console.log('valuesOflegal',this.state.legal)
       })
     }else if(value == 6)
     {
+      this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '6'){items.status='disable'; return items; } if(items.id == '7'){items.status='active'; return items; } return items; } )})
       this.setState({funding: info,changeWidth:'1600px',contactVal:1},()=>{
         console.log('valuesOflegal',this.state.funding)
       })
@@ -81,7 +91,7 @@ class PreDashboard extends Component {
   {
     switch (index) {
       case 0:
-        return <Agreement changeValue={this.acceptedAgreement}/>;
+        return <Contactinfo changeValue={this.acceptedAgreement}/>;
       case 1:
         return <Technology changeValue={this.acceptedAgreement}/>;
       case 2:
@@ -91,14 +101,15 @@ class PreDashboard extends Component {
       case 4:
         return <Legal changeValue={this.acceptedAgreement}/>;
       case 5:
-        return <Contactinfo  changeValue={this.acceptedAgreement} />;
+        return <Agreement  changeValue={this.acceptedAgreement} />;
       case 6:
-        return <Funding  changeValue={this.acceptedAgreement} />
+        return <Funding changeValue={this.acceptedAgreement} />;
       default:
         return null;
     }
   }
   changePage = (val)=>{
+    console.log(val)
     if(val == 0 && this.state.aggVal > 0)
     {
       this.setState({index: val,changeWidth:'240px'})
@@ -119,18 +130,14 @@ class PreDashboard extends Component {
 
   }
   render() {
-    console.log(this.state,'check')
-    const addNewDiv = this.state.countingDiv.map(item=>
-       <div className="PreNotifiProgressadded"></div>
-      )
 
     return (
       <section className="preDashboard">
         <div className="preDashboard_notification">
           {this.state.numofpages.map((items,index)=>
-            <div className="NotiProgMain">
-            <div className="header_box" key={index} onClick={()=>this.changePage(index)}>
-              <div className="header_top">
+            <div className="NotiProgMain"  key={index} onClick={(e)=>this.changePage(index)}>
+            <div className="header_box">
+              <div className="header_top" >
                   <ul>
                       <li>STEP {items.id} </li>
                       <li>{items.name}</li>
@@ -151,12 +158,7 @@ class PreDashboard extends Component {
           )}
         </div>
 
-
        {this.renderSwitch(this.state.index)}
-       {/* <Milestone /> */}
-       {/* <Legal />
-       */}
-       {/* <Technology /> */}
       </section>
     );  
   };  
