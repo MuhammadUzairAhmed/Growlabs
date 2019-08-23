@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TDataPicker from './../governanace/contractComponents/TdatePicker'
-
+var finalRes;
 class Milestone extends Component {
 	constructor(props) {
 		super(props)
@@ -23,8 +23,8 @@ class Milestone extends Component {
 					userd:1,
 					input1:'',
 					input2:'',
-					strtTime:'00/00/00',
-					EndTime:'00/00/00'
+					strtTime:'12/10/2019',
+					EndTime:'12/10/2019'
 				}
 			],
 			count:0,
@@ -35,22 +35,15 @@ class Milestone extends Component {
 			timelineEnd:'',
 			itemId:null,
 			itemId2:null,
-			actDiv: false
+			actDiv: false,
+			weeks:'',
+			sprintWeeks:[1,2,3],
+			actId:null
 		}
 	}
 	addNew =(val)=>{
-		console.log(val-1,'trysss')
-		// this.setState({
-		// 	data: this.state.data.filter(item => {
-		// 	   if (item['id'] == val-1)
-		// 	   {
-		// 		item['input1'] = this.state.x5;
-		// 		item['input2'] = this.state.x6
-		// 		return item
-		// 	   }
-		// 	})
-
-		// })
+		console.log(val,'trysss')
+if(val+1 <= this.state.weeks){
 		var count = this.state.data.length;
 		var userid = count+1;
 		var addChild ={
@@ -58,12 +51,12 @@ class Milestone extends Component {
 			userd: userid,
 			input1:'',
 			input2:'',
-			strtTime:'00/00/00',
-			EndTime:'00/00/00'
+			strtTime:'12/10/2019',
+			EndTime:'12/10/2019'
 		}
 		this.setState({ data: [...this.state.data, addChild], changeWidth: this.state.changeWidth+10, sprints:this.state.sprints+1 }, () => {
 		console.log(this.state.data, "dataMid")
-		 })
+		 })}
 	}
 	deleteRow =(id)=>{
 		console.log('ids',id)
@@ -83,53 +76,24 @@ class Milestone extends Component {
 		 })
 	}
 	handleAccept =()=>{
-
+		var values = {
+			data: this.state.data,
+			weeks: this.state.weeks
+		}
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
-				this.props.changeValue(3,'pending')
+				this.props.changeValue(3,values)
 			}, 2000);
 		  })
-
+		
 	  }
-	//   setItemValue =(val)=>{
-	// 	  console.log(val,'keyPresses')
-	// 	  this.setState({
-	// 		data: this.state.data.filter(item => {
-	// 		   if (item['id'] == val)
-	// 		   {
-	// 			item['input1'] = this.state.x5;
-	// 			item['input2'] = this.state.x6
-	// 			return item
-	// 		   }
-	// 		})
-
-	// 	})
-	//   }
+	
 	handleChange = (e) => {
 		console.log(e,'eventss')
 		this.setState({
 			[e.target.name]: e.target.value
 		}, () => {
-			// if (this.state.x1 == '') {
-			// 	this.setState({ x1Err: 'Please Fill this field' })
-			// } else {
-			// 	this.setState({ x1Err: '' })
-			// }
-			// if (this.state.x2 == '') {
-			// 	this.setState({ x2Err: 'Please Fill this field' })
-			// } else {
-			// 	this.setState({ x2Err: '' })
-			// }
-			// if (this.state.x3 == '') {
-			// 	this.setState({ x3Err: 'Please Fill this field' })
-			// } else {
-			// 	this.setState({ x3Err: '' })
-			// }
-			// if (this.state.x4 == '') {
-			// 	this.setState({ x4Err: 'Please Fill this field' })
-			// } else {
-			// 	this.setState({ x4Err: '' })
-			// }
+			
 			if (this.state.x5 == '') {
 				this.setState({ x5Err: 'Please Fill this field' })
 			} else {
@@ -148,20 +112,24 @@ class Milestone extends Component {
 
 			}
 			console.log(values, 'huff')
-			// this.props.name(values)
+			
 
 		})
 
 	}
 	SETime =(val)=>{
 		console.log('timesss',val)
-		// this.setState({timelineStart: val.start,
-		// 		timelineEnd: val.end})
+		var res = Math.abs(val.start-val.end)/1000;
+		var days = Math.floor(res/86400)
+		var week = days/7;
+		 finalRes= week.toString().split(".")[0];
+		 finalRes = finalRes.toString()
+		 
 	}
 	UpdateInput = (id) =>
 	{
 		this.setState({itemId:id},()=>{
-
+			
 		this.setState({
 			data: this.state.data.filter(item => {
 			   if (item['id'] == id) {
@@ -171,7 +139,6 @@ class Milestone extends Component {
 			   return item;
 			})
 		 })
-
 		},()=>{
 			this.setState({x5:''})
 		})
@@ -180,7 +147,7 @@ class Milestone extends Component {
 	UpdateInput2 = (id) =>
 	{
 		this.setState({itemId2:id},()=>{
-
+			
 		this.setState({
 			data: this.state.data.filter(item => {
 			   if (item['id'] == id) {
@@ -195,11 +162,23 @@ class Milestone extends Component {
 		})
 		console.log('chekcei',id)
 	}
+	spintWeekClicked = (sprints)=>
+	{
+			var sprint = finalRes/sprints
+			var final = sprint.toString().split(".")[0];
+			this.setState({weeks: final,actId:sprints},()=>{
+			console.log('eews',this.state.weeks)
+		})
+		
+	}
 	render() {
 		console.log(this.state.data,'stattes')
+		const sprinweeks = this.state.sprintWeeks.map((item,index)=>{
+			return <li className={this.state.actId == item ? "active":''} key={index} onClick={()=>this.spintWeekClicked(item)}> {item} </li>
+		})
 		const rows = this.state.data.map(item=>{
 
-		return	<div className={"timeframe_box"}>
+		return	<div className={this.state.actDiv ? "timeframe_box animations-disable" : "timeframe_box animations-check" }>
 
 						<div className="timeframe_first">
 							<label></label>
@@ -208,27 +187,27 @@ class Milestone extends Component {
 
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
-							<input type="text" name="x5" placeholder="05" value={item.input1 != '' ? item.input1 : this.state.x5} onChange={this.handleChange} />
-							<span className="FildEror">{item.input1 != '' ? '' : this.state.x5Err}</span>
+							<input type="text" name="x5" placeholder="05" value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
+							<span style={{ color: 'red' }}>{item.input1 != '' ? '' : 'Please Fill out this Field'}</span>
 						</div>
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
-							<input type="text" name="x6" placeholder="Milestones 01" value={item.input2 != '' ? item.input2 : this.state.x6} onChange={this.handleChange}  />
-							<span className="FildEror">{item.input2 != '' ? '' : this.state.x6Err}</span>
+							<input type="text" name="x6" placeholder="Milestones 01" value={item.id == this.state.itemId2 ? this.state.x6 : item.input2} onInput={this.handleChange} onChange={()=>this.UpdateInput2(item.id)} />
+							<span style={{ color: 'red' }}>{item.input2 != '' ? '' : 'Please Fill out this field'}</span>
 						</div>
 
 						<div className="timeframe_for">
 							<label>START DATE</label>
-							<p>00/00/000</p>
+							<p>02/08/2019</p>
 						</div>
 
 						<div className="timeframe_five">
 							<label>END DATE</label>
-							<p>00/00/000</p>
+							<p>12/10/2019</p>
 						</div>
 						<div className="delete_section">
-							<p onClick={()=>this.deleteRow(item.id)}><img src="./assets/img/delete.png"/></p>
+							<p onClick={()=>this.deleteRow(item.id)}>delete</p>
 						</div>
 
 
@@ -236,7 +215,7 @@ class Milestone extends Component {
 					</div>
 		})
 		return (
-			<section  className={this.state.actDiv ? "timeframe animations-disable" : "timeframe animations-check" }>
+			<section className="timeframe">
 
 				<div className="timeframe_top">
 					<h1>Milestones</h1>
@@ -257,9 +236,7 @@ class Milestone extends Component {
 					<h2>WEEKS IN SPRINT</h2>
 
 					<ul>
-						<li className="active"> 1 </li>
-						<li> 2 </li>
-						<li> 3 </li>
+						{sprinweeks}
 					</ul>
 
 				</div>
@@ -267,7 +244,7 @@ class Milestone extends Component {
 
 				<div className="timeframe_milestones">
 					<h2>MILESTONES</h2>
-					<a href="" className="button"> 44  SPRINTS </a>
+					<a href="" className="button"> {this.state.weeks}  SPRINTS </a>
 
 
 					<div className="timeframe_bar">

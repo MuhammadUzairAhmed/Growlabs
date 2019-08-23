@@ -36,8 +36,8 @@ class TDataPicker extends Component {
         const { from, to } = this.state;
         if(from != undefined && to != undefined){
         var time={
-          start: from.toLocaleDateString(),
-          end: to.toLocaleDateString()
+          start: from,
+          end: to
         }
         this.props.times(time)}
         const modifiers = { start: from, end: to };

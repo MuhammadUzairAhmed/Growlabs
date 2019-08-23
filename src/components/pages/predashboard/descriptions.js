@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 var values;
+var sprintsonWeek;
+var sprintCards=[];
 class Description extends Component {
    constructor(props) {
       super(props)
@@ -11,8 +13,17 @@ class Description extends Component {
          x1Err: 'Please Fill this field',
          x2Err: 'Please Fill this field',
          x3Err: 'Please Fill this field',
-         actDiv:false
+         actDiv:false,
+         sprintId:undefined,
+         
+         miledata:[]
       }
+   }
+   componentWillReceiveProps(nextprops){
+      if(nextprops.mileStonedata){
+      console.log(nextprops.mileStonedata,'mileStonedata')
+   this.setState({miledata: nextprops.mileStonedata.data},()=>{console.log(this.state.miledata,'miledata')})
+   }
    }
    handleChange = (e) => {
       this.setState({
@@ -51,18 +62,36 @@ class Description extends Component {
    handleAccept =()=>{
       const {x1,x2,x3} = this.state;
       console.log(x1,'yeah')
-      if(x1 != '' && x2 != '' && x3 != '' )
-      {
+      
          this.setState({actDiv:true},()=>{
             setTimeout(() => {
                this.props.changeValue(4,values)
             }, 2000);
           })
-         }
-
-
-
+         
+   }
+    sprintClicked=(id)=>{
+     
+       this.setState({sprintId: id.userd,x2:id.input2},()=>{
+          console.log(this.state.sprintId,'sprrn')
+       })
+     
     }
+    UpdateInput = (id) =>
+	{  
+     
+		this.setState({
+			data: this.state.miledata.filter(item => {
+			   if (item['userd'] == id) {
+				  item['input2'] = this.state.x2;
+				  return item
+			   }
+			   return item;
+         })
+		 })
+      
+	
+	}
    render() {
       return (
          <section className={this.state.actDiv ? "descriptions animations-disable" : "descriptions animations-check" }>
@@ -93,14 +122,14 @@ class Description extends Component {
                   </div>
                </div>
 
-               <a href="" class="button"> 10  Milestones </a>
+               <a href="" class="button"> {this.props.mileStonedata ? this.props.mileStonedata.weeks : 'No'}  Milestones </a>
 
 
 
 
                <section className="colleborate descriptions">
                   <div className="colleborate_top">
-                     <div className="colleborate_box actives">
+                     {/* <div className="colleborate_box actives">
                         <h1>Sprint 11</h1>
                         <div className="colleborate_top_round">
                            <span>
@@ -143,128 +172,20 @@ class Description extends Component {
                            </span>
                         </div>
                         <p>W23</p>
+                     </div> */}
+                   {this.state.miledata && this.state.miledata.map((item) =>
+                     {return <div className="colleborate_box actives" key={item.id}>
+                     <h1>Sprint 11</h1>
+                     <div className="colleborate_top_round">
+                        <span>
+                           <label className="fancy-checkbox">
+                              <input type="checkbox" onClick={()=>this.sprintClicked(item)}/>
+                              <span className="checkmark"></span> </label>
+                        </span>
                      </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
+                     <p>W23</p>
+                  </div>})
+                   }
                   </div>
                </section>
 
@@ -274,42 +195,45 @@ class Description extends Component {
 
             <div className="descriptions_milestone">
                <h2> MILESTONES DESCRIPTION</h2>
-               <div className="descriptions_milestone_center">
+              
+              {this.state.sprintId ? this.state.miledata.map((item) =>{
+            
+              return this.state.sprintId == item.userd ? <div>
+                <div className="descriptions_milestone_center">
 
                   <div className="descriptions_milestone_box">
                      <label>SPRINTS</label>
-                     <p>1.</p>
-                     <input type="text" name="x1" placeholder="07" value={this.state.x1} onChange={this.handleChange} />
-                     <span style={{ color: 'red' }}>{this.state.x1Err}</span>
+                     <p>{item.userd}.</p>
+                     <input type="text" name="x1" placeholder="07" value={item.input1} readOnly />
                   </div>
 
                   <div className="descriptions_milestone_box">
                      <label>MILESTONES NAME</label>
-                     <input type="text" name="x2" placeholder="Milestone 01" value={this.state.x2} onChange={this.handleChange} />
-                     <span style={{ color: 'red' }}>{this.state.x2Err}</span>
-                     <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
+                     <input type="text" name="x2" placeholder="Milestone 01" value={this.state.x2} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.userd)} />
+                     {/* <span style={{ color: 'red' }}>{this.state.x2Err}</span> */}
+                     <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext" >Tooltip text</span></div>
 
                   </div>
 
                   <div className="descriptions_milestone_box budget">
                      <label>MILESTONES BUDGET</label>
                      <input type="text" name="x3" placeholder="€5.000 (estimation based on sprints)" value={this.state.x3} onChange={this.handleChange} />
-                     <span style={{ color: 'red' }}>{this.state.x3Err}</span>
+                     {/* <span style={{ color: 'red' }}>{this.state.x3Err}</span> */}
                      <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
 
                   </div>
 
                   <div className="descriptions_milestone_box date">
-                     <label>END DATE </label>
+                     <label>START DATE </label>
 
-                     <h4>00/00/000</h4>
+                     <h4>{item.strtTime}</h4>
 
 
                   </div>
 
                   <div className="descriptions_milestone_box date">
                      <label>END DATE</label>
-                     <h4>00/00/000</h4>
+                     <h4>{item.EndTime}</h4>
                   </div>
 
                   <div className="clearfix"></div>
@@ -336,21 +260,22 @@ class Description extends Component {
 
                      </a>
                   </div>
-                  <a href="" class="button"> 7  SPRINTS </a>
+                  <a href="" class="button"> {item.input1}  SPRINTS </a>
                </div>
 
                <section className="colleborate milestone">
                   <div className="colleborate_top">
-                     <div className="colleborate_box ">
+                        
+               <div className="colleborate_box ">
                         <h1>Sprint 11</h1>
                         <div className="colleborate_top_round">
                            <span>
-                              <label className="fancy-checkbox ">
+                              <label className="fancy-checkbox">
                                  <input type="checkbox" />
                                  <span className="checkmark"></span> </label>
                            </span>
                         </div>
-                        <p>W23</p>
+                        <p>W23{sprintCards}</p>
                      </div>
                      <div className="colleborate_box ">
                         <h1>Sprint 11</h1>
@@ -361,7 +286,7 @@ class Description extends Component {
                                  <span className="checkmark"></span> </label>
                            </span>
                         </div>
-                        <p>W23</p>
+                        <p>W23{sprintCards}</p>
                      </div>
                      <div className="colleborate_box ">
                         <h1>Sprint 11</h1>
@@ -372,48 +297,16 @@ class Description extends Component {
                                  <span className="checkmark"></span> </label>
                            </span>
                         </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23</p>
+                        <p>W23{sprintCards}</p>
                      </div>
 
 
 
                   </div>
-               </section>
-
-
+               </section> 
+                     </div>
+              :'' 
+               }): ''}
             </div>
             <a target="_blank" class="buttons" onClick={this.handleAccept}>Accept Descriptions<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
          </section>
