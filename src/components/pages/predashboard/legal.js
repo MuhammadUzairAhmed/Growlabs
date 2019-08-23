@@ -61,8 +61,8 @@ class Legal extends Component {
                                 <h2>PDF</h2>
                                 <FileUpload getInput='' getInput1={this.handleInput} name="1m" />
                             </div>
-                            {/* <img src={this.state.image.length > 0 ? this.state.image : "./assets/img/download.png"} /> */}
-                            <img src="./assets/img/download.png" />
+                            <img src={this.state.image.length > 0 ? this.state.image : "./assets/img/download.png"} />
+                            {/* <img src="./assets/img/download.png" /> */}
 
                             <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
 
@@ -77,8 +77,8 @@ class Legal extends Component {
                                 <FileUpload getInput='' getInput1={this.handleInput} name="2m" />
 
                             </div>
-                            {/* <img src={this.state.image2.length > 0 ? this.state.image2 : "./assets/img/download.png"} /> */}
-                            <img src="./assets/img/download.png" />
+                            <img src={this.state.image2.length > 0 ? this.state.image2 : "./assets/img/download.png"} />
+                            {/* <img src="./assets/img/download.png" /> */}
                             <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
 
                         </div>

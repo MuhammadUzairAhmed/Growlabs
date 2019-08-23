@@ -77,7 +77,7 @@ class PreDashboard extends Component {
       this.setState({numofpages:  this.state.numofpages.map((items,index)=> { if(items.id == '6'){items.status='disable'; return items; } if(items.id == '7'){items.status='active'; return items; } return items; } )})
      
       this.setState({contact: info},()=>{
-        console.log('valuesOflegal',this.state.contact)
+         console.log('valuesOflegal',this.state.contact)
       })
     }else if(value == 7)
     {
@@ -98,7 +98,7 @@ class PreDashboard extends Component {
       case 2:
         return <Milestone changeValue={this.acceptedAgreement}/>;
       case 3:
-        return <Description changeValue={this.acceptedAgreement}/>;
+        return <Description changeValue={this.acceptedAgreement} mileStonedata={this.state.mileStone}/>;
       case 4:
         return <Legal changeValue={this.acceptedAgreement}/>;
       case 5:

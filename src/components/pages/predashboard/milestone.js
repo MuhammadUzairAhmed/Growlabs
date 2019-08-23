@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TDataPicker from './../governanace/contractComponents/TdatePicker'
-
+var finalRes;
 class Milestone extends Component {
 	constructor(props) {
 		super(props)
@@ -82,7 +82,7 @@ if(val+1 <= this.state.weeks){
 		}
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
-				this.props.changeValue(3,'pending')
+				this.props.changeValue(3,values)
 			}, 2000);
 		  })
 
@@ -194,31 +194,32 @@ if(val+1 <= this.state.weeks){
 
 		return	<div className={"timeframe_box"}>
 
-						<div className="timeframe_first">
+						
+<div className="timeframe_first">
 							<label></label>
 							<p>{item.userd > 9 ? item.userd : `0${item.userd}`}.</p>
 						</div>
 
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
-							<input type="text" name="x5" placeholder="05" value={item.input1 != '' ? item.input1 : this.state.x5} onChange={this.handleChange} />
-							<span className="FildEror">{item.input1 != '' ? '' : this.state.x5Err}</span>
+							<input type="text" name="x5" placeholder="05" value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
+							<span style={{ color: 'red' }}>{item.input1 != '' ? '' : 'Please Fill out this Field'}</span>
 						</div>
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
-							<input type="text" name="x6" placeholder="Milestones 01" value={item.input2 != '' ? item.input2 : this.state.x6} onChange={this.handleChange}  />
-							<span className="FildEror">{item.input2 != '' ? '' : this.state.x6Err}</span>
+							<input type="text" name="x6" placeholder="Milestones 01" value={item.id == this.state.itemId2 ? this.state.x6 : item.input2} onInput={this.handleChange} onChange={()=>this.UpdateInput2(item.id)} />
+							<span style={{ color: 'red' }}>{item.input2 != '' ? '' : 'Please Fill out this field'}</span>
 						</div>
 
 						<div className="timeframe_for">
 							<label>START DATE</label>
-							<p>00/00/000</p>
+							<p>02/08/2019</p>
 						</div>
 
 						<div className="timeframe_five">
 							<label>END DATE</label>
-							<p>00/00/000</p>
+							<p>12/10/2019</p>
 						</div>
 						<div className="delete_section">
 							<p onClick={()=>this.deleteRow(item.id)}><img src="./assets/img/delete.png"/></p>
