@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RangeSlider from '../governanace/contractComponents/RangeSlider';
 
 var values;
 var sprintsonWeek;
@@ -106,7 +107,14 @@ class Description extends Component {
 
             <div className="descriptions_buget">
                <h2>BUDGET </h2>
-
+               <div className="form-row" id="counter">
+                  <div className="price-slider">
+                     <div id="slider"></div>
+                     <div className="ps-slide-col">
+                        <RangeSlider range={2000} />
+                     </div>
+                  </div>
+               </div>
 
 
             </div>
@@ -253,12 +261,12 @@ class Description extends Component {
                         </div>
                      </div>
 
-                     <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+                     {/*<a className="left carousel-control" href="#myCarousel" data-slide="prev">*/}
 
-                     </a>
-                     <a className="right carousel-control" href="#myCarousel" data-slide="next">
+                     {/*</a>*/}
+                     {/*<a className="right carousel-control" href="#myCarousel" data-slide="next">*/}
 
-                     </a>
+                     {/*</a>*/}
                   </div>
                   <a href="" class="button"> {item.input1}  SPRINTS </a>
                </div>

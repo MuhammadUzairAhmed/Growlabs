@@ -2116,6 +2116,7 @@ section.multi_step_form .col-md-4 {
    width: 80px !important;
    display: -webkit-box;
    text-decoration: none;
+    min-height: 18px;
    text-transform: uppercase
 }
 .according_box.release .button a {
@@ -3693,13 +3694,14 @@ section.descriptions .colleborate_box.actives:after {
     margin-bottom: 25px;
 }
 .descriptions_buget {
+
     background: rgba(0, 0, 0, 0.15);
     width: 84%;
     display: table;
     margin: 0 auto;
-    padding: 10px 70px;
+    padding: 23px 70px;
     color: #fff;
-    padding-bottom: 150px;
+    padding-bottom: 51px;
     position: relative;
     margin-bottom: 15px;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -4451,6 +4453,7 @@ section.ContactIfo a.button span {
     background: #484848;
 }
 section.header.pre {
+    left: inherit;
     background: none;
 }
 .PreNotifiProgressadded {
@@ -4675,3 +4678,24 @@ section.colleborate.milestone .colleborate_box {
     background: #000;
 }
 /*-------- PreDashboard Funding --------*/
+
+.descriptions_buget .price-slider .rangeslider.rangeslider-horizontal {
+    margin: 47px 0px 14px;
+}
+
+.descriptions_buget .price-slider
+.rangeslider-horizontal .rangeslider__fill {
+    background-color: #19d192;
+}
+.descriptions_buget .price-slider .rangeslider__handle-label{color:#19d192}
+
+//.descriptions_buget .price-slider
+//.rangeslider__handle {
+//    background: #19d192;
+//    border: 1px solid #19d192;
+//}
+//
+//.descriptions_buget .price-slider
+//.rangeslider-horizontal .rangeslider__handle:after {
+//    background-color: #19d192;
+//}
