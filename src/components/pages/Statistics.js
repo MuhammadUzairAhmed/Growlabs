@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import LineChart from './LineChart';
-import up3x from './../../images/Up@3x.png';
-import same from "./../../images/same@3x.png";
-import rpm from "./../../images/rpm.png"
-import down from "./../../images/down@3x.png";
-import circle1 from "./../../images/circle1.png";
 import { connect } from "react-redux";
 import { CircularProgressbar, CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -439,7 +434,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                 <div className="commits-text">
                   <h1>{this.state.dahsboardValues.commits}</h1>
                   <p>COMMITS</p>
-                  <img src="images/Up@3x.png" />
+                  <img src="./assets/img/Up@3x.png" />
                 </div>
               </div>
               <div className="commits">
@@ -450,7 +445,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                 <div className="commits-text">
                   <h1>{this.state.dahsboardValues.codeChanged}</h1>
                   <p>CODE CHANGED</p>
-                  <img src={down} />
+                  <img src="./assets/img/down@3x.png" />
                 </div>
               </div>
 
@@ -465,7 +460,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                 <div className="average-code-text">
                   <span >{this.state.dahsboardValues.avgCodeQuality}</span>
                   <p>AVERAGE</p><p>CODE QUALITY</p>
-                  <img src={up3x} />
+                  <img src="./assets/img/Up@3x.png" />
                 </div>
 
               </div>
@@ -481,7 +476,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                 {/* <h1>{this.state.dispSpecificGreenValue.y || '0'}</h1> */}
                 <h1>{this.state.dahsboardValues.add}</h1>
                 <p>ADDED</p>
-                <img src={same} />
+                <img src="./assets/img/same@3x.png" />
               </div>
             </div>
 

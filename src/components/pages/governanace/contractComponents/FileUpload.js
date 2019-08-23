@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import Dropzone from 'react-dropzone';
-import files from '../../../../assets/img/dragCloud.png';
+// import files from '../../../../assets/img/dragCloud.png';
 
 var arr = [];
 class FileUpload extends Component
@@ -60,7 +60,7 @@ class FileUpload extends Component
     <section>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        <img src={files} style={{width: '30%'}} />
+        <img src='./assets/img/dragCloud.png' style={{width: '30%'}} />
         {/* <p>Drag 'n' drop some files here, or click to select files</p> */}
       </div>
     </section>
