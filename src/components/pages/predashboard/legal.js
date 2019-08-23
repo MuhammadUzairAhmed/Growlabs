@@ -38,7 +38,7 @@ class Legal extends Component {
 
     render() {
         return (
-            <section className="legal">
+            <section className="legal animations-check">
                 <div className="legal_top">
                     <h1>Legal</h1>
                     <p>please Upload Your legal documents here</p>

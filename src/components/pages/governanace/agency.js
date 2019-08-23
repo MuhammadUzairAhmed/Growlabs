@@ -74,7 +74,7 @@ class Agency extends Component {
          .then(res => res.json())
          .then(data => JSON.stringify(data));
 
-      fetch(proxyurl+"http://react2.zepcomtesting.com/api/agent.json")
+      fetch(proxyurl + "http://react2.zepcomtesting.com/api/agent.json")
          .then(res => res.json())
          .then(data =>
             this.setState({ fetchData: data.agents }, () => {

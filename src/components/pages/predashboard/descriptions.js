@@ -55,7 +55,7 @@ class Description extends Component {
     }
    render() {
       return (
-         <section className="descriptions">
+         <section className="descriptions animations-check">
 
 
 

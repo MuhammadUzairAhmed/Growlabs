@@ -1523,6 +1523,7 @@ ol.carousel-indicators li.active {
 .agreements_form .tooltip {
     position: absolute;
     right: 0;
+    top: 0px;
 }
 
 .agreements_form .tooltip img {
@@ -1545,14 +1546,17 @@ ol.carousel-indicators li.active {
     width: 100%;
     background: none;
     border: 0px;
-    border-bottom: 1px solid #19D192;
+    border-bottom: 1px solid #5a5a5a;
     border-radius: 1.5px;
     color: #fff;
     font-family: "Open Sans";
     font-size: 15px;
     line-height: 29px;
+    transition: all 1.5s ease;
 }
-
+.agreements_form input.active {
+    border-bottom: 1px solid #19d192;
+}
 .input_box img {
     position: absolute;
     right: 0;
@@ -1610,8 +1614,9 @@ ol.carousel-indicators li.active {
     text-decoration: none;
     line-height: 19px;
     position: relative;
-    top: 17px;
-    font-weight: 600
+    top: 50px;
+    font-weight: 600;
+    margin-bottom: 70px;
 }
 
 .agreements a.button span {
@@ -3267,7 +3272,9 @@ section.technology a.button {
     text-decoration: none;
     line-height: 18px;
     position: relative;
-    top: 18px;
+    top: 35px;
+    margin-bottom: 50px;
+    
 }
 section.technology a.button span {
     font-size: 10px;
@@ -3927,7 +3934,9 @@ section.descriptions .colleborate_box {
 
 .timeframe_box {
     clear: both;
-	margin: 0px 10%;
+    margin: 0px 10%;
+    position: relative;
+    margin-bottom: 15px;
 }
 .timeframe_box.add .timeframe_first {
     margin: 13px 0px 0px 0px;
@@ -4415,3 +4424,128 @@ section.ContactIfo a.button {
 section.ContactIfo a.button span {
     font-size: 10px;
 }
+
+/*-------- PreDashboard Notification --------*/
+.preDashboard_notification {
+    display: inline-flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0c0e10;
+    padding-bottom: 25px;
+    
+}
+.preDashboard_notification .header_box {
+    width: 269.64px;
+}
+.PreNotifiProgress {
+    border-bottom: 1px solid #5C5C5C;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 127px;
+    background: #484848;
+}
+section.header.pre {
+    background: none;
+}
+.PreNotifiProgressadded {
+    border-bottom: 1px solid #19D192;
+    width: 100%;
+    float: left;
+}
+.PreNotifiProgressadded:after {
+    content: "";
+    width: 20px;
+    height: 19px;
+    display: block;
+    position: absolute;
+    right: 20px;
+    z-index: 2;
+    background: #19D192;
+    border-radius: 100%;
+    top: -10px;
+    border: 1px solid #fff
+}
+.PreNotifiProgress:after {
+    content: "";
+    display: block;
+    border: 1px solid #ffffff69;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -6px;
+    right: 26px;
+    border-radius: 100px;
+    background: #000;
+}
+.NotiProgMain {
+    position: relative;
+}
+.PreNotifiactive:after {
+    content: "";
+    display: block;
+    border: 1px solid #dadada !important;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -6px;
+    right: 26px;
+    border-radius: 100px;
+    background: #000;
+    z-index: 999;
+}
+.PreNotifiactive {
+    border-bottom: 1px solid #ffffffde;
+    width: 100%;
+    float: left;
+}
+.PreNotifiProgressadded:before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 8px;
+    border-top: 1px solid #e2e2e2;
+    position: absolute;
+    cursor: pointer;
+    border-left: 1px solid whitesmoke;
+    right: 10%;
+    transform: rotate(-133deg);
+    top: -6px;
+    z-index: 99999;
+}
+ span.FildEror {
+    color: #d23e3e;
+    font-size: 12px;
+    position: relative;
+    top: 5px;
+    display: none;
+}
+section.preDashboard .timeframe_calander {
+    width: 83%;
+    padding: 25px 56px;
+}
+.delete_section {
+    position: absolute;
+    right: -36px;
+    top: -13px;
+}
+.delete_section img {
+    width: 20px;
+    opacity: 0.6;
+}
+section.colleborate.milestone .colleborate_box {
+    width: 201px;
+}
+.animations-check {
+    -webkit-animation-name: mymove; 
+    -webkit-animation-duration: 2s; 
+    animation-name: mymove;
+    animation-duration: 2s;
+  }
+  @keyframes mymove {
+    0% {position: relative;right: 0px;}
+    10%   {position: fixed;right: -900px;}
+    100% {position: relative;right: 0px;}
+  }
+/*-------- PreDashboard Notification --------*/

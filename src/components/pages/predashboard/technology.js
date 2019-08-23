@@ -132,7 +132,7 @@ class Technology extends Component {
             </div>
          })
       return (
-        <section className="technology">
+        <section className="technology animations-check">
                <div className="technology_top">
                   
                   <p>Define the terms on Which You will Collaborate</p>
