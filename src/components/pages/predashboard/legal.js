@@ -18,7 +18,7 @@ class Legal extends Component {
         this.setState({actDiv:true},()=>{
             setTimeout(() => {
                 this.props.changeValue(5, values)
-            }, 2000);
+            }, 1000);
           })
 
     }

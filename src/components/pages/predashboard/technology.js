@@ -126,7 +126,7 @@ class Technology extends Component {
 
             setTimeout(() => {
               this.props.changeValue(2,values)
-            }, 2000);
+            }, 1000);
 
       }
      const Technology = this.state.technology.map(item=>

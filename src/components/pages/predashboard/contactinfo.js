@@ -22,7 +22,7 @@ class ContactIfo extends Component {
       this.setState({actDiv:true},()=>{
         setTimeout(() => {
           this.props.changeValue(7, this.state.dataValues)
-        }, 2000);
+        }, 1000);
       })
 }
 }

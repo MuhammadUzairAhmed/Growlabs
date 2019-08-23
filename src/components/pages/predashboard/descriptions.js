@@ -56,7 +56,7 @@ class Description extends Component {
          this.setState({actDiv:true},()=>{
             setTimeout(() => {
                this.props.changeValue(4,values)
-            }, 2000);
+            }, 1000);
           })
          }
 

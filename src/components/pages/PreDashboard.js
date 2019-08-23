@@ -5,7 +5,7 @@ import  Legal  from './predashboard/legal';
 import  Milestone  from './predashboard/milestone';
 import  Technology  from './predashboard/technology';
 import  Contactinfo  from './predashboard/contactinfo';
-import Funding from './Financial'
+import Funding from './predashboard/funding'
 
 
 class PreDashboard extends Component {
@@ -91,9 +91,9 @@ class PreDashboard extends Component {
       case 4:
         return <Legal changeValue={this.acceptedAgreement}/>;
       case 5:
-        return <Funding changeValue={this.acceptedAgreement} />;
+        return <Contactinfo  changeValue={this.acceptedAgreement} />;
       case 6:
-        return <Contactinfo changeValue={this.acceptedAgreement} />
+        return <Funding  changeValue={this.acceptedAgreement} />
       default:
         return null;
     }

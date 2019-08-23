@@ -87,7 +87,7 @@ class Milestone extends Component {
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
 				this.props.changeValue(3,'pending')
-			}, 2000);
+			}, 1000);
 		  })
 
 	  }
