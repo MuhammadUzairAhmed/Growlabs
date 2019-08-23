@@ -26,6 +26,7 @@ class RangeSlider extends Component
                 this.setState({maxVolume: false})
             }
         })
+        this.props.changeRangeData(value)
       }
       
       render() {

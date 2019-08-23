@@ -1287,7 +1287,11 @@ ol.carousel-indicators li.active {
     width: 32%;
     background-color: rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0.2;
 
+}
+.agency .left_side.active{
+    opacity:1;
 }
 .agency .left_side .feild label {
 	font-size: 10px;
@@ -1421,21 +1425,7 @@ ol.carousel-indicators li.active {
 .fl{
 	float: left;
 }
-.agency .right_side .center .profile:nth-child(2) {
-	margin: 0 50px;
-	position: relative;
-}
-.agency .right_side .center .profile:nth-child(2):after {
-    content: '';
-    display: block;
-    background-image: url(../assets/img/Group.png);
-    height: 15px;
-    width: 15px;
-    background-size: cover;
-    position: absolute;
-    right: -6px;
-    top: 68%;
-}
+
 .container {
     width: 1170px;
 }
@@ -2204,7 +2194,7 @@ section.multi_step_form .col-md-4 {
     height: 15px;
     width: 15px;
     top: 5px;
-    display: table;
+
     margin: 0 auto;
     float: none;
     right: 0;
@@ -2929,67 +2919,53 @@ h1 {}
     width: 300px;
     margin: 0 auto;
 }
+.added_row .left_box .profile[attr="0"] {
+    position: relative;
+    /* top: 0; */
+    /* right: 16px; */
+}
 .added_row .left_box .plus[attr="1"] {
-    position: absolute;
-    top: 0;
-    right: 89px;
+    position: relative;
+     top: 0;
+    right: 16px;
 }
 
-.added_row .left_box .plus[attr="2"] {
-    position: absolute;
-    top: 0;
-    right: 158px;
-}
-.added_row .third_box .plus[attr="1"] {
-    position: absolute;
-    left: 88px;
-    top: 0px;
-}
-
-.added_row .third_box .plus[attr="2"] {
-    position: absolute;
-    left: 158px;
-    top: 0px;
-}
-.added_row .left_box .plus[attr="1"]:after {
+.added_row .left_box .profile[attr="0"]:before {
     content: "";
-    border-top: 1px solid #979797;
+    border-left: 1px solid #979797;
     position: absolute;
-    height: 10px;
-    width: 71px;
+    height: 20px;
+    width: 36px;
     top: -36px;
     right: -37px;
 }
-
 .added_row .left_box .plus[attr="1"]:before {
     content: "";
     border-left: 1px solid #979797;
     position: absolute;
     height: 20px;
-    width: 71px;
-    top: -36px;
-    right: -37px;
-}
-.added_row .left_box .plus[attr="2"]:after {
-    content: "";
-    border-top: 1px solid #979797;
-    position: absolute;
-    height: 10px;
-    width: 71px;
+    width: 36px;
     top: -36px;
     right: -37px;
 }
 
-.added_row .left_box .plus[attr="2"]:before {
-    content: "";
-    border-left: 1px solid #979797;
+.added_row .left_box .profile[attr="1"] {
     position: absolute;
-    height: 20px;
-    width: 71px;
-    top: -36px;
-    right: -37px;
+    top: 0;
+    right: 107px;
 }
-.added_row .third_box .plus[attr="1"]:before {
+
+.added_row .left_box .profile[attr="1"]:after {
+    content: "";
+    border-top: 1px solid #979797;
+    position: absolute;
+    height: 10px;
+    width: 87px;
+    top: -37px;
+    right: -59px;
+}
+
+.added_row .left_box .profile[attr="1"]:before {
     content: "";
     border-left: 1px solid #979797;
     position: absolute;
@@ -2998,7 +2974,35 @@ h1 {}
     top: -36px;
     right: -43px;
 }
-.added_row .third_box .plus[attr="1"]:after {
+
+
+
+.added_row .third_box .profile[attr="0"] {
+    position: absolute;
+    left: 88px;
+    top: 0px;
+}
+
+
+
+.added_row .third_box .profile[attr="2"] {
+    position: absolute;
+    left: 158px;
+    top: 0px;
+}
+
+
+
+.added_row .third_box .profile[attr="1"]:before {
+    content: "";
+    border-left: 1px solid #979797;
+    position: absolute;
+    height: 20px;
+    width: 71px;
+    top: -36px;
+    right: -43px;
+}
+.added_row .third_box .profile[attr="1"]:after {
     content: "";
     border-top: 1px solid #979797;
     position: absolute;
@@ -3007,7 +3011,7 @@ h1 {}
     top: -36px;
     left: -37px;
 }
-.added_row .third_box .plus[attr="2"]:before {
+.added_row .third_box .profile[attr="2"]:before {
     content: "";
     border-left: 1px solid #979797;
     position: absolute;
@@ -3016,7 +3020,7 @@ h1 {}
     top: -36px;
     right: -43px;
 }
-.added_row .third_box .plus[attr="2"]:after {
+.added_row .third_box .profile[attr="2"]:after {
     content: "";
     border-top: 1px solid #979797;
     position: absolute;
@@ -3072,7 +3076,7 @@ h1 {}
     bottom: -9px;
 }
 .score .rc-progress-circle {
-    -webkit-mask: url(http://localhost:3000/score.png) bottom center / contain;
+    -webkit-mask: url(../assets/img/score.png) bottom center / contain;
 }
 .scoreText {
     margin-top: -46px;
@@ -4539,24 +4543,135 @@ section.colleborate.milestone .colleborate_box {
 }
 .animations-check  {
     -webkit-animation-name: mymove; 
-    -webkit-animation-duration: 2s; 
+    -webkit-animation-duration: 1s;
     animation-name: mymove;
-    animation-duration: 2s;
+    animation-duration: 1s;
+    position: relative;
   }
   @keyframes mymove {
-    0% {margin-right: 0px;}
-    10%   {margin-right: -1900px;width: 1280px;}
-    100% {margin-right: 0px;}
+    0%   {right: -1900px;}
+    100% {right: 0px;}
   }
-//   .animations-disable  {
-//       -webkit-animation-name: mymove2; 
-//       -webkit-animation-duration: 2s; 
-//       animation-name: mymove2;
-//       animation-duration: 2s;
-//     }
-//     @keyframes mymove {
-//       0% {margin-left: 0px;}
-//       10%   {margin-left: -900px;width: 1280px;}
-//       100% {margin-left: 0px;}
-//     }
+
+.animations-disable  {
+    -webkit-animation-name: mymove2;
+    -webkit-animation-duration: 1s;
+    animation-name: mymove2;
+    animation-duration: 1s;
+    position: relative;
+}
+@keyframes mymove2 {
+    0%   {left:0px;}
+    100% {left: -1900px;}
+}
 /*-------- PreDashboard Notification --------*/
+
+/*-------- PreDashboard Funding --------*/
+
+.preFungingProgress {
+    width: 88%;
+    display: table;
+    margin: 0 auto;
+    padding: 46px 7%;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 30px 0px 6px 0px;
+}
+
+.preFungingProgress .progress {
+    margin: 0px 0px;
+}
+
+.preFungingAccording_main {
+    width: 94%;
+    display: table;
+    margin: 0 auto;
+    padding: 54px 4%;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.funding_top{
+    text-align: center;
+    color: #fff;
+    margin-bottom: 35px;
+}
+.funding_top h1 {
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+.funding_top p {
+    font-family: "Open Sans";
+    font-size: 15px;
+    margin: 0px;
+}
+.preDashboard .finance a.button {
+    background: #19D192;
+    border: 1.5px solid rgba(0, 0, 0, 0.7);
+    border-radius: 100px;
+    clear: both;
+    padding: 15px 43px;
+    width: 27%;
+    display: table;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 19px;
+    position: relative;
+    top: 50px;
+    font-weight: 600;
+    margin-bottom: 70px;
+}
+.preDashboard .finance a.button span {
+    font-size: 10px;
+}
+.preFungingAccording_main .according_header .status {
+    width: 14%;
+}
+
+.preFungingAccording_main .according_header .reference {
+    width: 17%;
+}
+
+.form {}
+
+.preFungingAccording_main .according_header .form {
+    width: 18%;
+}
+
+.preFungingAccording_main .according_box .button {
+    width: 13.5%;
+}
+
+.preFungingAccording_main .according_box .miestone {
+    width: 16.5%;
+}
+
+.preFungingAccording_main .according_box .sub_date {
+    width: 14.5%;
+}
+
+.preFungingAccording_main .according_box .form_date {
+    width: 11%;
+}
+
+.preFungingAccording_main .according_box .arrow {
+    width: 6%;
+    margin: 8px 0px;
+}
+.preFungingAccording_main .according_header .sprints {
+    float: left;
+    width: 10%;
+}
+.preFungingAccording_main .according_box.release {
+    border: 1px solid #ffffff75;
+}
+.preFungingAccording_main .according_main section.active {
+    background: #000;
+}
+/*-------- PreDashboard Funding --------*/

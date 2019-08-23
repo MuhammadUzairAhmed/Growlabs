@@ -215,7 +215,7 @@ handleChange13 = (e) =>
       this.setState({actDiv:true},()=>{
         setTimeout(() => {
           this.props.changeValue(1,values)
-        }, 2000);
+        }, 1000);
        
     })
     }

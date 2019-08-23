@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TDataPicker from './../governanace/contractComponents/TdatePicker'
-var finalRes;
+
 class Milestone extends Component {
 	constructor(props) {
 		super(props)
@@ -82,18 +82,31 @@ if(val+1 <= this.state.weeks){
 		}
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
-				this.props.changeValue(3,values)
+				this.props.changeValue(3,'pending')
 			}, 2000);
 		  })
-		
+
 	  }
-	
+	//   setItemValue =(val)=>{
+	// 	  console.log(val,'keyPresses')
+	// 	  this.setState({
+	// 		data: this.state.data.filter(item => {
+	// 		   if (item['id'] == val)
+	// 		   {
+	// 			item['input1'] = this.state.x5;
+	// 			item['input2'] = this.state.x6
+	// 			return item
+	// 		   }
+	// 		})
+
+	// 	})
+	//   }
 	handleChange = (e) => {
 		console.log(e,'eventss')
 		this.setState({
 			[e.target.name]: e.target.value
 		}, () => {
-			
+
 			if (this.state.x5 == '') {
 				this.setState({ x5Err: 'Please Fill this field' })
 			} else {
@@ -112,7 +125,7 @@ if(val+1 <= this.state.weeks){
 
 			}
 			console.log(values, 'huff')
-			
+
 
 		})
 
@@ -124,12 +137,12 @@ if(val+1 <= this.state.weeks){
 		var week = days/7;
 		 finalRes= week.toString().split(".")[0];
 		 finalRes = finalRes.toString()
-		 
+
 	}
 	UpdateInput = (id) =>
 	{
 		this.setState({itemId:id},()=>{
-			
+
 		this.setState({
 			data: this.state.data.filter(item => {
 			   if (item['id'] == id) {
@@ -139,6 +152,7 @@ if(val+1 <= this.state.weeks){
 			   return item;
 			})
 		 })
+
 		},()=>{
 			this.setState({x5:''})
 		})
@@ -147,7 +161,7 @@ if(val+1 <= this.state.weeks){
 	UpdateInput2 = (id) =>
 	{
 		this.setState({itemId2:id},()=>{
-			
+
 		this.setState({
 			data: this.state.data.filter(item => {
 			   if (item['id'] == id) {
@@ -169,7 +183,7 @@ if(val+1 <= this.state.weeks){
 			this.setState({weeks: final,actId:sprints},()=>{
 			console.log('eews',this.state.weeks)
 		})
-		
+
 	}
 	render() {
 		console.log(this.state.data,'stattes')
@@ -178,7 +192,7 @@ if(val+1 <= this.state.weeks){
 		})
 		const rows = this.state.data.map(item=>{
 
-		return	<div className={this.state.actDiv ? "timeframe_box animations-disable" : "timeframe_box animations-check" }>
+		return	<div className={"timeframe_box"}>
 
 						<div className="timeframe_first">
 							<label></label>
@@ -187,27 +201,27 @@ if(val+1 <= this.state.weeks){
 
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
-							<input type="text" name="x5" placeholder="05" value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
-							<span style={{ color: 'red' }}>{item.input1 != '' ? '' : 'Please Fill out this Field'}</span>
+							<input type="text" name="x5" placeholder="05" value={item.input1 != '' ? item.input1 : this.state.x5} onChange={this.handleChange} />
+							<span className="FildEror">{item.input1 != '' ? '' : this.state.x5Err}</span>
 						</div>
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
-							<input type="text" name="x6" placeholder="Milestones 01" value={item.id == this.state.itemId2 ? this.state.x6 : item.input2} onInput={this.handleChange} onChange={()=>this.UpdateInput2(item.id)} />
-							<span style={{ color: 'red' }}>{item.input2 != '' ? '' : 'Please Fill out this field'}</span>
+							<input type="text" name="x6" placeholder="Milestones 01" value={item.input2 != '' ? item.input2 : this.state.x6} onChange={this.handleChange}  />
+							<span className="FildEror">{item.input2 != '' ? '' : this.state.x6Err}</span>
 						</div>
 
 						<div className="timeframe_for">
 							<label>START DATE</label>
-							<p>02/08/2019</p>
+							<p>00/00/000</p>
 						</div>
 
 						<div className="timeframe_five">
 							<label>END DATE</label>
-							<p>12/10/2019</p>
+							<p>00/00/000</p>
 						</div>
 						<div className="delete_section">
-							<p onClick={()=>this.deleteRow(item.id)}>delete</p>
+							<p onClick={()=>this.deleteRow(item.id)}><img src="./assets/img/delete.png"/></p>
 						</div>
 
 
@@ -215,7 +229,7 @@ if(val+1 <= this.state.weeks){
 					</div>
 		})
 		return (
-			<section className="timeframe">
+			<section  className={this.state.actDiv ? "timeframe animations-disable" : "timeframe animations-check" }>
 
 				<div className="timeframe_top">
 					<h1>Milestones</h1>
