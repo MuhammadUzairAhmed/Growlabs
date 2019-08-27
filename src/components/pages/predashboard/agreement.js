@@ -52,6 +52,30 @@ class Agreements extends Component {
 
     }
   }
+
+  
+    
+    componentDidMount()
+	{
+		if(this.props.agreementData != null){
+      this.setState({
+        x1:this.props.agreementData.x1,
+        x2:this.props.agreementData.x2,
+        x3:this.props.agreementData.x3,
+        x4:this.props.agreementData.x4,
+        x5:this.props.agreementData.x5,
+        x6:this.props.agreementData.x6,
+        x7:this.props.agreementData.x7,
+        x8:this.props.agreementData.x8,
+        x9:this.props.agreementData.x9,
+        x10:this.props.agreementData.x10,
+        x11:this.props.agreementData.x11,
+        x12:this.props.agreementData.x12,
+        x13:this.props.agreementData.x13
+      })
+		console.log(this.props.agreementData,'didMouhntData23')}
+	}
+  
 handleChange1 = (e) =>
 { this.setState({x1 : e.target.value},()=>{
 if (this.state.x1 == ''){this.setState({ x1Err: 'Please Fill this field' })}else{this.setState({ x1Err: '' })}})}

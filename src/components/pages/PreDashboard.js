@@ -92,17 +92,17 @@ class PreDashboard extends Component {
   {
     switch (index) {
       case 0:
-        return <Agreement changeValue={this.acceptedAgreement}/>;
+        return <Agreement changeValue={this.acceptedAgreement} agreementData={this.state.agreement}/>;
       case 1:
-        return <Technology changeValue={this.acceptedAgreement}/>;
+        return <Technology changeValue={this.acceptedAgreement} technologyData={this.state.technology}/>;
       case 2:
-        return <Milestone changeValue={this.acceptedAgreement}/>;
+        return <Milestone changeValue={this.acceptedAgreement} mileStonedata={this.state.mileStone} />;
       case 3:
         return <Description changeValue={this.acceptedAgreement} mileStonedata={this.state.mileStone}/>;
       case 4:
-        return <Legal changeValue={this.acceptedAgreement}/>;
+        return <Legal changeValue={this.acceptedAgreement}  legalData={this.state.legal} />;
       case 5:
-        return <Contactinfo  changeValue={this.acceptedAgreement} />;
+        return <Contactinfo  changeValue={this.acceptedAgreement} contactData={this.state.contact} />;
       case 6:
         return <Funding changeValue={this.acceptedAgreement} />;
       default:
@@ -158,7 +158,7 @@ class PreDashboard extends Component {
             </div>
           )}
         </div>
-
+      
        {this.renderSwitch(this.state.index)}
       </section>
     );  

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import RangeSlider from '../governanace/contractComponents/RangeSlider';
 
 var values;
-var sprintsonWeek;
-var sprintCards=[];
+var sprntArr =[];
+var count=0;
 class Description extends Component {
    constructor(props) {
       super(props)
@@ -15,15 +15,37 @@ class Description extends Component {
          x2Err: 'Please Fill this field',
          x3Err: 'Please Fill this field',
          actDiv:false,
-         sprintId:undefined,
-         
+         sprintId:1,
+         activeSEC:'animations-check',
          miledata:[]
       }
    }
+   componentDidMount()
+   {  
+      sprntArr=[];
+      if(this.props.mileStonedata.data != null){this.setState({miledata: this.props.mileStonedata.data})
+      
+        
+   }
+   }
    componentWillReceiveProps(nextprops){
+      console.log('wilrecieveProps')
       if(nextprops.mileStonedata){
       console.log(nextprops.mileStonedata,'mileStonedata')
-   this.setState({miledata: nextprops.mileStonedata.data},()=>{console.log(this.state.miledata,'miledata')})
+   this.setState({miledata: nextprops.mileStonedata.data},()=>{console.log(this.state.miledata,'miledata')
+    if(this.state.miledata) {  
+       this.setState({x2: this.state.miledata[0].input2, x3: this.state.miledata[0].MSBudget})
+       if(count ==0){
+       for(var i=0;i<this.state.miledata[0].input1;i++)
+       {
+         sprntArr.push(i)
+         
+       }
+      count++;
+      }
+       console.log(sprntArr,'nextprops')
+   }
+})
    }
    }
    handleChange = (e) => {
@@ -54,9 +76,6 @@ class Description extends Component {
 
          }
 
-
-
-
       })
 
    }
@@ -71,20 +90,49 @@ class Description extends Component {
           })
          
    }
-    sprintClicked=(id)=>{
-     
-       this.setState({sprintId: id.userd,x2:id.input2},()=>{
-          console.log(this.state.sprintId,'sprrn')
+    sprintClicked=(id,key)=>{
+       sprntArr=[];
+       var output = this.state.miledata.find((item)=>{
+          return item.userd == id
        })
-     
+       for(var i=0;i<output.input1;i++)
+       {
+         sprntArr.push(i)
+       }
+       setTimeout(() => {
+         this.setState({sprintId: id,activeSEC:'animations-disable',
+        
+      	data: this.state.miledata.filter(item => {
+			  
+				  if(key == 'next'){
+               if (item['userd'] == id-1 ) {
+                 item['status'] = true;
+                 return item
+               }
+               }else{if (item['userd'] >= id ) {
+                  item['status'] = false;
+                  return item
+                }}
+				
+			   return item;
+         }),
+         x2: output.input2,x3: output.MSBudget,
+      },()=>{
+            console.log(this.state.sprintId,'sprrn')
+         })  
+       }, 0);
     }
-    UpdateInput = (id) =>
+    UpdateInput = (id,key) =>
 	{  
      
 		this.setState({
 			data: this.state.miledata.filter(item => {
 			   if (item['userd'] == id) {
-				  item['input2'] = this.state.x2;
+              if(key == 'mName'){
+               item['input2'] = this.state.x2;}
+               else{
+                  item['MSBudget'] = this.state.x3;
+               }
 				  return item
 			   }
 			   return item;
@@ -94,6 +142,7 @@ class Description extends Component {
 	
 	}
    render() {
+      console.log(this.state.miledata,'miledatas')
       return (
          <section className={this.state.actDiv ? "descriptions animations-disable" : "descriptions animations-check" }>
 
@@ -183,12 +232,13 @@ class Description extends Component {
                      </div> */}
                    {this.state.miledata && this.state.miledata.map((item) =>
                      {return <div className="colleborate_box actives" key={item.id}>
-                     <h1>Sprint 11</h1>
+                     <h1>Sprint {item.userd}</h1>
                      <div className="colleborate_top_round">
                         <span>
                            <label className="fancy-checkbox">
-                              <input type="checkbox" onClick={()=>this.sprintClicked(item)}/>
-                              <span className="checkmark"></span> </label>
+                              {/* <input type="checkbox"/> */}
+                              <input type=""/>
+                              <span className="checkmark" style={{background:item.userd == this.state.sprintId && item.status == false? '#a9a9a9':item.status == true ?'#19D192':''}}></span> </label>
                         </span>
                      </div>
                      <p>W23</p>
@@ -204,10 +254,12 @@ class Description extends Component {
             <div className="descriptions_milestone">
                <h2> MILESTONES DESCRIPTION</h2>
               
-              {this.state.sprintId ? this.state.miledata.map((item) =>{
+              {this.state.sprintId && this.state.miledata ? this.state.miledata.map((item) =>{
             
               return this.state.sprintId == item.userd ? <div>
-                <div className="descriptions_milestone_center">
+                      <a className="left carousel-control" href="#myCarousel" data-slide="prev" onClick={()=>this.sprintClicked(this.state.sprintId-1,'prev')}> </a>
+                     <a className="right carousel-control"  data-slide="next"  onClick={()=>this.sprintClicked(this.state.sprintId+1,'next')}></a>
+                <div className={`descriptions_milestone_center ${this.state.activeSEC}`} >
 
                   <div className="descriptions_milestone_box">
                      <label>SPRINTS</label>
@@ -217,7 +269,7 @@ class Description extends Component {
 
                   <div className="descriptions_milestone_box">
                      <label>MILESTONES NAME</label>
-                     <input type="text" name="x2" placeholder="Milestone 01" value={this.state.x2} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.userd)} />
+                     <input type="text" name="x2" placeholder="Milestone 01" value={this.state.x2} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.userd,'mName')} />
                      {/* <span style={{ color: 'red' }}>{this.state.x2Err}</span> */}
                      <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext" >Tooltip text</span></div>
 
@@ -225,7 +277,7 @@ class Description extends Component {
 
                   <div className="descriptions_milestone_box budget">
                      <label>MILESTONES BUDGET</label>
-                     <input type="text" name="x3" placeholder="€5.000 (estimation based on sprints)" value={this.state.x3} onChange={this.handleChange} />
+                     <input type="text" name="x3" placeholder="€5.000 (estimation based on sprints)" value={this.state.x3} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.userd,'MBudget')} />
                      {/* <span style={{ color: 'red' }}>{this.state.x3Err}</span> */}
                      <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
 
@@ -234,7 +286,7 @@ class Description extends Component {
                   <div className="descriptions_milestone_box date">
                      <label>START DATE </label>
 
-                     <h4>{item.strtTime}</h4>
+                     <h4>{item.startDate}</h4>
 
 
                   </div>
@@ -261,21 +313,16 @@ class Description extends Component {
                         </div>
                      </div>
 
-                     {/*<a className="left carousel-control" href="#myCarousel" data-slide="prev">*/}
-
-                     {/*</a>*/}
-                     {/*<a className="right carousel-control" href="#myCarousel" data-slide="next">*/}
-
-                     {/*</a>*/}
+                
                   </div>
                   <a href="" class="button"> {item.input1}  SPRINTS </a>
                </div>
 
                <section className="colleborate milestone">
                   <div className="colleborate_top">
-                        
-               <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
+                  {sprntArr.map((item)=>  
+                     {return <div className="colleborate_box" key={item}>
+                        <h1>Sprint {item}</h1>
                         <div className="colleborate_top_round">
                            <span>
                               <label className="fancy-checkbox">
@@ -283,33 +330,9 @@ class Description extends Component {
                                  <span className="checkmark"></span> </label>
                            </span>
                         </div>
-                        <p>W23{sprintCards}</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23{sprintCards}</p>
-                     </div>
-                     <div className="colleborate_box ">
-                        <h1>Sprint 11</h1>
-                        <div className="colleborate_top_round">
-                           <span>
-                              <label className="fancy-checkbox">
-                                 <input type="checkbox" />
-                                 <span className="checkmark"></span> </label>
-                           </span>
-                        </div>
-                        <p>W23{sprintCards}</p>
-                     </div>
-
-
-
+                        <p>W{item}</p>
+                     </div>}
+                  )}   
                   </div>
                </section> 
                      </div>

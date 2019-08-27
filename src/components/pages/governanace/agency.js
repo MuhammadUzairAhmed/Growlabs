@@ -67,6 +67,10 @@ class Agency extends Component {
    }
    componentDidMount() {
 
+      if(this.props.storedDetail != '')
+      {
+         this.setState({data:this.props.storedDetail})
+      }
       const method = "POST";
       const body = new FormData(this.form);
 

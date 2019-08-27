@@ -10,6 +10,13 @@ class ContactIfo extends Component {
       actDiv:false
     }
   }
+  componentDidMount()
+  {
+    if(this.props.contactData != null)
+    {
+      this.setState({dataValues: this.props.contactData})
+    }
+  }
   getValues = (values)=>
   {
     console.log('agencyValues',values)
@@ -18,13 +25,12 @@ class ContactIfo extends Component {
     })
   }
   handleAccept = () => {
-    if(this.state.dataValues != ''){
       this.setState({actDiv:true},()=>{
         setTimeout(() => {
           this.props.changeValue(6, this.state.dataValues)
         }, 1000);
       })
-}
+
 }
     render(){
       return (
@@ -33,9 +39,9 @@ class ContactIfo extends Component {
                 <h1>Contact information</h1><p>Provide a sufficient number of people for your partner to contact</p>
               </div>
                   
-              <Agency getValues={this.getValues} chek='Predashboard'/>
+              <Agency getValues={this.getValues} storedDetail={this.props.contactData ? this.props.contactData :''} chek='Predashboard'/>
               <div class="clearfix"></div>
-           {this.state.dataValues != ''  ? <a target="_blank" onClick={this.handleAccept} class="button">Accept information<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
+           {this.state.dataValues != ''  || this.props.contactData? <a target="_blank" onClick={this.handleAccept} class="button">Accept information<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
               :  <a target="_blank" style={{background:'rgb(212, 217, 221)'}} class="button">Accept information<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
 
         </section>

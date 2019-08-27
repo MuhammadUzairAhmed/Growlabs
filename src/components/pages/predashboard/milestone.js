@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TDataPicker from './widget/TdatePicker'
-var finalRes;
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+ var finalRes;
 class Milestone extends Component {
 	constructor(props) {
 		super(props)
@@ -8,11 +11,12 @@ class Milestone extends Component {
 			x1: '',
 			x2: '',
 			x3: '',
+			startDate : '',
 			x1Err: 'Please Fill this field',
 			x2Err: 'Please Fill this field',
 			x3Err: 'Please Fill this field',
 			x4: '',
-			x5: '',
+			x5: 0,
 			x6: '',
 			x4Err: 'Please Fill this field',
 			x5Err: 'Please Fill this field',
@@ -21,9 +25,11 @@ class Milestone extends Component {
 				{
 					id: 0,
 					userd:1,
-					input1:'',
+					input1:0,
 					input2:'',
-					strtTime:'12/10/2019',
+					MSBudget:'',
+					status:false,
+					startDate:'12/10/2019',
 					EndTime:'12/10/2019'
 				}
 			],
@@ -35,11 +41,21 @@ class Milestone extends Component {
 			timelineEnd:'',
 			itemId:null,
 			itemId2:null,
+			itemId3:null,
+			item4:null,
 			actDiv: false,
 			weeks:'',
 			sprintWeeks:[1,2,3],
-			actId:null
+			actId:null,
+			
 		}
+	}
+	componentDidMount()
+	{
+		if(this.props.mileStonedata.data != null){
+			this.setState({data:this.props.mileStonedata.data,weeks:this.props.mileStonedata.weeks,
+			actId: this.props.mileStonedata.sprintWeeks},()=>{console.log(this.state.data,'this.state.data')})
+		console.log(this.props.mileStonedata,'didMouhntData')}
 	}
 	addNew =(val)=>{
 		console.log(val,'trysss')
@@ -49,9 +65,11 @@ if(val+1 <= this.state.weeks){
 		var addChild ={
 			id: count,
 			userd: userid,
-			input1:'',
+			input1:0,
 			input2:'',
-			strtTime:'12/10/2019',
+			MSBudget:'',
+			status:false,
+			startDate:'12/10/2019',
 			EndTime:'12/10/2019'
 		}
 		this.setState({ data: [...this.state.data, addChild], changeWidth: this.state.changeWidth+10, sprints:this.state.sprints+1 }, () => {
@@ -78,7 +96,8 @@ if(val+1 <= this.state.weeks){
 	handleAccept =()=>{
 		var values = {
 			data: this.state.data,
-			weeks: this.state.weeks
+			weeks: this.state.weeks,
+			sprintWeeks: this.state.actId
 		}
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
@@ -87,27 +106,14 @@ if(val+1 <= this.state.weeks){
 		  })
 
 	  }
-	//   setItemValue =(val)=>{
-	// 	  console.log(val,'keyPresses')
-	// 	  this.setState({
-	// 		data: this.state.data.filter(item => {
-	// 		   if (item['id'] == val)
-	// 		   {
-	// 			item['input1'] = this.state.x5;
-	// 			item['input2'] = this.state.x6
-	// 			return item
-	// 		   }
-	// 		})
 
-	// 	})
-	//   }
 	handleChange = (e) => {
 		console.log(e,'eventss')
 		this.setState({
 			[e.target.name]: e.target.value
 		}, () => {
 
-			if (this.state.x5 == '') {
+			if (this.state.x5 == 0) {
 				this.setState({ x5Err: 'Please Fill this field' })
 			} else {
 				this.setState({ x5Err: '' })
@@ -154,7 +160,7 @@ if(val+1 <= this.state.weeks){
 		 })
 
 		},()=>{
-			this.setState({x5:''})
+			this.setState({x5:0})
 		})
 		console.log('chekcei',id)
 	}
@@ -176,6 +182,11 @@ if(val+1 <= this.state.weeks){
 		})
 		console.log('chekcei',id)
 	}
+	handleChange1=(date)=> {
+		this.setState({
+		  startDate: date
+		});
+	  }
 	spintWeekClicked = (sprints)=>
 	{
 			var sprint = finalRes/sprints
@@ -184,6 +195,22 @@ if(val+1 <= this.state.weeks){
 			console.log('eews',this.state.weeks)
 		})
 
+	}
+	cheked=(id)=>{
+		this.setState({itemId3:id},()=>{
+
+			this.setState({
+				data: this.state.data.filter(item => {
+				   if (item['id'] == id) {
+					  item['startDate'] = this.state.startDate.toLocaleDateString();
+					  return item
+				   }
+				   return item;
+				})
+			 })
+			},()=>{
+				this.setState({startDate:''})
+			})
 	}
 	render() {
 		console.log(this.state.data,'stattes')
@@ -203,7 +230,7 @@ if(val+1 <= this.state.weeks){
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
 							<input type="text" name="x5" placeholder="05" value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
-							<span style={{ color: 'red' }}>{item.input1 != '' ? '' : 'Please Fill out this Field'}</span>
+							<span style={{ color: 'red' }}>{item.input1 != 0 ? '' : 'Please Fill out this Field'}</span>
 						</div>
 
 						<div className="timeframe_third">
@@ -214,7 +241,11 @@ if(val+1 <= this.state.weeks){
 
 						<div className="timeframe_for">
 							<label>START DATE</label>
-							<p>02/08/2019</p>
+							<p><DatePicker
+								selected={this.state.startDate}
+								onSelect={()=>this.cheked(item.id)}
+								onChange={this.handleChange1}
+							/></p>
 						</div>
 
 						<div className="timeframe_five">

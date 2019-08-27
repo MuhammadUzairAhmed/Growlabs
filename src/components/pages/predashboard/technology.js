@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { itemsFetchData } from '../../../actions/fuelSavingsActions';
 
+var count1 =0;
+var count2=0;
 class Technology extends Component {
    constructor(props)
    {
       super(props)
       this.state={
-         
+            toggleFramework:false,
             technology:[
                {name:'java' , status: false},
                {name:'Javascript' , status: false},
@@ -40,21 +42,45 @@ class Technology extends Component {
             techCount :0,
             frameCount :0,
             proCount :0,
-            x1:'',
-            x2:'',
+            x1:[],
+            x2:[],
             x3:'',
          
       }
    }
+   componentDidMount()
+	{
+		if(this.props.technologyData.frameVal != null){
+         this.setState({framework:this.props.technologyData.frameVal,
+             technology:this.props.technologyData.techVal},()=>{console.log('x11',this.state.framework)})
+         
+      //    this.props.technologyData.frameVal.filter(items=>
+      //    this.setState({
+      //       framework: this.state.framework.filter((item)=>{
+      //        if(item.name == items.name )
+      //        {  
+      //           this.setState({frameCount: 1})
+      //           item['status']= true
+      //           return item
+      //        }
+      //        return item
+      //     })
+      //  })   
+         // )
+		console.log(this.props.technologyData,'technologyData')}
+	}
    activeTechnology =(name)=>
-   {  
+   { 
+      // var passtechNology = {id:count1++,name:name,status:true}
+      // this.setState({x1: [...this.state.x1,passtechNology]})
       this.setState({
      
         technology: this.state.technology.filter((item)=>{
-         item['status']= false;
+        
          if(item.name == name)
-         {  this.setState({techCount: 1,x1:item.name})
-            item['status']= true
+         {  this.setState({techCount: 1})
+         if(item['status'] == true){item['status']= false}
+         else if(item['status'] == false){item['status']= true}
             return item
          }
          return item
@@ -64,19 +90,21 @@ class Technology extends Component {
    }
    activeFramework =(name)=>
    {
+      
+      // var passtechNology = {id:count2++,name:name,status:true}
+      // this.setState({x2: [...this.state.x2,passtechNology]})
       this.setState({
      
         framework: this.state.framework.filter((item)=>{
-         item['status']= false;
          if(item.name == name)
          {  
-            this.setState({frameCount: 1,x2:item.name})
-            item['status']= true
+            this.setState({frameCount: 1})
+            if(item['status'] == true){item['status']= false}
+            else if(item['status'] == false){item['status']= true}
             return item
          }
          return item
       })
-   
    })
    }
    activeProjectType =(name)=>
@@ -117,11 +145,12 @@ class Technology extends Component {
     }
     render(){
       var values ={
-         techVal: this.state.x1,
-         frameVal:this.state.x2,
+         techVal: this.state.technology,
+         frameVal:this.state.framework,
          projVal:this.state.x3
       }
-      if(this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' )
+      console.log('values23',values)
+      if(this.state.technology != '' && this.state.framework != '' && this.state.x3 != '' )
       {
 
             setTimeout(() => {
@@ -150,7 +179,7 @@ class Technology extends Component {
             </div>
          })
       return (
-        <section className={this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' ? "technology animations-disable" : "technology animations-check"} >
+        <section className={this.state.technology != '' && this.state.framework != '' && this.state.x3 != '' ? "technology animations-disable" : "technology animations-check"} >
                <div className="technology_top">
                   
                   <p>Define the terms on Which You will Collaborate</p>

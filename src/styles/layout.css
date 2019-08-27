@@ -1015,7 +1015,7 @@ input:focus {
 
 a.left.carousel-control img {
     position: absolute;
-    left: 30px;
+    left: 25px;
     top: 84px;
     width: 13px;
 }
@@ -1024,7 +1024,14 @@ a.right.carousel-control img {
     position: absolute;
     top: 84px;
     width: 13px;
-    right: 30px;
+    right: 25px;
+}
+
+.descriptions_milestone_box img {
+    position: absolute;
+    width: 18px;
+    right: 1px;
+    top: 24px;
 }
 
 ol.carousel-indicators {
@@ -1352,4 +1359,27 @@ path.rc-progress-line-trail {
     width: 84%;
     float: left;
     margin: 17px 0px 11px 0px;
+}
+
+.timeframe_box:hover .delete_section {
+    display: block;
+}
+.delete_section {
+    display: none;
+}
+.timeframe_box .timeframe_secound {
+    float: left;
+    width: 23%;
+}
+.timeframe_box { 
+    clear: both;
+    margin: 0px 10%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.delete_section {
+    float: left;
+    width: 8%;
+    height: 27px;
 }

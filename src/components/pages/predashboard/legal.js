@@ -12,10 +12,19 @@ class Legal extends Component {
             actDiv:false
         }
     }
+    componentDidMount()
+    {
+        if(this.props.legalData.nda != null)
+        {
+            this.setState({fileName: this.props.legalData.nda,
+            secondfileName: this.props.legalData.contract
+            })
+        }
+    }
     handleAccept = () => {
         var values = {
-            nda: this.state.image,
-            contract: this.state.image2
+            nda: this.state.fileName,
+            contract: this.state.secondfileName
         }
         this.setState({actDiv:true},()=>{
             setTimeout(() => {
@@ -84,7 +93,7 @@ class Legal extends Component {
                         </div>
                     </div>
                 </div>
-                {this.state.image != '' && this.state.image2 != '' ?
+                {this.state.fileName != '' && this.state.secondfileName != '' ?
                 <a target="_blank" onClick={this.handleAccept} className="button">Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
                : <a target="_blank"  className="button" style={{background:'rgb(212, 217, 221)'}}>Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
             </section>
