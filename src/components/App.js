@@ -36,14 +36,20 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      status:''
+      status:'',
+      ClientChatId:''
     }
   }
   layout(e){
     this.setState({
       status:e
     })
-    console.log(e)
+  }
+  actveChatModule(id){
+    this.setState({
+      ClientChatId:id
+    })
+    console.log(this.state.ClientChatId,'ypdate')
   }
   render() {
     if(this.state.status == 'pre'){
@@ -83,7 +89,7 @@ class App extends React.Component {
                         <Route component={NotFoundPage} />
                     </Switch>
                 </div>
-                <Chat />
+                <Chat  />
               </Router>
             </section>
         </section>
@@ -94,15 +100,12 @@ class App extends React.Component {
         <section>
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
-          <Router>
-              <div className="center_part pre">
-                  <Switch>
-                      <Route exact path="/"  component={Projects} />
-                      <Route component={Projects} />
-                  </Switch>
-              </div>
-              <Chat />
-          </Router>
+            <Router>
+                <div className="center_part pre">
+                    <Projects activeChat={this.actveChatModule.bind(this)}/>
+                </div>
+                <Chat activeChatId={this.state.ClientChatId} status="projects" />
+            </Router>
           </section>
       </section>
       )

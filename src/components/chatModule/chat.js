@@ -21,7 +21,7 @@ class Chat extends Component {
     componentDidMount() {
         
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
+        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID.id+'.json')
             .then(response => response.json())
             .then((state) => {this.setState(state); console.log(this.state,'statess');
             
@@ -86,6 +86,15 @@ class Chat extends Component {
     }
     backHistory(){
         this.props.true()
+    }
+    componentWillReceiveProps(){
+        console.log(this.props.dataID,'text')
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID.id+'.json')
+            .then(response => response.json())
+            .then((state) => {this.setState(state); console.log(this.state,'statess');
+            
+        })
     }
 
     render() {

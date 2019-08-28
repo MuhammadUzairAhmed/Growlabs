@@ -13,7 +13,8 @@ class Projects extends Component {
             fileUploaded:[],
             formData:[],
             matches:[],
-            currentAgency:[]
+            currentAgency:[],
+            showdata:false
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -22,7 +23,7 @@ class Projects extends Component {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}, console.log(data,'contract')));
+          .then(data => this.setState({formData: data, showdata:true}, console.log(data,'contract')));
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/review.json")
           .then(res => res.json())
           .then(data => this.setState({matches: data}, console.log(data,'review')));
@@ -63,15 +64,15 @@ class Projects extends Component {
                 ...this.state.formData,
                 [f]:this.state.formData[f].map((items,index)=> 
                     {
-                         if(index == e){
-                             if(items.status == true) {
-                                items.status = false 
-                                return items; 
-                            }
-                            else {
-                                items.status = true 
-                                return items; 
-                            }
+                        if(index == e){
+                            if(items.status == true) {
+                            items.status = false 
+                            return items; 
+                        }
+                        else {
+                            items.status = true 
+                            return items; 
+                        }
                         }else{
                             items.status = false 
                             return items; 
@@ -112,15 +113,34 @@ class Projects extends Component {
             }
         )
     }
-    getMatchesData(id){
+    getMatchesData(id,dataChat){
         this.setState({
             currentAgency:id
         })
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}, console.log(data,'contract')));
+          .then(data => this.setState({formData: data}));
+
+        this.props.activeChat(dataChat)
     }
+    getMatchesDelete(id){
+        // this.setState({
+        //     matches : { 
+        //         companies:this.state.matches.companies.map((items,index)=> 
+        //             {
+        //                 if(index == id){
+        //                     items.name = 'test' 
+        //                     return items;   
+        //                  }
+        //                  return items;   
+        //             }
+        //         )
+        //     }
+        // })
+    //   console.log(this.state.matches.companies)
+    //   console.log(this.state.matches.companies[id])
+    }   
     sendDataApi(){
         const method = "POST";
         const body = this.state.formData;
@@ -132,14 +152,15 @@ class Projects extends Component {
 
      render(){
         const listItems = [];
-        if(this.state.formData){
+        if(this.state.showdata == true){
          return (
              <section className="dial_page">
                  <div className="dp-matches clearfix">
                     <div className="dp-mt-matches-box">
                         {this.state.matches != '' ?
                             this.state.matches.companies.map((items,index)=> 
-                            <div className="dp-mt-loop-box" key={index} onClick={() =>this.getMatchesData(items)}>
+                            <div className="dp-mt-loop-box" key={index} onClick={() =>this.getMatchesData(index,items)}>
+                                <div class="delete" onClick={() =>this.getMatchesDelete(index)}>del</div>
                                 <div className="lb-box">
                                     <h1>{items.name} <small>{items.location}</small></h1>
                                     <i className="ico check-icon"></i>
@@ -178,7 +199,6 @@ class Projects extends Component {
                                     )}
                                 </div>
                             </div>
-    
                         </fieldset>
                         <fieldset>
                             <h3>Description</h3>
