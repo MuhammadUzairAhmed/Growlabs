@@ -14,6 +14,7 @@ import Files from "./pages/Files";
 import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import '../styles/layout.css';
+import '../styles/Project.css';
 import '../styles/preDashboard.css';
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -53,11 +54,11 @@ class App extends React.Component {
   render() {
     if(this.state.status == 'pre'){
       return (
-        <section>
+        <section className="project">
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
             <Router>
-                <div className="center_part pre">
+                <div className="center_part project">
                     <Switch>
                         <Route exact path="/"  component={PreDashboard} />
                         <Route component={PreDashboard}  />

@@ -27,7 +27,7 @@ class PreDashboard extends Component {
       mileStone:{},
       legal:{},
       funding:{},
-      contact:{},
+      contact:'',
       trnas:'width 1s',
       changeWidth:'240px',
       aggVal:1,
