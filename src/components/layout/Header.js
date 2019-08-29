@@ -78,9 +78,9 @@ class Header extends Component {
         //     this.props.backlogWidgetData(false,"backlogPlus");
         // }
         this.setState({
-            status:"dashboard"
+            status:"projects"
         })
-        this.layoutChange("dashboard")
+        this.layoutChange("projects")
 
     }
     layoutChange(s){

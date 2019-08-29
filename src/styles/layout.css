@@ -1383,3 +1383,44 @@ path.rc-progress-line-trail {
     width: 8%;
     height: 27px;
 }
+
+.setcompany_fild {
+    margin-bottom: 30px;
+}
+
+.setcompany_fild input {
+    width: 100%;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid #5a5a5a;
+    border-radius: 1.5px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 29px;
+    transition: all 1.5s ease;
+}
+
+.setcompany_fild label {
+    opacity: 0.3;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 10px;
+    font-weight: 400;
+}
+.first_row {
+    float: left;
+    width: 30%;
+    margin-right: 40px;
+}
+
+.secd_row {
+    float: left;
+    width: 30%;
+    margin-right: 40px;
+}
+
+.third_row {
+    float: left;
+    width: 30%;
+}

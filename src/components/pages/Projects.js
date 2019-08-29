@@ -13,7 +13,9 @@ class Projects extends Component {
             fileUploaded:[],
             formData:[],
             matches:[],
-            currentAgency:[]
+            currentAgency:[],
+            showdata:false,
+            actid:null
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -22,7 +24,7 @@ class Projects extends Component {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}, console.log(data,'contract')));
+          .then(data => this.setState({formData: data, showdata:true}, console.log(data,'contract')));
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/review.json")
           .then(res => res.json())
           .then(data => this.setState({matches: data}, console.log(data,'review')));
@@ -63,15 +65,15 @@ class Projects extends Component {
                 ...this.state.formData,
                 [f]:this.state.formData[f].map((items,index)=> 
                     {
-                         if(index == e){
-                             if(items.status == true) {
-                                items.status = false 
-                                return items; 
-                            }
-                            else {
-                                items.status = true 
-                                return items; 
-                            }
+                        if(index == e){
+                            if(items.status == true) {
+                            items.status = false 
+                            return items; 
+                        }
+                        else {
+                            items.status = true 
+                            return items; 
+                        }
                         }else{
                             items.status = false 
                             return items; 
@@ -112,15 +114,36 @@ class Projects extends Component {
             }
         )
     }
-    getMatchesData(id){
+    getMatchesData(id,dataChat){
+        console.log(id,'idss')
         this.setState({
-            currentAgency:id
+            currentAgency:id,
+            actid: id
         })
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}, console.log(data,'contract')));
+          .then(data => this.setState({formData: data}));
+
+        this.props.activeChat(dataChat)
     }
+    getMatchesDelete(id){
+        // this.setState({
+        //     matches : { 
+        //         companies:this.state.matches.companies.map((items,index)=> 
+        //             {
+        //                 if(index == id){
+        //                     items.name = 'test' 
+        //                     return items;   
+        //                  }
+        //                  return items;   
+        //             }
+        //         )
+        //     }
+        // })
+    //   console.log(this.state.matches.companies)
+    //   console.log(this.state.matches.companies[id])
+    }   
     sendDataApi(){
         const method = "POST";
         const body = this.state.formData;
@@ -132,26 +155,51 @@ class Projects extends Component {
 
      render(){
         const listItems = [];
-        if(this.state.formData){
+        if(this.state.showdata == true){
          return (
              <section className="dial_page">
                  <div className="dp-matches clearfix">
+                     <h1>Final Proposala</h1>
+                     
                     <div className="dp-mt-matches-box">
                         {this.state.matches != '' ?
                             this.state.matches.companies.map((items,index)=> 
-                            <div className="dp-mt-loop-box" key={index} onClick={() =>this.getMatchesData(items)}>
+                            <div className={this.state.actid == index ?"dp-mt-loop-box active" : "dp-mt-loop-box" } key={index} onClick={() =>this.getMatchesData(index,items)}>
+                                {console.log(items,"items")}
+                                <div class="delete" onClick={() =>this.getMatchesDelete(index)}><img src="./assets/img/delete_b.png"/></div>
                                 <div className="lb-box">
                                     <h1>{items.name} <small>{items.location}</small></h1>
                                     <i className="ico check-icon"></i>
                                 </div>
+                                <div className="dp-matches-bottem">
+                                   <div className="dp-matches-bottem-box"> <h2>64 <span>%</span></h2><p>GROW SCORE</p>  </div>
+                                <div className="dp-matches-bottem-box"> <h2>4,2 <span>,5</span></h2><p>PATING</p>  </div>
+                                  <div className="dp-matches-bottem-box"> <h2>123 <span>,5</span></h2><p>PROJECTS</p>  </div>
+                                  <div className="dp-matches-bottem-box"> <h2>73 <span>$</span></h2><p>PRE HOURE</p>  </div>
+                                  
+                                
                             </div>
+                            </div>
+                            
                         ) : <Loader type="Oval" color="white" height="50" width="50" className="loading" />}
+                   
                     </div>
+                    <div className="dp_maches_button">
+                      <a target="_blank" class="button" >Accept Agreement<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
+                      </div>
                 </div>
+                <div className="version_tabs">
+                <ul class="ui-tabs-nav">
+                    <li class="active"><a>Version 1</a></li>
+                    <li class=""><a>Version 2</a></li>
+                </ul>
+                </div>
+
                 <div class="btn button" onClick={(data)=>this.sendDataApi(this.state.formData)}>SendData</div>
                  <section className="multi_step_form">
                     <div className="content_form">
                         <fieldset>
+                            <h2 className="Profieldset_hea">TIMELINE</h2>
                             <TDataPicker timelineStart={this.state.formData.timelineStart} timelineEnd={this.state.formData.timelineEnd} onChange={(e)=>this.changeDate(e)}/>
                         </fieldset>
                         <fieldset>
@@ -178,13 +226,12 @@ class Projects extends Component {
                                     )}
                                 </div>
                             </div>
-    
                         </fieldset>
                         <fieldset>
                             <h3>Description</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <input type="text" value={this.state.formData.description} onChange={(x,v)=>this.changeTextData(x,'description')} />
+                                    <input type="text" className="input_textable" value={this.state.formData.description} onChange={(x,v)=>this.changeTextData(x,'description')} />
                                     <p>{this.state.formData.description}</p>
                                 </div>
                             </div>
@@ -435,6 +482,12 @@ class Projects extends Component {
                     </div>
             </section> 
          </section>
+
+
+       
+
+
+
        
          )
         }else{

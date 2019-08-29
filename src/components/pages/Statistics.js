@@ -3,13 +3,17 @@ import { Bar } from 'react-chartjs-2';
 import LineChart from './LineChart';
 import { connect } from "react-redux";
 import { CircularProgressbar, CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import Settings from './../pages/Settings'
 import 'react-circular-progressbar/dist/styles.css';
 // import 'chartjs-plugin-datalabels'
+
 import { itemsFetchData } from '../../actions/fuelSavingsActions';
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import 'rc-progress/assets/index.css';
 import { Circle  } from 'rc-progress';
+
+
 
 
 var output;
@@ -266,6 +270,7 @@ var finalData = [...this.state.smallData,...datasetConst]
     return (
       
       <div>
+        {/* <Settings /> */}
       {this.state.loaded ? <Loader
          type="Oval"
          color="white"

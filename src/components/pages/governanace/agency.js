@@ -67,10 +67,11 @@ class Agency extends Component {
    }
    componentDidMount() {
 
-      if(this.props.storedDetail != '')
+      if(this.props.storedDetail != '' && this.props.chek == 'Predashboard')
       {
          this.setState({data:this.props.storedDetail})
       }
+      
       const method = "POST";
       const body = new FormData(this.form);
 
@@ -280,6 +281,7 @@ class Agency extends Component {
       },()=>{
          if(this.props.chek  && this.props.chek == 'Predashboard')
          {this.props.getValues(this.state.data)}
+         
       })
 
    }
@@ -411,8 +413,8 @@ class Agency extends Component {
                            subItem['lastname'] = this.state.lastname,
                            subItem['mail'] = this.state.mail,
                            subItem['Function'] = this.state.Function,
-                           subItem['image'] = this.state.image
-                        subItem['phone'] = this.state.phone,
+                           subItem['image'] = this.state.image,
+                           subItem['phone'] = this.state.phone,
                            subItem['skype'] = this.state.skype
                         subItem['address'] = this.state.address
                         return subItem;

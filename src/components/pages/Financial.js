@@ -69,7 +69,7 @@ setChecked=(val)=>
           <div className="according_main">
               <div className="according_header">
                 <div className="status"> STATUS    </div>
-                <div className="reference"> PAY REFERENCE    </div>
+                <div className                         ="reference"> PAY REFERENCE    </div>
                 <div className="submission"> SUBMISSION    </div>
                 <div className="form"> FROM    </div>
                 <div className="till"> TILL    </div>
