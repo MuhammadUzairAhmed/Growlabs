@@ -17,6 +17,7 @@ import '../styles/layout.css';
 import '../styles/Project.css';
 import '../styles/preDashboard.css';
 import Loader from 'react-loader-spinner'
+import Dummy from './pages/Project/dummy'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 
@@ -103,7 +104,10 @@ class App extends React.Component {
             <Router>
                 <Sidebar />
                 <div className="center_part project">
-                    <Projects activeChat={this.actveChatModule.bind(this)}/>
+                    {/* <Projects activeChat={this.actveChatModule.bind(this)}/> */}
+                
+
+                <Switch> <Route path="/dummy" component={Dummy} /> <Route path="/" component={Projects} activeChat={this.actveChatModule.bind(this)} /></Switch>
                 </div>
                 <Chat activeChatId={this.state.ClientChatId} status="projects" />
             </Router>
