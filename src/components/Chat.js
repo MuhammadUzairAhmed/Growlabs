@@ -8,12 +8,8 @@ class Chatbot extends Component {
     state = {
         chat:[],
         selectedChat:'',
-        showMe : false
-    }
-
-    constructor(props){
-        super(props);
-        
+        showMe : false,
+        CurrentChat: ''
     }
     componentDidMount() {
         this.props.fetchData(`http://react2.zepcomtesting.com/api/meeting.json`,'CHAT');
@@ -29,8 +25,14 @@ class Chatbot extends Component {
     offBacklogWidth(){
         this.props.backlogWidgetData(false,"backlogPlus");
     }
-
+    componentWillReceiveProps(){
+        this.setState({
+            CurrentChat:this.props.activeChatId
+        })
+        console.log(this.state,'ys')
+    }
     render() {
+        if(this.props.status != 'projects'){
         if(this.props.backlogWidgetState.boolen){
             return (
             <section className="chat_room" active='true'>
@@ -94,6 +96,11 @@ class Chatbot extends Component {
                 )
             }
         }
+
+    }else{
+        
+        return (<StartChat dataID={this.state.CurrentChat ? this.state.CurrentChat:'1'} userDetails={this.state.CurrentChat ?  this.state.CurrentChat:'1' }  />)
+    }
 
     }
 }

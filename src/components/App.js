@@ -14,6 +14,7 @@ import Files from "./pages/Files";
 import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import '../styles/layout.css';
+import '../styles/Project.css';
 import '../styles/preDashboard.css';
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -35,14 +36,20 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      status:''
+      status:'',
+      ClientChatId:''
     }
   }
   layout(e){
     this.setState({
       status:e
     })
-    console.log(e)
+  }
+  actveChatModule(id){
+    this.setState({
+      ClientChatId:id
+    })
+    console.log(this.state.ClientChatId,'ypdate')
   }
   render() {
     if(this.state.status == 'pre'){
@@ -82,7 +89,7 @@ class App extends React.Component {
                         <Route component={NotFoundPage} />
                     </Switch>
                 </div>
-                <Chat />
+                <Chat  />
               </Router>
             </section>
         </section>
@@ -90,18 +97,16 @@ class App extends React.Component {
     }
     if(this.state.status == 'projects'){
       return (
-        <section>
+        <section className="project">
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
-          <Router>
-              <div className="center_part pre">
-                  <Switch>
-                      <Route exact path="/"  component={Projects} />
-                      <Route component={Projects} />
-                  </Switch>
-              </div>
-              <Chat />
-          </Router>
+            <Router>
+                <Sidebar />
+                <div className="center_part project">
+                    <Projects activeChat={this.actveChatModule.bind(this)}/>
+                </div>
+                <Chat activeChatId={this.state.ClientChatId} status="projects" />
+            </Router>
           </section>
       </section>
       )

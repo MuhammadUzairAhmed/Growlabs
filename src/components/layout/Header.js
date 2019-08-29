@@ -81,7 +81,6 @@ class Header extends Component {
             status:"projects"
         })
         this.layoutChange("projects")
-
     }
     layoutChange(s){
         this.props.checkData(s)
