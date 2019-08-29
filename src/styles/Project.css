@@ -1,14 +1,19 @@
 
-
 .project .preDashboard_notification {
     background: #F2F2F2;
 }
+.project section.header {
+    background: #f2f2f2;
+    border-bottom: 1px solid #dedede;
+}
 
+.project section.chat_room_active .chatroom_header {
+    top: 124px;
+}
 .project .time_section {
     background: #f2f2f2;
     color: #000000;
 }
-
 .project .header_top ul li {
     color: #000;
 }
@@ -18,20 +23,17 @@
 .project .time_section h1 {
     color: #000000;
 }
-
 .project .header_center .header_rgt {
     display: none;
 }
-
 .project .PreNotifiProgress {
     border-bottom: 1px solid #e0e0e0;
+    top: 112px;
 }
-
 .project .PreNotifiProgress:after {
     background: #f2f2f2;
     border: 1px solid #c7c7c7;
 }
-
 .project .preDashboard_notification .header_box {
     border-right: 1px solid #e0e0e0;
 }
@@ -39,7 +41,6 @@
     background: #f2f2f2;
     border: 1px solid #c7c7c7;
 }
-
 .project .preDashboard_notification .header_box {
     border-right: 1px solid #e0e0e0;
 }
@@ -84,7 +85,7 @@
     border-bottom: 1px solid #c1c1c1;
 }
 .project .chat_room_active {
-    background: #f2f2f2 !important;
+    background: #EEEEEE !important;
 }
 .project .chatroom_footer {
     background-color: #d8d8d8;
@@ -94,4 +95,354 @@
 .project .chatroom_header_boxes span.message {
     color: #9e9e9e;
     font-size: 14px;
+}
+
+.chatroom_footer ::-webkit-input-placeholder {
+    /* Edge */
+    color: #4a7f80;
+}
+.chatroom_footer :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #4a7f80;
+}
+.chatroom_footer ::placeholder {
+    color: #4a7f80;
+}
+.project .chatroom_Content .send_massage {
+    color: #2f2f2f;
+}
+.project .center_part.project {
+    background: #f2f2f2;
+    width: calc(100% - 619px);
+}
+.project section.sidebar {
+    background: #f2f2f2;
+}
+.project .score {
+    background-color: #ffffff;
+    margin: 25px 0px 6px 0px;
+    box-shadow: 1px 3px 12px #0000004d;
+    display: none;
+}
+.project .score:first-child {
+  
+    display: block !important;
+}
+.project .dp-mt-matches-box .dp-mt-loop-box .lb-box {
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    background-color: #F1F2F3;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.12);
+    /* width: 19%; */
+    margin: 3.5%;
+    padding: 34px 0px 25px;
+    min-height: 76px;
+    position: relative;
+    z-index: 2;
+}
+.project .dp-mt-matches-box .delete img {
+    position: absolute;
+    width: 20px;
+    z-index: 99;
+    opacity: 0.8;
+    right: 23px;
+    top: 23px;
+    display: none;
+}
+.project .dp-mt-loop-box:hover .delete img {
+    display: block;
+}
+.project .dp-mt-matches-box .dp-mt-loop-box .lb-box:hover {
+    background: #fff;
+    cursor: pointer;
+}
+.project .dp-matches {
+    display: table;
+    margin: 0 auto;
+    width: 94%;
+}
+.project .dp-mt-loop-box {
+    margin: 0.0;
+    position: relative;
+    width: 21%;
+    display: inline-block;
+}
+.project .dp-matches h1 {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+}
+.dp-matches-bottem {
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+    margin-top: 8px;
+}
+
+.dp-matches-bottem-box {
+    float: left;
+    margin: 0px 4px;
+}
+.dp-matches-bottem-box h2 span {
+    font-size: 10px;
+}
+.dp-matches-bottem-box h2 {
+    color: #1E1E1E;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 100 !important;
+    text-align: center;
+    margin: 2px 0px;
+}
+
+.dp-matches-bottem-box p {
+    opacity: 0.5;
+    color: #1E1E1E;
+    font-family: "Open Sans";
+    font-size: 9px;
+  
+    text-align: center;
+    margin: 0px;
+}
+
+.dp-matches-bottem-box:after {content: "";display: block;clear: both;}
+
+.dp-matches-bottem:after {
+    content: "";
+    display: block;
+    clear: b;
+}
+.project .dp-mt-matches-box .dp-mt-loop-box .lb-box h1 {
+    color: #24303F;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+.project .dp-mt-matches-box .dp-mt-loop-box .lb-box small {
+    display: block;
+    color: #24303F;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 17px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 4px;
+}
+.project .dp-mt-loop-box:hover .lb-box {
+    background: #fff !important;
+    cursor: pointer;
+}
+.project .dp-mt-loop-box:hover .lb-box {
+    background: #fff !important;
+    cursor: pointer;
+}
+.project .dp-mt-matches-box .dp-mt-loop-box.active .lb-box i.ico {
+    display: none !important;
+}
+.project .dp-mt-loop-box.active .lb-box {
+    background: #fff;
+}
+
+.project .dp-mt-loop-box.active .delete img {
+    display: block;
+}
+
+.project .dp-mt-loop-box.active .dp-matches-bottem {
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.dp_maches_button a.button{
+    background: #7d7d7d;
+    border: 1.5px solid rgba(70, 70, 70, 0.7);
+    border-radius: 100px;
+    clear: both;
+    padding: 15px 43px;
+    width: 30%;
+    display: table;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 19px;
+    position: relative;
+    top: 19px;
+    font-weight: 600;
+    margin-bottom: 17px;
+    box-shadow: 4px 4px 17px #00000061;
+}
+.dp_maches_button a.button span {
+    font-size: 10px;
+}
+.version_tabs {
+    margin-bottom: 26px;
+}
+
+.version_tabs ul.ui-tabs-nav {
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+}
+
+.version_tabs ul.ui-tabs-nav li {
+    float: left;
+    margin: 20px 10px;
+}
+
+.version_tabs ul.ui-tabs-nav li a {
+    opacity: 0.8;
+    color: #797A7D;
+    font-family: "Space Mono";
+    font-size: 11px;
+    letter-spacing: 2.75px;
+    line-height: 16px;
+    text-align: center;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #b7b7b7;
+    padding: 0px 10px 7px 10px;
+}
+
+.version_tabs ul.ui-tabs-nav li.active a {
+    color: #1E1E1E !important;
+    font-weight: 800;
+    border-bottom: 1px solid #636262;
+}
+.project .multi_step_form fieldset {
+    position: initial;
+    opacity: 1 !important;
+    background-color: white;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px 14%;
+    margin-bottom: 10px;
+    clear: both;
+}
+h2.Profieldset_hea {
+    color: #1E1E1E;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.67px;
+    line-height: 20px;
+    text-align: center;
+}
+.project .DayPicker-Caption > div {
+    color: #dcdcdc;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+.project .DayPicker-WeekdaysRow {
+    display: table-row;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.project .DayPicker-Month {
+    width: 29%;
+}
+.project .multi_step_form fieldset h3, .project .multi_step_form fieldset h3 small {
+    color: #1E1E1E;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.67px;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.project .rangeslider__handle-label {
+    position: absolute;
+    top: -30px;
+    left: -24px;
+    right: 0;
+    text-align: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    color: #000;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: none;
+}
+.project .rangeslider-horizontal .rangeslider__handle {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+}
+.project .rangeslider-horizontal .rangeslider__handle:after {
+    background-color: #ffffff;
+    box-shadow: none;
+    width: 6px;
+    height: 6px;
+}
+.project .box label.box-label {
+    background: none;
+    padding: 32px 4px 13px;
+    text-align: center;
+    color: #131313;
+    font-weight: normal;
+    border-radius: 1px;
+    width: 91px;
+    transition: all 300ms ease;
+    min-height: 105px;
+    position: relative;
+    margin: 1px 3px 3px;
+    display: inline-block;
+    max-width: 100%;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.18);
+}
+.project .box label.box-label i.check {
+    background: rgba(206, 206, 206, 0.7);
+    height: 17px;
+    width: 17px;
+    display: table;
+    margin: 4px auto 0;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+    left: 1px;
+}
+.project .multi_step_form fieldset p {
+    padding: 40px 0px !important;
+    color: #0a0a0a !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+}
+.project .checklist label.box-label.check, .project .radioList label.box-label.check {
+    background: #D6D8DA;
+    color: #191919;
+    opacity: 1;
+    font-weight: bold;
+    border: 0px solid #FFFFFF;
+}
+.project .checklist label.box-label, .radioList label.box-label {
+    border: 0px solid #d6d8da;
+    box-shadow: none !important;
+    background: none;
+    width: 30%;
+    margin: 0.5% 1.5% 1.5%;
+    display: inline-block;
+    max-width: 100%;
+    color: #000 !important;
+}
+.project .multi_step_form fieldset.half {
+    width: calc(41% - 2px);
+    float: left;
+    clear: none;
+    padding: 20px 52px;
+}
+.project .box label.check.box-label i.check {
+    background: rgb(99, 99, 99) !important;
 }

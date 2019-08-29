@@ -144,7 +144,57 @@ class Header extends Component {
                 </div>
             </section>
         )
-    }else{
+    }if(this.state.status == 'projects'){
+        if(this.state){
+        return (
+            <section className="header">
+                <div className="time_section">
+                    <div className="time_section_text">
+                        <Clock />
+                    </div>
+                    <div className="time_section_img"   onClick={this.activeChat.bind(this)} >
+                        {/* <img src={"./assets/img/"+this.state.user.profileimage} /> */}
+                      
+                    </div>
+                    <div className="time_section_rgt">
+                        <img src="./assets/img/time_icon.jpg" />
+                    </div>
+                </div>
+
+                <section className="preDashboard">
+                    <div className="preDashboard_notification">
+                        {this.state.notificationsData.map((items, index)=> 
+                        <div className="NotiProgMain"  key={index} onClick={(e)=>this.changePage(index)}>
+                            <div className="header_box">
+                            <div className="header_top" >
+                                <ul>
+                                    <li>STEP {items.id} </li>
+                                    <li>{items.date}</li>
+                                    <li>{items.type}</li>
+                                    <li><span>...</span></li>
+                                </ul>
+                            </div>
+                            <div className="header_center">
+                                    <div className="header_flt">
+                                        <h1>{items.description}</h1>
+                                    </div>
+                                    <div className="header_rgt">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='PreNotifiProgress'>{items.status == 'disable' ? <div className="PreNotifiProgressadded"> </div> : items.status == 'active' ?  <div className="PreNotifiactive"> </div> : <div className="PreNotifidisable"> </div>  } </div>
+                        </div>
+                      )}
+                    </div>
+                    </section>
+            </section>
+            )
+       
+        }else{
+            return <h1>Loading...</h1>
+        }
+    }   else{
         return(
             <Loader type="Oval" color="white" height="50" width="50" className="loading" />
         )
