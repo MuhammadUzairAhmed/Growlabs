@@ -446,3 +446,211 @@ h2.Profieldset_hea {
 .project .box label.check.box-label i.check {
     background: rgb(99, 99, 99) !important;
 }
+
+.Addproject_box {
+    width: 30%;
+    float: left;
+    margin: 40px 21px;
+}
+
+.Addproject_box .project_score {
+    background: #fff;
+    width: 49%;
+    height: 150px;
+    float: left;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.Addproject_box .project_comt_expen {
+    width: 49%;
+    height: 150px;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.Addproject_box .project_points {
+    background: #fff;
+    width: 49%;
+    height: 70px;
+    float: left;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.Addproject_box .project_velocity {
+    background: #fff;
+    width: 49%;
+    height: 70px;
+    float: right;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.project_comt_expen .project_comt {
+    background: #fff;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.project_comt_expen  .project_expen {
+    background: #fff;
+    height: 69px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.project_sprints {
+    background: #e6e6e6;
+    height: 66px;
+    clear: both;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.project_sprints:before {content: "";display: block;clear: both;}
+
+.project_plussec {
+    background: #e6e6e6;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 40px 0px 100px 0px;
+    min-height: 409px;
+    position: relative;
+}
+
+.project_plussec button {
+    width: 31%;
+    background: none;
+    border: 1.5px solid #000;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 26px;
+    cursor: pointer;
+}
+.project_plussec button:hover {
+    background: #000;
+    color: #fff;
+}
+.project_plussec .project_namesec {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 130px;
+}
+
+.project_namesec .number {
+    border: 1px solid #FFFFFF;
+    background-color: #236991;
+    color: #fff;
+    width: 42px;
+    height: 32px;
+    border-radius: 100px;
+    padding: 10px 0px 0px 0px;
+    display: table;
+    margin: 0 auto;
+}
+
+.project_namesec .name {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.project_namesec .name h1 {
+    margin: 8px 0px;
+}
+
+.project_namesec .name_sub h2 {
+    color: #8D9F9C;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    margin: 0px 0px;
+}
+
+.Addproject_box.active .project_sprints {
+    background: #ffffff;
+}
+
+.Addproject_box.active .project_plussec {
+    background: #ffffff;
+}
+.project_plussing {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: table;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.project_plussing:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #000;
+    height: 3px;
+    margin-top: -5px;
+    top: 50%;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+}
+
+.project_plussing:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #000;
+    width: 3px;
+    margin-left: -5px;
+    left: 54%;
+    top: 2px;
+    bottom: 10px;
+    z-index: 9;
+}
+.Addproject_box.add {}
+
+.Addproject_box.add .project_score {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+
+.Addproject_box.add  .project_comt {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+
+.project_expen {}
+
+.Addproject_box.add .project_expen {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+
+.Addproject_box.add .project_points {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+
+.Addproject_box.add .project_velocity {
+    background: #e6e6e6;
+    box-shadow: none;
+}
