@@ -35,7 +35,6 @@ class Settings extends Component {
   }
 
 
-
   render(){
     const CurrentPageKey = this.state.activePage
     let activePage;

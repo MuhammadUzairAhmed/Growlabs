@@ -5,6 +5,12 @@ class ChatInput extends Component {
     static propTypes = {
         onSubmitMessage: PropTypes.func.isRequired,
     }
+    constructor(props){
+        super(props)
+        this.state = {
+            error:false
+        }
+    }
     state = this.props.data
     
     render() {
@@ -13,14 +19,20 @@ class ChatInput extends Component {
             <form
                 action="."
                 onSubmit={e => {
-                    
-                    // this.setState({timing: time})
                     e.preventDefault()
-                    var today = new Date();
-                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                    console.log(time,'times')
-                    this.props.onSubmitMessage(this.state.message,time)
-                    this.setState({ message: '' })
+                    if(this.state.message){
+                        var today = new Date();
+                        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                        console.log(time,'times')
+                        this.props.onSubmitMessage(this.state.message,time)
+                        this.setState({ message: '', error:false })
+                    }else{
+                        this.setState({
+                            error:true
+                        })
+                    }
+                    // this.setState({timing: time})
+                    
                 }}
                 className="example"
             >
@@ -29,6 +41,7 @@ class ChatInput extends Component {
                     placeholder={'Enter message...'}
                     value={this.state.message}
                     onChange={e => this.setState({ message: e.target.value })}
+                    error={this.state.error ? 'error':''}
                 />
                 <button type="submit" value={'Send'} ><img src="./assets/img/Send.png" /></button>
             </form>

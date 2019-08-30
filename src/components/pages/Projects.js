@@ -14,8 +14,41 @@ class Projects extends Component {
             formData:[],
             matches:[],
             currentAgency:[],
+            dummyData:[
+                {
+                    id:1,
+                    technologies:[
+                        {id:1,name:'1st one'},
+                        {id:2,name:'1st child'}
+                    ]},
+                {
+                    id:2,
+                    technologies:[
+                        {id:1,name:'2nd one'},
+                        {id:2,name:'2nd child'}
+                    ]},
+                {
+                    id:3,
+                    technologies:[
+                        {id:1,name:'3rd one'},
+                        {id:2,name:'3rd child'}
+                    ]},
+                {
+                    id:4,
+                    technologies:[
+                        {id:1,name:'4th one'},
+                        {id:2,name:'4th child'}]
+                    },
+                {
+                    id:5,
+                    technologies:[
+                        {id:1,name:'5th one'},
+                        {id:2,name:'5th child'}
+                    ]},
+            ],
             showdata:false,
-            actid:null
+            actid:null,
+            data:[]
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -94,6 +127,7 @@ class Projects extends Component {
                 }
             }
         )
+        console.log('messsage',this.state.formData.reasoning)
     }
     changeDate(e){
         this.setState({
@@ -118,14 +152,15 @@ class Projects extends Component {
         console.log(id,'idss')
         this.setState({
             currentAgency:id,
-            actid: id
         })
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}));
+          .then(data => this.setState({data: {...this.state.data, [id]: data}}));
+          
 
-        this.props.activeChat(dataChat)
+        //this.props.activeChat(dataChat)
+        console.log(this.state,'all Data')
     }
     getMatchesDelete(id){
         // this.setState({
@@ -152,6 +187,19 @@ class Projects extends Component {
           .then(res => res.json())
           .then(data => console.log(JSON.stringify(data.form, null, "\t")));
     }
+    dummyChange=(id,childId,f,c)=>{
+    this.setState({
+    dummyData: this.state.dummyData.filter(item => {
+       if (item.id == id) {
+          item[f].filter((subItem) => {
+             if (subItem['id'] == childId) {
+                subItem[c] = 'changed'
+                return subItem;
+             }})
+        }
+        return item;
+    })})
+    }
 
      render(){
         const listItems = [];
@@ -160,6 +208,15 @@ class Projects extends Component {
              <section className="dial_page">
                  <div className="dp-matches clearfix">
                      <h1>Final Proposala</h1>
+                    
+                         {this.state.dummyData.map((item,index)=>
+                         {return <div>
+                                {this.state.actid+1 == item.id ? 
+                                    Object.values(item.technologies).map((items)=>{return <div key={items.id} onClick={()=>this.dummyChange(item.id,items.id,'technologies','name')}>{items.name}</div>}):''}
+                                </div>
+                         })
+
+                         }
                      
                     <div className="dp-mt-matches-box">
                         {this.state.matches != '' ?
@@ -240,8 +297,9 @@ class Projects extends Component {
                             <h3>Reasoning behind project</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <input type="text" value={this.state.formData.reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')} />
-                                    <p>{this.state.formData.reasoning}</p>
+                                    {/* <input type="text" value={this.state.formData.reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')} /> */}
+                                    <p contenteditable="true" onInput={(x,v)=>this.changeTextData(x,'reasoning')}>{this.state.formData.reasoning}</p>
+                                
                                 </div>
                             </div>
                         </fieldset>
@@ -251,6 +309,7 @@ class Projects extends Component {
                                 <div className="form-group">
                                     <input type="text" value={this.state.formData.products} onChange={(x,v)=>this.changeTextData(x,'products')} />
                                     <p>{this.state.formData.products}</p>
+                                    
                                 </div>
                             </div>
                         </fieldset>

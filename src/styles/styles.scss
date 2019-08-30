@@ -674,6 +674,9 @@ section.chat_room[active="false"] {
 section.chat_room[active="true"] {
     // margin-right: 0;
 }
+.chatroom_footer input[error="error"] {
+    border: 1px solid red;
+}
 /* =======xxx=====End Chatroom css=====xxx======= */
 
 
