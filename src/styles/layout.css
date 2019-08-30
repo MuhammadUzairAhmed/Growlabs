@@ -39,3 +39,47 @@
     float: left;
     width: 30%;
 }
+
+
+.modal, .invitation
+{
+    background: white;
+    width: 50%;
+    height: 24vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+
+.test{
+    background: white;
+    width: 50%;
+    height: 37vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+.testinomials
+{
+    background: white;
+    width: 50%;
+    height: 57vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+
+.portfolio , .clienttestinomials
+{
+    background: white;
+    width: 50%;
+    height: 77vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+
+.rating > span:hover:before {
+    content: "\2605";
+    position: absolute;
+ }
