@@ -14,6 +14,7 @@ export default {
         USER_DETAILS : [],
         MILESTONE : [],
         IS_LOADING : false,
-        chartValues:{}
+        chartValues:{},
+        user:''
     }
 };

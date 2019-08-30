@@ -2,6 +2,12 @@ import * as types from '../constants/actionTypes';
 
 import {getFormattedDateTime} from '../utils/dates';
 
+export const finalizeAccount =(values)=>{
+    return{
+        type:types.USER_TYPE,
+        payload: values
+    }
+}
 
    export const FetchSprintData = (lstData,barData,lineData) => dispatch => {
     var data={
