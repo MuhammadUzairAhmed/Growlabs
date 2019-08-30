@@ -15,7 +15,8 @@ class Projects extends Component {
             matches:[],
             currentAgency:[],
             showdata:false,
-            actid:null
+            actid:null,
+            data:[]
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -118,14 +119,15 @@ class Projects extends Component {
         console.log(id,'idss')
         this.setState({
             currentAgency:id,
-            actid: id
         })
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data}));
+          .then(data => this.setState({data: {...this.state.data, [id]: data}}));
+          
 
-        this.props.activeChat(dataChat)
+        //this.props.activeChat(dataChat)
+        console.log(this.state,'all Data')
     }
     getMatchesDelete(id){
         // this.setState({

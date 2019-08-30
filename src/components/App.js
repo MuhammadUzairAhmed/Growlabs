@@ -14,6 +14,8 @@ import Files from "./pages/Files";
 import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import Settings from "./pages/Settings";
+import ProjectReview from "./pages/Project/index";
+
 import '../styles/layout.css';
 import '../styles/Project.css';
 import '../styles/preDashboard.css';
@@ -107,8 +109,9 @@ class App extends React.Component {
                 <div className="center_part project">
                 <Switch>
                   <Route path="/settings" component={Settings} />
+                  <Route path="/ProjectReview" component={ProjectReview} />
+                  <Route path="/" component={Projects} activeChat={this.actveChatModule.bind(this)} />
                 </Switch>
-                    <Projects activeChat={this.actveChatModule.bind(this)}/>
                 </div>
                 <Chat activeChatId={this.state.ClientChatId} status="projects" />
             </Router>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { itemsFetchData, currentStateData, activeChatSystem, backlogWidget } from '../../actions/fuelSavingsActions';
+import {browserHistory} from "react-router";
 import  Clock  from '../../components/widget/clock';
 import { setInterval } from 'timers';
 const URL = 'ws://localhost:3030'
@@ -81,6 +82,7 @@ class Header extends Component {
             status:"projects"
         })
         this.layoutChange("projects")
+        
     }
     layoutChange(s){
         this.props.checkData(s)

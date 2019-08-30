@@ -1,4 +1,8 @@
 
+section.project {
+    background: #f2f2f2;
+    min-height: 100%;
+}
 .project .preDashboard_notification {
     background: #F2F2F2;
 }
@@ -448,7 +452,7 @@ h2.Profieldset_hea {
 }
 
 .Addproject_box {
-    width: 30%;
+    width: 25%;
     float: left;
     margin: 40px 21px;
 }
@@ -536,7 +540,7 @@ h2.Profieldset_hea {
     font-family: "Open Sans";
     font-size: 14px;
     font-weight: 600;
-    padding: 5px 26px;
+    padding: 5px 5px;
     cursor: pointer;
 }
 .project_plussec button:hover {
@@ -588,8 +592,15 @@ h2.Profieldset_hea {
     background: #ffffff;
 }
 
-.Addproject_box.active .project_plussec {
+.Addproject_box.active .project_plussec{
     background: #ffffff;
+}
+
+.Addproject_box .project_plussec  button {
+     display:none !important
+}
+.Addproject_box:hover .project_plussec  button  {
+    display:table !important
 }
 .project_plussing {
     border-radius: 50%;

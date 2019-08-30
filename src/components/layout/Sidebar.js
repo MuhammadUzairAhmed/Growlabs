@@ -99,6 +99,9 @@ componentWillReceiveProps(nextprops)
                             <table>
                                 <tr>
                                     <td>
+                                        {console.log(this.state.xAxisLabels,'lables'),
+                                            console.log(this.state.fetchLineData,'fetchLineData'),
+                                            console.log(tnesion2,'tnesion2')}
                                         < div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels}
                                                                                     data={this.state.fetchLineData}
                                                                                     tension={tnesion2} color={'#1E9D74'}/>
