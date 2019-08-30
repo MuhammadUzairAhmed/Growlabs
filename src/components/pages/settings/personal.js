@@ -57,28 +57,33 @@ class Personal extends Component
     {
         return(
         
-    <div className="agency">
-            <div className="left_side active">
+    <div className="personal_main">
            
-               <div className="profile">
+           
+               <div className="personal_user">
                   {/* {this.state.saveId
                      ? <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={} />
                      : <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />} */}
-                <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={this.state.image != '' ? "upload_user":"blank_user"} />
-        <div className="proflie_upload">
+                <img src={this.state.image != '' ? this.state.image : './assets/img/new_user.png'} alt='sorry' className={this.state.image != '' ? "upload_user":"blank_user"} />
+            <div className="personal_upload">
                <FileUpload getInput='PS' getInput1='PS' />
               </div>
                </div>
-               <div className="feild half">
-                  <label>first name</label>
-                  <input onChange={this.handleChange} type="text" name="fname" value={this.state.fname} placeholder="Name" />
+
+               <div className="personal_flt">
+               <h1>Genernal</h1>
+               <div className="feild ">
+                  <label>First Name</label>
+                  <input onChange={this.handleChange} type="text" name="fname" value={this.state.fname} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
-               <div className="feild half">
+               <div className="feild ">
                   <label>Last Name </label>
-                  <input onChange={this.handleChange} type="text" name="lastname" value={this.state.lastname} placeholder="Last name" />
+                  <input onChange={this.handleChange} type="text" name="lastname" value={this.state.lastname} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
-               <div className="feild half">
-                     <label>DATE OF BIRTH</label>
+               <div className="feild ">
+                     <label>DATE OF BIRTH Date </label>
                      <MaskedInput
                      name="dob"
                      onChange={this.handleChange}
@@ -86,39 +91,61 @@ class Personal extends Component
                      mask={[ /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
                      placeholder="00-00-0000"
                      />
+                                       <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild half">
-                  <label>zipcode</label>
-                  <input onChange={this.handleChange} type="text" name="zipcode" value={this.state.zipcode} placeholder="Felix" />
+               <div className="feild ">
+                  <label>Skype</label>
+                  <input onChange={this.handleChange} type="text" name="zipcode" value={this.state.zipcode} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
-                  <label>mail</label>
-                  <input onChange={this.handleChange} type="text" name="mail" value={this.state.mail} placeholder="Felix" />
+                  <label>Email address</label>
+                  <input onChange={this.handleChange} type="text" name="mail" value={this.state.mail} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
+               
+               </div>
+ 
+               <div className="personal_rgt">
+
                <div className="feild">
                   <label>Phone</label>
-                  <input onChange={this.handleChange} type="text" name="phone" value={this.state.phone} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="phone" value={this.state.phone} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
 
                <div className="feild">
-                  <label>skype</label>
-                  <input onChange={this.handleChange} type="text" name="skype" value={this.state.skype} placeholder="Felix" />
+               <h1>Adress</h1>
+                  <label>Adress</label>
+                  <input onChange={this.handleChange} type="text" name="skype" value={this.state.skype} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
-                  <label>address</label>
-                  <input onChange={this.handleChange} type="text" name="address" value={this.state.address} placeholder="Felix" />
+                  <label>Zipcode</label>
+                  <input onChange={this.handleChange} type="text" name="address" value={this.state.address} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
                   <label>city</label>
-                  <input onChange={this.handleChange} type="text" name="city" value={this.state.city} placeholder="felix" />
+                  <input onChange={this.handleChange} type="text" name="city" value={this.state.city} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
                   <label>country</label>
-                  <input onChange={this.handleChange} type="text" name="country" value={this.state.country} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="country" value={this.state.country} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
-               <button color="primary" onClick={this.handleSave}>Save</button>
+               </div>
 
-            </div>
+
+               <div className="Button_sec">
+               <button color="primary" onClick={this.handleSave}>Request Approval</button>
+
+               <button className="secd_button">Add google Authenticator</button>
+             <p>Request Account Removal</p>
+               </div>
+           
 
 
          </div>

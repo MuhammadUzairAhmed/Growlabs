@@ -58,13 +58,26 @@ class Settings extends Component {
         activePage = <PROFILE />
       }
     return (
-      <section className="backlog">
-        <div>
+      <section className="backlog settings">
+         <h1 className="settings_hea">Settings</h1>
+
+         <div className="save_button">
+
+         <button className="one">Cancel</button>
+
+         <label class="switch">
+  <input type="checkbox" />
+  <span class="slider round">Save Chages</span>
+</label>
+        
+
+         </div>  
+       
           <ul className="ui-tabs-nav">
               {this.state.TotalPage.map((items)=> <li className={items.id === this.state.activePage ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)}
           </ul>
          {activePage}
-        </div>
+      
     </section>
     );  
 

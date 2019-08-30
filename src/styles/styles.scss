@@ -3356,6 +3356,350 @@ section.sidebar .score_section .scoreText {
 /*============xxx========= Matches ===============xxx============*/
 
 
+/*=====================Start Settings page ===========================*/
+
+
+h1.settings_hea {
+    color: #cccccc;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+}
+.personal_user {
+    display: table;
+    margin: 0 auto;
+    width: 112px;
+    height: 107px;
+    background: #fff;
+    border-radius: 100px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 18px;
+}
+
+.personal_user img.blank_user {
+    position: absolute;
+    bottom: 2px;
+    width: 80px;
+    left: 0;
+    right: 0;
+    display: table;
+    margin: 0 auto;
+    border-radius: 100%;}
+
+.personal_upload {
+    position: absolute;
+    z-index: 99999999;
+    background: #fff;
+    bottom: -6px;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    right: -13px;
+    border: 3.5px solid #1e262e;
+}
+
+.personal_upload img {
+    width: 21px !important;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    margin: 0 auto;
+    top: 9px;
+}
+
+.personal_flt {
+    float: left;
+    width: 45%;
+}
+
+.personal_rgt {
+    float: right;
+    width: 45%;
+    margin-top: 53px;
+}
+
+.personal_main {
+    width: 80%;
+    display: table;
+    margin: 0 auto;
+}
+
+.personal_main .feild {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.personal_main .feild label {
+    opacity: 0.3;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.personal_main .feild input {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 40px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+}
+
+.personal_main h1 {
+    color: #d6d6d6;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.personal_main .Button_sec {
+    margin: 61px 0px;
+    clear: both;
+    position: relative;
+    top: 30px;
+}
+
+.personal_main .Button_sec button {
+    border-radius: 3px;
+    background-color: #cacaca;
+    width: 50%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 23px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.personal_main .Button_sec button.secd_button {
+    width: 26%;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 12px 0px;
+    border-radius: 100px;
+}
+
+.personal_main .Button_sec p {
+    opacity: 0.5;
+    color: #cacaca;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.personal_main .Button_sec button:hover {
+    background-color: #a9a8a8;
+}
+
+.personal_main .Button_sec button.secd_button:hover {
+    background-color: #a0a0a0;
+}
+
+.personal_main .Button_sec p:hover {
+    color: #ffffff;
+}
+.save_button .switch {
+    position: relative;
+    display: inline-block;
+    width: 127px;
+    height: 28px;
+  }
+  
+  .save_button .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .save_button .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s
+  }
+  
+  .save_button .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 3px;
+    bottom: 1px;
+    background-color: #1e262e;
+    transition: .4s;
+  }
+  .save_button button.one:hover {
+    color: #868686;
+    cursor: pointer;
+}
+  .save_button  input:checked + .slider {
+    background-color: #ffffff;
+  }
+  
+  .save_button input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  .save_button input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(93px);
+  }
+  
+  /* Rounded sliders */
+  .save_button .slider.round {
+    border-radius: 34px;
+    padding-left: 34px;
+    font-size: 12px;
+    color: #1e262e;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-top: 5px;
+  }
+  
+  .save_button .slider.round:before {
+    border-radius: 50%;
+  }
+  .save_button {
+    float: right;
+    margin-top: -77px;
+}
+
+  .save_button button.one {
+      opacity: 0.5;
+      color: #ffffff;
+      font-family: "Open Sans";
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 17px;
+      text-align: center;
+      background: none;
+      border: 0px;
+      letter-spacing: 2px;
+      padding: 8px 13px;
+      text-transform: uppercase;
+      float: left;
+  }
+  .personal_main .feild .tooltip {
+    position: absolute;
+    right: 0px;
+}
+
+.personal_main .feild .tooltip img {
+    width: 16px;
+    top: 11px;
+}
+
+.personal_main .feild span.tooltiptext {
+    top: -71px;
+    right: 0;
+}
+.personal_main .feild .tooltip {
+    position: absolute;
+    right: 0px;
+}
+
+.personal_main .feild .tooltip img {
+    width: 16px;
+    top: 11px;
+}
+
+.personal_main .feild span.tooltiptext {
+    top: -71px;
+    right: 0;
+}
+
+.personal_main.company {
+    width: 95%;
+    margin-top: 70px;
+}
+
+.personal_main.company .first_row {
+    float: left;
+    width: 25%;
+    margin-right: 12%;
+}
+
+.personal_main .third_row {
+    float: right;
+    width: 25%;
+}
+
+.personal_main .secd_row {
+    float: left;
+    width: 25%;
+    margin-top: 34px;
+   
+}
+.personal_main .feild textarea#comment {
+    width: 100%;
+    background: #ffffff12;
+    border: 0px;
+    color: #fff;
+    padding: 5px 6px;
+    margin-top: 9px;
+}
+.personal_main .feild.textarea .tooltip {
+    position: absolute;
+    right: 6px;
+    top: 15px;
+}
+.personal_main.company button {
+    width: 26%;
+    font-size: 14px;
+    padding: 20px 0px;
+}
+
+.personal_main.company button.secd_button {
+    width: 19%;
+    font-size: 10px;
+}
+.personal_main p.error {
+    width: 26%;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 13px;
+    font-size: 12px;
+    color: #d82525;
+}
+.personal_main.company .Button_sec {
+    margin: 0px;
+    top: -28px;
+}
+.personal_main .feild.upload section img {
+    width: 20% !important;
+    display: table;
+    margin: 0 auto;
+}
+.personal_main .feild.upload section {
+    background: #2e353d;
+    margin-top: 14px;
+    cursor: pointer;
+    padding: 26px 0px;
+}
+/*============xxx========= End Settings page ===============xxx============*/
 
 
 
@@ -3382,3 +3726,5 @@ section.sidebar .score_section .scoreText {
     font-size: 17px;
     box-shadow: none;
 }
+
+
