@@ -3702,6 +3702,65 @@ h1.settings_hea {
     cursor: pointer;
     padding: 26px 0px;
 }
+.personal_main .feild.dropdown select {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+}
+
+.personal_main .feild.dropdown label {
+    line-height: 34px;
+}
+.personal_main.oprations {
+    width: 66%;
+    margin-top: 75px;
+}
+
+.personal_main.oprations .first_row {
+    width: 42%;
+}
+
+.personal_main.oprations .secd_row {
+    width: 42%;
+    margin-top: 0;
+    float: right;
+}
+
+.personal_main.oprations .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid white;
+    right: 9%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 46px;
+    opacity: 0.6;
+}
+.personal_main .feild.dropdown select option {
+    background: #1e262e;
+}
+.password_sec {
+    width: 40%;
+    display: table;
+    margin: 0 auto;
+    padding-top: 128px;
+    padding-bottom: 56px;
+}
+.rating > span:hover:before {
+    content: "\2605";
+    position: absolute;
+ }
 /*============xxx========= End Settings page ===============xxx============*/
 
 

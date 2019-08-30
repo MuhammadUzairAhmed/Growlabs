@@ -611,7 +611,6 @@ h2.Profieldset_hea {
     margin: 0 auto;
     cursor: pointer;
 }
-
 .project_plussing:after {
     content: " ";
     position: absolute;
@@ -624,7 +623,6 @@ h2.Profieldset_hea {
     right: 5px;
     z-index: 9;
 }
-
 .project_plussing:before {
     content: " ";
     position: absolute;
@@ -637,25 +635,18 @@ h2.Profieldset_hea {
     bottom: 10px;
     z-index: 9;
 }
-.Addproject_box.add {}
-
 .Addproject_box.add .project_score {
     background: #e6e6e6;
     box-shadow: none;
 }
-
 .Addproject_box.add  .project_comt {
     background: #e6e6e6;
     box-shadow: none;
 }
-
-.project_expen {}
-
 .Addproject_box.add .project_expen {
     background: #e6e6e6;
     box-shadow: none;
 }
-
 .Addproject_box.add .project_points {
     background: #e6e6e6;
     box-shadow: none;
@@ -664,4 +655,96 @@ h2.Profieldset_hea {
 .Addproject_box.add .project_velocity {
     background: #e6e6e6;
     box-shadow: none;
+}
+.project h1.settings_hea {
+    color: #000000;
+}
+.project .backlog ul.ui-tabs-nav li a {
+    color: #000;
+   
+}
+.project .backlog ul.ui-tabs-nav li.active a {
+    opacity: 1;
+}
+.project .backlog ul.ui-tabs-nav li a:after {
+    border-bottom: 2px solid #0000004a;
+    content: "";
+    display: block;
+    padding: 0px 50px;
+    opacity: 0.5;
+    border-radius: 100px;
+}
+.project .backlog .active a:after {
+    border-bottom: 2px solid #000000;
+    opacity: 1 !important;
+}
+.project .save_button button.one {
+    opacity: 0.5;
+    color: #1E1E1E;
+}
+.project .save_button .slider.round {
+    font-weight: 500;
+    color: #ffffff;
+}
+.project .save_button .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 1px;
+    bottom: 1px;
+    background-color: #ffffff;
+    transition: .4s;
+}
+.project .personal_upload {
+    border: 3.5px solid #f2f2f2;
+}
+.project .personal_main .feild label {
+    color: #1E1E1E;
+}
+.project  .personal_main .feild input {
+    color: #000;
+}
+.project .personal_main h1 {
+    color: #000000;
+}
+.project ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #000;
+}
+.project ::-moz-placeholder { /* Firefox 19+ */
+    color: #000;
+}
+.project :-ms-input-placeholder { /* IE 10+ */
+    color: #000;
+}
+.project :-moz-placeholder { /* Firefox 18- */
+    color: #000;
+}
+.project .personal_main .Button_sec button {
+    background-color: #1E1E1E;
+    color: #fff;
+}
+.project .personal_main .Button_sec button.secd_button {
+    font-size: 11px;
+    background: #C1C1C1;
+}
+.project .personal_main .Button_sec p {
+    color: #1E1E1E;
+}
+.project .personal_main .feild.upload section {
+    background: #eceaea;
+    margin-top: 14px;
+    cursor: pointer;
+    padding: 26px 0px;
+}
+.project .personal_main .feild textarea#comment {
+    width: 100%;
+    background: #eceaea;
+    border: 0px;
+    color: #fff;
+    padding: 5px 6px;
+    margin-top: 9px;
+}
+.project .personal_main .feild.dropdown select {
+    color: #000;
 }
