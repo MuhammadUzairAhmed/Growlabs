@@ -123,258 +123,326 @@ class Settings extends Component {
       <section className="backlog settings">
         <div>
           
-          <div className={this.state.activeModal}>
+          <div className="modal Finalize">
             <h1>Finalize Account</h1>
-          <div className="feild">
+          <div className="feild Finalize">
                   <label>PASSWORD</label>
-                  <input onChange={this.handleChange} type="text" name="pass" value={this.state.pass} placeholder="Felix" />
+                  <img src="./assets/img/lock.png" class="lock"/>
+                  <input onChange={this.handleChange} type="text" name="pass" value={this.state.pass} placeholder="" />
+                  <img src="./assets/img/eyes.png" class="eyes"/>
                </div>
-               <div className="feild">
+               <div className="feild Finalize">
                   <label>CONFIRM</label>
-                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Felix" />
+                  <img src="./assets/img/lock.png" class="lock"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="" />
                </div>
-               <div className="feild">
+               <div className="feild dropdown">
                <label>USER TYPE</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
                   <option value="">select type</option>
                   <option value="Agency">Agency</option>
                   <option value="Client">Client</option>
                  </select>
+                 <div class="go-icon"></div>
                 </div>
-                {this.state.pass != '' && this.state.pass  == this.state.confirm && this.state.confirm != '' && this.state.userType != ''? <button color="primary" onClick={this.handleSave}>FINISH ACCOUNT</button>:''}
-                <button color="primary" onClick={this.handleSelect}>Cancel</button>
+                {this.state.pass != '' && this.state.pass  == this.state.confirm && this.state.confirm != '' && this.state.userType != ''? <button className="account_but" color="primary" onClick={this.handleSave}>FINISH ACCOUNT</button>:''}
+                <button className="cancel_but" color="primary" onClick={this.handleSelect}>x</button>
           </div>
           
           <button color="primary" onClick={this.handleSelect}>Select Account</button>
 
         
           {/*Invite new developer */}
-          <div className="invitation">
+          <div className="modal Invite">
             <h1>Invite new developer</h1>
-            <div className="feild">
+            <div className="feild dropdown Invite">
                <label>DEVELOPER NAME</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
-                  <option value="Agency">JOHN</option>
+               
+                  <option value="Agency">INput</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                 </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>DEVELOPER EMAIL</label>
-                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="INput" />
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <button color="primary" onClick={this.handleSave}>SEND TEST TO DEVELOPER</button>
+               <button className="account_but" color="primary" onClick={this.handleSave}>SEND TEST TO DEVELOPER</button>
             </div>
 
           <br ></br>
           {/*manage test */}
-          <div className="test">
+          <div className="modal Test">
             <h1>Add New Test</h1>
-            <div className="feild">
+            <div className="feild dropdown Invite">
                <label>Test</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
                   <option value=""></option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>RESULTS</label>
                   <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
                <div className="feild">
                 <label>TEST RESULT FILE</label>
-                <FileUpload getInput={this.handleBanner} getInput1='banner' />
-                <p>account.png</p>
+                <FileUpload getInput={this.handleBanner} getInput1='modal' />
+                <p className="Upload_text">Drag and Drop here</p>
             </div>
-            <button color="primary" onClick={this.handleSave}>ADD TEST</button>
+            <button className="account_but" color="primary" onClick={this.handleSave}>ADD TEST</button>
           </div>
 
           <br></br>
 
           {/*manage testinomials */}
-          <div className="testinomials">
+          <div className="modal Testinomials">
             <h1>Client Testinomials request</h1>
-            <div className="feild">
+            <div className="feild Invite">
                   <label>CLIENT NAME</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" />
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT COMPANY</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT WEBSITE</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT EMAIL</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT ROLE</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                 <label>CLIENT LOGO</label>
-                <FileUpload getInput={this.handleBanner} getInput1='banner' />
-                <p>account.png</p>
+                <FileUpload getInput={this.handleBanner} getInput1='modal' />
+                <p className="Upload_text">Drag and Drop here</p>
             </div>
-            <button color="primary" onClick={this.handleSave}>REQUEST</button>
+            <button class="account_but" color="primary" onClick={this.handleSave}>REQUEST</button>
           </div>
 
 
       <br></br>
           {/*manage add portfolio */}
-          <div className="portfolio">
+          <div className="modal">
             <h1>Add New Portfolio</h1>
-            <div className="feild">
+            <div className="feild Invite">
                   <label>CLIENT PROJECT TITLE</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>PROJECT LINK</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild dropdown Invite">
                <label>PROJECT TYPE</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-                <div className="feild">
+                <div className="feild dropdown Invite">
                <label>OPERATING SYSTEM</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-                <div className="feild">
+                <div className="feild dropdown Invite">
                <label>PROJECT FEATURES</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-                <div className="feild">
+                <div className="feild dropdown Invite">
                <label>PROJECT INDUSTRY</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-                <div className="feild">
+                <div className="feild dropdown Invite">
                 <label>PROJECT TECHNOLOGIES</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-                <div className="feild">
+                <div className="feild dropdown Invite">
                <label>PROJECT QUOTE</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-                <div className="feild">
+                <div className="feild dropdown Invite">
                <label>PROJECT DURATION</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
                <div className="feild">
                 <label>CLIENT LOGO</label>
-                <FileUpload getInput={this.handleBanner} getInput1='banner' />
-                <p>account.png</p>
+                <FileUpload getInput={this.handleBanner} getInput1='modal' />
+                <p className="Upload_text">Drag and Drop here</p>
             </div>
-            <div className="feild">
+            <div className="feild dropdown Invite">
                <label>IS THIS PORTFOLIO ITEM A USECASE?</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                 </div>
-            <button color="primary" onClick={this.handleSave}>save</button>
+            <button class="account_but" color="primary" onClick={this.handleSave}>save</button>
           </div>
 <br></br>
 
 
           {/*client add testinomials */}
-          <div className="clienttestinomials">
+          <div className="modal">
             <h1>Client Add Testinomials</h1>
-            <div className="feild">
+            <div className="feild Invite">
                   <label>CLIENT NAME</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT COMPANY</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>COMPANY WEBSITE</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT EMAIL</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="feild Invite">
                   <label>CLIENT ROLE</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-                <div className="feild">
+                <div className="feild Invite">
                 <label>CLIENT LOGO</label>
-                <FileUpload getInput={this.handleBanner} getInput1='banner' />
-                <p>account.png</p>
+                <FileUpload getInput={this.handleBanner} getInput1='modal' />
+                <p className="Upload_text">Drag and Drop here</p>
             </div>
-            -----------review--------------
-            <div className="feild">
+           
+            <h2 class="no-span">Review</h2>
+            <div className="feild dropdown Invite">
                <label>PROJECT TYPE</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value=""></option>
+                  <option value="">Input</option>
                   <option value="Agency">JOHN</option>
                   <option value="Client">WICK</option>
                  </select>
+                 <div class="go-icon"></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
               </div>
-              <div className="feild">
+              <div className="rating textarea">
                   <label>REVIEW</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Felix" min="0" max="100"/>
+                  <textarea class="form-control" placeholder="input" rows="6" id="comment"></textarea>
+                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                </div>
-               <div className="feild">
+               <div className="rating_main">
                   <label>PRICE RATING</label>
                   <div class="rating">
 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 </div>               </div>
-               <div className="feild">
+               <div className="rating_main">
                   <label>QUALITY RATING</label>
                   <div class="rating">
 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 </div>
                </div>
-               <div className="feild">
+               <div className="rating_main">
                   <label>PARTNERSHIP RATING</label>
                   <div class="rating">
 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 </div>
                </div>
-               <div className="feild">
+               <div className="rating_main">
                   <label>SCHEDULE RATING</label>
                   <div class="rating">
 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 </div>               </div>
              
-            <button color="primary" onClick={this.handleSave}>REQUEST</button>
+            <button class="account_but" color="primary" onClick={this.handleSave}>REQUEST</button>
           </div>
           {/*------------------ */}
 

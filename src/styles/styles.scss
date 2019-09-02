@@ -3733,7 +3733,7 @@ h1.settings_hea {
     float: right;
 }
 
-.personal_main.oprations .go-icon {
+.personal_main .go-icon {
     color: #1a2027;
     width: 7px;
     height: 7px;
@@ -3757,11 +3757,273 @@ h1.settings_hea {
     padding-top: 128px;
     padding-bottom: 56px;
 }
-.rating > span:hover:before {
-    content: "\2605";
-    position: absolute;
- }
+
 /*============xxx========= End Settings page ===============xxx============*/
+
+/*============xxx========= Start popup page ===============xxx============*/
+
+.modal h1 {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+}
+.modal .feild {
+    margin-bottom: 30px;
+    position: relative;
+}
+.modal .feild input {
+    border: 0px;
+    border-bottom: 1px solid #c8c8c8;
+    background: none;
+    width: 100%;
+    line-height: 40px;
+    color: #000;
+    letter-spacing: 1.5px;
+}
+.modal .feild label {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.modal, .invitation {
+    background: #F2F2F2;
+    width: 39%;
+    height: auto;
+    padding: 5% 6%;
+    display: table;
+    margin: auto;
+    position: relative;
+}
+.modal .feild.dropdown select {
+    border: 0px;
+    border-bottom:1px solid #c8c8c8;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #000;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+}
+.modal .feild.dropdown select option {
+    background: #ffffff;
+    color: #000;
+}
+.modal .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    right: 2%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 24px;
+    opacity: 0.6;
+}
+.modal button.account_but:hover {
+    background-color: #1e262e;
+}
+.modal button.account_but {
+    border-radius: 3px;
+    background-color: #1b1b1b;
+    width: 100%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 18px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.modal button.cancel_but {
+    background: none;
+    border: 0;
+    font-size: 26px;
+    position: absolute;
+    top: 60px;
+    right: 127px;
+    cursor: pointer;
+    color: #959595;
+}
+.modal ::-webkit-input-placeholder {
+    /* Edge */
+    color: #000;
+}
+.modal :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+}
+.modal ::placeholder {
+    color: #000;
+}
+.feild.Finalize img.lock {
+    position: absolute;
+    width: 17px;
+    left: 0;
+    top: 25px;
+}
+
+.feild.Finalize  img.eyes {
+    position: absolute;
+    width: 30px;
+    right: 4px;
+    top: 20px;
+}
+
+.feild.Finalize input {
+    padding: 10px 0px 0px 26px;
+    line-height: 32px;
+    text-transform: capitalize;
+}
+
+.feild.Finalize label {
+    padding-left: 29px;
+}
+.feild.Invite .tooltip {
+    position: absolute;
+    right: 0px;
+}
+
+.feild.Invite .tooltip img {
+    width: 18px;
+    top: 11px;
+}
+
+.feild.Invite span.tooltiptext {
+    top: -82px;
+    right: -22px;
+}
+.feild.dropdown.Invite .go-icon {
+    right: 38px;
+}
+
+.modal section {
+    background: #e6e6e694;
+    padding: 20px 0px 36px 0px;
+    text-align: center;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.modal section img {
+    width: 176px !important;
+}
+.modal p.Upload_text {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 7px;
+}
+
+h2.no-span {
+    display: table;
+    white-space: nowrap;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 96%;
+    margin: auto;
+    margin-bottom: 14px;
+}
+h2.no-span:before {
+    right: 1.5%;
+}
+h2.no-span:before, h2.no-span:after {
+    border-top: 1px solid black;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.5em;
+    width: 45%;
+}
+h2.no-span:after {
+    left: 1.5%;
+}
+h2.no-span:before, h2.no-span:after {
+    border-top: 1px solid black;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.5em;
+    width: 45%;
+}
+.rating.textarea textarea#comment {
+    width: 100%;
+    background: #eaeaea;
+    border: 0px;
+    color: #fff;
+    padding: 5px 6px;
+    margin-top: 9px;
+}
+.rating.textarea  .tooltip {
+    position: absolute;
+    right: 6px;
+    top: 15px;
+}
+.rating.textarea label {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.rating.textarea .tooltip img {
+    width: 17px;
+    top: 13px;
+}
+.rating.textarea {
+    position: relative;
+    margin-bottom: 13px;
+    clear: both;
+    width: 100%;
+}
+.rating_main {
+    float: left;
+    width: 33%;
+    margin: 11px 0px;
+}
+
+.rating_main label {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.rating_main .rating {}
+
+.rating_main .rating span {
+    font-size: 24px;
+}
+.personal_main.company .Button_sec.secd_comp {
+    top: 8px;
+}
+/*============xxx========= End popup page ===============xxx============*/
+
+
 
 
 

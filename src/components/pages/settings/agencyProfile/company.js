@@ -167,7 +167,7 @@ class Company extends Component
             </div>
 
 
-            <div className="Button_sec">
+            <div className="Button_sec ">
                <button color="primary" onClick={this.handleSave}>Request Approval</button>
                 <p className="error">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
                <button className="secd_button">Add google Authenticator</button>

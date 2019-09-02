@@ -61,8 +61,9 @@ class FileUpload extends Component
     <section>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        {this.props.getInput1=='PS'? <img src='./assets/img/pancel_b.png' style={{width: '50%'}} />
-        :<img src='./assets/img/dragCloud.png' style={{width: '30%'}} />}
+        {this.props.getInput1=='PS' ? <img src='./assets/img/pancel_b.png' style={{width: '50%'}} />
+        : this.props.getInput1 !='modal' && <img src='./assets/img/dragCloud.png' style={{width: '30%'}} />}
+        {this.props.getInput1=='modal'?  <img src='./assets/img/drad-drop.png' style={{width: '50%'}} /> :''}
         {/* <p>Drag 'n' drop some files here, or click to select files</p> */}
       </div>
     </section>
