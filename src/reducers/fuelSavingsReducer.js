@@ -73,6 +73,21 @@ export default function fuelSavingsReducer(state = initialState.fuelSavings, act
                 ...state,
                 BACKLOGWIDGET : {boolen:action.items, items:[action.id]},
             }
+        case 'BANK_DATA':
+            return {
+                ...state,
+                bankData : action.payload
+            }
+            case 'STOP_POSTING':
+                return{
+                    ...state,
+                    stopPosting: action.payload
+                }
+            case 'DISP_COMPONENT':
+                return {
+                    ...state,
+                    dispComp: action.payload
+                }
         default:
             return state;
     }

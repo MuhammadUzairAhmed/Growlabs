@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TDataPicker from './widget/TdatePicker'
 import DatePicker from "react-datepicker";
+import MaskedInput from 'react-text-mask'
 import "react-datepicker/dist/react-datepicker.css";
 
  var finalRes;
@@ -29,7 +30,7 @@ class Milestone extends Component {
 					input2:'',
 					MSBudget:'',
 					status:false,
-					startDate:'12/10/2019',
+					startDate:'00/00/0000',
 					EndTime:'12/10/2019'
 				}
 			],
@@ -42,18 +43,20 @@ class Milestone extends Component {
 			itemId:null,
 			itemId2:null,
 			itemId3:null,
+			itemidsDate:null,
 			item4:null,
 			actDiv: false,
 			weeks:'',
 			sprintWeeks:[1,2,3],
 			actId:null,
+			editable:true
 			
 		}
 	}
 	componentDidMount()
 	{
 		if(this.props.mileStonedata.data != null){
-			this.setState({data:this.props.mileStonedata.data,weeks:this.props.mileStonedata.weeks,
+			this.setState({data:this.props.mileStonedata.data,weeks:this.props.mileStonedata.sprint_weeks,
 			actId: this.props.mileStonedata.sprintWeeks},()=>{console.log(this.state.data,'this.state.data')})
 		console.log(this.props.mileStonedata,'didMouhntData')}
 	}
@@ -69,7 +72,7 @@ if(val+1 <= this.state.weeks){
 			input2:'',
 			MSBudget:'',
 			status:false,
-			startDate:'12/10/2019',
+			startDate:'00/00/0000',
 			EndTime:'12/10/2019'
 		}
 		this.setState({ data: [...this.state.data, addChild], changeWidth: this.state.changeWidth+10, sprints:this.state.sprints+1 }, () => {
@@ -97,7 +100,7 @@ if(val+1 <= this.state.weeks){
 		var values = {
 			data: this.state.data,
 			weeks: this.state.weeks,
-			sprintWeeks: this.state.actId
+			sprint_weeks: this.state.actId
 		}
 		this.setState({actDiv:true},()=>{
 			setTimeout(() => {
@@ -182,11 +185,17 @@ if(val+1 <= this.state.weeks){
 		})
 		console.log('chekcei',id)
 	}
-	handleChange1=(date)=> {
-		this.setState({
-		  startDate: date
-		});
-	  }
+	// handleChange1=(date)=> {
+	// 	this.setState({
+	// 	  startDate: date
+	// 	});
+	//   }
+
+	  handleChange1 = (e) => {
+        this.setState({
+           [e.target.name]: e.target.value
+        })
+     }
 	spintWeekClicked = (sprints)=>
 	{
 			var sprint = finalRes/sprints
@@ -202,15 +211,18 @@ if(val+1 <= this.state.weeks){
 			this.setState({
 				data: this.state.data.filter(item => {
 				   if (item['id'] == id) {
-					  item['startDate'] = this.state.startDate.toLocaleDateString();
+					  item['startDate'] = this.state.startDate;
 					  return item
 				   }
 				   return item;
 				})
 			 })
 			},()=>{
-				this.setState({startDate:''})
+				this.setState({editable: false})
 			})
+	}
+	editing =()=>{
+		this.setState({editable: true})
 	}
 	render() {
 		console.log(this.state.data,'stattes')
@@ -230,22 +242,36 @@ if(val+1 <= this.state.weeks){
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
 							<input type="text" name="x5" placeholder="05" value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
-							<span style={{ color: 'red' }}>{item.input1 != 0 ? '' : 'Please Fill out this Field'}</span>
+							{/* <span style={{ color: 'red' }}>{item.input1 != 0 ? '' : 'Please Fill out this Field'}</span> */}
 						</div>
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
 							<input type="text" name="x6" placeholder="Milestones 01" value={item.id == this.state.itemId2 ? this.state.x6 : item.input2} onInput={this.handleChange} onChange={()=>this.UpdateInput2(item.id)} />
-							<span style={{ color: 'red' }}>{item.input2 != '' ? '' : 'Please Fill out this field'}</span>
+							{/* <span style={{ color: 'red' }}>{item.input2 != '' ? '' : 'Please Fill out this field'}</span> */}
 						</div>
 
 						<div className="timeframe_for">
 							<label>START DATE</label>
-							<p><DatePicker
+						
+								{/* <DatePicker
 								selected={this.state.startDate}
 								onSelect={()=>this.cheked(item.id)}
 								onChange={this.handleChange1}
-							/></p>
+								/> */}
+					{/* {this.state.editable ? */}
+					 	<p>			<MaskedInput
+                     name="startDate"
+					 onChange={this.handleChange1}
+					 onBlur={()=>this.cheked(item.id)}
+					 guide={true}
+					 value={this.state.startDate}
+                     mask={[ /\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
+                     placeholder="00/00/0000"
+                     /> {item.startDate == "00/00/0000" ? this.state.startDate : item.startDate} </p>
+					{/* //  :
+					//  <p onClick={this.editing}></p> */}
+							
 						</div>
 
 						<div className="timeframe_five">

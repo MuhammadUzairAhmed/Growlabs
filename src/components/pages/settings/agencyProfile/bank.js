@@ -1,15 +1,27 @@
 import React , {Component} from 'react'
+import { connect } from "react-redux";
+import { BankData,stopData } from './../../../../actions/fuelSavingsActions';
+
+var valuesdata;
 class Bank extends Component
 {
     constructor(props){
         super(props);
         this.state={
-            bankAccount:'',
-            bic_swift:'',
-            accHolder:'',
-            vatId:'',
-            cocNumber:'',
-            
+            account:'',
+            bic:'',
+            holder:'',
+            vat:'',
+            coc:'',
+            backup:'',
+            data:'',
+            counter:0,
+        }
+    }
+    componentDidMount(){
+        if(this.props.bankData != '')
+        {   const { account,bic,holder,vat,coc } = this.props.bankData;
+            this.setState({account,bic,holder,vat,coc})
         }
     }
     handleChange = (e) => {
@@ -27,19 +39,51 @@ class Bank extends Component
      handleSave =()=>
      {
         var values ={
-            bankAccount:this.state.bankAccount,
-            bic_swift:this.state.bic_swift,
-            accHolder:this.state.accHolder,
-            vatId:this.state.vatId,
-            cocNumber:this.state.cocNumber,
+            account:this.state.account,
+            bic:this.state.bic,
+            holder:this.state.holder,
+            vat:this.state.vat,
+            coc:this.state.coc,
             
         }
-console.log(values,'Bank')
+        console.log(values,'Bank')
       
      }
-    render()
+     saveData =()=>{
+        valuesdata ={
+            account:this.state.account,
+            bic:this.state.bic,
+            holder:this.state.holder,
+            vat:this.state.vat,
+            coc:this.state.coc,
+            
+            }
+            this.setState({backup:valuesdata,counter:1},()=>console.log(this.state.backup,'this.state.valuesdata'))
+            this.props.stopData('ok')
+            this.sendData()  
+     }
 
-{
+     sendData = () =>{
+        if(this.props.stopPosting == "ok"){
+        setTimeout(()=>{
+                if(this.state.counter == 1){
+                this.setState({data:valuesdata,counter:0},()=>{
+                    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_bank',{
+                    method:'POST',
+                    body: JSON.stringify(valuesdata)
+                }).then(res=>{
+                    this.props.BankData(valuesdata)
+                    this.props.stopData('clear')
+                    console.log('postData',res)})
+            })}
+        },15000)
+        }else if(this.props.stopPosting == "clear"){
+            console.log('sorry we data cannot send')}
+    }
+
+    render()
+    {
+    
     return(
         <section class="">
 
@@ -50,19 +94,19 @@ console.log(values,'Bank')
      <h1>Bank</h1>
            <div className="feild">
                   <label>BANK ACCOUNT</label>
-                  <input onChange={this.handleChange} type="text" name="bankAccount" value={this.state.bankAccount} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="account" value={this.state.account} placeholder="input" onBlur={this.saveData} />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>BANK ACCOUNT BIC/SWFT</label>
-                  <input onChange={this.handleChange} type="text" name="bic_swift" value={this.state.bic_swift} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="bic" value={this.state.bic} placeholder="input" onBlur={this.saveData} />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>BANK ACCOUNT HOLDER</label>
-                  <input onChange={this.handleChange} type="text" name="accHolder" value={this.state.accHolder} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="holder" value={this.state.holder} placeholder="input"  onBlur={this.saveData} />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -70,13 +114,13 @@ console.log(values,'Bank')
 
             <div className="feild">
                   <label>COMPANY VAT ID</label>
-                  <input onChange={this.handleChange} type="text" name="vatId" value={this.state.vatId} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="vat" value={this.state.vat} placeholder="input" onBlur={this.saveData} />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>COMPANY COC NUMBER</label>
-                  <input onChange={this.handleChange} type="text" name="cocNumber" value={this.state.cocNumber} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="coc" value={this.state.coc} placeholder="input" onBlur={this.saveData} />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -93,5 +137,9 @@ console.log(values,'Bank')
     )
 }
 }
+const mapStateToProps = state => ({
+    stopPosting: state.fuelSavings.stopPosting,
+    bankData: state.fuelSavings.bankData
+  })
+export default connect(mapStateToProps,{BankData,stopData})(Bank);
 
-export default Bank;

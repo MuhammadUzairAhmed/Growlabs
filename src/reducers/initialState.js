@@ -15,6 +15,9 @@ export default {
         MILESTONE : [],
         IS_LOADING : false,
         chartValues:{},
-        user:''
+        user:'',
+        bankData:'',
+        stopPosting:'',
+        dispComp:''
     }
 };

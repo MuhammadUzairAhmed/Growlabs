@@ -13,7 +13,8 @@ import PASSWORDCLIENT from './settings/clientProfile/password'
 import FileUpload from './../pages/governanace/contractComponents/FileUpload'
 
 import { connect } from "react-redux";
-import { finalizeAccount } from '../../actions/fuelSavingsActions';
+import { finalizeAccount, stopData, displayComponent } from '../../actions/fuelSavingsActions';
+
 
 class Settings extends Component {
   constructor(props){
@@ -41,14 +42,24 @@ class Settings extends Component {
       activeModal:'modal'
     }
   }
+  componentDidMount(){
+    if(this.props.dispComp == '')
+    {
+      this.props.displayComponent(1)
+      this.props.stopData('clear')
+    }
+  }
   componentWillReceiveProps(nextprops)
   {
     console.log(nextprops.user,'usertypess')
     this.setState({selectedType:nextprops.user.userType, activePage: '1'})
+
   }
   CurrentPage(value,event){
       this.setState({
         activePage:value
+      },()=>{
+        this.props.displayComponent(this.state.activePage)
       })
       setTimeout(function(){
         var elmnt = document.querySelector(".center_part");
@@ -82,8 +93,11 @@ class Settings extends Component {
    else if(this.state.activeModal=='modal'){
    this.setState({activeModal:'modal active'})}
  }
+ stopPostData = ()=>{
+  this.props.stopData('clear')
+}
   render(){
-    const CurrentPageKey = this.state.activePage
+    const CurrentPageKey = this.props.dispComp
     let activePage;
     if(this.state.selectedType == 'Agency'){
     if(CurrentPageKey == 1){
@@ -117,7 +131,7 @@ class Settings extends Component {
         
       }
 
-
+      
 
     return (
       <section className="backlog settings">
@@ -450,9 +464,9 @@ class Settings extends Component {
 
          <div className="save_button">
 
-         <button className="one">Cancel</button>
+         {this.props.stopPosting == 'ok' ?  <button className="one" onClick={this.stopPostData}>Cancel</button> : ''}
 
-         <label class="switch">
+         <label class={this.props.bankData != '' ? "switch active" : "switch" }>
   <input type="checkbox" />
   <span class="slider round">Save Chages</span>
 </label>
@@ -461,7 +475,7 @@ class Settings extends Component {
          </div> 
           <ul className="ui-tabs-nav">
               {this.state.selectedType == 'Agency' ?
-                this.state.TotalPage.map((items)=> <li className={items.id === this.state.activePage ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)
+                this.state.TotalPage.map((items)=> <li className={items.id === this.props.dispComp ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)
               : this.state.selectedType == 'Client' ? this.state.TotalPageClient.map((items)=> <li className={items.id === this.state.activePage ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>) :''}
           </ul>
          {activePage}
@@ -476,10 +490,12 @@ class Settings extends Component {
 
 const mapStateToProps = state => ({
   user: state.fuelSavings.user,
- 
+  bankData: state.fuelSavings.bankData,
+  dispComp: state.fuelSavings.dispComp,
+  stopPosting: state.fuelSavings.stopPosting
 })
 // const mapDispatchToProps = dispatch => ({
 //   fetchData: (url, action) => dispatch(itemsFetchData(url, action)),
 // })
-export default connect(mapStateToProps,{finalizeAccount})(Settings);
+export default connect(mapStateToProps,{finalizeAccount, stopData, displayComponent})(Settings);
 
