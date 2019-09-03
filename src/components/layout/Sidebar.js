@@ -25,12 +25,7 @@ const projectRoutes = [
     { path: '/subscription', name: 'Subscription', icon:'Pre401385359' },
     { path: '/application', name: 'Application', icon:'Pre401382288' },
     { path: '/umbrella', name: 'Umbrella', icon:'Pre401382365' },
-    { path: '/projects', name: 'Projects', icon:'401385364'},
-    { path: '/publicpage', name: 'Public Page', icon:'401385365' },
-    { path: '/subscription', name: 'Subscription', icon:'401385365' },
-    { path: '/application', name: 'Application', icon:'401385365' },
-    { path: '/umbrella', name: 'Umbrella', icon:'401385365' },
-    { path: '/settings', name: 'Settings', icon:'401385365' },
+    { path: '/settings', name: 'Settings', icon:'Pre401382365' },
 ]
 const tension =  {tension: 0}
 const tnesion2 = {}
