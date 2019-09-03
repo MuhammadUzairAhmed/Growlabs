@@ -80,7 +80,7 @@ class ProjectReview extends Component
                   </table>
                </div>
                <div className="project_velocity">
-                  <CommitLineChart tension={1} xaxes={items.labels} data={items.fatchlist} color={'#1E9D74'}/> 
+                  <CommitLineChart tension={1} xaxes={items.labels} data={items.fatchlist} color={'#1E9D74'}/>
                   <span style={{color: '#1E9D74'}}>32</span>
                   <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
                </div>

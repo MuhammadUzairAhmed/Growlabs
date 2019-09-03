@@ -19,13 +19,17 @@ class Chat extends Component {
     ws = new WebSocket(URL)
 
     componentDidMount() {
-        console.log(this.props,'text')
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
-            .then(response => response.json())
-            .then((state) => {this.setState(state); console.log(this.state,'statess');
-            
-        })
+        if(this.props.dataID == ''){
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            fetch(proxyurl+'http://react2.zepcomtesting.com/api/1.json')
+                .then(response => response.json())
+                .then((state) => {this.setState(state); console.log(this.state,'statess');
+                
+            })
+        }
+           
+       
+       
 
         this.ws.onopen = () => {
             // on connecting, do nothing but log it to the console
@@ -84,17 +88,19 @@ class Chat extends Component {
     backHistory(){
         this.props.true()
     }
-    componentWillReceiveProps(){
-       // console.log(this.props,'text')
+    // }
+    componentWillReceiveProps(props,state){
+        console.log(props, 'working')
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID+'.json')
+        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+props.dataID+'.json')
             .then(response => response.json())
-            .then((state) => {this.setState(state); console.log(this.state,'statess');
+            .then((state) => {this.setState(state); console.log(state,'statess');
             
         })
     }
 
     render() {
+        {console.log(this.props.dataID,'text')}
         if(this.state.image == ''){
             return (
                 <section className="chat_room">

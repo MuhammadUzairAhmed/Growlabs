@@ -142,10 +142,7 @@ setChecked=(val)=>
 
               )}
            
-          {this.state.fundChecked ?
-          <a target="_blank" onClick={this.handleAccept} className="button">Accept Funding<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a> 
-            : <a target="_blank"  className="button"   style={{background:'rgb(212, 217, 221)'}}>Accept Funding<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
-              
+         
           </div>
           
         </section>

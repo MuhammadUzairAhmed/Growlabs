@@ -21,7 +21,8 @@ class Projects extends Component {
             actid:null,
             data:[],
             dataTrue:false,
-            unmatch:{'status':false}
+            unmatch:{'status':false},
+            changeVersion:false,
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -140,6 +141,7 @@ class Projects extends Component {
         this.setState({
             currentAgency:id,
         })
+        this.props.currentState(id)
         if(this.state.data[id]){
 
         }else{
@@ -150,7 +152,7 @@ class Projects extends Component {
                   .then(data => this.setState({data: {...this.state.data, [id]: data}}));
             }
         }
-        this.props.currentState(id)
+     
     }
     deleteUnmatchDataFun(id){
         this.setState({
@@ -181,13 +183,18 @@ class Projects extends Component {
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json", { method, body })
           .then(res => res.json())
           .then(data => console.log(JSON.stringify(data.form, null, "\t")));
+          
     }
     closePopup(){
         this.setState({
             unmatch:{status:false}
         })
     }
-
+    changeVersion(){
+       this.setState({
+            changeVersion:true
+       })
+    }
      render(){
         const listItems = [];
 
@@ -200,9 +207,7 @@ class Projects extends Component {
                     <div className="dp-mt-matches-box">
                         {this.state.matches.companies ?
                             this.state.matches.companies.map((items,index)=> 
-                           
-                            <div className={this.state.currentAgency == index ?"dp-mt-loop-box active" : "dp-mt-loop-box"} active={items.status}  key={index} onClick={() =>this.getMatchesData(index,items)}>
-                               
+                            <div className={this.state.currentAgency == items.id ?"dp-mt-loop-box active" : "dp-mt-loop-box"} active={items.status}  key={index} onClick={() =>this.getMatchesData(items.id,items)}>
                                 <div class="delete" onClick={() =>this.deleteUnmatchDataFun(index)}><img src="./assets/img/delete_b.png"/></div>
                                 <div className="lb-box">
                                     <h1>{items.name} <small>{items.location}</small></h1>
@@ -215,23 +220,22 @@ class Projects extends Component {
                                     <div className="dp-matches-bottem-box"> <h2>73 <span>$</span></h2><p>PRE HOURE</p>  </div>
                                 </div>
                             </div>
-                       )    
+                            )    
                         : <Loader type="Oval" color="white" height="50" width="50" className="loading" />}
                    
                     </div>
                     <div className="dp_maches_button">
-                      <a target="_blank" class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Accept Agreement<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
-                      </div>
+                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Save Changes<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Accept Agreement<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
+                    </div>
                 </div>
                 <div className="version_tabs">
-                <ul class="ui-tabs-nav">
-                    <li class="active"><a>Version 1</a></li>
-                    <li class=""><a>Version 2</a></li>
-                </ul>
+                    <ul class="ui-tabs-nav">
+                        <li class={this.state.changeVersion == false ? 'active' : ''}><a>Version 1</a></li>
+                    </ul>
                 </div>
 
 
-                 <section className="multi_step_form">
+                 <section className="multi_step_form" onChange={this.changeVersion.bind(this)}>
 
                     {this.state.data[this.state.currentAgency] ? 
                     <div className="content_form">
@@ -269,8 +273,8 @@ class Projects extends Component {
                             <h3>Description</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <input type="text" className="input_textable" value={this.state.data[this.state.currentAgency].description} onChange={(x,v,s)=>this.changeTextData(x,'description')} />
-                                    <p>{this.state.data[this.state.currentAgency].description}</p>
+                                    <textarea type="text" className="input_textable" value={this.state.data[this.state.currentAgency].description} onChange={(x,v,s)=>this.changeTextData(x,'description')}> </textarea>
+                                   
                                 </div>
                             </div>
                         </fieldset>
@@ -278,8 +282,7 @@ class Projects extends Component {
                             <h3>Reasoning behind project</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    {/* <input type="text" value={this.state.formData.reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')} /> */}
-                                    <p  onInput={(x,v)=>this.changeTextData(x,'reasoning')}>{this.state.data[this.state.currentAgency].reasoning}</p>
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')}></textarea>
                                 
                                 </div>
                             </div>
@@ -288,9 +291,7 @@ class Projects extends Component {
                             <h3>Similar products</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <input type="text" value={this.state.data[this.state.currentAgency].products} onChange={(x,v)=>this.changeTextData(x,'products')} />
-                                    <p>{this.state.data[this.state.currentAgency].products}</p>
-                                    
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].products} onChange={(x,v)=>this.changeTextData(x,'products')}></textarea>
                                 </div>
                             </div>
                         </fieldset>
@@ -486,44 +487,44 @@ class Projects extends Component {
                         <fieldset className="half">
                             <div className="form-group custom">
                                 <h3>first name</h3>
-                                    <input type="text" value={this.state.data[this.state.currentAgency].firstName} onChange={(x,v)=>this.changeTextData(x,'firstName')} />
-                                <p> {this.state.data[this.state.currentAgency].firstName}</p>
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].firstName} onChange={(x,v)=>this.changeTextData(x,'firstName')}></textarea>
                             </div>
                             <div className="form-group custom">
                                 <h3>phone</h3>
-                                    <input type="text" value={this.state.data[this.state.currentAgency].phone} onChange={(x,v)=>this.changeTextData(x,'phone')} />
-                                <p> {this.state.data[this.state.currentAgency].phone}</p>
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].phone} onChange={(x,v)=>this.changeTextData(x,'phone')}></textarea>
                             </div>
                         </fieldset>
                         <fieldset className="half rt">
                             <div className="form-group custom">
                                 <h3>skype</h3>
-                                    <input type="text" value={this.state.data[this.state.currentAgency].skype} onChange={(x,v)=>this.changeTextData(x,'skype')} />
-                                <p> {this.state.data[this.state.currentAgency].skype}</p>
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].skype} onChange={(x,v)=>this.changeTextData(x,'skype')}></textarea>
                             </div>
                             <div className="form-group custom">
                                 <h3>last name</h3>
-                                    <input type="text" value={this.state.data[this.state.currentAgency].lastname} onChange={(x,v)=>this.changeTextData(x,'lastname')} />
-                                <p> {this.state.data[this.state.currentAgency].lastname}</p>
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].lastname} onChange={(x,v)=>this.changeTextData(x,'lastname')}></textarea>
                             </div>
                         </fieldset>
                         <fieldset>
                             <div className="form-row">
                                 <div className="form-group custom_email">
                                     <h3>Email</h3>
-                                    <input type="text" value={this.state.data[this.state.currentAgency].email} onChange={(x,v)=>this.changeTextData(x,'email')} />
-                                    <p> {this.state.data[this.state.currentAgency].email}</p>
+                                    <textarea type="text" value={this.state.data[this.state.currentAgency].email} onChange={(x,v)=>this.changeTextData(x,'email')}></textarea>
                                 </div>
                             </div>
                         </fieldset>
                     </div>
-            :        <section class="multi_step_form">
-              <div class="content_form">
-                  <fieldset>
-                      <Loader type="Oval" color="white" height="50" width="50" className="loading" />
-                  </fieldset>
-              </div>
-          </section> }
+            :  <section class="multi_step_form">
+                    <div class="content_form">
+                        <fieldset>
+                                <div className="form-row">
+                                    <div className="form-group"> 
+                                        <p>Please select agency...</p>
+                                    </div>
+                                </div>
+                        </fieldset>
+                    </div>
+                </section> 
+            }
             </section> 
          </section>
          )
