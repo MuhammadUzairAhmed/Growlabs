@@ -17,10 +17,14 @@ const routes = [
     { path: '/financial', name: 'Financial', icon:'401385359'},
     { path: '/files', name: 'Files', icon:'401385364'},
     { path: '/Governance', name: 'Governance', icon:'401385365' },
-    { path: '/settings', name: 'Settings', icon:'401385365' },
     // { path: '/Settings', name: 'Settings', icon:'401385365' },
 ]
 const projectRoutes = [
+    { path: '/projects', name: 'Projects', icon:'Pre401385364'},
+    { path: '/publicpage', name: 'Public Page', icon:'Pre401385358' },
+    { path: '/subscription', name: 'Subscription', icon:'Pre401385359' },
+    { path: '/application', name: 'Application', icon:'Pre401382288' },
+    { path: '/umbrella', name: 'Umbrella', icon:'Pre401382365' },
     { path: '/projects', name: 'Projects', icon:'401385364'},
     { path: '/publicpage', name: 'Public Page', icon:'401385365' },
     { path: '/subscription', name: 'Subscription', icon:'401385365' },
@@ -130,7 +134,8 @@ class Sidebar extends Component {
                             projectRoutes.map((projectNav) => <NavLink key={projectNav.name} to={projectNav.path} activeClassName="active"><img
                             src={"./assets/img/" + projectNav.icon + ".png"}/><span>{projectNav.name}</span></NavLink>)
                             :
-                            routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img 
+
+                            routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img
                             src={"./assets/img/" + links.icon + ".png"}/><span>{links.name}</span></NavLink>)
                         }
 
