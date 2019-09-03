@@ -40,7 +40,7 @@ class Settings extends Component {
       userType:'',
       selectedType:'',
       activeModal:'modal',
-      activeState:false
+      activeState:true
     }
   }
   componentDidMount(){
@@ -166,8 +166,6 @@ class Settings extends Component {
               
           </div>}
           
-          <button color="primary" onClick={this.handleSelect}>Select Account</button>
-
         
          
 

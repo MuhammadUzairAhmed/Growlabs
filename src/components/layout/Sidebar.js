@@ -17,6 +17,7 @@ const routes = [
     { path: '/financial', name: 'Financial', icon:'401385359'},
     { path: '/files', name: 'Files', icon:'401385364'},
     { path: '/Governance', name: 'Governance', icon:'401385365' },
+    { path: '/settings', name: 'Settings', icon:'401385365' },
     // { path: '/Settings', name: 'Settings', icon:'401385365' },
 ]
 const projectRoutes = [
@@ -25,6 +26,7 @@ const projectRoutes = [
     { path: '/subscription', name: 'Subscription', icon:'401385365' },
     { path: '/application', name: 'Application', icon:'401385365' },
     { path: '/umbrella', name: 'Umbrella', icon:'401385365' },
+    { path: '/settings', name: 'Settings', icon:'401385365' },
 ]
 const tension =  {tension: 0}
 const tnesion2 = {}
