@@ -79,9 +79,9 @@ class Header extends Component {
         //     this.props.backlogWidgetData(false,"backlogPlus");
         // }
         this.setState({
-            status:"dashboard"
+            status:"projects"
         })
-        this.layoutChange("dashboard")
+        this.layoutChange("projects")
         
     }
     layoutChange(s){
@@ -155,7 +155,7 @@ class Header extends Component {
                         <Clock />
                     </div>
                     <div className="time_section_img"   onClick={this.activeChat.bind(this)} >
-                    <img src="./assets/img/time_user.png" />
+                        <img src="./assets/img/time_user.png" />
                     </div>
                     <div className="time_section_rgt">
                         <img src="./assets/img/time_icon.jpg" />

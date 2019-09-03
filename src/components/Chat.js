@@ -25,6 +25,9 @@ class Chatbot extends Component {
     offBacklogWidth(){
         this.props.backlogWidgetData(false,"backlogPlus");
     }
+    componentDidUpdate(){
+        console.log(this.props.currentChatID)
+    }
     render() {
         if(this.props.status != 'projects'){
         if(this.props.backlogWidgetState.boolen){
@@ -93,7 +96,7 @@ class Chatbot extends Component {
 
     }else{
         
-        return (<StartChat dataID={this.props.currentChatID ? this.props.currentChatID:'1'} userDetails={this.props.currentChatID ?  this.props.currentChatID:'1' }  />)
+        return (<StartChat dataID={this.props.currentChatID ? this.props.currentChatID:'1'} userDetails={this.props.users.id ?  this.props.users.id :'1' }  />)
     }
 
     }

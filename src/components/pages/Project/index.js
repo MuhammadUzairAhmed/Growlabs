@@ -60,7 +60,8 @@ class ProjectReview extends Component
                </div>
                <div className="project_comt_expen">
                   <div className="project_comt">
-                  <CommitLineChart data={items.fatchlist} xaxes={items.labels}  tension={1} color={'#4355C8'}/>
+                     <CommitLineChart data={items.fatchlist} xaxes={items.labels}  tension={1} color={'#4355C8'}/>
+                        <p style={{color: '#1E9D74'}}>32</p>
                   </div>
                   <div className="project_expen">
                      <StraightProgressBar dispStraightValue={75} percentage={75}/>

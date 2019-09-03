@@ -47,21 +47,21 @@ class Sidebar extends Component {
         this.props.fetchData('https://demo9810618.mockable.io/fetchSprintData', 'CHART');
 
     }
-componentWillReceiveProps(nextprops)
-{
-    console.log('next ',nextprops)
-    if (this.state.count === 1) {
-        for (var i = 0; i < nextprops.Chart.length; i++) {
+    componentWillReceiveProps(nextprops)
+    {
+        console.log('next ',nextprops)
+        if (this.state.count === 1) {
+            for (var i = 0; i < nextprops.Chart.length; i++) {
 
-          this.state.fetchListData.push(nextprops.Chart[i].charts.listData)
-          this.state.fetchLineData.push(nextprops.Chart[i].charts.lineData)
-          this.state.xAxisLabels.push(nextprops.Chart[i].sprintId)
+            this.state.fetchListData.push(nextprops.Chart[i].charts.listData)
+            this.state.fetchLineData.push(nextprops.Chart[i].charts.lineData)
+            this.state.xAxisLabels.push(nextprops.Chart[i].sprintId)
 
-          // this.setState({smallData:[...this.state.smallData,nextprops.Chart[i].charts.smallBarData]})
+            // this.setState({smallData:[...this.state.smallData,nextprops.Chart[i].charts.smallBarData]})
+            }
+            this.setState({ count: 2 })
         }
-        this.setState({ count: 2 })
-      }
-}
+    }
    
     render() {
         return (
