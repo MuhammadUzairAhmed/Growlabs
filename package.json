@@ -36,6 +36,7 @@
     "connected-react-router": "6.4.0",
     "jquery": "3.4.1",
     "lodash": "4.17.14",
+    "mdbreact": "4.19.2",
     "object-assign": "4.1.1",
     "rc-progress": "2.5.1",
     "react": "16.8.6",

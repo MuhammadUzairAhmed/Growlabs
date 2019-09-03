@@ -36,7 +36,7 @@ class FileUpload extends Component
           this.setState({arrayList: [...this.state.arrayList, dataList]})
           console.log('filePath ',this.state.arrayList)
         }
-        if(this.props.getInput1 == 'banner'){this.props.getInput(this.state.arrayList)}
+        if(this.props.getInput1 == 'banner' || this.props.getInput1 == 'modal'){this.props.getInput(this.state.arrayList)}
         if(this.props.getInput1 == 'video'){this.props.getInput(this.state.arrayList)}
         if(this.props.name && this.props.getInput ==''){
         this.props.getInput1(this.state.arrayList,this.props.name);}
