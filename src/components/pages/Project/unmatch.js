@@ -24,7 +24,8 @@ class Unmatch extends Component {
     render(){
         return(
             <div class="unmatchForm">
-                <h1 onClick={this.props.closePopup}> Unmatch [Agency]</h1>   
+                <h1 > Unmatch [Agency]</h1>   
+                <button class="cancel_but" color="primary" onClick={this.props.closePopup}>x</button>
                 <ul onClick={this.collectReview.bind(this)}>
                     {this.state.review.map((items,index)=> 
                         <li key={index} class={this.state.currentReview == items ? 'active':''}>{items}</li>    

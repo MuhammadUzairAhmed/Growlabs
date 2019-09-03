@@ -19,7 +19,7 @@ class ProjectReview extends Component
                "agency":"zepcom",
                "status":"process",
                "event":"live",
-               "scroe":"86",
+               "score":"86",
                "labels":["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
                "fatchlist":["180", "180", "120", "160", "150", "130", "124", "170", "190", "128", "162", "160", "185", "110", "160", "170", "168", "140", "160", "130"]
             },
@@ -29,7 +29,7 @@ class ProjectReview extends Component
                "agency":"Cloud",
                "status":"process",
                "event":"live",
-               "scroe":"86",
+               "score":"86",
                "labels":["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
                "fatchlist":["180", "180", "120", "160", "150", "130", "124", "170", "190", "128", "162", "160", "185", "110", "160", "170", "168", "140", "160", "130"]
             }
@@ -61,6 +61,8 @@ class ProjectReview extends Component
                <div className="project_comt_expen">
                   <div className="project_comt">
                   <CommitLineChart data={items.fatchlist} xaxes={items.labels}  tension={1} color={'#4355C8'}/>
+                 <span style={{color: '#1E9D74'}}>32</span>
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
                   </div>
                   <div className="project_expen">
                      <StraightProgressBar dispStraightValue={75} percentage={75}/>
@@ -78,7 +80,9 @@ class ProjectReview extends Component
                   </table>
                </div>
                <div className="project_velocity">
-                  <CommitLineChart tension={1} xaxes={items.labels} data={items.fatchlist} color={'#1E9D74'}/>
+                  <CommitLineChart tension={1} xaxes={items.labels} data={items.fatchlist} color={'#1E9D74'}/> 
+                  <span style={{color: '#1E9D74'}}>32</span>
+                  <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
                </div>
                <div className="project_sprints">
                   <div className="colleborate_top">
