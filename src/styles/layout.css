@@ -83,3 +83,12 @@
     content: "\2605";
     position: absolute;
  }
+ div[class^="dataTables_wrapper"],
+ div[class*="dataTables_wrapper"]
+ {
+     background: white;
+ }
+
+ th.sorting {
+    background: #fff;
+}
