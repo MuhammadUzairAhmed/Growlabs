@@ -15,6 +15,10 @@ export default {
         MILESTONE : [],
         PROJECTCURRENTCHATID:[],
         IS_LOADING : false,
-        chartValues:{}
+        chartValues:{},
+        user:'',
+        bankData:'',
+        stopPosting:'',
+        dispComp:''
     }
 };

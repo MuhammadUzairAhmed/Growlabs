@@ -59,132 +59,218 @@ console.log(values,'operations')
 
 {
     return(
-        <section class="center_part project">
+        <section class="">
 
 
 
 
-        Type a message here
+      
         
-       <div className="company">
+       <div className="personal_main oprations">
            {/*1st column*/}
-           <h1>General</h1>
      <div className="first_row">
-           <div className="setcompany_fild">
+           <div className="feild dropdown">
                   <label>LANGUAGES</label>
-                  <input onChange={this.handleChange} type="text" name="languages" value={this.state.languages} placeholder="input" />
-            </div>
-            <div className="setcompany_fild">
-                  <label>FOUNDED PROJECT DEVELOPMENT LANGUAGES</label>
-                  <input onChange={this.handleChange} type="text" name="projeDevLang" value={this.state.projeDevLang} placeholder="input" />
-            </div>
-            <div className="setcompany_fild">
-                  <label>TEAM CHARACTERISTICS</label>
-                  <input onChange={this.handleChange} type="text" name="teamChar" value={this.state.teamChar} placeholder="input" />
-            </div>
-    
-
-            <div className="setcompany_fild">
-                  <label>TEAM LOCATION</label>
-                  <input onChange={this.handleChange} type="text" name="teamLocation" value={this.state.teamLocation} placeholder="input" />
-            </div>
-            <div className="setcompany_fild">
-                  <label>OFFICES IN COUNTRIES</label>
-                  <input onChange={this.handleChange} type="text" name="offInCountries" value={this.state.offInCountries} placeholder="input" />
-            </div>
-            <div className="setcompany_fild">
-                  <label>AVERAGE RATE (PER HOUR)</label>
-                  <input onChange={this.handleChange} type="text" name="avgRate" value={this.state.avgRate} placeholder="input" />
-            </div>
-            <div className="setcompany_fild">
-                  <label>MINIMUM BUDGET</label>
-                  <select name="minBudget" form="carform" value={this.state.minBudget} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <select  form="carform"  name="noOfOthMembers" value={this.state.noOfOthMembers} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                 
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+               
+            </div>
+            
+            <div className="feild dropdown">
+               
+                  <label>FOUNDED PROJECT DEVELOPMENT LANGUAGES</label>
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
+            </div>
+            <div className="feild dropdown">
+                  <label>TEAM CHARACTERISTICS</label>
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>    
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+        </div>
+    
+
+            <div className="feild dropdown">
+                  <label>TEAM LOCATION</label>
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>   
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+         </div>
+            <div className="feild dropdown">
+                  <label>OFFICES IN COUNTRIES</label>
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>   
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+         </div>
+            <div className="feild dropdown">
+                  <label>AVERAGE RATE (PER HOUR)</label>
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>  
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+          </div>
+            <div className="feild dropdown">
+                  <label>MINIMUM BUDGET</label>
+                  <select name="minBudget" form="carform" value={this.state.minBudget} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text" name="minBudget" value={this.state.minBudget} placeholder="input" /> */}
             </div>
             </div>
             {/*2nd column*/}
             <div className="secd_row">
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>PROJECT FRAMEWORKS</label>
-                  <input onChange={this.handleChange} type="text" name="projFrameworks" value={this.state.projFrameworks} placeholder="input" />
-            </div>
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>   
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+         </div>
 
             
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>INDUSTRIES</label>
-                  <input onChange={this.handleChange} type="text" name="industries" value={this.state.industries} placeholder="input" />
-            </div>
-            <div className="setcompany_fild">
+                  <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
+                  <option value="volvo">Input</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                  </select>   
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+         </div>
+            <div className="feild dropdown">
                   <label>PROJECT OPERATING SYSTEMS</label>
                   <select  form="carform"  name="projOS" value={this.state.projOS} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text"  placeholder="input" /> */}
             </div>
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>PROJECT DEVICES</label>
                   <select  form="carform"  name="projeDevices" value={this.state.projeDevices} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text" name="projeDevices" value={this.state.projeDevices} placeholder="input" /> */}
             </div>
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>NO. OF DEVELOPERS</label>
                   <select  form="carform"  name="noOfDevelopers" value={this.state.noOfDevelopers} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text"  placeholder="input" /> */}
             </div>
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>NO. OF PRODUCT MANAGERS</label>
                   <select  form="carform"  name="noOfProdManagers" value={this.state.noOfProdManagers} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text"  placeholder="input" /> */}
             </div>
 
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>NO. OF OTHER MEMBERS</label>
                   <select  form="carform"  name="noOfOthMembers" value={this.state.noOfOthMembers} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text"  placeholder="input" /> */}
             </div>
 
-            <div className="setcompany_fild">
+            <div className="feild dropdown">
                   <label>TEAM DYNAMICS</label>
                   <select  form="carform"  name="teamDynamics" value={this.state.teamDynamics} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <option value="volvo">Input</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
                   </select>
+                  <div class="go-icon"></div>
+                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+
                   {/* <input onChange={this.handleChange} type="text"  placeholder="input" /> */}
             </div>
 
-            <button color="primary" onClick={this.handleSave}>Request Approval</button>
+           
             </div>
             
+            <div className="Button_sec">
+               <button color="primary" onClick={this.handleSave}>Request Approval</button>
+               <button className="secd_button">Add google Authenticator</button>
+             <p>Request Account Removal</p>
+               </div>
        </div>
        </section>
     )
