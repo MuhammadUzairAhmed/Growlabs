@@ -28,7 +28,6 @@ class CommitLineChart extends Component {
             listValue: this.props.data[i],
         }));
         // this.setState({output:output})
-        console.log('complete Data ', output);
         var ctx = document.getElementById('myChart').getContext("2d")
 
         const data = {

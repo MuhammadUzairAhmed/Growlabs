@@ -64,6 +64,12 @@ export function currentStateDataAction(items){
         items
     }
 }
+export function currentChatIdAction(items){
+    return{
+        type:"PROJECTCURRENTCHATID",
+        items
+    }
+}
 export function activeChatSystemAction(items,action){
     return{
         type:action,
@@ -101,6 +107,11 @@ export function itemsFetchData(url,action) {
 export function currentStateData(items,action){
     return (dispatch)=>{
         dispatch(currentStateDataAction(items))
+    }
+}
+export function currentChatId(items){
+    return (dispatch)=>{
+        dispatch(currentChatIdAction(items))
     }
 }
 export function activeChatSystem(items,action){
