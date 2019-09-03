@@ -131,7 +131,7 @@ class PreDashboard extends Component {
 
   }
   render() {
-
+console.log(this.state,'chwekingPre')
     return (
       <section className="preDashboard">
         <div className="preDashboard_notification">

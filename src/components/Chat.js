@@ -25,12 +25,6 @@ class Chatbot extends Component {
     offBacklogWidth(){
         this.props.backlogWidgetData(false,"backlogPlus");
     }
-    componentWillReceiveProps(){
-        this.setState({
-            CurrentChat:this.props.activeChatId
-        })
-        console.log(this.state,'ys')
-    }
     render() {
         if(this.props.status != 'projects'){
         if(this.props.backlogWidgetState.boolen){
@@ -99,7 +93,7 @@ class Chatbot extends Component {
 
     }else{
         
-        return (<StartChat dataID={this.state.CurrentChat ? this.state.CurrentChat:'1'} userDetails={this.state.CurrentChat ?  this.state.CurrentChat:'1' }  />)
+        return (<StartChat dataID={this.props.currentChatID ? this.props.currentChatID:'1'} userDetails={this.props.currentChatID ?  this.props.currentChatID:'1' }  />)
     }
 
     }
@@ -112,6 +106,7 @@ const mapStateToProps = (state) => {
         users:state.fuelSavings.USER_DETAILS,
         actionChat:state.fuelSavings.ACTIVEWIDGET,
         backlogWidgetState:state.fuelSavings.BACKLOGWIDGET,
+        currentChatID:state.fuelSavings.PROJECTCURRENTCHATID,
     };
 };
 const mapDispatchToProps = (dispatch) => {

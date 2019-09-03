@@ -14,6 +14,9 @@ class Legal extends Component {
     }
     componentDidMount()
     {
+        fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/legal')
+        .then(res=>res.json())
+        .then(data=>console.log(data,'legalData'))
         if(this.props.legalData.nda != null)
         {
             this.setState({fileName: this.props.legalData.nda,
@@ -26,6 +29,10 @@ class Legal extends Component {
             nda: this.state.fileName,
             contract: this.state.secondfileName
         }
+        fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/legal',{
+            method:'POST',
+            body: JSON.stringify(values)
+          }).then(res=>console.log('postData',res))
         this.setState({actDiv:true},()=>{
             setTimeout(() => {
                 this.props.changeValue(5, values)

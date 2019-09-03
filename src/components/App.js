@@ -29,6 +29,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
 import { get } from "http";
+import { createBrowserHistory } from "history";
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -60,7 +61,7 @@ class App extends React.Component {
         <section>
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
-            <Router>
+            <Router history={history}>
                 <div className="center_part pre">
                     <Switch>
                         <Route exact path="/"  component={PreDashboard} />
@@ -78,7 +79,7 @@ class App extends React.Component {
         <section>
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
-            <Router>
+            <Router history={history}>
                 <Sidebar />
                 <div className="center_part">
                     <Switch>
@@ -104,16 +105,17 @@ class App extends React.Component {
         <section className="project">
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
-            <Router>
-                <Sidebar />
+            <Router history={history}>
+                <Sidebar status="projects"  />
                 <div className="center_part project">
                 <Switch>
                   <Route path="/settings" component={Settings} />
-                  <Route path="/ProjectReview" component={ProjectReview} />
-                  <Route path="/" component={Projects} activeChat={this.actveChatModule.bind(this)} />
+                  <Route path="/application" component={Projects} />
+                  <Route path="/projects" component={ProjectReview} />
+                  <Route path="/" component={ProjectReview} />
                 </Switch>
                 </div>
-                <Chat activeChatId={this.state.ClientChatId} status="projects" />
+                <Chat status="projects" />
             </Router>
           </section>
       </section>
@@ -121,10 +123,22 @@ class App extends React.Component {
     }
     if(this.state.status == ''){
       return (
-        <section>
+        <section className="project">
           <Header checkData={this.layout.bind(this)}/>
-          <Loader type="Oval" color="white" height="50" width="50" className="loading" />
-        </section>
+          <section className="Content_main">
+            <Router history={history}>
+                <Sidebar status="projects" />
+                <div className="center_part project">
+                <Switch>
+                  <Route path="/settings" component={Settings} />
+                  <Route path="/application" component={Projects} />
+                  <Route path="/projects" component={ProjectReview} />
+                  <Route path="/" component={ProjectReview} />
+                </Switch>
+                </div>
+            </Router>
+          </section>
+      </section>
       )
     }
   }

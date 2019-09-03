@@ -19,6 +19,13 @@ const routes = [
     { path: '/Governance', name: 'Governance', icon:'401385365' },
     // { path: '/Settings', name: 'Settings', icon:'401385365' },
 ]
+const projectRoutes = [
+    { path: '/projects', name: 'Projects', icon:'401385364'},
+    { path: '/publicpage', name: 'Public Page', icon:'401385365' },
+    { path: '/subscription', name: 'Subscription', icon:'401385365' },
+    { path: '/application', name: 'Application', icon:'401385365' },
+    { path: '/umbrella', name: 'Umbrella', icon:'401385365' },
+]
 const tension =  {tension: 0}
 const tnesion2 = {}
 // Since this component is simple and static, there's no parent container for it.
@@ -57,99 +64,83 @@ componentWillReceiveProps(nextprops)
 }
    
     render() {
-      
-            return (
-
-                <section className="sidebar ">
-                    <div className="score_section ">
-                        <div className="score ">
-                        <div className="score_height ">
-                            <Circle percent={this.state.score} gapDegree={138} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
-                            </div>
-                            <div className="scoreText"><h1>{this.state.score}</h1><p>Growlabs Score</p></div>
+        return (
+            <section className="sidebar ">
+                <div className="score_section ">
+                    <div className="score ">
+                    <div className="score_height ">
+                        <Circle percent={this.state.score} gapDegree={138} gapPosition="bottom" strokeWidth="30" trailWidth="30"  strokeLinecap="square" />
                         </div>
-                        <div className="score ">
-                            {/* <img src="./assets/img/img_2.png" /> */}
-                            <table>
-                                <tr>
-                                    <td>
-                                        <ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/>
-
-                                    </td>
-                                    <td>
-                                        <ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/>
-
-                                    </td>
-                                    <td>
-                                        <ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/>
-
-                                    </td>
-                                    <td>
-                                        <ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/>
-
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </div>
-                        <div className="score ">
-                            {/* linchart */}
-                            {/* <h2>Line chart</h2>
-                    <img src="./assets/img/img_3.png" /> */}
-                            <table>
-                                <tr>
-                                    <td>
-                                        {console.log(this.state.xAxisLabels,'lables'),
-                                            console.log(this.state.fetchLineData,'fetchLineData'),
-                                            console.log(tnesion2,'tnesion2')}
-                                        < div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels}
-                                                                                    data={this.state.fetchLineData}
-                                                                                    tension={tnesion2} color={'#1E9D74'}/>
-                                        </div>
-                                    </td>
-                                    <td style={{color: '#1E9D74'}}>32</td>
-                                </tr>
-                            </table>
-
-                            <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
-                        </div>
-                        <div className="score ">
-                            {/* <img src="./assets/img/img_4.png" /> */}
-                            {/* <div className="row">
-                        <div className="col-sm-6">6</div>
-                        <div className="col-sm-6">6</div>
-                    </div> */}
-                            <table>
-                                <tr>
-                                    <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels}
-                                                        tension={tension} color={'#4355C8'}/></td>
-                                    <td style={{color: '#4355C8'}}>16</td>
-                                </tr>
-                            </table>
-
-                            <p style={{fontSize: '10px', color: '#64696D'}}>Commits</p>
-                        </div>
-                        <div className="score">
-                            <StraightProgressBar dispStraightValue={75} percentage={75}/>
-                            <p style={{fontSize: '10px', color: '#64696D'}}>Expenditure</p>
-                        </div>
+                        <div className="scoreText"><h1>{this.state.score}</h1><p>Growlabs Score</p></div>
                     </div>
-                    <div className="menu ">
-                        <div className="jquery-accordion-menu">
+                    <div className="score ">
+                        {/* <img src="./assets/img/img_2.png" /> */}
+                        <table>
+                            <tr>
+                                <td><ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/></td>
+                                <td><ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/></td>
+                                <td><ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/></td>
+                                <td><ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/></td>
+                            </tr>
+                        </table>
 
-
-                            {routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img
-                                src={"./assets/img/" + links.icon + ".png"}/><span>{links.name}</span></NavLink>)}
-
-                        </div>
                     </div>
-                    <div className="logo_user ">
-                        <div className="logo_sec ">
-                            <img src="./assets/img/logo.png"/>
-                        </div>
+                    <div className="score ">
+                        {/* linchart */}
+                        {/* <h2>Line chart</h2>
+                <img src="./assets/img/img_3.png" /> */}
+                        <table>
+                            <tr>
+                                <td>
+                                    <div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels} data={this.state.fetchLineData} tension={tnesion2} color={'#1E9D74'}/>
+                                    </div>
+                                </td>
+                                <td style={{color: '#1E9D74'}}>32</td>
+                            </tr>
+                        </table>
+
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
                     </div>
-                </section>
-            );
+                    <div className="score ">
+                        {/* <img src="./assets/img/img_4.png" /> */}
+                        {/* <div className="row">
+                    <div className="col-sm-6">6</div>
+                    <div className="col-sm-6">6</div>
+                </div> */}
+                        <table>
+                            <tr>
+                                <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels}
+                                                    tension={tension} color={'#4355C8'}/></td>
+                                <td style={{color: '#4355C8'}}>16</td>
+                            </tr>
+                        </table>
+
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Commits</p>
+                    </div>
+                    <div className="score">
+                        <StraightProgressBar dispStraightValue={75} percentage={75}/>
+                        <p style={{fontSize: '10px', color: '#64696D'}}>Expenditure</p>
+                    </div>
+                </div>
+                <div className="menu ">
+                    <div className="jquery-accordion-menu">
+                        {this.props.status == "projects" ? 
+                            projectRoutes.map((projectNav) => <NavLink key={projectNav.name} to={projectNav.path} activeClassName="active"><img
+                            src={"./assets/img/" + projectNav.icon + ".png"}/><span>{projectNav.name}</span></NavLink>)
+                            :
+                            routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img 
+                            src={"./assets/img/" + links.icon + ".png"}/><span>{links.name}</span></NavLink>)
+                        }
+
+                    </div>
+                </div>
+                <div className="logo_user ">
+                    <div className="logo_sec ">
+                        <img src="./assets/img/logo.png"/>
+                    </div>
+                </div>
+            </section>
+        );
     }
 }
 
