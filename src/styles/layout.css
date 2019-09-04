@@ -83,12 +83,354 @@
     content: "\2605";
     position: absolute;
  }
- div[class^="dataTables_wrapper"],
- div[class*="dataTables_wrapper"]
- {
-     background: white;
- }
 
- th.sorting {
-    background: #fff;
+
+
+/*===================== Settings Profiles page ===========================*/
+ .Add_box .plus {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: #fff6;
+    float: left;
+    position: relative;
+    top: -4px;
+    border: 1px solid #ffffff96;
 }
+.Add_box .plus:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 2px;
+    margin-left: -6px;
+    left: 68%;
+    top: 7px;
+    bottom: 6px;
+    z-index: 9;
+}
+.Add_box .plus:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    margin-top: -5px;
+    top: 61%;
+    left: 7px;
+    right: 5px;
+    z-index: 9;
+}
+.Settings_profiles .Add_box {
+    background: #ffffff0f;
+    border: 1px solid #ffffff4a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+}
+.Settings_profiles .Add_box button {
+    background: none;
+    border: 0px;
+    color: #7f8488;
+    text-transform: capitalize;
+    width: 25%;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 700;
+}
+.manage_header {
+    width: 100%;
+    color: #fff;
+    clear: both;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.manage_header .col_1 {
+    float: left;
+    width: 15%;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.6;
+    color: #fff;
+    position: relative;
+    top: -10px;
+}
+
+.manage_header .col_2 {
+    float: left;
+    color: #7f8488;
+    width: 12%;
+}
+
+.manage_header .col_3 {
+    float: left;
+    width: 14%;
+    color: #7f8488;
+    
+}
+
+.manage_header .col_4 {
+    float: left;
+    width: 15%;
+    color: #7f8488;
+   
+}
+
+.manage_header .col_5 {
+    float: left;
+    width: 14%;
+    color: #7f8488;
+   
+}
+
+.manage_header .col_6 {
+    float: left;
+    width: 14%;
+    color: #7f8488;
+    
+}
+
+.manage_header .col_7 {
+    float: right;
+    width: 16%;
+    color: #7f8488;
+   
+}
+
+.manage_header:after {
+    content: "";
+    display: block;
+    clear: both;}
+.manage_test {
+    padding: 0px 0px 0px 30px;
+    margin-bottom: 90px;
+}
+.manage_test:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.Added_box {
+    background: #ffffff00;
+    border: 1px solid #ffffff4a;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    cursor: pointer;
+}
+.Added_box:hover {
+    border: 1px solid #ffffff;
+}
+.Added_box:hover .col_1 p {
+    display: block;
+}
+.Added_box .Added_box_numer {
+    position: absolute;
+    left: -30px;
+    top: 13px;
+    font-weight: 600;
+}
+.Added_box .col_1 {
+    float: left;
+    width: 14%;
+    position: relative;
+    top: 1px;
+   
+}
+
+.Added_box .col_2 {
+    float: left;
+    width: 12%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_3 {
+    float: left;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_4 {
+    float: left;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_5 {
+    float: left;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_6 {
+    float: left;
+    width: 13%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_7 {
+    float: right;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box:after {content: "";display: block;clear: both;}
+.Added_box .fancy-checkbox .checkmark {
+    border-radius: 3px;
+    background: #7f8488;
+}
+
+.Added_box .fancy-checkbox .checkmark {
+    border-radius: 3px;
+    background: #7f8488;
+}
+
+.manage_buttons {
+    float: left;
+    padding: 0px 0px 0px 52px;
+    margin-top: 10px;
+}
+
+.manage_buttons button.delete img {
+    width: 20px;
+}
+
+.manage_buttons button.delete {
+    background: #ffffff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.manage_buttons button.delete_invite img {
+    width: 20px;
+    margin-right: 8px;
+    float: left;
+}
+
+.manage_buttons button.delete_invite {
+    background: #ffffff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px 15px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.manage_buttons button.delete_invite p {
+    float: left;
+    margin: 5px 0px 0px 0px;
+    font-weight: 600;
+}
+.manage_pagenation {
+    float: right;
+    padding: 0px 22px 0px 0px;
+    margin-top: 10px;
+}
+
+.pagenation_left {
+    position: relative;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: left;
+    margin-right: 2px;
+}
+
+.pagenation_left .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    right: 8px;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(225deg);
+    top: 11px;
+}
+
+.pagenation_right {
+    position: relative;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: right;
+    margin-left: 2px;
+}
+
+.pagenation_right .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    right: 13px;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(41deg);
+    top: 11px;
+}
+
+.manage_pagenation .pagenation_number {
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: left;
+    text-align: center;
+    margin: 0px 2px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 28px;
+}
+.Added_box label.fancy-checkbox {
+    float: left;
+    width: 20%;
+}
+
+.Added_box .col_1 p {
+    position: relative;
+    top: 3px;
+    margin: 0px;
+    font-weight: 700;
+    display: none;
+}
+.sorting {
+    background: #7f8488;
+    width: 18px;
+    height: 20px;
+    float: right;
+    margin-right: 28px;
+    margin-top: 3px;
+    position: relative;
+    border-radius: 1px;
+}
+.sorting p {
+    margin: 0px;
+    text-align: center;
+    color: #fff;
+    opacity: 1;
+    z-index: 9999999999;
+    position: relative;
+    top: -3px;
+}
+/*===================== Settings Profiles page ===========================*/
