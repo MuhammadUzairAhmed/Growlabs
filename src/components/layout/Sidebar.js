@@ -17,6 +17,7 @@ const routes = [
     { path: '/financial', name: 'Financial', icon:'401385359'},
     { path: '/files', name: 'Files', icon:'401385364'},
     { path: '/Governance', name: 'Governance', icon:'401385365' },
+    { path: '/settings', name: 'Settings', icon:'401385365' },
     // { path: '/Settings', name: 'Settings', icon:'401385365' },
 ]
 const projectRoutes = [
@@ -25,6 +26,7 @@ const projectRoutes = [
     { path: '/subscription', name: 'Subscription', icon:'Pre401385359' },
     { path: '/application', name: 'Application', icon:'Pre401382288' },
     { path: '/umbrella', name: 'Umbrella', icon:'Pre401382365' },
+    { path: '/settings', name: 'Settings', icon:'Pre401382365' },
 ]
 const tension =  {tension: 0}
 const tnesion2 = {}
@@ -129,7 +131,7 @@ class Sidebar extends Component {
                             src={"./assets/img/" + projectNav.icon + ".png"}/><span>{projectNav.name}</span></NavLink>)
                             :
 
-                            routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img 
+                            routes.map((links) => <NavLink key={links.name} to={links.path} activeClassName="active"><img
                             src={"./assets/img/" + links.icon + ".png"}/><span>{links.name}</span></NavLink>)
                         }
 

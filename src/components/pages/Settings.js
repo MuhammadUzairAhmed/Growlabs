@@ -40,7 +40,7 @@ class Settings extends Component {
       userType:'',
       selectedType:'',
       activeModal:'modal',
-      activeState:false
+      activeState:true
     }
   }
   componentDidMount(){
@@ -166,8 +166,6 @@ class Settings extends Component {
               
           </div>}
           
-          <button color="primary" onClick={this.handleSelect}>Select Account</button>
-
         
          
 
@@ -195,7 +193,7 @@ class Settings extends Component {
           <ul className="ui-tabs-nav">
               {this.state.selectedType == 'Agency' ?
                 this.state.TotalPage.map((items)=> <li className={items.id === this.props.dispComp ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)
-              : this.state.selectedType == 'Client' ? this.state.TotalPageClient.map((items)=> <li className={items.id === this.state.activePage ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>) :''}
+              : this.state.selectedType == 'Client' ? this.state.TotalPageClient.map((items)=> <li className={items.id === this.props.dispComp ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>) :''}
           </ul>
          {activePage}
         </div>

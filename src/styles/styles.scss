@@ -3558,7 +3558,12 @@ h1.settings_hea {
     cursor: pointer;
 }
   .save_button  input:checked + .slider {
-    background-color: #ffffff;
+    background-color: #0dc710;
+    text-align: left;
+    padding-left: 12px;
+  }
+  .save_button  input:checked +  .slider:before{
+    left: 7px;
   }
   
   .save_button input:focus + .slider {
@@ -3793,13 +3798,17 @@ h1.settings_hea {
     text-transform: uppercase;
 }
 .modal, .invitation {
-    background: #F2F2F2;
-    width: 39%;
+    background: #fff;
+    width: 25%;
     height: auto;
-    padding: 5% 6%;
+    padding: 3% 4% !important;
     display: table;
     margin: auto;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:999999999;
 }
 .modal .feild.dropdown select {
     border: 0px;

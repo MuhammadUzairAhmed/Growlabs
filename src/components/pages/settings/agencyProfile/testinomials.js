@@ -636,7 +636,7 @@ class DatatablePage extends Component{
     <br />
    
     {/* <MDBDataTable
-    
+
     searching={false}
      striped
       bordered
@@ -656,7 +656,7 @@ class DatatablePage extends Component{
       hover
       data={this.state.portfolioData}
     /> */}
-   
+
    <div className="Settings_profiles">
 
    <div className="manage_test">
@@ -669,7 +669,7 @@ class DatatablePage extends Component{
           <div className="col_5"> Clients Company </div>
           <div className="col_6"> Testimonal Posted</div>
           <div className="col_7">Send Data </div>
-       </div>  
+       </div>
 
         <div class="Add_box">
           <div class="plus"></div>
@@ -707,13 +707,13 @@ class DatatablePage extends Component{
           <div className="col_7">October 11,2019 4:20 Pm </div>
         </div>
 
-       
+
 
         <div class="manage_buttons">
           <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
           <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
         </div>
-   
+
         <div class="manage_pagenation">
           <div class="pagenation_left"><div class="go-icon"></div></div>
           <div class="pagenation_number">1</div>
@@ -734,7 +734,7 @@ class DatatablePage extends Component{
    <div className="col_5"> Clients Company </div>
    <div className="col_6"> Testimonal Posted</div>
    <div className="col_7">Send Data </div>
-</div>  
+</div>
 
  <div class="Add_box">
    <div class="plus"></div>
@@ -799,7 +799,7 @@ class DatatablePage extends Component{
           <div className="col_5"> Clients Company </div>
           <div className="col_6"> Testimonal Posted</div>
           <div className="col_7">Send Data </div>
-       </div>  
+       </div>
 
         <div class="Add_box">
           <div class="plus"></div>
@@ -837,13 +837,13 @@ class DatatablePage extends Component{
           <div className="col_7">October 11,2019 4:20 Pm </div>
         </div>
 
-       
+
 
         <div class="manage_buttons">
           <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
           <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
         </div>
-   
+
         <div class="manage_pagenation">
           <div class="pagenation_left"><div class="go-icon"></div></div>
           <div class="pagenation_number">1</div>
@@ -857,9 +857,9 @@ class DatatablePage extends Component{
 
 
    </div>
-  
 
-  
+
+
 
     </div>
   );
