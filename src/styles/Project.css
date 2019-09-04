@@ -1,7 +1,7 @@
 
 section.project {
     background: #f2f2f2;
-    min-height: 100%;
+    min-height: 100vh;
 }
 .project .preDashboard_notification {
     background: #F2F2F2;
@@ -719,7 +719,6 @@ h2.Profieldset_hea {
 .project .content_form fieldset textarea{
     width: 100%;
     border: 0px;
-    min-height: 100px;
     padding: 40px 0px;
     color: rgb(10, 10, 10);
     font-size: 14px;
@@ -963,7 +962,7 @@ li.active {
 }
 .project_comt_expen .project_expen svg.rc-progress-line {
     position: relative;
-    top: 35px;
+    top: 18px;
     width: 108px;
 }
 
@@ -1084,7 +1083,7 @@ li.active {
     opacity: 1;
 }
 
-.jquery-accordion-menu a:hover span {
+.project .jquery-accordion-menu a:hover span {
     color: #000;
 }
 

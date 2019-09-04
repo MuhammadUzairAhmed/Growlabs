@@ -282,7 +282,7 @@ class Projects extends Component {
                             <h3>Reasoning behind project</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')}></textarea>
+                                    <textarea type="text" className="input_textable" value={this.state.data[this.state.currentAgency].reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')}></textarea>
                                 
                                 </div>
                             </div>
@@ -291,7 +291,7 @@ class Projects extends Component {
                             <h3>Similar products</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].products} onChange={(x,v)=>this.changeTextData(x,'products')}></textarea>
+                                    <textarea type="text" className="input_textable" value={this.state.data[this.state.currentAgency].products} onChange={(x,v)=>this.changeTextData(x,'products')}></textarea>
                                 </div>
                             </div>
                         </fieldset>
