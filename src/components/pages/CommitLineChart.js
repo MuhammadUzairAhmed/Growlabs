@@ -20,8 +20,11 @@ class CommitLineChart extends Component {
             lineHeight: '250px'
         }
     }
+    componentWillReceiveProps(nextprops){
+        console.log('datassss',nextprops)
+    }
     componentDidMount() {
-
+console.log('gett',this.props.data)
 
         output = this.props.xaxes.map((data, i) => ({
             id: i + 1,
@@ -36,7 +39,8 @@ class CommitLineChart extends Component {
 
                     label: 'Line Dataset',
                     fill: false, // below shadow will be hidden
-                    data: this.props.data,
+                    // data: this.props.data,
+                    data:this.props.data !='' ? this.props.data: listData,
                     pointRadius: 0, //to hidden the points
                     borderColor: this.props.color,
                     borderWidth: 2,
@@ -44,10 +48,9 @@ class CommitLineChart extends Component {
                     type: 'line',
                     pointHoverRadius: 0,
                     pointHoverBackgroundColor: this.props.color,
-},
-
-            ],
-            labels: this.props.xaxes
+                }],
+            // labels:  this.props.xaxes
+            labels: this.props.xaxes !=''? this.props.xaxes: xLabels
         }
         this.setState({ chartData: data })
 

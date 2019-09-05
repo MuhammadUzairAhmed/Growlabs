@@ -46,12 +46,14 @@ class Sidebar extends Component {
     }
     componentDidMount()
     {
+        
         this.props.fetchData('https://demo9810618.mockable.io/fetchSprintData', 'CHART');
 
     }
     componentWillReceiveProps(nextprops)
     {
         console.log('next ',nextprops)
+        if(nextprops.Chart.sprintId>0){
         if (this.state.count === 1) {
             for (var i = 0; i < nextprops.Chart.length; i++) {
 
@@ -63,6 +65,8 @@ class Sidebar extends Component {
             }
             this.setState({ count: 2 })
         }
+    }
+        console.log(this.state.fetchLineData,'lningData')
     }
    
     render() {
