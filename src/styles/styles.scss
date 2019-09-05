@@ -323,10 +323,11 @@ section.header:after {
 .chatroom_header_boxes {
     border: 1px solid #2b363d;
     margin: 25px 20px 10px 20px;
-    padding: 12px 6px 6px 12px;
+    padding: 8px 6px 9px 12px;
     border-radius: 6px;
     position: relative;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 .chatroom_header_boxes .time {
     position: absolute;
@@ -364,12 +365,13 @@ section.header:after {
     padding: 4px 0px 0px 0px;
 }
 .chatroom_header_boxes .chatroom_header_text h2 {
-    margin: 4px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .chatroom_header_boxes p.message {color: #fff;opacity: 1;}
 .chatroom_header_boxes span.message {
     color: #d2d2d2;
-    font-size: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 .chatroom_header_boxes .chatroom_header_img {
     width: 64px;
@@ -378,8 +380,9 @@ section.header:after {
 .chatroom_header_boxes .chatroom_header_text p {
     margin: 0px 0px;
     opacity: 1;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px
 }
 .chatroom_header_boxes:after {
     content: "";
@@ -757,6 +760,7 @@ section.Content_main:after {
     margin: 0px 10px;
     text-align: center;
     line-height: 26px;
+    cursor: pointer;
 }
 .backlog ul.ui-tabs-nav li a {
     color: #fff;
@@ -819,17 +823,16 @@ section.Content_main:after {
 .fancy-checkbox .checkmark {
     position: absolute;
     top: 2px;
-    left: 5px;
+    left: 0px;
+    right: 0px;
     height: 20px;
     width: 20px;
     border: 1px solid #fffcfc;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     border-radius: 100px;
     background: #192027;
     z-index: 9999;
+    margin: 0 auto;
 }
 .fancy-checkbox input:checked ~ .checkmark:after {
     display: block;
@@ -2628,6 +2631,7 @@ section.multi_step_form .col-md-4 {
 }
 .dashbord_left section.colleborate {
     margin-bottom: 20px;
+    padding-right: 9px;
 }
 .dashbord_left .colleborate_box {
     width: 65px;
@@ -3456,6 +3460,7 @@ h1.settings_hea {
     line-height: 40px;
     color: #ffff;
     letter-spacing: 1.5px;
+    text-transform: capitalize;
 }
 
 .personal_main h1 {
@@ -3796,6 +3801,7 @@ h1.settings_hea {
     line-height: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    font-weight: 900;
 }
 .modal, .invitation {
     background: #fff;
@@ -3809,6 +3815,7 @@ h1.settings_hea {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index:999999999;
+    box-shadow: 0px 0px 20px 0px #000000;
 }
 .modal .feild.dropdown select {
     border: 0px;

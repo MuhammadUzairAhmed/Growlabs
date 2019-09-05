@@ -122,12 +122,21 @@
     right: 5px;
     z-index: 9;
 }
+.manage_pagenation div:hover {
+    opacity: 0.6;
+}
+.Settings_profiles .Add_box:hover {
+    background: #ffffff1f;
+    border: 1px solid #ffffff;
+}
 .Settings_profiles .Add_box {
     background: #ffffff0f;
     border: 1px solid #ffffff4a;
     border-radius: 8px;
     padding: 16px 20px;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 .Settings_profiles .Add_box button {
     background: none;
@@ -138,6 +147,7 @@
     font-family: "Open Sans";
     font-size: 15px;
     font-weight: 700;
+    cursor: pointer;
 }
 .manage_header {
     width: 100%;
@@ -223,6 +233,8 @@
     font-size: 15px;
     position: relative;
     cursor: pointer;
+    text-transform: capitalize;
+    transition: all 0.5s ease;
 }
 .Added_box:hover {
     border: 1px solid #ffffff;
@@ -306,7 +318,9 @@
 .manage_buttons button.delete img {
     width: 20px;
 }
-
+.manage_buttons button:hover {
+    opacity: 0.6;
+}
 .manage_buttons button.delete {
     background: #ffffff;
     border: 1px solid #000;
@@ -314,6 +328,7 @@
     padding: 8px 10px;
     margin-right: 4px;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .manage_buttons button.delete_invite img {
@@ -329,6 +344,7 @@
     padding: 8px 15px;
     margin-right: 8px;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .manage_buttons button.delete_invite p {
@@ -350,6 +366,8 @@
     border-radius: 2px;
     float: left;
     margin-right: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .pagenation_left .go-icon {
@@ -374,6 +392,8 @@
     border-radius: 2px;
     float: right;
     margin-left: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .pagenation_right .go-icon {
@@ -401,10 +421,12 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 28px;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 .Added_box label.fancy-checkbox {
     float: left;
-    width: 20%;
+   
 }
 
 .Added_box .col_1 p {

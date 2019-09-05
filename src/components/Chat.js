@@ -54,7 +54,7 @@ class Chatbot extends Component {
                                     <div className="chatroom_header_text">
                                         <h2>{item.name} </h2>
                                         <p>{item.designation}</p>
-                                        <span className="message">TEsting data</span>
+                                        <span className="message">It Works; I Just it On ...</span>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ class Chatbot extends Component {
                                     <div className="chatroom_header_text">
                                         <h2>{item.name} </h2>
                                         <p>{item.designation}</p>
-                                        <span className="message">TEsting data</span>
+                                        <span className="message">It Works; I Just it On ...</span>
                                     </div>
                                 </div>
                             </div>
