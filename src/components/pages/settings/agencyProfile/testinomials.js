@@ -2,9 +2,7 @@ import React,{Component} from 'react';
 import { MDBDataTable } from 'mdbreact';
 import FileUpload from './../../../pages/governanace/contractComponents/FileUpload'
 
-//import "@fortawesome/fontawesome-free/css/all.min.css";
-//import "bootstrap-css-only/css/bootstrap.min.css";
-//import "mdbreact/dist/css/mdb.css";
+
 
 class DatatablePage extends Component{
   constructor(props){
@@ -30,12 +28,6 @@ class DatatablePage extends Component{
             field: 'Client Name',
             sort: 'asc',
             width: 270
-          },
-          {
-            label: 'Client Name2',
-            field: 'Client Name2',
-            sort: 'asc',
-            width: 200
           },
           {
             label: 'Test',
@@ -329,7 +321,7 @@ class DatatablePage extends Component{
  }
   render(){
   return (
-    <div>
+    <div >
       {/*client add testinomials */}
      {this.state.addTestinomial && <div className="modal">
             <h1>Client Add Testinomials</h1>
@@ -625,40 +617,250 @@ class DatatablePage extends Component{
           </div>
 
       }
-   
-    <button type="button" onClick={()=>this.changeStates('tests')}>Add New</button>
-    <MDBDataTable
-      style={{background:'white'}}
+     {/* <div class="Add_box">
+     <div class="plus"></div>
+    <button type="button" onClick={()=>this.changeStates('tests')}>New</button>
+    </div> */}
+    {/* <MDBDataTable
+     searching={false}
       striped
       bordered
       hover
       data={this.state.data}
-    />
+    /> */}
     {/* <button type="button" onClick={}>Delete</button> */}
-    <button type="button" onClick={()=>this.changeStates('developerInvitation')}>Invite New Developer</button>
+    {/* <button type="button" onClick={()=>this.changeStates('developerInvitation')}>Invite New Developer</button> */}
 
 
 
     <br />
-    <button type="button" onClick={()=>this.changeStates('testinomials')}>Add New</button>
    
-    <MDBDataTable
-     style={{background:'white'}}
+    {/* <MDBDataTable
+
+    searching={false}
      striped
       bordered
       hover
       data={this.state.manageData}
-    />
-     <button type="button" onClick={()=>this.changeStates('testinomialRequest')}>Client Tesatinomial Request</button>
+    /> */}
+     {/* <button type="button" onClick={()=>this.changeStates('testinomialRequest')}>Client Tesatinomial Request</button>
     <br></br>
-    <button type="button" onClick={()=>this.changeStates('portfolio')}>Add New</button>
-    <MDBDataTable
-     style={{background:'white'}}
+    <div class="Add_box">
+    <div class="plus"></div>
+    <button type="button" onClick={()=>this.changeStates('portfolio')}>New</button>
+    </div> */}
+    {/* <MDBDataTable
+      searching={false}
      striped
       bordered
       hover
       data={this.state.portfolioData}
-    />
+    /> */}
+
+   <div className="Settings_profiles">
+
+   <div className="manage_test">
+
+       <div className="manage_header">
+          <div className="col_1"> Manage Test</div>
+          <div className="col_2"> Clients Name   <div className="sorting"><p>&#8593;</p></div> </div>
+          <div className="col_3">Clients Name </div>
+          <div className="col_4">Test </div>
+          <div className="col_5"> Clients Company </div>
+          <div className="col_6"> Testimonal Posted</div>
+          <div className="col_7">Send Data </div>
+       </div>
+
+        <div class="Add_box">
+          <div class="plus"></div>
+          <button type="button">New</button>
+        </div>
+
+        <div class="Added_box">
+          <div class="Added_box_numer"> 1. </div>
+          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_2"> Name  </div>
+          <div className="col_3"> Testing@gmail.com  </div>
+          <div className="col_4">Test 5</div>
+          <div className="col_5"> Testing .com </div>
+          <div className="col_6"> Yes</div>
+          <div className="col_7">October 11,2019 4:20 Pm </div>
+        </div>
+        <div class="Added_box">
+        <div class="Added_box_numer"> 2. </div>
+          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_2"> Name  </div>
+          <div className="col_3"> Testing@gmail.com  </div>
+          <div className="col_4">Test 5</div>
+          <div className="col_5"> Testing .com </div>
+          <div className="col_6"> Yes</div>
+          <div className="col_7">October 11,2019 4:20 Pm </div>
+        </div>
+        <div class="Added_box">
+        <div class="Added_box_numer"> 3. </div>
+          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_2"> Name  </div>
+          <div className="col_3"> Testing@gmail.com  </div>
+          <div className="col_4">Test 5</div>
+          <div className="col_5"> Testing .com </div>
+          <div className="col_6"> Yes</div>
+          <div className="col_7">October 11,2019 4:20 Pm </div>
+        </div>
+
+
+
+        <div class="manage_buttons">
+          <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+          <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
+        </div>
+
+        <div class="manage_pagenation">
+          <div class="pagenation_left"><div class="go-icon"></div></div>
+          <div class="pagenation_number">1</div>
+          <div class="pagenation_number">2</div>
+          <div class="pagenation_number">3</div>
+          <div class="pagenation_number">4</div>
+          <div class="pagenation_number">5</div>
+          <div class="pagenation_right"><div class="go-icon"></div></div>
+        </div>
+        </div>
+        <div className="manage_test">
+
+<div className="manage_header">
+   <div className="col_1"> Manage Test</div>
+   <div className="col_2"> Clients Name   <div className="sorting"><p>&#8593;</p></div> </div>
+   <div className="col_3">Clients Name </div>
+   <div className="col_4">Test </div>
+   <div className="col_5"> Clients Company </div>
+   <div className="col_6"> Testimonal Posted</div>
+   <div className="col_7">Send Data </div>
+</div>
+
+ <div class="Add_box">
+   <div class="plus"></div>
+   <button type="button">New</button>
+ </div>
+
+ <div class="Added_box">
+   <div class="Added_box_numer"> 1. </div>
+   <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+   <div className="col_2"> Name  </div>
+   <div className="col_3"> Testing@gmail.com  </div>
+   <div className="col_4">Test 5</div>
+   <div className="col_5"> Testing .com </div>
+   <div className="col_6"> Yes</div>
+   <div className="col_7">October 11,2019 4:20 Pm </div>
+ </div>
+ <div class="Added_box">
+ <div class="Added_box_numer"> 2. </div>
+   <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+   <div className="col_2"> Name  </div>
+   <div className="col_3"> Testing@gmail.com  </div>
+   <div className="col_4">Test 5</div>
+   <div className="col_5"> Testing .com </div>
+   <div className="col_6"> Yes</div>
+   <div className="col_7">October 11,2019 4:20 Pm </div>
+ </div>
+ <div class="Added_box">
+ <div class="Added_box_numer"> 3. </div>
+   <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+   <div className="col_2"> Name  </div>
+   <div className="col_3"> Testing@gmail.com  </div>
+   <div className="col_4">Test 5</div>
+   <div className="col_5"> Testing .com </div>
+   <div className="col_6"> Yes</div>
+   <div className="col_7">October 11,2019 4:20 Pm </div>
+ </div>
+
+
+
+ <div class="manage_buttons">
+   <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+   <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
+ </div>
+
+ <div class="manage_pagenation">
+   <div class="pagenation_left"><div class="go-icon"></div></div>
+   <div class="pagenation_number">1</div>
+   <div class="pagenation_number">2</div>
+   <div class="pagenation_number">3</div>
+   <div class="pagenation_number">4</div>
+   <div class="pagenation_number">5</div>
+   <div class="pagenation_right"><div class="go-icon"></div></div>
+ </div>
+ </div>
+ <div className="manage_test">
+
+       <div className="manage_header">
+          <div className="col_1"> Manage Test</div>
+          <div className="col_2"> Clients Name   <div className="sorting"><p>&#8593;</p></div> </div>
+          <div className="col_3">Clients Name </div>
+          <div className="col_4">Test </div>
+          <div className="col_5"> Clients Company </div>
+          <div className="col_6"> Testimonal Posted</div>
+          <div className="col_7">Send Data </div>
+       </div>
+
+        <div class="Add_box">
+          <div class="plus"></div>
+          <button type="button">New</button>
+        </div>
+
+        <div class="Added_box">
+          <div class="Added_box_numer"> 1. </div>
+          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_2"> Name  </div>
+          <div className="col_3"> Testing@gmail.com  </div>
+          <div className="col_4">Test 5</div>
+          <div className="col_5"> Testing .com </div>
+          <div className="col_6"> Yes</div>
+          <div className="col_7">October 11,2019 4:20 Pm </div>
+        </div>
+        <div class="Added_box">
+        <div class="Added_box_numer"> 2. </div>
+          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_2"> Name  </div>
+          <div className="col_3"> Testing@gmail.com  </div>
+          <div className="col_4">Test 5</div>
+          <div className="col_5"> Testing .com </div>
+          <div className="col_6"> Yes</div>
+          <div className="col_7">October 11,2019 4:20 Pm </div>
+        </div>
+        <div class="Added_box">
+        <div class="Added_box_numer"> 3. </div>
+          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_2"> Name  </div>
+          <div className="col_3"> Testing@gmail.com  </div>
+          <div className="col_4">Test 5</div>
+          <div className="col_5"> Testing .com </div>
+          <div className="col_6"> Yes</div>
+          <div className="col_7">October 11,2019 4:20 Pm </div>
+        </div>
+
+
+
+        <div class="manage_buttons">
+          <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+          <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
+        </div>
+
+        <div class="manage_pagenation">
+          <div class="pagenation_left"><div class="go-icon"></div></div>
+          <div class="pagenation_number">1</div>
+          <div class="pagenation_number">2</div>
+          <div class="pagenation_number">3</div>
+          <div class="pagenation_number">4</div>
+          <div class="pagenation_number">5</div>
+          <div class="pagenation_right"><div class="go-icon"></div></div>
+        </div>
+        </div>
+
+
+   </div>
+
+
+
+
     </div>
   );
 }
