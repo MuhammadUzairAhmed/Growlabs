@@ -15,6 +15,7 @@ import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
 import Settings from "./pages/Settings";
 import ProjectReview from "./pages/Project/index";
+import Subscription from "./pages/Project/subscription";
 
 import '../styles/layout.css';
 import '../styles/Project.css';
@@ -112,6 +113,7 @@ class App extends React.Component {
                   <Route path="/settings" component={Settings} />
                   <Route path="/application" component={Projects} />
                   <Route path="/projects" component={ProjectReview} />
+                  <Route path="/subscription" component={Subscription} />
                   <Route path="/" component={ProjectReview} />
                 </Switch>
                 </div>
@@ -133,6 +135,7 @@ class App extends React.Component {
                   <Route path="/settings" component={Settings} />
                   <Route path="/application" component={Projects} />
                   <Route path="/projects" component={ProjectReview} />
+                  <Route path="/subscription" component={Subscription} />
                   <Route path="/" component={ProjectReview} />
                 </Switch>
                 </div>

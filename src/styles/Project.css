@@ -1100,8 +1100,8 @@ li.active {
 }
 .project .manage_header {
     color: #000;
-   
-    
+
+
 }
 .project .Settings_profiles .Add_box {
     border: 1px solid rgba(0,0,0,0.5);
@@ -1113,12 +1113,12 @@ li.active {
 }
 .project .Add_box .plus:before {
     background-color: #A8A8A8;
-    
+
 }
 .project .Add_box .plus:after {
-    
+
     background-color: #A8A8A8;
-    
+
 }
 .project .Added_box {
     border: 1px solid #A8A8A8;
@@ -1145,24 +1145,145 @@ li.active {
     opacity: 0.3;
 }
 .project .pagenation_left .go-icon {
-  
+
     border-top: 1px solid white;
     border-right: 1px solid white;
-   
+
 }
 .project .pagenation_left {
-   
+
     background: #e7e7e7;
-    
+
 }
 .project .pagenation_right{
-   
+
     background: #e7e7e7;
-    
+
 }
 .project .pagenation_right .go-icon {
-   
+
     border-top: 1px solid white;
     border-right: 1px solid white;
-  
+
+}
+.project .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+    background-color: rgb(241, 241, 241) !important;
+    color: #8E8D92;
+}
+
+a.button.save {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(270deg, #1d3884 0%, #2f7088 100%);
+    border: 0;
+}
+.modal.Personal {
+    width: 45%;
+    padding: 3% 1% !important;
+}
+
+/*--------- As -------*/
+.content_pricing .price {
+    -webkit-transition: all 0.125s ease-in-out;
+    -moz-transition: all 0.125s ease-in-out;
+    -o-transition: all 0.125s ease-in-out;
+    transition: all 0.125s ease-in-out;
+    width: 24%;
+    padding: 14px 16px;
+    border-radius: 2px;
+    margin: 2%;
+    position: relative;
+    float:left;
+}
+
+.content_pricing .button button {
+    padding: 3px 7px;
+    background: #D2D0D0;
+    border: 0;
+}
+
+.content_pricing .inform ul li {
+    list-style: none;
+    line-height: 38px;
+    font-size: 14px;
+}
+
+
+.content_pricing .heading i.fa {
+    padding-top: 10px;
+    font-size: 22px;
+    float: left;
+}
+
+.content_pricing .heading h1 {
+    float: left;
+    margin: 0;
+    padding: 0 5px 0 10px;
+    font-size: 54px;
+}
+
+.content_pricing .heading small {
+    top: 19%;
+    position: absolute;
+    font-size: 12px;
+    color: #919191;
+}
+
+.content_pricing .price .package {
+    text-transform: uppercase;
+    letter-spacing: 5.2px;
+    font-family: 'Space Mono';
+}
+
+.content_pricing .price .package p {
+    font-size: 11px;
+    margin: 0;
+}
+
+.content_pricing .inform .disabled {
+    color: #7F7F83;
+}
+
+.content_pricing .price .heading {
+    position: relative;
+    padding-bottom: 84px;
+}
+
+.content_pricing .inform {
+    position: relative;
+}
+
+.content_pricing .inform ul li:before {
+    content: '';
+    position: absolute;
+    left: 2%;
+    height: 22px;
+    width: 22px;
+    background-size: cover !important;
+    background: url(../assets/img/cross-active.png);
+    margin-top: 8px;
+}
+
+.content_pricing .inform ul li.disabled:before {
+    content: '';
+    position: absolute;
+    left: 2%;
+    height: 22px;
+    width: 22px;
+    background-size: cover !important;
+    background: url(../assets/img/cross.png);
+    margin-top: 8px;
+}
+
+.content_pricing .price .center {
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+.content_pricing .price.active, .content_pricing .price:hover {
+    background: #fff;
+    box-shadow: 0px 0px 14px #717171;
+}
+
+.content_pricing .button {
+    text-align: center;
 }
