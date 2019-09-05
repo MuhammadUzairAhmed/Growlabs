@@ -53,13 +53,16 @@ class Personal extends Component
          console.log(values,'personal')
       
      }
+     checkInfo(){
+        this.props.sendInfo();
+     }
     render()
     {
         return(
         
     <div className="personal_main">
            
-           
+               {this.props.currentPageStatus == "additionalInformationPopup" ? <h1>Additional Information</h1>:''}
                <div className="personal_user">
                   {/* {this.state.saveId
                      ? <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={} />
@@ -71,7 +74,8 @@ class Personal extends Component
                </div>
 
                <div className="personal_flt">
-               <h1>Genernal</h1>
+               
+               {this.props.currentPageStatus == "additionalInformationPopup" ? '':<h1>Genernal</h1>}
                <div className="feild ">
                   <label>First Name</label>
                   <input onChange={this.handleChange} type="text" name="fname" value={this.state.fname} placeholder="Input" />
@@ -138,13 +142,15 @@ class Personal extends Component
                </div>
                </div>
 
-
+            {this.props.currentPageStatus == "additionalInformationPopup" ? <button className="account_but" color="primary" onClick={this.checkInfo.bind(this)}>Add Information</button>:
                <div className="Button_sec">
                <button color="primary" onClick={this.handleSave}>Request Approval</button>
 
                <button className="secd_button">Add google Authenticator</button>
-             <p>Request Account Removal</p>
+               <p>Request Account Removal</p>
                </div>
+            
+            }
            
 
 

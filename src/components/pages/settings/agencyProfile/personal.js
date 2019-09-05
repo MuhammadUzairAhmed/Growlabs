@@ -32,6 +32,9 @@ class Personal extends Component
 
 
      }
+     addInfo(){
+      this.props.activeAdditional()
+     }
     render()
     {
         
@@ -40,7 +43,7 @@ class Personal extends Component
         
         return(
             <div>
-            <PERSONAL getData={this.handleSave}/>
+            <PERSONAL getData={this.handleSave} currentPageStatus={this.props.projectType} sendInfo={this.addInfo.bind(this)}/>
             {/* <DayPicker 
             initialMonth={new Date(2017  , 3)}
             selectedDays={[from, {from, to}]}

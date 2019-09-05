@@ -13,7 +13,18 @@ class RangeSlider extends Component
           volume: this.props.range,
         }
       }
-     
+      componentWillReceiveProps(nextProps){
+        this.state = {
+          volume: nextProps.range,
+        }
+      }
+     componentWillUpdate(props){
+       if(this.state.volume == props.volume){
+        this.state = {
+          volume: nextProps.range,
+        }
+       }
+     }
       handleOnChange = (value) => {
         this.setState({
           volume: value,

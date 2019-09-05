@@ -149,6 +149,21 @@ section.colleborate.milestone .colleborate_box {
     0%   {left:0px;}
     100% {left: -1900px;}
 }
+
+.modal, .invitation{
+    
+    -webkit-animation-name: popupMove; 
+    -webkit-animation-duration: 1s;
+    animation-name: popupMove;
+    animation-duration: 1s;
+}
+
+@keyframes popupMove {
+    0%   {margin-top:-900px;opacity: 0;}
+    50%   {opacity: 0;}
+    100% {margin-top:0px;opacity: 1;}
+}
+
 /*========xxx======= End PreDashboard Notification=======xxx==========*/
 
 /*==========Start PreDashboard Funding==============*/
