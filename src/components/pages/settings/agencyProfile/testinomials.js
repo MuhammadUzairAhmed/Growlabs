@@ -1,13 +1,69 @@
 import React,{Component} from 'react';
 import { MDBDataTable } from 'mdbreact';
 import FileUpload from './../../../pages/governanace/contractComponents/FileUpload'
+import $ from 'jquery'
 
-
-
+var sortedList;
 class DatatablePage extends Component{
   constructor(props){
     super(props)
     this.state={
+      manageTestData:[
+        {id:1,clientName:'Gbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:2,clientName:'Fbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:3,clientName:'HGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:5,clientName:'ZGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:6,clientName:'XGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:7,clientName:'YGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:8,clientName:'QGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:9,clientName:'UGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:10,clientName:'IGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:11,clientName:'LGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+        {id:12,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      
+      ],
+    manageTestinomialData:[
+      {id:1,clientName:'Gbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:2,clientName:'Fbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:3,clientName:'HGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:4,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:5,clientName:'ZGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:6,clientName:'xGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:7,clientName:'yGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:8,clientName:'qGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:9,clientName:'uGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:10,clientName:'mGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:11,clientName:'LGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:12,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:13,clientName:'MGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+      {id:14,clientName:'LKGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
+  ],
+  managePortfolioData:[
+    {id:1,title:'obc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:2,title:'abc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:3,title:'hbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:4,title:'kbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:5,title:'lbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:6,title:'zbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:7,title:'xbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:8,title:'bbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    {id:9,title:'mbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
+    
+],
+      paginationdummymanageTest:[],
+      paginationmanageTest:[],
+      finalmanageTest:[{id:0}],
+
+      paginationdummymanageTestinomial:[],
+      paginationmanageTestinomial:[],
+      finalmanageTestinomial:[{id:0}],
+
+
+      paginationdummymanagePorfolio:[],
+      paginationmanagePortfolio:[],
+      finalmanagePortfolio:[{id:0}],
+
+      itemId:1,
       data:{
         columns: [
           {
@@ -224,8 +280,111 @@ class DatatablePage extends Component{
       }
     }
   
-  
-  changeStates =(key)=>{
+    componentDidMount(){
+     this.manageTest()
+     this.manageTestinomial()
+     this.managePortfolio()
+   }
+   manageTest =()=>{
+    var lengthForinvitedDataPagination = this.state.manageTestData.length/3;
+        var arraysinvited = [];
+        lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
+        for(var i=0  ;i< lengthForinvitedDataPagination ;i++)
+        {
+            this.state.paginationdummymanageTest.push(i+1)
+        }
+        for(var j=0 ;j<3 ;j++)
+            {   
+                if(this.state.manageTestData[j] != undefined)
+                {
+                    arraysinvited.push(this.state.manageTestData[j])
+                }
+        }
+        this.setState({paginationmanageTest: this.state.paginationdummymanageTest,finalmanageTest:arraysinvited})
+    }
+    manageTestinomial =()=>{
+      var lengthForinvitedDataPagination = this.state.manageTestinomialData.length/3;
+          var arraysinvited = [];
+          lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
+          for(var i=0  ;i< lengthForinvitedDataPagination ;i++)
+          {
+              this.state.paginationdummymanageTestinomial.push(i+1)
+          }
+          for(var j=0 ;j<3 ;j++)
+              {   
+                  if(this.state.manageTestinomialData[j] != undefined)
+                  {
+                      arraysinvited.push(this.state.manageTestinomialData[j])
+                  }
+          }
+          this.setState({paginationmanageTestinomial: this.state.paginationdummymanageTestinomial,finalmanageTestinomial:arraysinvited})
+      }
+      managePortfolio =()=>{
+        var lengthForinvitedDataPagination = this.state.managePortfolioData.length/3;
+            var arraysinvited = [];
+            lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
+            for(var i=0  ;i< lengthForinvitedDataPagination ;i++)
+            {
+                this.state.paginationdummymanagePorfolio.push(i+1)
+            }
+            for(var j=0 ;j<3 ;j++)
+                {   
+                    if(this.state.managePortfolioData[j] != undefined)
+                    {
+                        arraysinvited.push(this.state.managePortfolioData[j])
+                    }
+            }
+            this.setState({paginationmanagePortfolio: this.state.paginationdummymanagePorfolio,finalmanagePortfolio:arraysinvited})
+        }
+    changePage =(id,key)=>{
+      console.log(id,key,'chekeddd')
+      
+           this.setState({itemId:id},()=>{ 
+           var count =0;
+           var arr = [];
+           for(var i=0; i< this.state.itemId ;i++)
+           {
+               arr = [];
+               for(var j=count ;j<count+3 ;j++)
+               {  
+                   if(key== 'manageTest'){ 
+                    $("#row1").fadeOut();
+                       if(this.state.manageTestData[j] != undefined){arr.push(this.state.manageTestData[j])}
+                   }  
+                   if(key== 'manageTestinomial'){ 
+                    $("#row2").fadeOut(1000);
+                       if(this.state.manageTestinomialData[j] != undefined){arr.push(this.state.manageTestinomialData[j])}
+                   }
+                   if(key== 'managePortfolio'){ 
+                    $("#row3").fadeOut(1000);
+                       if(this.state.managePortfolioData[j] != undefined){arr.push(this.state.managePortfolioData[j])}
+                   }
+               }
+               count = count+3;
+           }
+           if(key== 'manageTest'){this.setState({finalmanageTest:arr},()=>{$("#row1").fadeIn(1000);})}
+           if(key== 'manageTestinomial'){this.setState({finalmanageTestinomial:arr},()=>{$("#row2").fadeIn(1000);})}
+           if(key== 'managePortfolio'){this.setState({finalmanagePortfolio:arr},()=>{$("#row3").fadeIn(1000);})}
+           })
+   }
+   sorting =(key)=>{
+     console.log(key,'keyss')
+    if(key == 'manageTest'){
+    sortedList=  this.state.finalmanageTest.sort((a, b) => {
+        return (a.clientName > b.clientName ?1 : -1);
+    });this.setState({finalmanageTest:sortedList})}  
+
+    if(key == 'manageTestinomial'){
+        sortedList=  this.state.finalmanageTestinomial.sort((a, b) => {
+            return (a.clientName > b.clientName ?1 : -1);
+        });this.setState({finalmanageTestinomial:sortedList})} 
+        
+    if(key == 'managePortfolio'){
+        sortedList=  this.state.finalmanagePortfolio.sort((a, b) => {
+            return (a.title > b.title ?1 : -1);
+        });this.setState({finalmanagePortfolio:sortedList})} 
+    }
+  changeStatesForPopups =(key)=>{
     if(key == 'testinomials'){this.setState({addTestinomial:true})} 
     if(key == 'developerInvitation'){this.setState({invite:true})}
     if(key == 'testinomialRequest'){this.setState({testinomialRequest:true})}
@@ -617,45 +776,7 @@ class DatatablePage extends Component{
           </div>
 
       }
-     {/* <div class="Add_box">
-     <div class="plus"></div>
-    <button type="button" onClick={()=>this.changeStates('tests')}>New</button>
-    </div> */}
-    {/* <MDBDataTable
-     searching={false}
-      striped
-      bordered
-      hover
-      data={this.state.data}
-    /> */}
-    {/* <button type="button" onClick={}>Delete</button> */}
-    {/* <button type="button" onClick={()=>this.changeStates('developerInvitation')}>Invite New Developer</button> */}
-
-
-
-    <br />
-   
-    {/* <MDBDataTable
-
-    searching={false}
-     striped
-      bordered
-      hover
-      data={this.state.manageData}
-    /> */}
-     {/* <button type="button" onClick={()=>this.changeStates('testinomialRequest')}>Client Tesatinomial Request</button>
-    <br></br>
-    <div class="Add_box">
-    <div class="plus"></div>
-    <button type="button" onClick={()=>this.changeStates('portfolio')}>New</button>
-    </div> */}
-    {/* <MDBDataTable
-      searching={false}
-     striped
-      bordered
-      hover
-      data={this.state.portfolioData}
-    /> */}
+    
 
    <div className="Settings_profiles">
 
@@ -663,7 +784,7 @@ class DatatablePage extends Component{
 
        <div className="manage_header">
           <div className="col_1"> Manage Test</div>
-          <div className="col_2"> Clients Name   <div className="sorting"><p>&#8593;</p></div> </div>
+          <div className="col_2"> Clients Name   <div className="sorting" onClick={()=>this.sorting('manageTest')}><p>&#8593;</p></div> </div>
           <div className="col_3">Clients Name </div>
           <div className="col_4">Test </div>
           <div className="col_5"> Clients Company </div>
@@ -671,192 +792,135 @@ class DatatablePage extends Component{
           <div className="col_7">Send Data </div>
        </div>
 
-        <div class="Add_box">
+        <div class="Add_box" onClick={()=>this.changeStatesForPopups('tests')}>
           <div class="plus"></div>
           <button type="button">New</button>
         </div>
-
-        <div class="Added_box">
-          <div class="Added_box_numer"> 1. </div>
+      <div id="row1">
+        {this.state.finalmanageTest.map((item,index)=>
+            {return <div class="Added_box">
+          <div class="Added_box_numer" > {item.id} </div>
           <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-          <div className="col_2"> Name  </div>
-          <div className="col_3"> Testing@gmail.com  </div>
-          <div className="col_4">Test 5</div>
-          <div className="col_5"> Testing .com </div>
-          <div className="col_6"> Yes</div>
-          <div className="col_7">October 11,2019 4:20 Pm </div>
+          <div className="col_2"> {item.clientName}  </div>
+          <div className="col_3"> {item.clientEmail} </div>
+          <div className="col_4">{item.test}</div>
+          <div className="col_5"> {item.clientComapny} </div>
+          <div className="col_6"> {item.testinomialPosted}</div>
+          <div className="col_7">{item.sentDate} </div>
+        </div>})
+            }
         </div>
-        <div class="Added_box">
-        <div class="Added_box_numer"> 2. </div>
-          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-          <div className="col_2"> Name  </div>
-          <div className="col_3"> Testing@gmail.com  </div>
-          <div className="col_4">Test 5</div>
-          <div className="col_5"> Testing .com </div>
-          <div className="col_6"> Yes</div>
-          <div className="col_7">October 11,2019 4:20 Pm </div>
-        </div>
-        <div class="Added_box">
-        <div class="Added_box_numer"> 3. </div>
-          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-          <div className="col_2"> Name  </div>
-          <div className="col_3"> Testing@gmail.com  </div>
-          <div className="col_4">Test 5</div>
-          <div className="col_5"> Testing .com </div>
-          <div className="col_6"> Yes</div>
-          <div className="col_7">October 11,2019 4:20 Pm </div>
-        </div>
+       
 
 
 
         <div class="manage_buttons">
           <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
-          <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
+          <button class="delete_invite" onClick={()=>this.changeStatesForPopups('developerInvitation')}><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
         </div>
 
         <div class="manage_pagenation">
-          <div class="pagenation_left"><div class="go-icon"></div></div>
-          <div class="pagenation_number">1</div>
-          <div class="pagenation_number">2</div>
-          <div class="pagenation_number">3</div>
-          <div class="pagenation_number">4</div>
-          <div class="pagenation_number">5</div>
-          <div class="pagenation_right"><div class="go-icon"></div></div>
+         {this.state.manageTestData[3] != undefined ? <div class="pagenation_left"><div class="go-icon"></div></div>:''}
+          {this.state.paginationmanageTest.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTest')}>{item}</div>)}
+          {this.state.manageTestData[3] != undefined?<div class="pagenation_right"><div class="go-icon"></div></div>:''}
         </div>
         </div>
+
         <div className="manage_test">
 
-<div className="manage_header">
-   <div className="col_1"> Manage Test</div>
-   <div className="col_2"> Clients Name   <div className="sorting"><p>&#8593;</p></div> </div>
-   <div className="col_3">Clients Name </div>
-   <div className="col_4">Test </div>
-   <div className="col_5"> Clients Company </div>
-   <div className="col_6"> Testimonal Posted</div>
-   <div className="col_7">Send Data </div>
-</div>
+          <div className="manage_header">
+            <div className="col_1"> Manage Testinomials</div>
+            <div className="col_2"> Clients Name   <div className="sorting" onClick={()=>this.sorting('manageTestinomial')}><p>&#8593;</p></div> </div>
+            <div className="col_3">Clients Name </div>
+            <div className="col_4">Test </div>
+            <div className="col_5"> Clients Company </div>
+            <div className="col_6"> Testimonal Posted</div>
+            <div className="col_7">Send Data </div>
+          </div>
 
- <div class="Add_box">
-   <div class="plus"></div>
-   <button type="button">New</button>
- </div>
-
- <div class="Added_box">
-   <div class="Added_box_numer"> 1. </div>
-   <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-   <div className="col_2"> Name  </div>
-   <div className="col_3"> Testing@gmail.com  </div>
-   <div className="col_4">Test 5</div>
-   <div className="col_5"> Testing .com </div>
-   <div className="col_6"> Yes</div>
-   <div className="col_7">October 11,2019 4:20 Pm </div>
- </div>
- <div class="Added_box">
- <div class="Added_box_numer"> 2. </div>
-   <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-   <div className="col_2"> Name  </div>
-   <div className="col_3"> Testing@gmail.com  </div>
-   <div className="col_4">Test 5</div>
-   <div className="col_5"> Testing .com </div>
-   <div className="col_6"> Yes</div>
-   <div className="col_7">October 11,2019 4:20 Pm </div>
- </div>
- <div class="Added_box">
- <div class="Added_box_numer"> 3. </div>
-   <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-   <div className="col_2"> Name  </div>
-   <div className="col_3"> Testing@gmail.com  </div>
-   <div className="col_4">Test 5</div>
-   <div className="col_5"> Testing .com </div>
-   <div className="col_6"> Yes</div>
-   <div className="col_7">October 11,2019 4:20 Pm </div>
- </div>
+          <div class="Add_box" onClick={()=>this.changeStatesForPopups('testinomials')}>
+            <div class="plus"></div>
+            <button type="button">New</button>
+          </div>
+            <div id="row2">
+          {this.state.finalmanageTestinomial.map((item,index)=>
+              {return <div class="Added_box" >
+            <div class="Added_box_numer"> {item.id} </div>
+            <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+            <div className="col_2"> {item.clientName}  </div>
+            <div className="col_3"> {item.clientEmail} </div>
+            <div className="col_4">{item.test}</div>
+            <div className="col_5"> {item.clientComapny} </div>
+            <div className="col_6"> {item.testinomialPosted}</div>
+            <div className="col_7">{item.sentDate} </div>
+          </div>})
+              }
+          </div>
 
 
 
- <div class="manage_buttons">
-   <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
-   <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
- </div>
 
- <div class="manage_pagenation">
-   <div class="pagenation_left"><div class="go-icon"></div></div>
-   <div class="pagenation_number">1</div>
-   <div class="pagenation_number">2</div>
-   <div class="pagenation_number">3</div>
-   <div class="pagenation_number">4</div>
-   <div class="pagenation_number">5</div>
-   <div class="pagenation_right"><div class="go-icon"></div></div>
- </div>
- </div>
- <div className="manage_test">
+          <div class="manage_buttons">
+            <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+            <button class="delete_invite" onClick={()=>this.changeStatesForPopups('testinomialRequest')}><img src="./assets/img/pro_delete.png"/><p>Client Testinomial Request</p></button>
+          </div>
 
-       <div className="manage_header">
-          <div className="col_1"> Manage Test</div>
-          <div className="col_2"> Clients Name   <div className="sorting"><p>&#8593;</p></div> </div>
-          <div className="col_3">Clients Name </div>
-          <div className="col_4">Test </div>
-          <div className="col_5"> Clients Company </div>
-          <div className="col_6"> Testimonal Posted</div>
-          <div className="col_7">Send Data </div>
-       </div>
+          <div class="manage_pagenation">
+            <div class="pagenation_left"><div class="go-icon"></div></div>
+            {this.state.paginationdummymanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')}>{item}</div>)}
+            <div class="pagenation_right"><div class="go-icon"></div></div>
+          </div>
+          </div> 
 
-        <div class="Add_box">
-          <div class="plus"></div>
-          <button type="button">New</button>
+
+
+            <div className="manage_test">
+
+                  <div className="manage_header">
+                    <div className="col_1"> Manage Portfoilio</div>
+                    <div className="col_2"> Title  <div className="sorting" onClick={()=>this.sorting('managePortfolio')}><p>&#8593;</p></div> </div>
+                    <div className="col_3">Type </div>
+                    <div className="col_4">Category </div>
+                    <div className="col_5"> Link</div>
+                    <div className="col_6"> Added on</div>
+                    <div className="col_7">Action</div>
+                  </div>
+
+                  <div class="Add_box" onClick={()=>this.changeStatesForPopups('portfolio')}>
+                    <div class="plus"></div>
+                    <button type="button">New</button>
+                  </div>
+                  <div id="row3">
+                  {this.state.finalmanagePortfolio.map((item,index)=>
+                      {return <div class="Added_box" >
+                    <div class="Added_box_numer"> {item.id} </div>
+                    <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+                    <div className="col_2"> {item.title}  </div>
+                    <div className="col_3"> {item.type} </div>
+                    <div className="col_4">{item.category}</div>
+                    <div className="col_5"> {item.link} </div>
+                    <div className="col_6"> {item.addedOn}</div>
+                    <div className="col_7">{item.action} </div>
+                  </div>})
+                      }
+                  </div>
+
+
+
+
+                  <div class="manage_buttons">
+                    <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+                  </div>
+
+                  <div class="manage_pagenation">
+                    <div class="pagenation_left"><div class="go-icon"></div></div>
+                    {this.state.paginationmanagePortfolio.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'managePortfolio')}>{item}</div>)}
+                    <div class="pagenation_right"><div class="go-icon"></div></div>
+                  </div>
+                  </div> 
+
+
         </div>
-
-        <div class="Added_box">
-          <div class="Added_box_numer"> 1. </div>
-          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-          <div className="col_2"> Name  </div>
-          <div className="col_3"> Testing@gmail.com  </div>
-          <div className="col_4">Test 5</div>
-          <div className="col_5"> Testing .com </div>
-          <div className="col_6"> Yes</div>
-          <div className="col_7">October 11,2019 4:20 Pm </div>
-        </div>
-        <div class="Added_box">
-        <div class="Added_box_numer"> 2. </div>
-          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-          <div className="col_2"> Name  </div>
-          <div className="col_3"> Testing@gmail.com  </div>
-          <div className="col_4">Test 5</div>
-          <div className="col_5"> Testing .com </div>
-          <div className="col_6"> Yes</div>
-          <div className="col_7">October 11,2019 4:20 Pm </div>
-        </div>
-        <div class="Added_box">
-        <div class="Added_box_numer"> 3. </div>
-          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-          <div className="col_2"> Name  </div>
-          <div className="col_3"> Testing@gmail.com  </div>
-          <div className="col_4">Test 5</div>
-          <div className="col_5"> Testing .com </div>
-          <div className="col_6"> Yes</div>
-          <div className="col_7">October 11,2019 4:20 Pm </div>
-        </div>
-
-
-
-        <div class="manage_buttons">
-          <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
-          <button class="delete_invite"><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
-        </div>
-
-        <div class="manage_pagenation">
-          <div class="pagenation_left"><div class="go-icon"></div></div>
-          <div class="pagenation_number">1</div>
-          <div class="pagenation_number">2</div>
-          <div class="pagenation_number">3</div>
-          <div class="pagenation_number">4</div>
-          <div class="pagenation_number">5</div>
-          <div class="pagenation_right"><div class="go-icon"></div></div>
-        </div>
-        </div>
-
-
-   </div>
 
 
 
