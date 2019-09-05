@@ -9,6 +9,7 @@ import PROFILE from './settings/agencyProfile/testinomials'
 import PERSONALCLIENT from './settings/clientProfile/personal'
 import COMPANYCLIENT from './settings/clientProfile/company'
 import PASSWORDCLIENT from './settings/clientProfile/password'
+import REFFERAL from './settings/agencyProfile/referal'
 
 import FileUpload from './../pages/governanace/contractComponents/FileUpload'
 
@@ -27,7 +28,8 @@ class Settings extends Component {
           {"id":"3","name":"Operations"},
           {"id":"4","name":"Password"},
           {"id":"5","name":"Bank"},
-          {"id":"6","name":"Profile"}
+          {"id":"6","name":"Profile"},
+          {"id":"7","name":"Referal"}
         ],
         TotalPageClient: [
           {"id":"1","name":"Personal"},
@@ -120,6 +122,9 @@ class Settings extends Component {
       }
       if(CurrentPageKey == 6 ){ 
         activePage = <PROFILE />
+      }
+      if(CurrentPageKey == 7 ){ 
+        activePage = <REFFERAL />
       }
     }else if(this.state.selectedType == 'Client'){
         if(CurrentPageKey == 1){

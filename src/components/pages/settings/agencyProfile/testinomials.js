@@ -63,7 +63,12 @@ class DatatablePage extends Component{
       paginationmanagePortfolio:[],
       finalmanagePortfolio:[{id:0}],
 
-      itemId:1,
+      unsortMT:false,
+      unsortMP:false,
+      unsortMTS:false,
+      itemIdMT:1,
+      itemIdMTS:1,
+      itemIdMP:1,
       data:{
         columns: [
           {
@@ -286,6 +291,7 @@ class DatatablePage extends Component{
      this.managePortfolio()
    }
    manageTest =()=>{
+    this.setState({paginationdummymanageTest: []})
     var lengthForinvitedDataPagination = this.state.manageTestData.length/3;
         var arraysinvited = [];
         lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
@@ -303,6 +309,7 @@ class DatatablePage extends Component{
         this.setState({paginationmanageTest: this.state.paginationdummymanageTest,finalmanageTest:arraysinvited})
     }
     manageTestinomial =()=>{
+      
       var lengthForinvitedDataPagination = this.state.manageTestinomialData.length/3;
           var arraysinvited = [];
           lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
@@ -320,6 +327,7 @@ class DatatablePage extends Component{
           this.setState({paginationmanageTestinomial: this.state.paginationdummymanageTestinomial,finalmanageTestinomial:arraysinvited})
       }
       managePortfolio =()=>{
+        this.setState({paginationdummymanagePorfolio: []})
         var lengthForinvitedDataPagination = this.state.managePortfolioData.length/3;
             var arraysinvited = [];
             lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
@@ -338,51 +346,110 @@ class DatatablePage extends Component{
         }
     changePage =(id,key)=>{
       console.log(id,key,'chekeddd')
-      
-           this.setState({itemId:id},()=>{ 
+     if(key== 'manageTest' && id <= Math.ceil(this.state.manageTestData.length/3) && id > 0 ){
+      this.setState({itemIdMT:id},()=>{
+        console.log(this.state.itemIdMT,'itemIdMT')
            var count =0;
            var arr = [];
-           for(var i=0; i< this.state.itemId ;i++)
-           {
-               arr = [];
+           for(var i=0; i< this.state.itemIdMT ;i++)
+           {  arr = [];
                for(var j=count ;j<count+3 ;j++)
                {  
-                   if(key== 'manageTest'){ 
-                    $("#row1").fadeOut();
+                    this.setState({unsortMT: false}) 
+                    // $("#row1").fadeOut();
                        if(this.state.manageTestData[j] != undefined){arr.push(this.state.manageTestData[j])}
-                   }  
-                   if(key== 'manageTestinomial'){ 
-                    $("#row2").fadeOut(1000);
-                       if(this.state.manageTestinomialData[j] != undefined){arr.push(this.state.manageTestinomialData[j])}
-                   }
-                   if(key== 'managePortfolio'){ 
-                    $("#row3").fadeOut(1000);
-                       if(this.state.managePortfolioData[j] != undefined){arr.push(this.state.managePortfolioData[j])}
-                   }
-               }
+                }
                count = count+3;
            }
-           if(key== 'manageTest'){this.setState({finalmanageTest:arr},()=>{$("#row1").fadeIn(1000);})}
-           if(key== 'manageTestinomial'){this.setState({finalmanageTestinomial:arr},()=>{$("#row2").fadeIn(1000);})}
-           if(key== 'managePortfolio'){this.setState({finalmanagePortfolio:arr},()=>{$("#row3").fadeIn(1000);})}
-           })
+          this.setState({finalmanageTest:arr})
+         })}
+
+         if(key== 'manageTestinomial' && id <= Math.ceil(this.state.manageTestinomialData.length/3) && id > 0){
+          this.setState({itemIdMTS:id},()=>{
+            console.log(this.state.itemIdMTS,'itemIdMT')
+               var count =0;
+               var arr = [];
+               for(var i=0; i< this.state.itemIdMTS ;i++)
+               {
+                   arr = [];
+                   for(var j=count ;j<count+3 ;j++)
+                   {  
+                      
+                       this.setState({unsortMTS: false})
+                        // $("#row2").fadeOut(1000);
+                           if(this.state.manageTestinomialData[j] != undefined){arr.push(this.state.manageTestinomialData[j])}
+                   }
+                   count = count+3;
+               }
+               this.setState({finalmanageTestinomial:arr})
+               })}
+
+               if(key== 'managePortfolio' && id <= Math.ceil(this.state.managePortfolioData.length/3) && id > 0){
+              this.setState({itemIdMP:id},()=>{
+                console.log(this.state.itemIdMP,'itemIdMT')
+                   var count =0;
+                   var arr = [];
+                   for(var i=0; i< this.state.itemIdMP ;i++)
+                   {
+                       arr = [];
+                       for(var j=count ;j<count+3 ;j++)
+                       {  
+                          this.setState({unsortMP: false}) 
+                            // $("#row3").fadeOut(1000);
+                               if(this.state.managePortfolioData[j] != undefined){arr.push(this.state.managePortfolioData[j])}
+                      }
+                       
+                       count = count+3;
+                   }
+                  this.setState({finalmanagePortfolio:arr})
+                  })}
    }
    sorting =(key)=>{
      console.log(key,'keyss')
     if(key == 'manageTest'){
+      $("#row1").fadeOut(1000);
+      this.setState({unsortMT: true})
     sortedList=  this.state.finalmanageTest.sort((a, b) => {
         return (a.clientName > b.clientName ?1 : -1);
-    });this.setState({finalmanageTest:sortedList})}  
+    }); $("#row1").fadeIn(1000);this.setState({finalmanageTest:sortedList})}  
+    else if(key== 'manageTestUnsort'){
+      $("#row1").fadeOut(1000);
+      this.setState({unsortMT: false})
+      sortedList=  this.state.finalmanageTest.sort((a, b) => {
+        return (  b.clientName - a.clientName ? 1 : -1);
+    }); $("#row1").fadeIn(1000);this.setState({finalmanageTest:sortedList})
+    }
 
     if(key == 'manageTestinomial'){
+      $("#row2").fadeOut(1000);
+        this.setState({unsortMTS: true})
         sortedList=  this.state.finalmanageTestinomial.sort((a, b) => {
             return (a.clientName > b.clientName ?1 : -1);
-        });this.setState({finalmanageTestinomial:sortedList})} 
+        });$("#row2").fadeIn(1000);this.setState({finalmanageTestinomial:sortedList})}
+        else if(key== 'unsortmanageTestinomial'){
+          $("#row2").fadeOut(1000);
+          this.setState({unsortMTS: false})
+          sortedList=  this.state.finalmanageTestinomial.sort((a, b) => {
+            return (  b.clientName - a.clientName ? 1 : -1);
+        });
+        $("#row2").fadeIn(1000);
+        this.setState({finalmanageTestinomial:sortedList})
+        }
+         
         
     if(key == 'managePortfolio'){
+      $("#row3").fadeOut(1000);
+        this.setState({unsortMP: true})
         sortedList=  this.state.finalmanagePortfolio.sort((a, b) => {
             return (a.title > b.title ?1 : -1);
-        });this.setState({finalmanagePortfolio:sortedList})} 
+        }); $("#row3").fadeIn(1000);this.setState({finalmanagePortfolio:sortedList})}
+        else if(key == 'unsortmanagePortfolio'){
+          $("#row3").fadeOut(1000);
+          this.setState({unsortMP: false})
+          sortedList=  this.state.finalmanagePortfolio.sort((a, b) => {
+            return (b.title - a.title ?1 : -1);
+        }); $("#row3").fadeIn(1000);this.setState({finalmanagePortfolio:sortedList})
+        } 
     }
   changeStatesForPopups =(key)=>{
     if(key == 'testinomials'){this.setState({addTestinomial:true})} 
@@ -396,41 +463,51 @@ class DatatablePage extends Component{
     const {clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}= this.state
     var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}
     this.setState({countId:this.state.countId+1,tests:false})
-    var addChild ={
-      id:this.state.countId,
-      manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
-      clientName: this.state.clientName,
-      clientEmail: this.state.clientEmail,
-      test: 'test5',
-      clientComapny:this.state.clientCompany,
-      testinomialPosted:'yes',
-      date: '2011/04/25',
+   var testData= {id:this.state.manageTestData.length+1,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'}
+      
+    // var addChild ={
+    //   id:this.state.countId,
+    //   manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
+    //   clientName: this.state.clientName,
+    //   clientEmail: this.state.clientEmail,
+    //   test: 'test5',
+    //   clientComapny:this.state.clientCompany,
+    //   testinomialPosted:'yes',
+    //   date: '2011/04/25',
      
-    }
-    this.setState({ data:{columns:[...this.state.data['columns']], rows:[...this.state.data['rows'], addChild] }})
+    // }
+    // this.setState({ data:{columns:[...this.state.data['columns']], rows:[...this.state.data['rows'], addChild] }})
+    this.setState({manageTestData:[...this.state.manageTestData,testData],itemIdMT:1},()=>{
+      this.manageTest() 
+    console.log(this.state.manageTestData,'tests')
+    })
     var values ={
       test:this.state.test,
       result:this.state.result
     }
-    console.log(values,'tests')
   }
 
   addTestinomial=()=>{
     const {clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}= this.state
     var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}
     this.setState({countId:this.state.countId+1,addTestinomial:false})
-    var addChild ={
-      id:this.state.countId,
-      manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
-      clientName: this.state.clientName,
-      clientEmail: this.state.clientEmail,
-      test: 'test5',
-      clientComapny:this.state.clientCompany,
-      testinomialPosted:'yes',
-      date: '2011/04/25',
+    // var addChild ={
+    //   id:this.state.countId,
+    //   manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
+    //   clientName: this.state.clientName,
+    //   clientEmail: this.state.clientEmail,
+    //   test: 'test5',
+    //   clientComapny:this.state.clientCompany,
+    //   testinomialPosted:'yes',
+    //   date: '2011/04/25',
      
-    }
-    this.setState({ manageData:{ rows:[...this.state.manageData['rows'], addChild] }})
+    // }
+    // this.setState({ manageData:{ rows:[...this.state.manageData['rows'], addChild] }})
+    var addValues =   {id:this.state.manageTestinomialData.length+1,clientName:'newly Added',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'}
+    this.setState({manageTestinomialData:[...this.state.manageTestinomialData,addValues],itemIdMTS:1,paginationdummymanageTestinomial:[]},()=>{
+     this.manageTestinomial();
+    })
+   
     console.log(clientalues,'testinomialAdde')
   }
 
@@ -453,19 +530,42 @@ class DatatablePage extends Component{
     const {clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}= this.state
     var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}
     this.setState({countId:this.state.countId+1,portfolio:false})
-    var addChild ={
-      id:this.state.countId,
-      manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
-      clientName: this.state.clientName,
-      clientEmail: this.state.clientEmail,
-      test: 'test5',
-      clientComapny:this.state.clientCompany,
-      testinomialPosted:'yes',
-      date: '2011/04/25',
+    // var addChild ={
+    //   id:this.state.countId,
+    //   manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
+    //   clientName: this.state.clientName,
+    //   clientEmail: this.state.clientEmail,
+    //   test: 'test5',
+    //   clientComapny:this.state.clientCompany,
+    //   testinomialPosted:'yes',
+    //   date: '2011/04/25',
      
-    }
-    this.setState({ portfolio:{ rows:[...this.state.portfolio['rows'], addChild] }})
+    // }
+    // this.setState({ portfolio:{ rows:[...this.state.portfolio['rows'], addChild] }})
+    var addValue = {id:this.state.managePortfolioData.length+1,title:'mbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'}
+   
+    this.setState({managePortfolioData:[...this.state.managePortfolioData,addValue],itemIdMP:1},()=>{
+      this.managePortfolio() 
+    console.log(this.state.managePortfolioData,'managePortfolioData')
+    })
+  
     console.log(clientalues,'testinomialAdde')
+  }
+
+  selectedRequest=(id,key)=>{
+    if(key=="manageTest")
+    {
+      console.log('ids',id)
+
+    }
+    if(key=="manageTestinomials")
+    {
+      console.log('ids',id)
+    }
+    if(key=="managePortfolio")
+    {
+      console.log('ids',id)
+    }
   }
 
   handleChange = (e) => {
@@ -784,7 +884,7 @@ class DatatablePage extends Component{
 
        <div className="manage_header">
           <div className="col_1"> Manage Test</div>
-          <div className="col_2"> Clients Name   <div className="sorting" onClick={()=>this.sorting('manageTest')}><p>&#8593;</p></div> </div>
+          <div className="col_2"> Clients Name  <div className={this.state.unsortMT ?"unsorting" :'sorting'}  onClick={this.state.unsortMT ?  ()=>this.sorting('manageTestUnsort'):()=>this.sorting('manageTest')}><p>&#8593;</p></div> </div>
           <div className="col_3">Clients Name </div>
           <div className="col_4">Test </div>
           <div className="col_5"> Clients Company </div>
@@ -800,7 +900,7 @@ class DatatablePage extends Component{
         {this.state.finalmanageTest.map((item,index)=>
             {return <div class="Added_box">
           <div class="Added_box_numer" > {item.id} </div>
-          <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+          <div className="col_1"> <label class="fancy-checkbox" onClick={()=>this.selectedRequest(item.id,'manageTest')}><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
           <div className="col_2"> {item.clientName}  </div>
           <div className="col_3"> {item.clientEmail} </div>
           <div className="col_4">{item.test}</div>
@@ -820,9 +920,9 @@ class DatatablePage extends Component{
         </div>
 
         <div class="manage_pagenation">
-         {this.state.manageTestData[3] != undefined ? <div class="pagenation_left"><div class="go-icon"></div></div>:''}
+         {this.state.manageTestData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMT-1,'manageTest')}><div class="go-icon"></div></div>:''}
           {this.state.paginationmanageTest.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTest')}>{item}</div>)}
-          {this.state.manageTestData[3] != undefined?<div class="pagenation_right"><div class="go-icon"></div></div>:''}
+          {this.state.manageTestData[3] != undefined?<div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMT+1,'manageTest')}><div class="go-icon"></div></div>:''}
         </div>
         </div>
 
@@ -830,7 +930,7 @@ class DatatablePage extends Component{
 
           <div className="manage_header">
             <div className="col_1"> Manage Testinomials</div>
-            <div className="col_2"> Clients Name   <div className="sorting" onClick={()=>this.sorting('manageTestinomial')}><p>&#8593;</p></div> </div>
+            <div className="col_2"> Clients Name   <div className={this.state.unsortMTS? "unsorting":'sorting'} onClick={this.state.unsortMTS?()=>this.sorting('unsortmanageTestinomial'):()=>this.sorting('manageTestinomial')}><p>&#8593;</p></div> </div>
             <div className="col_3">Clients Name </div>
             <div className="col_4">Test </div>
             <div className="col_5"> Clients Company </div>
@@ -846,7 +946,7 @@ class DatatablePage extends Component{
           {this.state.finalmanageTestinomial.map((item,index)=>
               {return <div class="Added_box" >
             <div class="Added_box_numer"> {item.id} </div>
-            <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+            <div className="col_1"> <label class="fancy-checkbox" onClick={()=>this.selectedRequest(item.id,'manageTestinomials')}><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
             <div className="col_2"> {item.clientName}  </div>
             <div className="col_3"> {item.clientEmail} </div>
             <div className="col_4">{item.test}</div>
@@ -866,9 +966,9 @@ class DatatablePage extends Component{
           </div>
 
           <div class="manage_pagenation">
-            <div class="pagenation_left"><div class="go-icon"></div></div>
+          {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMTS-1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
             {this.state.paginationdummymanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')}>{item}</div>)}
-            <div class="pagenation_right"><div class="go-icon"></div></div>
+            {this.state.manageTestinomialData[3] != undefined ?  <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMTS+1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
           </div>
           </div> 
 
@@ -878,7 +978,7 @@ class DatatablePage extends Component{
 
                   <div className="manage_header">
                     <div className="col_1"> Manage Portfoilio</div>
-                    <div className="col_2"> Title  <div className="sorting" onClick={()=>this.sorting('managePortfolio')}><p>&#8593;</p></div> </div>
+                    <div className="col_2"> Title  <div className={this.state.unsortMP?"unsorting":"sorting" } onClick={this.state.unsortMP?()=>this.sorting('unsortmanagePortfolio') :()=>this.sorting('managePortfolio')}><p>&#8593;</p></div> </div>
                     <div className="col_3">Type </div>
                     <div className="col_4">Category </div>
                     <div className="col_5"> Link</div>
@@ -894,7 +994,7 @@ class DatatablePage extends Component{
                   {this.state.finalmanagePortfolio.map((item,index)=>
                       {return <div class="Added_box" >
                     <div class="Added_box_numer"> {item.id} </div>
-                    <div className="col_1"> <label class="fancy-checkbox"><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+                    <div className="col_1"> <label class="fancy-checkbox" onClick={()=>this.selectedRequest(item.id,'managePortfolio')}><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
                     <div className="col_2"> {item.title}  </div>
                     <div className="col_3"> {item.type} </div>
                     <div className="col_4">{item.category}</div>
@@ -913,9 +1013,9 @@ class DatatablePage extends Component{
                   </div>
 
                   <div class="manage_pagenation">
-                    <div class="pagenation_left"><div class="go-icon"></div></div>
+                  {this.state.manageTestinomialData[3] != undefined ?  <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMP-1,'managePortfolio')}><div class="go-icon"></div></div>:''}
                     {this.state.paginationmanagePortfolio.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'managePortfolio')}>{item}</div>)}
-                    <div class="pagenation_right"><div class="go-icon"></div></div>
+                    {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMP+1,'managePortfolio')} ><div class="go-icon"></div></div>:''}
                   </div>
                   </div> 
 
