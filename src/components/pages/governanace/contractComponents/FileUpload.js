@@ -3,13 +3,18 @@ import Dropzone from 'react-dropzone';
 // import files from '../../../../assets/img/dragCloud.png';
 
 var arr = [];
+
+const CLOUDINARY_UPLOAD_PRESET = '1';
+const CLOUDINARY_UPLOAD_URL = './assets/img';
+
 class FileUpload extends Component
 {
     constructor(props)
     {
         super(props);
         this.state={
-            arrayList:[]
+            arrayList:[],
+            uploadedFileCloudinaryUrl: ''
         }
     }
     formatBytes = (bytes,decimals)=> {
@@ -46,7 +51,10 @@ class FileUpload extends Component
         {
             console.log('rejected ',rejected)
         }
-    }
+        
+
+      }    
+    
     render()
     {
         

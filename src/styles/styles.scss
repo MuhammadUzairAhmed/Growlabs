@@ -4060,4 +4060,9 @@ h2.no-span:before, h2.no-span:after {
     box-shadow: none;
 }
 
-
+.explorerIframe, .collaborationIframe {
+  width: 100%;
+  height: calc(100vh - 190px);
+  overflow: hidden;
+  border: none;
+}

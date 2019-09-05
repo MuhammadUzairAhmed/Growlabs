@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import { currentChatId } from '../../actions/fuelSavingsActions';
 import TDataPicker from './governanace/contractComponents/TdatePicker';
 import RangeSlider from './governanace/contractComponents/RangeSlider';
+import PERSONAL from './settings/agencyProfile/personal';
 import FileUpload from './governanace/contractComponents/FileUpload';
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -23,6 +24,11 @@ class Projects extends Component {
             dataTrue:false,
             unmatch:{'status':false},
             changeVersion:false,
+            versions:[],
+            userData: { pass:'',confirm:''},
+            currentVersion:0,
+            finalizedAccount:false,
+            activeAddition:false
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -31,10 +37,10 @@ class Projects extends Component {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(data => this.setState({formData: data, showdata:true}));
+          .then(datas => this.setState({formData: datas, showdata:true,versions: datas,}));
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/review.json")
           .then(res => res.json())
-          .then(data => this.setState({matches: data, dataTrue:true}));
+          .then(datas => this.setState({matches: datas, dataTrue:true}));
     }
     handleInput =(x)=>
     {
@@ -143,15 +149,20 @@ class Projects extends Component {
         })
         this.props.currentState(id)
         if(this.state.data[id]){
-
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
+              .then(res => res.json())
+              .then(datas => this.setState({data: {...this.state.data, [id]: datas},changeVersion:false}));
         }else{
             if(this.state.data[id] != this.state.currentAgency){
                 const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
                   .then(res => res.json())
-                  .then(data => this.setState({data: {...this.state.data, [id]: data}}));
+                  .then(datas => this.setState({data: {...this.state.data, [id]: datas},changeVersion:false}));
+                //this.setState({data: {...this.state.data, [id]:  this.state.formData}})
             }
         }
+        console.log(this.state)
      
     }
     deleteUnmatchDataFun(id){
@@ -191,14 +202,63 @@ class Projects extends Component {
         })
     }
     changeVersion(){
-       this.setState({
-            changeVersion:true
-       })
+        this.setState({
+            changeVersion:true,
+        })
+        console.log(this.state.formData)
+        this.setState({
+            versions : this.state.data[this.state.currentAgency]
+        })
     }
+    getVersionData(i){
+
+        this.setState({
+            changeVersion:false,
+        })
+        
+    }
+    updateVersionData(data){
+        this.setState({
+            versions : data
+        })
+        console.log(this.state)
+  
+        // console.log(this.state)
+        // this.setState({
+        //     currentVersion:[x],
+        //         data : {
+        //             ...this.state.data,
+        //             [this.state.currentAgency]:value
+        //         }
+        //     })
+        //     console.log(x)
+        //     console.log(this.state)
+        //  console.log(this.state)   
+    }
+    handleChange = (e) => {
+        this.setState({
+            userData:{ ...this.state.userData, [e.target.name]: e.target.value}
+        })
+        console.log(this.state.userData)
+     }
+     handleSave =(e)=>
+     {
+        this.setState({
+            activeAddition:true,
+            finalizedAccount:true
+        })
+     }
+     activeAd(){
+        this.setState({
+            activeAddition:false
+        })
+     }
      render(){
         const listItems = [];
 
         if(this.state.showdata == true){
+          
+
          return (
              <section className="dial_page">
                  {this.state.unmatch.status? <Unmatch closePopup={this.closePopup.bind(this)} id={this.state.currentAgency} deleteUnmatchData={this.getMatchesDelete.bind(this)}/>:''}
@@ -225,24 +285,51 @@ class Projects extends Component {
                    
                     </div>
                     <div className="dp_maches_button">
-                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Save Changes<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Accept Agreement<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
+                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.getVersionData(this.state.data[this.state.currentAgency])}>Send updated proposal to [agemcy]<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Partner up with [agency]<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
                     </div>
                 </div>
                 <div className="version_tabs">
                     <ul class="ui-tabs-nav">
-                        <li class={this.state.changeVersion == false ? 'active' : ''}><a>Version 1</a></li>
+                        <li class={this.state.changeVersion ? '':'active'} onClick={()=>this.updateVersionData(this.state.formData,this.setState({changeVersion:false}))}><a>Version 1</a></li>  
+                       <li class={this.state.changeVersion ? 'active':''} onClick={()=>this.updateVersionData(this.state.data[this.state.currentAgency],this.setState({changeVersion:true}))}><a>Version 2</a></li>
                     </ul>
                 </div>
+                        
+                {
+                this.state.finalizedAccount == false ? 
+                <div className="modal Finalize">
+                    <h1>Finalize Account</h1>
+                     <div className="feild Finalize">
+                        <label>PASSWORD</label>
+                        <img src="./assets/img/lock.png" class="lock"/>
+                        <input onChange={this.handleChange} type="text" name="pass" value={this.state.userData.pass} placeholder="" />
+                        <img src="./assets/img/eyes.png" class="eyes"/>
+                    </div>
+                    <div className="feild Finalize">
+                        <label>CONFIRM</label>
+                        <img src="./assets/img/lock.png" class="lock"/>
+                        <input onChange={this.handleChange} type="text" name="confirm" value={this.state.userData.confirm} placeholder="" />
+                    </div>
+                     {this.state.userData.pass != '' && this.state.userData.pass  == this.state.userData.confirm && this.state.userData.confirm != '' ? <button className="account_but" color="primary" onClick={this.handleSave}>FINISH ACCOUNT</button>:''}
+                    
+                </div>
+                :''}
+                {this.state.activeAddition ? 
+                    <div className="modal Personal">
+                        <button class="cancel_but" color="primary" onClick={this.activeAd.bind(this)}>x</button>
+                        <PERSONAL projectType='additionalInformationPopup'  activeAdditional={this.activeAd.bind(this)} /> 
+                    </div>   
+                    :''
 
-
-                 <section className="multi_step_form" onChange={this.changeVersion.bind(this)}>
+                }
+                 <section className="multi_step_form" onChange={()=>this.changeVersion(1)}>
 
                     {this.state.data[this.state.currentAgency] ? 
                     <div className="content_form">
                     
                         <fieldset>
                             <h2 className="Profieldset_hea">TIMELINE</h2>
-                            <TDataPicker timelineStart={this.state.formData.timelineStart} timelineEnd={this.state.formData.timelineEnd} onChange={(e)=>this.changeDate(e)}/>
+                            <TDataPicker timelineStart={this.state.versions.timelineStart} timelineEnd={this.state.versions.timelineEnd} onChange={(e)=>this.changeDate(e)}/>
                         </fieldset>
                         <fieldset>
                             <h3>Budget</h3>
@@ -250,7 +337,7 @@ class Projects extends Component {
                                 <div className="price-slider">
                                     <div id="slider"></div>
                                     <div className="ps-slide-col">
-                                        <RangeSlider range={this.state.formData.budget} changeRangeData={this.changeBudget.bind(this)} />
+                                        <RangeSlider range={this.state.versions.budget} changeRangeData={this.changeBudget.bind(this)} />
                                     </div>
                                 </div>
                             </div>
@@ -259,10 +346,11 @@ class Projects extends Component {
                             <h3>Features</h3>
                             <div className="form-row">
                                 <div className="box">
-                                    {this.state.data[this.state.currentAgency].features.map((items,index)=> 
-                                    <label className={this.state.data[this.state.currentAgency].features[index].status == true ? "box-label check":"box-label "}  id={index} key={index} onChange={()=>this.handleClick(index,'features')}>
+                                    
+                                    {this.state.versions.features.map((items,index)=> 
+                                    <label className={this.state.versions.features[index].status == true ? "box-label check":"box-label "}  id={index} key={index} onChange={()=>this.handleClick(index,'features')}>
                                         <div className="box-title"><span>{items.name}</span></div>
-                                        <input type="checkbox" name="features" value={items.name} className="hidden" checked={this.state.data[this.state.currentAgency].features[index].status == true ? "checked":""} />
+                                        <input type="checkbox" name="features" value={items.name} className="hidden" checked={this.state.versions.features[index].status == true ? "checked":""} />
                                         <i className="check"></i>
                                     </label>
                                     )}
