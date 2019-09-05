@@ -1287,3 +1287,7 @@ a.button.save {
 .content_pricing .button {
     text-align: center;
 }
+.project .Referal_top {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+}

@@ -161,7 +161,7 @@
 .manage_header .col_1 {
     float: left;
     width: 15%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     opacity: 0.6;
     color: #fff;
@@ -442,7 +442,7 @@
     height: 20px;
     float: right;
     margin-right: 28px;
-    margin-top: 3px;
+    margin-top: 1px;
     position: relative;
     border-radius: 1px;
 }
@@ -455,4 +455,162 @@
     position: relative;
     top: -2px;
 }
+.unsorting {
+    background: #7f8488;
+    width: 18px;
+    height: 20px;
+    float: right;
+    margin-right: 28px;
+    margin-top: 1px;
+    position: relative;
+    border-radius: 1px;
+}
+.unsorting p {
+    margin: 0px;
+    text-align: center;
+    color: #fff;
+    opacity: 1;
+    z-index: 9999999999;
+    position: relative;
+    top: 2px;
+    transform: rotate(177deg);
+}
+.modal.Testinomials {
+    position: fixed;
+    top: 56%;
+}
+
+.modal.Invite {
+    position: fixed;
+    top: 53%;
+}
+
+.modal.Test {}
+
+.Referal_top {
+    background: #2b323a;
+    border: 1px solid #ffffff21;
+    height: 250px;
+    padding: 30px 30px;
+    margin-bottom: 41px;
+    margin-left: 29px;
+}
+
+.Referal_top button.one {
+    background: #ccc;
+    border: 0;
+    float: right;
+    color: #fff;
+    line-height: 0px;
+    padding: 8px 35px;
+    border-radius: 100px;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+.Referal_top button.one img {
+    width: 15px;
+    margin-right: 4px;
+    float: left;
+    position: relative;
+    top: 2px;
+}
+
+.Referal_top button.one p {
+    float: left;
+    margin: 10px 0px;
+}
+
+.Referal_top input[type="text"] {
+    display: table;
+    margin: 0 auto;
+    position: relative;
+    top: 92px;
+    width: 51%;
+    background: #ccc;
+    border: 0px;
+    padding: 21px 21px;
+}
+
+
+.Settings_profiles .Button_sec {
+    display: table;
+    margin: 0 auto;
+    width: 25%;
+}
+.Settings_profiles .Button_sec button.secd_button:hover {
+    background-color: #a0a0a0;
+}
+
+.Settings_profiles .Button_sec button.secd_button {
+    width: 82%;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 12px 0px;
+    border-radius: 100px;
+}
+.Settings_profiles .Button_sec button {
+    border-radius: 3px;
+    background-color: #cacaca;
+    width: 50%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 23px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.Settings_profiles .Button_sec p {
+    opacity: 0.5;
+    color: #cacaca;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    text-align: center;
+    cursor: pointer;
+}
+.Settings_profiles .Button_sec .save_button {
+    float: none;
+    margin-top: 0px;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 16px;
+}
+.Settings_profiles .save_button .slider:before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    left: 3px;
+    bottom: 2px;
+    background-color: #1e262e;
+    transition: .4s;
+}
+.price button {
+    position: absolute;
+    width: 100%;
+    background: none;
+    border: 1px solid #828282;
+    padding: 18px 0px;
+    border-radius: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    bottom: -90px;
+    left: 0;
+    right: 0;
+}
+
+.price.active button {
+    background: #e1e1e1;
+}
+.subscriptionforms .price {
+    height: 574px;
+}
+
+
 /*===================== Settings Profiles page ===========================*/
