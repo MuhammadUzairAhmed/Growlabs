@@ -19,9 +19,20 @@ class Operations extends Component
             noOfProdManagers:'',
             teamDynamics:'',
             noOfOthMembers:'',
+            delayFor:true,
+            active:false
             
         }
     }
+    componentWillReceiveProps(nextprops)
+    {
+       fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_operations")
+       .then(res => res)
+       .then(data =>
+          console.log(data,'xyz')
+       );
+    }
+
     handleChange = (e) => {
         this.setState({
            [e.target.name]: e.target.value
@@ -52,8 +63,42 @@ class Operations extends Component
             noOfOthMembers: this.state.noOfOthMembers
            
         }
+        this.falseData()
+        setTimeout(
+           function(){this.getData(values)}.bind(this)
+        ,15000)
+
 console.log(values,'operations')
       
+     }
+     stopPostData(){
+      this.setState({
+         delayFor:false,
+         active:false
+        })
+     }
+     falseData(){
+        this.setState({
+         delayFor:true,
+         active:true
+        })
+     }
+
+     getData(values){
+      if(this.state.delayFor){
+            fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_operations', {
+               method: 'post',
+               body: JSON.stringify(values)
+            }).then((response) => {
+               console.log(response,"resData")
+               return response.json();
+            }).then((data)=> {
+               console.log('Created List:', data);
+               //alert('as')
+            });
+         
+            
+         }
      }
     render()
 
@@ -61,12 +106,18 @@ console.log(values,'operations')
     return(
         <section class="">
 
-
+            <div className="save_button">
+                  <button className="one" onClick={this.stopPostData.bind(this)}>Cancel</button> 
+                  <label class={this.state.active?'active switch':'switch'}>
+                  <input type="checkbox" checked={this.state.active?'checked':''}/>
+                        <span class="slider round">Save Chages</span>
+                  </label>
+            </div>
 
 
       
         
-       <div className="personal_main oprations">
+       <div className="personal_main oprations"  onBlur={this.handleSave}>
            {/*1st column*/}
      <div className="first_row">
            <div className="feild dropdown">
@@ -267,7 +318,7 @@ console.log(values,'operations')
             </div>
             
             <div className="Button_sec">
-               <button color="primary" onClick={this.handleSave}>Request Approval</button>
+               <button color="primary">Request Approval</button>
                <button className="secd_button">Add google Authenticator</button>
              <p>Request Account Removal</p>
                </div>

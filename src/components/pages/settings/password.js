@@ -30,8 +30,10 @@ class Bank extends Component
             confirmPass:this.state.confirmPass,
             
         }
-console.log(values,'pass')
-this.props.getData(values)
+        this.props.buttonActive()
+        setTimeout(
+            function(){this.props.getData(values)}.bind(this)
+        ,15000)
       
      }
     render()
@@ -40,7 +42,7 @@ this.props.getData(values)
     return(
         <section class="">
 
-       <div className="personal_main">
+       <div className="personal_main" onBlur={this.handleSave}>
            {/*2nd column*/}
                 <div className="password_sec">
            <div className="feild">
@@ -63,13 +65,13 @@ this.props.getData(values)
             </div>
     
 {this.state.nexPass != '' && this.state.nexPass  == this.state.confirmPass && this.state.confirmPass != ''?
-            <button color="primary" onClick={this.handleSave}>Request Approval</button>
+            <button color="primary">Request Approval</button>
 :''}            </div>
             
 
 
             <div className="Button_sec">
-               <button color="primary" onClick={this.handleSave}>Request Approval</button>
+               <button color="primary">Request Approval</button>
                <button className="secd_button">Add google Authenticator</button>
              <p>Request Account Removal</p>
                </div>
