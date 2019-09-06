@@ -89,7 +89,7 @@ class Chatbot extends Component {
 
     }else{
         
-        return (<StartChat dataID={this.props.currentChatID ? this.props.currentChatID:'1'} userDetails={this.props.users.id ?  this.props.users.id :'1' }  />)
+        return (<StartChat dataID={this.props.currentChatID ? this.props.currentChatID:'0'} userDetails={this.props.users.id ?  this.props.users.id :'0' }  />)
     }
 
     }

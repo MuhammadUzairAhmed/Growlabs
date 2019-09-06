@@ -183,13 +183,6 @@ class Settings extends Component {
          {this.state.selectedType == 'Agency' ||  this.state.selectedType == 'Client' ?  
             <div> 
               <h1 className="settings_hea">Settings</h1>
-              <div className="save_button">
-                <button className="one" onClick={this.stopPostData}>Cancel</button> 
-                <label class="switch">
-                  <input type="checkbox" />
-                  <span class="slider round">Save Chages</span>
-                </label>
-              </div>
             </div>  
             :''}
           <ul className="ui-tabs-nav">

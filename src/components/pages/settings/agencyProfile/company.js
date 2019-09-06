@@ -18,9 +18,20 @@ class Company extends Component
             gitUser:'',
             banner:'',
             video:'',
-            videoLink:''
+            videoLink:'',
+            delayFor:true,
+            active:false
         }
     }
+    componentWillReceiveProps(nextprops)
+    {
+       fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_company")
+       .then(res => res)
+       .then(data =>
+          console.log(data,'xyz')
+       );
+    }
+
     handleChange = (e) => {
         this.setState({
            [e.target.name]: e.target.value
@@ -51,16 +62,58 @@ class Company extends Component
             video:this.state.video,
             videoLink:this.state.videoLink
         }
+        
+        
+        this.falseData()
+        setTimeout(
+           function(){this.getData(values)}.bind(this)
+        ,15000)
+
         console.log(values,"companyAgenceProfile")  
       
+     }
+     stopPostData(){
+      this.setState({
+         delayFor:false,
+         active:false
+        })
+     }
+     falseData(){
+        this.setState({
+         delayFor:true,
+         active:true
+        })
+     }
+
+     getData(values){
+      if(this.state.delayFor){
+            fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_company', {
+               method: 'post',
+               body: JSON.stringify(values)
+            }).then((response) => {
+               console.log(response,"resData")
+               return response.json();
+            }).then((data)=> {
+               console.log('Created List:', data);
+               //alert('as')
+            });
+         
+            
+         }
      }
     render()
 
 {
     return(
         <section class="">
-
-       <div className="personal_main company">
+            <div className="save_button">
+                  <button className="one" onClick={this.stopPostData.bind(this)}>Cancel</button> 
+                  <label class={this.state.active?'active switch':'switch'}>
+                  <input type="checkbox" checked={this.state.active?'checked':''}/>
+                        <span class="slider round">Save Chages</span>
+                  </label>
+            </div>
+       <div className="personal_main company" onBlur={this.handleSave}>
            {/*1st column*/}
           
 
@@ -169,7 +222,7 @@ class Company extends Component
 
 
             <div className="Button_sec ">
-               <button color="primary" onClick={this.handleSave}>Request Approval</button>
+               <button color="primary">Request Approval</button>
                 <p className="error">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
                <button className="secd_button">Add google Authenticator</button>
              <p>Request Account Removal</p>

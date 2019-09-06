@@ -20,6 +20,11 @@ class ProjectReview extends Component
                "status":"process",
                "event":"live",
                "score":"86",
+               "sprint":[
+                  {"id":"2","week":"4","status":""},
+                  {"id":"3","week":"6","status":"active"},
+                  {"id":"5","week":"8","status":""},
+               ],
                "labels":["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
                "fatchlist":["180", "180", "120", "160", "150", "130", "124", "170", "190", "128", "162", "160", "185", "110", "160", "170", "168", "140", "160", "130"]
             },
@@ -30,6 +35,11 @@ class ProjectReview extends Component
                "status":"process",
                "event":"live",
                "score":"86",
+               "sprint":[
+                  {"id":"2","week":"4","status":""},
+                  {"id":"3","week":"6","status":"active"},
+                  {"id":"5","week":"8","status":""},
+               ],
                "labels":["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
                "fatchlist":["180", "180", "120", "160", "150", "130", "124", "170", "190", "128", "162", "160", "185", "110", "160", "170", "168", "140", "160", "130"]
             }
@@ -86,17 +96,17 @@ class ProjectReview extends Component
                </div>
                <div className="project_sprints">
                   <div className="colleborate_top">
-                     {items.labels.map(data =>
-                        <div className={"colleborate_box "} key={data} onClick={() => this.selectSprintId(data)}>
-                        <h1>Sprint {data}</h1>
-                        <div className="colleborate_top_round" className={data}>
+                     {items.sprint.map((data,index) =>
+                        <div className={"colleborate_box "} key={index}>
+                        <h1>Sprint {data.id}</h1>
+                        <div className="colleborate_top_round" className={data.id}>
                            <span>
                               <label className="fancy-checkbox">
-                              <input type="checkbox" />
+                              <input type="checkbox" checked={data.status == 'active' ? 'checked':''} />
                               <span className="checkmark"></span> </label>
                            </span>
                         </div>
-                        <p>{data}</p>
+                        <p>W{data.week}</p>
                         </div>
                      )}
                   </div>
