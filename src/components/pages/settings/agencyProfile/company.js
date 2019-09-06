@@ -151,12 +151,13 @@ class Company extends Component
             <div className="feild upload">
                 <label>COMPANY BANNER PROFILE</label>
                 <FileUpload getInput={this.handleBanner} getInput1='banner' />
-                <p>{this.state.banner}</p>
+                <p class="Upload_text">Drag and Drop here</p>
+               
             </div>
             <div className="feild upload">
                 <label>COMPANY BANNER VIDEO</label>
                 <FileUpload getInput={this.handelVideo} getInput1='video' />
-                <p>{this.state.video}</p>
+                <p class="Upload_text">Drag and Drop here</p>
             </div>
             <div className="feild">
                 <label>COMPANY INTRODUCTION VIDEO LINK</label>

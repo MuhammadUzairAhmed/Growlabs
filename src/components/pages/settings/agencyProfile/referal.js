@@ -20,7 +20,7 @@ class DatatablePage extends Component{
         {id:10,clientName:'IGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
         {id:11,clientName:'LGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
         {id:12,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
-      
+
       ],
     manageTestinomialData:[
       {id:1,clientName:'Gbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
@@ -48,7 +48,7 @@ class DatatablePage extends Component{
     {id:7,title:'xbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
     {id:8,title:'bbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
     {id:9,title:'mbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'},
-    
+
 ],
       paginationdummymanageTest:[],
       paginationmanageTest:[],
@@ -84,7 +84,7 @@ class DatatablePage extends Component{
             width: 150
           },
           {
-            
+
             label: 'Client Name',
             field: 'Client Name',
             sort: 'asc',
@@ -125,7 +125,7 @@ class DatatablePage extends Component{
             clientCompany:'abc.com',
             testinomialPosted:'yes',
             date: '2011/04/25',
-           
+
           }
         ]
       },
@@ -144,7 +144,7 @@ class DatatablePage extends Component{
             width: 150
           },
           {
-            
+
             label: 'Client Name',
             field: 'Client Name',
             sort: 'asc',
@@ -191,7 +191,7 @@ class DatatablePage extends Component{
             clientCompany:'abc.com',
             testinomialPosted:'yes',
             date: '2011/04/25',
-           
+
           }
         ]
       },
@@ -210,7 +210,7 @@ class DatatablePage extends Component{
             width: 150
           },
           {
-            
+
             label: 'Client Name',
             field: 'Client Name',
             sort: 'asc',
@@ -257,7 +257,7 @@ class DatatablePage extends Component{
             clientCompany:'abc.com',
             testinomialPosted:'yes',
             date: '2011/04/25',
-           
+
           }
         ]
       },
@@ -284,7 +284,7 @@ class DatatablePage extends Component{
        result:''
       }
     }
-  
+
     componentDidMount(){
      this.manageTest()
      this.manageTestinomial()
@@ -309,7 +309,7 @@ class DatatablePage extends Component{
         this.setState({paginationmanageTest: this.state.paginationdummymanageTest,finalmanageTest:arraysinvited})
     }
     manageTestinomial =()=>{
-      
+
       var lengthForinvitedDataPagination = this.state.manageTestinomialData.length/3;
           var arraysinvited = [];
           lengthForinvitedDataPagination = Math.ceil(lengthForinvitedDataPagination);
@@ -318,7 +318,7 @@ class DatatablePage extends Component{
               this.state.paginationdummymanageTestinomial.push(i+1)
           }
           for(var j=0 ;j<3 ;j++)
-              {   
+              {
                   if(this.state.manageTestinomialData[j] != undefined)
                   {
                       arraysinvited.push(this.state.manageTestinomialData[j])
@@ -336,7 +336,7 @@ class DatatablePage extends Component{
                 this.state.paginationdummymanagePorfolio.push(i+1)
             }
             for(var j=0 ;j<3 ;j++)
-                {   
+                {
                     if(this.state.managePortfolioData[j] != undefined)
                     {
                         arraysinvited.push(this.state.managePortfolioData[j])
@@ -354,8 +354,8 @@ class DatatablePage extends Component{
            for(var i=0; i< this.state.itemIdMT ;i++)
            {  arr = [];
                for(var j=count ;j<count+3 ;j++)
-               {  
-                    this.setState({unsortMT: false}) 
+               {
+                    this.setState({unsortMT: false})
                     // $("#row1").fadeOut();
                        if(this.state.manageTestData[j] != undefined){arr.push(this.state.manageTestData[j])}
                 }
@@ -373,8 +373,8 @@ class DatatablePage extends Component{
                {
                    arr = [];
                    for(var j=count ;j<count+3 ;j++)
-                   {  
-                      
+                   {
+
                        this.setState({unsortMTS: false})
                         // $("#row2").fadeOut(1000);
                            if(this.state.manageTestinomialData[j] != undefined){arr.push(this.state.manageTestinomialData[j])}
@@ -393,12 +393,12 @@ class DatatablePage extends Component{
                    {
                        arr = [];
                        for(var j=count ;j<count+3 ;j++)
-                       {  
-                          this.setState({unsortMP: false}) 
+                       {
+                          this.setState({unsortMP: false})
                             // $("#row3").fadeOut(1000);
                                if(this.state.managePortfolioData[j] != undefined){arr.push(this.state.managePortfolioData[j])}
                       }
-                       
+
                        count = count+3;
                    }
                   this.setState({finalmanagePortfolio:arr})
@@ -411,7 +411,7 @@ class DatatablePage extends Component{
       this.setState({unsortMT: true})
     sortedList=  this.state.finalmanageTest.sort((a, b) => {
         return (a.clientName > b.clientName ?1 : -1);
-    }); $("#row1").fadeIn(1000);this.setState({finalmanageTest:sortedList})}  
+    }); $("#row1").fadeIn(1000);this.setState({finalmanageTest:sortedList})}
     else if(key== 'manageTestUnsort'){
       $("#row1").fadeOut(1000);
       this.setState({unsortMT: false})
@@ -435,8 +435,8 @@ class DatatablePage extends Component{
         $("#row2").fadeIn(1000);
         this.setState({finalmanageTestinomial:sortedList})
         }
-         
-        
+
+
     if(key == 'managePortfolio'){
       $("#row3").fadeOut(1000);
         this.setState({unsortMP: true})
@@ -449,13 +449,46 @@ class DatatablePage extends Component{
           sortedList=  this.state.finalmanagePortfolio.sort((a, b) => {
             return (b.title - a.title ?1 : -1);
         }); $("#row3").fadeIn(1000);this.setState({finalmanagePortfolio:sortedList})
-        } 
+        }
     }
+    addNewData=(key)=>{
+        this.setState({invite:false})
+        if(key == 'invitedData'){
+        var values ={id:this.state.invitedData.length+1,username:this.state.username,userEmail:this.state.email,registered:'yes',InvitedData:'october 11,2018 4:27 pm'};
+        this.setState({invitedData:[...this.state.invitedData,values]},()=>{ console.log(this.state.invitedData,'inviteData') 
+        this.setState({username:'',email:''})})
+        }
+    }      
+    selectedRequest=(id,key)=>{
+        console.log(id,key,'selectec')
+    }                                               
+    render(){
+       return(
+            <div>
+            <div className="Settings_profiles">       
+            
+            <div className="Referal_top">
+                 <button class="one"><img src="./assets/img/serch.png"/><p>SEARCH</p></button>
+                 <input type="text" name="username" placeholder="" value=""/>
+            </div>
+
+
+
+            <div className="manage_test">
+            <div className="manage_header">
+            <div className="col_1"> Send Invites</div>
+            <div className="col_2"> SNO   <div className="sorting" onClick={()=>this.sorting('inivtaionSort')}><p>&#8593;</p></div> </div>
+            <div className="col_3">UserName </div>
+            <div className="col_4">User Email</div>
+            <div className="col_5">Registered </div>
+            <div className="col_6"> Invite date</div>
+            <div className="col_7"></div>
+            </div>
   changeStatesForPopups =(key)=>{
-    if(key == 'testinomials'){this.setState({addTestinomial:true})} 
+    if(key == 'testinomials'){this.setState({addTestinomial:true})}
     if(key == 'developerInvitation'){this.setState({invite:true})}
     if(key == 'testinomialRequest'){this.setState({testinomialRequest:true})}
-    if(key == 'tests'){this.setState({tests:true})} 
+    if(key == 'tests'){this.setState({tests:true})}
     if(key == 'portfolio'){this.setState({portfolio:true})}
   }
 
@@ -464,7 +497,7 @@ class DatatablePage extends Component{
     var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}
     this.setState({countId:this.state.countId+1,tests:false})
    var testData= {id:this.state.manageTestData.length+1,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'}
-      
+
     // var addChild ={
     //   id:this.state.countId,
     //   manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
@@ -474,11 +507,11 @@ class DatatablePage extends Component{
     //   clientCompany:this.state.clientCompany,
     //   testinomialPosted:'yes',
     //   date: '2011/04/25',
-     
+
     // }
     // this.setState({ data:{columns:[...this.state.data['columns']], rows:[...this.state.data['rows'], addChild] }})
     this.setState({manageTestData:[...this.state.manageTestData,testData],itemIdMT:1},()=>{
-      this.manageTest() 
+      this.manageTest()
     console.log(this.state.manageTestData,'tests')
     })
     var values ={
@@ -500,14 +533,14 @@ class DatatablePage extends Component{
     //   clientCompany:this.state.clientCompany,
     //   testinomialPosted:'yes',
     //   date: '2011/04/25',
-     
+
     // }
     // this.setState({ manageData:{ rows:[...this.state.manageData['rows'], addChild] }})
     var addValues =   {id:this.state.manageTestinomialData.length+1,clientName:'newly Added',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'}
     this.setState({manageTestinomialData:[...this.state.manageTestinomialData,addValues],itemIdMTS:1,paginationdummymanageTestinomial:[]},()=>{
      this.manageTestinomial();
     })
-   
+
     console.log(clientalues,'testinomialAdde')
   }
 
@@ -523,7 +556,7 @@ class DatatablePage extends Component{
     const {clientName,clientCompany,clientWeb,clientEmail,clientRole}= this.state
     var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole}
     console.log(clientalues,'testinomialRequest')
-   
+
   }
 
   addPortfolio =() =>{
@@ -539,16 +572,16 @@ class DatatablePage extends Component{
     //   clientCompany:this.state.clientCompany,
     //   testinomialPosted:'yes',
     //   date: '2011/04/25',
-     
+
     // }
     // this.setState({ portfolio:{ rows:[...this.state.portfolio['rows'], addChild] }})
     var addValue = {id:this.state.managePortfolioData.length+1,title:'mbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'}
-   
+
     this.setState({managePortfolioData:[...this.state.managePortfolioData,addValue],itemIdMP:1},()=>{
-      this.managePortfolio() 
+      this.managePortfolio()
     console.log(this.state.managePortfolioData,'managePortfolioData')
     })
-  
+
     console.log(clientalues,'testinomialAdde')
   }
 
@@ -618,7 +651,7 @@ class DatatablePage extends Component{
                 <FileUpload getInput={this.handleBanner} getInput1='modal' />
                 <p className="Upload_text">Drag and Drop here</p>
             </div>
-           
+
             <h2 class="no-span">Review</h2>
             <div className="feild dropdown Invite">
                <label>PROJECT TYPE</label>
@@ -659,11 +692,11 @@ class DatatablePage extends Component{
                                   <div class="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                 </div>               </div>
-             
+
             <button class="account_but" color="primary" onClick={this.addTestinomial}>REQUEST</button>
           </div>
       }
-      
+
 
        {/*Invite new developer */}
        {this.state.invite && <div className="modal Invite">
@@ -671,7 +704,7 @@ class DatatablePage extends Component{
             <div className="feild dropdown Invite">
                <label>DEVELOPER NAME</label>
                   <select name="developerName" form="carform" value={this.state.developerName} onChange={this.handleChange}>
-               
+
                   <option value="practical">practical</option>
                   <option value="technical">technical</option>
                  </select>
@@ -688,7 +721,7 @@ class DatatablePage extends Component{
             </div>}
 
 
-            
+
           {/*manage testinomials */}
 {this.state.testinomialRequest &&          <div className="modal Testinomials">
             <h1>Client Testinomials request</h1>
@@ -731,7 +764,7 @@ class DatatablePage extends Component{
           </div>
 
 }
-      
+
        {/*manage test */}
       {this.state.tests && <div className="modal Test">
        <h1>Add New Test</h1>
@@ -762,7 +795,7 @@ class DatatablePage extends Component{
 
       }
        {/*manage add portfolio */}
-      {this.state.portfolio &&   
+      {this.state.portfolio &&
          <div>
          <div className="modal Invite" style={{position:'initial'}}>
          <h1>Invite New User</h1>
@@ -778,7 +811,7 @@ class DatatablePage extends Component{
            <div className="feild Invite">
               <label>EMAIL ADDRESS</label>
               <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="INput" />
-              
+
            </div>
            <div className="feild Invite">
            <button className="account_but" color="primary" onClick={this.addPortfolio}>SIGN UP NOW</button>
@@ -794,7 +827,7 @@ class DatatablePage extends Component{
        <div className="feild Invite">
           <label>EMAIL ADDRESS</label>
           <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="INput" />
-          
+
        </div>
        <button className="account_but" color="primary" onClick={this.addPortfolio}>SEND INVITE</button>
     </div>
@@ -804,7 +837,7 @@ class DatatablePage extends Component{
     </div>
 
       }
-    
+
 
    <div className="Settings_profiles">
 
@@ -851,10 +884,10 @@ class DatatablePage extends Component{
   {this.state.paginationmanagePortfolio.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'managePortfolio')}>{item}</div>)}
   {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMP+1,'managePortfolio')} ><div class="go-icon"></div></div>:''}
 </div>
-</div> 
+</div>
 
 
-  
+
 
         <div className="manage_test">
 
@@ -887,81 +920,92 @@ class DatatablePage extends Component{
               }
           </div>
 
+            <div className="manage_test">
+            <div className="manage_header">
+            <div className="col_1"> Reffered Clients</div>
+            <div className="col_2"> SNO   <div className="sorting" onClick={()=>this.sorting('refClient')}><p>&#8593;</p></div> </div>
+            <div className="col_3">Current Subscription  </div>
+            <div className="col_4">Revenue this month</div>
+            <div className="col_5">Profit this month </div>
+            <div className="col_6">Registeration date</div>
+            <div className="col_7"></div>
+            </div>
+            {this.state.finalClient.map((item,index)=>
+            {return <div class="Added_box" key={item.id}>
+            <div class="Added_box_numer"> {index+1} </div>
+            <div className="col_1"> <label class="fancy-checkbox" onClick={()=>this.selectedRequest(item.id,'refClient')}><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
+            <div className="col_2"> name  </div>
+            <div className="col_3"> {item.username}  </div>
+            <div className="col_4"> {item.userEmail}  </div>
+            <div className="col_5">{item.registered}</div>
+            <div className="col_6"> {item.InvitedData} </div>
+            <div className="col_7"> </div>
+            </div>})
+            }
+            <div class="manage_pagenation">
+            <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemId-1,'refClient')}><div class="go-icon"></div></div>
+            {this.state.paginationRef.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'refClient')}>{item}</div>)}
+            <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemId+1,'refClient')}><div class="go-icon"></div></div>
+           </div>
+            </div>
 
-
-
-          {/* <div class="manage_buttons">
-            <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
-            <button class="delete_invite" onClick={()=>this.changeStatesForPopups('testinomialRequest')}><img src="./assets/img/pro_delete.png"/><p>Client Testinomial Request</p></button>
-          </div> */}
-
-          <div class="manage_pagenation">
-          {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMTS-1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
-            {this.state.paginationdummymanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')}>{item}</div>)}
-            {this.state.manageTestinomialData[3] != undefined ?  <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMTS+1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
-          </div>
-          </div> 
-
-
-          <div className="manage_test">
-
-<div className="manage_header">
-   <div className="col_1"> Referred Clients</div>
-   <div className="col_2"> SNO  <div className={this.state.unsortMT ?"unsorting" :'sorting'}  onClick={this.state.unsortMT ?  ()=>this.sorting('manageTestUnsort'):()=>this.sorting('manageTest')}><p>&#8593;</p></div> </div>
-   <div className="col_3">Current Subscription </div>
-   <div className="col_4">Revenue this month</div>
-   <div className="col_5"> Profit this month </div>
-   <div className="col_6"></div>
-   <div className="col_7">Registeration date</div>
-</div>
-
- {/* <div class="Add_box" onClick={()=>this.changeStatesForPopups('tests')}>
-   <div class="plus"></div>
-   <button type="button">New</button>
- </div> */}
-<div id="row1">
- {this.state.finalmanageTest.map((item,index)=>
-     {return <div class="Added_box">
-   <div class="Added_box_numer" > {item.id} </div>
-   <div className="col_1"> <label class="fancy-checkbox" onClick={()=>this.selectedRequest(item.id,'manageTest')}><input type="checkbox"/><span class="checkmark"></span> </label><p>Request</p></div>
-   <div className="col_2"> {item.clientName}  </div>
-    <div className="col_3"> {item.clientEmail} </div>
-    <div className="col_4">{item.clientCompany}</div>
-    <div className="col_5"> {item.testinomialPosted} </div>
-    <div className="col_6"> </div>
-    <div className="col_7">{item.sentDate} </div>
- </div>})
-     }
- </div>
+            <div class="Button_sec"><div class="save_button"><label class="switch"><input type="checkbox"/><span class="slider round">Save Chages</span></label></div><button class="secd_button">Add google Authenticator</button><p>Request Account Removal</p></div>
 
 
 
 
- {/* <div class="manage_buttons">
-   <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
-   <button class="delete_invite" onClick={()=>this.changeStatesForPopups('developerInvitation')}><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
- </div> */}
-
- <div class="manage_pagenation">
-  {this.state.manageTestData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMT-1,'manageTest')}><div class="go-icon"></div></div>:''}
-   {this.state.paginationmanageTest.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTest')}>{item}</div>)}
-   {this.state.manageTestData[3] != undefined?<div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMT+1,'manageTest')}><div class="go-icon"></div></div>:''}
- </div>
- </div>
-
-
-
-           
-
-
-        </div>
+            </div>
 
 
 
 
-    </div>
-  );
+             {this.state.invite &&
+                 <div>
+                 <div className="modal Invite" style={{position:'initial'}}>
+                 <h1>Invite New User</h1>
+                 </div>
+                 <br></br>
+                 <br></br>
+                <div className="modal Invite" style={{position:'initial'}}>
+                <h1>Invite link</h1>
+                <div className="feild dropdown Invite">
+                   <label>COMPANY INTRODUCTION</label>
+                  hello hello
+                  </div>
+                   <div className="feild Invite">
+                      <label>EMAIL ADDRESS</label>
+                      <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="INput" />
+
+                   </div>
+                   <div className="feild Invite">
+                   <button className="account_but" color="primary" onClick={this.sendInvite}>SIGN UP NOW</button>
+                   </div>
+                </div>
+                <br></br>
+                <div className="modal Invite" style={{position:'initial'}}>
+            <h1>Send email</h1>
+            <div className="feild dropdown Invite">
+               <label>USER NAME</label>
+               <input onChange={this.handleChange} type="text" name="username" value={this.state.username} placeholder="INput" />
+                 </div>
+               <div className="feild Invite">
+                  <label>EMAIL ADDRESS</label>
+                  <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="INput" />
+
+               </div>
+               <button className="account_but" color="primary" onClick={()=>this.addNewData('invitedData')}>SEND INVITE</button>
+            </div>
+            <div className="modal Invite" style={{position:'initial'}}>
+            <h1>Share on social media</h1>
+            </div>
+            </div>
+            }
+
+
+
+            </div>
+        )
+    }
 }
-}
 
-export default DatatablePage;
+export default Referal;

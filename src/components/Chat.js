@@ -30,13 +30,6 @@ class Chatbot extends Component {
     }
     render() {
         if(this.props.status != 'projects'){
-        if(this.props.backlogWidgetState.boolen){
-            return (
-            <section className="chat_room" active='true'>
-                    <h1 onClick={this.offBacklogWidth.bind(this)}>testing</h1>
-            </section>
-            )
-        }else{
             if(!this.state.showMe){
                 return (
                     <section className="chat_room" active={this.props.actionChat}>
@@ -92,7 +85,7 @@ class Chatbot extends Component {
                      </div>
                 )
             }
-        }
+       
 
     }else{
         

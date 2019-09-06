@@ -49,7 +49,11 @@ class Personal extends Component
             city : this.state.city,   
             country : this.state.country        
          }
-         this.props.getData(values)
+         this.props.buttonActive()
+         setTimeout(
+            function(){this.props.getData(values)}.bind(this)
+
+         ,15000)
          console.log(values,'personal')
       
      }
@@ -60,11 +64,13 @@ class Personal extends Component
       this.setState({image: `./assets/img/${x[0].acceptedFile}`})
       console.log(this.state.image,'imagesss')
      }
+     checkData(){
+        this.props.sendDataSave();
+     }
     render()
     {
         return(
-        
-    <div className="personal_main">
+    <div className="personal_main" onBlur={this.handleSave}>
            
                {this.props.currentPageStatus == "additionalInformationPopup" ? <h1>Additional Information</h1>:''}
                <div className="personal_user">
@@ -148,7 +154,7 @@ class Personal extends Component
 
             {this.props.currentPageStatus == "additionalInformationPopup" ? <button className="account_but" color="primary" onClick={this.checkInfo.bind(this)}>Add Information</button>:
                <div className="Button_sec">
-               <button color="primary" onClick={this.handleSave}>Request Approval</button>
+               <button color="primary">Request Approval</button>
 
                <button className="secd_button">Add google Authenticator</button>
                <p>Request Account Removal</p>

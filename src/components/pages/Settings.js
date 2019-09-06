@@ -161,20 +161,15 @@ class Settings extends Component {
                <div className="feild dropdown">
                <label>USER TYPE</label>
                   <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
-                  <option value="">select type</option>
-                  <option value="Agency">Agency</option>
-                  <option value="Client">Client</option>
+                    <option value="">select type</option>
+                    <option value="Agency">Agency</option>
+                    <option value="Client">Client</option>
                  </select>
                  <div class="go-icon"></div>
                 </div>
                 {this.state.pass != '' && this.state.pass  == this.state.confirm && this.state.confirm != '' && this.state.userType != ''? <button className="account_but" color="primary" onClick={this.handleSave}>FINISH ACCOUNT</button>:''}
               
           </div>}
-          
-        
-         
-
-
       <br></br>
        
 <br></br>
@@ -202,7 +197,7 @@ class Settings extends Component {
                 this.state.TotalPage.map((items)=> <li className={items.id === this.props.dispComp ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)
               : this.state.selectedType == 'Client' ? this.state.TotalPageClient.map((items)=> <li className={items.id === this.props.dispComp  ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>) :''}
           </ul>
-          
+
          {activePage}
         </div>
     </section>

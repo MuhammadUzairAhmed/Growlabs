@@ -60,9 +60,10 @@ class PASSWORD extends Component
      
                  </div>
          
-     {this.state.nexPass != '' && this.state.nexPass  == this.state.confirmPass && this.state.confirmPass != ''?
+     {/* {this.state.nexPass != '' && this.state.nexPass  == this.state.confirmPass && this.state.confirmPass != ''?
                  <button color="primary" onClick={this.handleSave}>Request Approval</button>
-     :''}            </div>
+     :''}           */}
+       </div>
                  
      
      

@@ -651,7 +651,7 @@ this.manageTest()})
   return (
     <div >
       {/*client add testinomials */}
-     {this.state.addTestinomial && <div className="modal">
+     {this.state.addTestinomial && <div className="modal Portfolio" >
             <h1>Client Add Testinomials</h1>
             <div className="feild Invite">
                   <label>CLIENT NAME</label>
@@ -833,7 +833,7 @@ this.manageTest()})
       }
        {/*manage add portfolio */}
       {this.state.portfolio &&   
-          <div className="modal">
+          <div className="modal Portfolio">
             <h1>Add New Portfolio</h1>
             <div className="feild Invite">
                   <label>CLIENT PROJECT TITLE</label>
