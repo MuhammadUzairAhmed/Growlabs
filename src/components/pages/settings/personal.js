@@ -56,6 +56,10 @@ class Personal extends Component
      checkInfo(){
         this.props.sendInfo();
      }
+     handleImage=(x)=>{
+      this.setState({image: `./assets/img/${x[0].acceptedFile}`})
+      console.log(this.state.image,'imagesss')
+     }
     render()
     {
         return(
@@ -69,7 +73,7 @@ class Personal extends Component
                      : <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />} */}
                 <img src={this.state.image != '' ? this.state.image : './assets/img/new_user.png'} alt='sorry' className={this.state.image != '' ? "upload_user":"blank_user"} />
             <div className="personal_upload">
-               <FileUpload getInput='PS' getInput1='PS' />
+               <FileUpload getInput={this.handleImage} getInput1='PS' />
               </div>
                </div>
 

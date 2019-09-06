@@ -8,6 +8,12 @@ class DatatablePage extends Component{
   constructor(props){
     super(props)
     this.state={
+      vo:1,
+      vo2:1,
+      vo3:1,
+      img:'',
+      deletedMP:[],
+      deletedMTS:[],
       manageTestData:[
         {id:1,clientName:'Gbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
         {id:2,clientName:'Fbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
@@ -20,7 +26,6 @@ class DatatablePage extends Component{
         {id:10,clientName:'IGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
         {id:11,clientName:'LGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
         {id:12,clientName:'AGbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
-      
       ],
     manageTestinomialData:[
       {id:1,clientName:'Gbc',clientEmail:'xyz@gmail.com',test:'test7',clientCompany:'abc.com',testinomialPosted:'yes',sentDate:'october 11,2018 4:27 pm'},
@@ -261,10 +266,10 @@ class DatatablePage extends Component{
           }
         ]
       },
-
+      deletedMT:[],
       countId:2,
       addTestinomial: false,
-       clientName: 'jj2',
+       clientName: '',
        clientCompany:'',
        clientWeb:'',
        clientEmail:'',
@@ -281,7 +286,18 @@ class DatatablePage extends Component{
        tests:false,
        portfolio:false,
        test:'',
-       result:''
+       result:'',
+
+       x1:'',
+       x2:'',
+       x3:'',
+       x4:'',
+       x5:'',
+       x6:'',
+       x7:'',
+       x8:'',
+       x9:'',
+       x10:'',
       }
     }
   
@@ -527,8 +543,8 @@ class DatatablePage extends Component{
   }
 
   addPortfolio =() =>{
-    const {clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}= this.state
-    var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole,projectType,review}
+    const {x1,x2,x3,x4,x5,x6,x7,x8,x9,x10}= this.state
+    var clientalues ={x1,x2,x3,x4,x5,x6,x7,x8,x9,x10}
     this.setState({countId:this.state.countId+1,portfolio:false})
     // var addChild ={
     //   id:this.state.countId,
@@ -549,34 +565,87 @@ class DatatablePage extends Component{
     console.log(this.state.managePortfolioData,'managePortfolioData')
     })
   
-    console.log(clientalues,'testinomialAdde')
+    console.log(clientalues,'portfolioAdded')
   }
 
   selectedRequest=(id,key)=>{
-    if(key=="manageTest")
+    this.setState({vo:1,vo2:1,vo3:1})
+    if(key=="manageTest" && this.state.vo == 1)
     {
+      
       console.log('ids',id)
-
+      this.setState({deletedMT:[...this.state.deletedMT,id],vo:2},()=>{console.log('deleteMT',this.state.deletedMT)})
     }
-    if(key=="manageTestinomials")
+    if(key=="manageTestinomials" && this.state.vo2 == 1)
     {
+      this.setState({deletedMTS:[...this.state.deletedMTS,id],vo2:2},()=>{console.log('deleteMTS',this.state.deletedMTS)})
       console.log('ids',id)
     }
-    if(key=="managePortfolio")
+    if(key=="managePortfolio" && this.state.vo3 == 1)
     {
+      this.setState({deletedMP:[...this.state.deletedMP,id],vo3:2},()=>{console.log('deleteMP',this.state.deletedMP)})
       console.log('ids',id)
     }
   }
+  delete1=()=>{
+    this.setState({vo:1})
+   
+this.setState({
+  manageTestData: this.state.manageTestData.filter((item,index)=>{
+    
+    if(this.state.deletedMT[0] != item.id)
+    {
+      return item
+    }
+  
+  })
+},()=>{console.log(this.state.manageTestData,'chkingss')
+this.setState({deletedMT:[]})
+this.manageTest()})
+  }
 
+  delete2=()=>{
+    this.setState({vo2:1})
+    this.setState({
+      manageTestinomialData: this.state.manageTestinomialData.filter((item,index)=>{
+        
+        if(this.state.deletedMTS[0] != item.id)
+        {
+          return item
+        }
+      
+      }),
+      paginationdummymanageTestinomial:[]
+    },()=>{console.log(this.state.manageTestinomialData,'chkingss')
+    this.setState({deletedMTS:[]})
+    this.manageTestinomial()})
+      }
+      delete3=()=>{
+        this.setState({vo3:1})
+        this.setState({
+          managePortfolioData: this.state.managePortfolioData.filter((item,index)=>{
+            
+            if(this.state.deletedMP[0] != item.id)
+            {
+              return item
+            }
+          
+          })
+        },()=>{console.log(this.state.managePortfolioData,'chkingss')
+        this.setState({deletedMP:[]})
+        this.managePortfolio()})
+          }
   handleChange = (e) => {
     this.setState({
        [e.target.name]: e.target.value
     },()=>{
+
       console.log('changeData',this.state.clientName)
     })
  }
  handleBanner=(x)=>{
    console.log("imageName",x)
+   this.setState({img:x[0].acceptedFile})
  }
   render(){
   return (
@@ -617,7 +686,7 @@ class DatatablePage extends Component{
                 <div className="feild Invite">
                 <label>CLIENT LOGO</label>
                 <FileUpload getInput={this.handleBanner} getInput1='modal' />
-                <p className="Upload_text">Drag and Drop here</p>
+                <p className="Upload_text">{this.state.img != ''?this.state.img :"Drag and Drop here"}</p>
             </div>
            
             <h2 class="no-span">Review</h2>
@@ -726,7 +795,7 @@ class DatatablePage extends Component{
                 <div className="feild Invite">
                 <label>CLIENT LOGO</label>
                 <FileUpload getInput={this.handleBanner} getInput1='modal' />
-                <p className="Upload_text">Drag and Drop here</p>
+                <p className="Upload_text">{this.state.img != ''?this.state.img :"Drag and Drop here"}</p>
             </div>
             <button class="account_but" color="primary" onClick={this.clientTestinomialReq}>REQUEST</button>
           </div>
@@ -756,7 +825,7 @@ class DatatablePage extends Component{
           <div className="feild">
            <label>TEST RESULT FILE</label>
            <FileUpload getInput={this.handleBanner} getInput1='modal' />
-           <p className="Upload_text">Drag and Drop here</p>
+           <p className="Upload_text">{this.state.img != ''?this.state.img :"Drag and Drop here"}</p>
        </div>
        <button className="account_but" color="primary" onClick={this.addTest}>ADD TEST</button>
      </div>
@@ -768,22 +837,22 @@ class DatatablePage extends Component{
             <h1>Add New Portfolio</h1>
             <div className="feild Invite">
                   <label>CLIENT PROJECT TITLE</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="x1" value={this.state.x1} placeholder="Input" min="0" max="100"/>
                   <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
                </div>
                <div className="feild Invite">
                   <label>PROJECT LINK</label>
-                  <input onChange={this.handleChange} type="number" name="confirm" value={this.state.confirm} placeholder="Input" min="0" max="100"/>
+                  <input onChange={this.handleChange} type="text" name="x2" value={this.state.x2} placeholder="Input" min="0" max="100"/>
                   <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
                </div>
                <div className="feild dropdown Invite">
                <label>PROJECT TYPE</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x3" form="carform" value={this.state.x3} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -791,10 +860,10 @@ class DatatablePage extends Component{
                 </div>
                 <div className="feild dropdown Invite">
                <label>OPERATING SYSTEM</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x4" form="carform" value={this.state.x4} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
 
                  <div class="go-icon"></div>
@@ -803,10 +872,10 @@ class DatatablePage extends Component{
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT FEATURES</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x5" form="carform" value={this.state.x5} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -814,10 +883,10 @@ class DatatablePage extends Component{
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT INDUSTRY</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x6" form="carform" value={this.state.x6} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -825,10 +894,10 @@ class DatatablePage extends Component{
                 </div>
                 <div className="feild dropdown Invite">
                 <label>PROJECT TECHNOLOGIES</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x7" form="carform" value={this.state.x7} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -836,10 +905,10 @@ class DatatablePage extends Component{
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT QUOTE</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x8" form="carform" value={this.state.x8} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -847,10 +916,10 @@ class DatatablePage extends Component{
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT DURATION</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x9" form="carform" value={this.state.x9} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -859,14 +928,14 @@ class DatatablePage extends Component{
                <div className="feild">
                 <label>CLIENT LOGO</label>
                 <FileUpload getInput={this.handleBanner} getInput1='modal' />
-                <p className="Upload_text">Drag and Drop here</p>
+                <p className="Upload_text">{this.state.img != ''?this.state.img :"Drag and Drop here"}</p>
             </div>
             <div className="feild dropdown Invite">
                <label>IS THIS PORTFOLIO ITEM A USECASE?</label>
-                  <select name="userType" form="carform" value={this.state.userType} onChange={this.handleChange}>
+                  <select name="x10" form="carform" value={this.state.x10} onChange={this.handleChange}>
                   <option value="">Input</option>
-                  <option value="Agency">JOHN</option>
-                  <option value="Client">WICK</option>
+                  <option value="JOHN">JOHN</option>
+                  <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
                  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
@@ -915,7 +984,7 @@ class DatatablePage extends Component{
 
 
         <div class="manage_buttons">
-          <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+          <button class="delete" onClick={this.delete1}><img src="./assets/img/pro_delete.png"/></button>
           <button class="delete_invite" onClick={()=>this.changeStatesForPopups('developerInvitation')}><img src="./assets/img/pro_delete.png"/><p>Invite New Developer</p></button>
         </div>
 
@@ -961,13 +1030,13 @@ class DatatablePage extends Component{
 
 
           <div class="manage_buttons">
-            <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
+            <button class="delete" onClick={this.delete2}><img src="./assets/img/pro_delete.png"/></button>
             <button class="delete_invite" onClick={()=>this.changeStatesForPopups('testinomialRequest')}><img src="./assets/img/pro_delete.png"/><p>Client Testinomial Request</p></button>
           </div>
 
           <div class="manage_pagenation">
           {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMTS-1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
-            {this.state.paginationdummymanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')}>{item}</div>)}
+            {this.state.paginationmanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')}>{item}</div>)}
             {this.state.manageTestinomialData[3] != undefined ?  <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMTS+1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
           </div>
           </div> 
@@ -1008,7 +1077,7 @@ class DatatablePage extends Component{
 
 
 
-                  <div class="manage_buttons">
+                  <div class="manage_buttons" onClick={this.delete3}>
                     <button class="delete"><img src="./assets/img/pro_delete.png"/></button>
                   </div>
 
