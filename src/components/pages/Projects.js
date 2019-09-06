@@ -38,10 +38,10 @@ class Projects extends Component {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
-          .then(datas => this.setState({formData: datas, showdata:true,versions: datas,}));
+          .then(datas => this.setState({formData: datas,versions: datas,}));
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/review.json")
           .then(res => res.json())
-          .then(datas => this.setState({matches: datas, dataTrue:true}));
+          .then(datas => this.setState({matches: datas, dataTrue:true, showdata:true}));
     }
     handleInput =(x)=>
     {
@@ -203,7 +203,6 @@ console.log(this.state.data,'dataAgerncy')
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json", { method, body })
           .then(res => res.json())
           .then(data => console.log(JSON.stringify(data.form, null, "\t")));
-          
     }
     closePopup(){
         this.setState({
@@ -220,18 +219,15 @@ console.log(this.state.data,'dataAgerncy')
         })
     }
     getVersionData(i){
-
         this.setState({
             changeVersion:false,
         })
-        
     }
     updateVersionData(data){
         this.setState({
             versions : data
         })
         console.log(this.state)
-  
         // console.log(this.state)
         // this.setState({
         //     currentVersion:[x],
@@ -264,10 +260,7 @@ console.log(this.state.data,'dataAgerncy')
      }
      render(){
         const listItems = [];
-
         if(this.state.showdata == true){
-          
-
          return (
              <section className="dial_page">
                  {this.state.unmatch.status? <Unmatch closePopup={this.closePopup.bind(this)} id={this.state.unmatchID} deleteUnmatchData={this.getMatchesDelete.bind(this)}/>:''}
@@ -300,7 +293,8 @@ console.log(this.state.data,'dataAgerncy')
                 <div className="version_tabs">
                     <ul class="ui-tabs-nav">
                         <li class={this.state.changeVersion ? '':'active'} onClick={()=>this.updateVersionData(this.state.formData,this.setState({changeVersion:false}))}><a>Version 1</a></li>  
-                       <li class={this.state.changeVersion ? 'active':''} onClick={()=>this.updateVersionData(this.state.data[this.state.currentAgency],this.setState({changeVersion:true}))}><a>Version 2</a></li>
+                       {/* <li class={this.state.changeVersion ? 'active':''} onClick={()=>this.updateVersionData(this.state.data[this.state.currentAgency],this.setState({changeVersion:true}))} ><a>Version 2</a></li> */}
+                       <li class={this.state.changeVersion ? 'active':''} ><a>Version 2</a></li>
                     </ul>
                 </div>
                         
@@ -331,7 +325,7 @@ console.log(this.state.data,'dataAgerncy')
                     :''
 
                 }
-                 <section className="multi_step_form" onChange={()=>this.changeVersion(1)}>
+                 <section className="multi_step_form" onBlur={()=>this.changeVersion(1)}>
 
                     {this.state.data[this.state.currentAgency] ? 
                     <div className="content_form">
