@@ -28,7 +28,8 @@ class Projects extends Component {
             userData: { pass:'',confirm:''},
             currentVersion:0,
             finalizedAccount:false,
-            activeAddition:false
+            activeAddition:false,
+            unmatchID:''
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -118,26 +119,33 @@ class Projects extends Component {
         )
         console.log('messsage',this.state.formData.reasoning)
     }
-    changeDate(e){
+    changeDate(from,to){
+        console.log(from,to,'dates came')
         this.setState({
             data : {
                 ...this.state.data,
                 [this.state.currentAgency]:{
                     ...this.state.data[this.state.currentAgency],
-                    timelineEnd:e.timelineEnd,
-                    timelineStart:e.timelineStart,
+                    timelineEnd:to,
+                    timelineStart:from,
                     }
-                }
+                },
+                
             }
         )
     }
     changeBudget(e){
+        console.log(e,'rangeDATA')
+
+        // this.state.data[this.state.currentAgency]
+        console.log(this.state.versions,'versions')
+console.log(this.state.data,'dataAgerncy')
         this.setState({
             data : {
                 ...this.state.data,
                 [this.state.currentAgency]:{
                     ...this.state.data[this.state.currentAgency],
-                    budget:e
+                    budget:e.toString()
                     }
                 }
             }
@@ -165,9 +173,10 @@ class Projects extends Component {
         console.log(this.state)
      
     }
-    deleteUnmatchDataFun(id){
+    deleteUnmatchDataFun(value,id){
         this.setState({
-            unmatch:{status:true}
+            unmatch:{status:true},
+            unmatchID:[id]
          })
     }
     getMatchesDelete(id){
@@ -261,14 +270,14 @@ class Projects extends Component {
 
          return (
              <section className="dial_page">
-                 {this.state.unmatch.status? <Unmatch closePopup={this.closePopup.bind(this)} id={this.state.currentAgency} deleteUnmatchData={this.getMatchesDelete.bind(this)}/>:''}
+                 {this.state.unmatch.status? <Unmatch closePopup={this.closePopup.bind(this)} id={this.state.unmatchID} deleteUnmatchData={this.getMatchesDelete.bind(this)}/>:''}
                  <div className="dp-matches clearfix">
                      <h1>Final Proposala</h1>
                     <div className="dp-mt-matches-box">
                         {this.state.matches.companies ?
                             this.state.matches.companies.map((items,index)=> 
-                            <div className={this.state.currentAgency == items.id ?"dp-mt-loop-box active" : "dp-mt-loop-box"} active={items.status}  key={index} onClick={() =>this.getMatchesData(items.id,items)}>
-                                <div class="delete" onClick={() =>this.deleteUnmatchDataFun(index)}><img src="./assets/img/delete_b.png"/></div>
+                            <div className={this.state.currentAgency == index ?"dp-mt-loop-box active" : "dp-mt-loop-box"} active={items.status}  key={index} onClick={() =>this.getMatchesData(index,items)}>
+                                <div class="delete" onClick={() =>this.deleteUnmatchDataFun(items,index)}><img src="./assets/img/delete_b.png"/></div>
                                 <div className="lb-box">
                                     <h1>{items.name} <small>{items.location}</small></h1>
                                     <i className="ico check-icon"></i>
@@ -285,7 +294,7 @@ class Projects extends Component {
                    
                     </div>
                     <div className="dp_maches_button">
-                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.getVersionData(this.state.data[this.state.currentAgency])}>Send updated proposal to [agemcy]<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Partner up with [agency]<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
+                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.getVersionData(this.state.data[this.state.currentAgency])}>Send updated proposal to {this.state.matches.companies[this.state.currentAgency] ? this.state.matches.companies[this.state.currentAgency].name:'[agency]'}<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Partner up with  {this.state.matches.companies[this.state.currentAgency] ? this.state.matches.companies[this.state.currentAgency].name:'[agency]'}<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
                     </div>
                 </div>
                 <div className="version_tabs">
@@ -329,7 +338,7 @@ class Projects extends Component {
                     
                         <fieldset>
                             <h2 className="Profieldset_hea">TIMELINE</h2>
-                            <TDataPicker timelineStart={this.state.versions.timelineStart} timelineEnd={this.state.versions.timelineEnd} onChange={(e)=>this.changeDate(e)}/>
+                            <TDataPicker timelineStart={this.state.versions.timelineStart} timelineEnd={this.state.versions.timelineEnd} onChangeDate={this.changeDate}/>
                         </fieldset>
                         <fieldset>
                             <h3>Budget</h3>

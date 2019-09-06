@@ -26,8 +26,13 @@ class TDataPicker extends Component {
       handleDayClick = (day) =>{
         const range = DateUtils.addDayToRange(day, this.state);
         this.setState(range);
+        var values ={
+          from: range.from,
+          to: range.to
+        }
+        this.props.onChangeDate(values)
         console.log(day,'day')
-        console.log(range,'range')
+        console.log(range.from,'range')
       }
       handleResetClick = () => {
         this.setState(this.getInitialState());
