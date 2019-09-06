@@ -25,9 +25,9 @@ class Company extends Component
     }
     componentDidMount()
     {
-     this.getData()
+     this.getoldData()
     }
-getData=()=>{
+    getoldData=()=>{
    fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_company")
    .then(res => res.json())
    .then(data =>
@@ -91,7 +91,7 @@ getData=()=>{
       
      }
      stopPostData(){
-      this.getData()
+      this.getoldData()
       this.setState({
          delayFor:false,
          active:false
