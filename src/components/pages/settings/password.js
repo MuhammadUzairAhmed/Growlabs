@@ -74,10 +74,6 @@ this.props.getData(values)
              <p>Request Account Removal</p>
                </div>
 
-
-
-
-
        </div>
        </section>
     )

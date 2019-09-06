@@ -432,7 +432,7 @@ h2.Profieldset_hea {
     font-weight: bold;
     border: 0px solid #FFFFFF;
 }
-.project .checklist label.box-label, .radioList label.box-label {
+.project .checklist label.box-label,.project .radioList label.box-label {
     border: 0px solid #d6d8da;
     box-shadow: none !important;
     background: none;
@@ -1313,4 +1313,8 @@ a.button.save {
     border: 0;
     padding: 10px;
     width: 100%;
+}
+.project .Referal_top {
+    background: #ffffff;
+    border: 1px solid #cccccc;
 }
