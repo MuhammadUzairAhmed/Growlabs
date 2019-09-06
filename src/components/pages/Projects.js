@@ -41,7 +41,7 @@ class Projects extends Component {
           .then(datas => this.setState({formData: datas,versions: datas,}));
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/review.json")
           .then(res => res.json())
-          .then(datas => this.setState({matches: datas, showdata:true, dataTrue:true}));
+          .then(datas => this.setState({matches: datas, dataTrue:true, showdata:true}));
     }
     handleInput =(x)=>
     {
@@ -203,7 +203,6 @@ class Projects extends Component {
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json", { method, body })
           .then(res => res.json())
           .then(data => console.log(JSON.stringify(data.form, null, "\t")));
-          
     }
     closePopup(){
         this.setState({
@@ -220,18 +219,15 @@ class Projects extends Component {
         })
     }
     getVersionData(i){
-
         this.setState({
             changeVersion:false,
         })
-        
     }
     updateVersionData(data){
         this.setState({
             versions : data
         })
         console.log(this.state)
-  
         // console.log(this.state)
         // this.setState({
         //     currentVersion:[x],
@@ -278,10 +274,7 @@ class Projects extends Component {
      }
      render(){
         const listItems = [];
-
         if(this.state.showdata == true){
-          
-
          return (
              <section className="dial_page">
                  {this.state.unmatch.status? <Unmatch closePopup={this.closePopup.bind(this)} id={this.state.unmatchID} deleteUnmatchData={this.getMatchesDelete.bind(this)}/>:''}
@@ -314,7 +307,8 @@ class Projects extends Component {
                 <div className="version_tabs">
                     <ul class="ui-tabs-nav">
                         <li class={this.state.changeVersion ? '':'active'} onClick={()=>this.updateVersionData(this.state.formData,this.setState({changeVersion:false}))}><a>Version 1</a></li>  
-                       <li class={this.state.changeVersion ? 'active':''} onClick={()=>this.updateVersionData(this.state.data[this.state.currentAgency],this.setState({changeVersion:true}))}><a>Version 2</a></li>
+                       {/* <li class={this.state.changeVersion ? 'active':''} onClick={()=>this.updateVersionData(this.state.data[this.state.currentAgency],this.setState({changeVersion:true}))} ><a>Version 2</a></li> */}
+                       <li class={this.state.changeVersion ? 'active':''} ><a>Version 2</a></li>
                     </ul>
                 </div>
                         
@@ -340,11 +334,11 @@ class Projects extends Component {
                 {this.state.activeAddition ? 
                     <div className="modal Personal">
                         <button class="cancel_but" color="primary" onClick={this.activeAd.bind(this)}>x</button>
-                        <PERSONAL projectType='additionalInformationPopup'  activeAdditional={this.activeAd.bind(this)} getData='' buttonActive='' dntShow='' currentPageStatus='' sendInfo=''/> 
+                        <PERSONAL projectType='additionalInformationPopup'  activeAdditional={this.activeAd.bind(this)} getData='' buttonActive='' dntShow='' currentPageStatus='' sendInfo=''/>
                     </div>   
                     :''
                 }
-                 <section className="multi_step_form" onChange={()=>this.changeVersion(1)}>
+                 <section className="multi_step_form" onBlur={()=>this.changeVersion(1)}>
 
                     {this.state.data[this.state.currentAgency] ? 
                     <div className="content_form">

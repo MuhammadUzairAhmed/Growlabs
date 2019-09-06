@@ -49,7 +49,7 @@ class Personal extends Component
          this.setState({first_name:data.first_name,last_name:data.last_name,address:data.address,phone:data.phone,
             email:data.email,zipcode: data.zipcode,dob:data.dob,city:data.city,country:data.country,skype:data.skype
          })
- 
+
       );
      }
     handleChange = (e) => {
@@ -124,12 +124,15 @@ class Personal extends Component
                <div className="feild ">
                   <label>First Name</label>
                   <input onChange={this.handleChange} type="text" name="first_name" value={this.state.first_name} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  {/*<div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>*/}
+
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild ">
                   <label>Last Name </label>
                   <input onChange={this.handleChange} type="text" name="last_name" value={this.state.last_name} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  {/*<div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>*/}
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild ">
                      <label>DATE OF BIRTH Date </label>
@@ -147,12 +150,14 @@ class Personal extends Component
                <div className="feild ">
                   <label>Skype</label>
                   <input onChange={this.handleChange} type="text" name="zipcode" value={this.state.zipcode} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
                   <label>Email address</label>
                   <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  {/*<div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>*/}
+                  {/*<input onChange={this.handleChange} type="text" name="mail" value={this.state.mail} placeholder="Input" />*/}
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                
                </div>
@@ -162,29 +167,29 @@ class Personal extends Component
                <div className="feild">
                   <label>Phone</label>
                   <input onChange={this.handleChange} type="text" name="phone" value={this.state.phone} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
 
                <div className="feild">
-               <h1>Adress</h1>
+               {this.props.currentPageStatus == "additionalInformationPopup" ? '':<h1>Adress</h1>}
                   <label>Adress</label>
                   <input onChange={this.handleChange} type="text" name="skype" value={this.state.skype} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
                   <label>Zipcode</label>
                   <input onChange={this.handleChange} type="text" name="address" value={this.state.address} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
                   <label>city</label>
                   <input onChange={this.handleChange} type="text" name="city" value={this.state.city} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild">
                   <label>country</label>
                   <input onChange={this.handleChange} type="text" name="country" value={this.state.country} placeholder="Input" />
-                  <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                  <div class="tooltip"><img src={this.props.currentPageStatus == "additionalInformationPopup" ?  "./assets/img/black_img.png"  : "./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" } class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                </div>
 

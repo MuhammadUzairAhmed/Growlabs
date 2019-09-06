@@ -116,15 +116,15 @@ section.preDashboard .timeframe_calander {
 }
 .delete_section {
     position: absolute;
-    right: -36px;
-    top: -13px;
+    right: -99px;
+    top: -8px
 }
 .delete_section img {
     width: 20px;
     opacity: 0.6;
 }
 section.colleborate.milestone .colleborate_box {
-    width: 201px;
+    width: auto;
 }
 .animations-check  {
     -webkit-animation-name: mymove; 
@@ -741,7 +741,7 @@ section.timeframe a.buttons span {
     color: #FFFFFF;
     font-family: "Open Sans";
     font-size: 15px;
-    margin: 20px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .timeframe_box .timeframe_five p {
     opacity: 0.5;
@@ -953,6 +953,9 @@ section.colleborate.descriptions .colleborate_top {
     background: none;
     border: 0px;
     box-shadow: none;
+    display: grid;
+    margin: 10 auto;
+    grid-auto-flow: column;
 }
 section.descriptions {
     clear: both;
@@ -1116,7 +1119,10 @@ section.colleborate.milestone .colleborate_top {
     background: none;
     border: 0px;
     box-shadow: none;
-	    height: 76px;
+        height: 76px;
+        display: grid;
+    margin: 10 auto;
+    grid-auto-flow: column;
 }
 section.descriptions span.checkmark {
     border: 2px solid #fff;
@@ -1147,7 +1153,19 @@ section.colleborate.milestone .colleborate_box:after {
     margin: 10px 0px;
 }
 section.descriptions .colleborate_box {
-    width: 10%;
+    width: auto;
+}
+.milestone_slider.descriptions p {
+    font-size: 12px;
+    margin-bottom: 21px;
+}
+.descriptions_milestone_box .tooltip img {
+    width: 17px;
+}
+.descriptions_milestone_box .tooltip {
+    position: absolute;
+    right: 0px;
+    top: 20px;
 }
 /*========xxx======End Deccription css=======xxx========= */
 

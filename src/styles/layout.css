@@ -129,6 +129,9 @@
     background: #ffffff1f;
     border: 1px solid #ffffff;
 }
+.Settings_profiles {
+    margin-top: 100px;
+}
 .Settings_profiles .Add_box {
     background: #ffffff0f;
     border: 1px solid #ffffff4a;
@@ -591,7 +594,7 @@
     background-color: #1e262e;
     transition: .4s;
 }
-.price button {
+.price_over button {
     position: absolute;
     width: 100%;
     background: none;
@@ -605,7 +608,10 @@
     right: 0;
 }
 
-.price.active button {
+.price_over.active button {
+    background: #e1e1e1;
+}
+.price_over:hover button {
     background: #e1e1e1;
 }
 .subscriptionforms .price {

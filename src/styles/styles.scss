@@ -218,6 +218,9 @@ section.sidebar::-webkit-scrollbar-thumb {
 }
 .backlog ul.ui-tabs-nav img {
     width: 16px;
+    margin-bottom: 9px;
+    position: relative;
+    top: 4px;
 }
 /* ===xxx======End Sidbar css=====xxx===== */
 
@@ -718,6 +721,7 @@ section.Content_main:after {
 .backlog_box_img {
     display: table;
     margin: 0 auto;
+    cursor: pointer;
 }
 .backlog_box_flt h1 {
     font-size: 20px;
@@ -769,17 +773,19 @@ section.Content_main:after {
     opacity: 0.3;
     letter-spacing: 2px;
     font-family: "Space Mono";
+   
 }
 .backlog ul.ui-tabs-nav li.active a {
     opacity: 0.6;
 }
 .backlog ul.ui-tabs-nav li a:after {
-    border-bottom: 2px solid #ffffff47;
+    border-bottom: 1px solid #ffffff47;
     content: "";
     display: block;
     padding: 0px 50px;
     opacity: 0.5;
     border-radius: 100px;
+    height: 1px;
 }
 .backlog ul.ui-tabs-nav li a:focus {
     outline: none;
@@ -920,8 +926,8 @@ section.Content_main:after {
     background: #fff;
     height: 17px;
     width: 17px;
-    top: 3px;
-    left: 4px;
+    top: 2.5px;
+    left: 1px;
 }
 .colleborate_box.active label.fancy-checkbox {
     border: 1.5px solid #fff;
@@ -1058,6 +1064,12 @@ input:focus {
     padding: 20px 20px;
     position: relative;
     margin: 8px 0px;
+    height: 135px;
+}
+.carousel.slide:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 .carousel-inner {
     display: table;
@@ -1783,6 +1795,42 @@ img.profile-fix-img {
 }
 .input_box {
     position: relative;
+}
+.input_box.dropdown select {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+}
+.input_box.dropdown .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid white;
+    right: 8%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 15px;
+    opacity: 0.6;
+}
+.input_box.dropdown select option {
+ 
+    color: #000;
+}
+.input_box.dropdown .tooltip img {
+    top: 12px;
+}
+.agreements_flt .input_box.hlf.rgt select {
+    margin-top: -8px;
 }
 .agreements_form p {
     color: #BBBBBB;
@@ -3387,6 +3435,7 @@ h1.settings_hea {
     position: relative;
     margin-bottom: 30px;
     margin-top: 18px;
+    border: 1.5px solid #fff;
 }
 
 .personal_user img.blank_user {
@@ -3409,6 +3458,7 @@ h1.settings_hea {
     height: 40px;
     right: -13px;
     border: 3.5px solid #1e262e;
+    cursor: pointer;
 }
 
 .personal_upload img {
@@ -3419,7 +3469,20 @@ h1.settings_hea {
     margin: 0 auto;
     top: 9px;
 }
-
+.personal_user img.upload_user {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    display: table;
+    margin: 0 auto;
+    top: 0px;
+    border-radius: 100px;
+    height: 100%;
+}
 .personal_flt {
     float: left;
     width: 45%;
@@ -3597,7 +3660,7 @@ h1.settings_hea {
   }
   .save_button {
     float: right;
-    margin-top: -77px;
+    margin-top: -135px;
 }
 
   .save_button button.one {
@@ -3978,7 +4041,7 @@ h1.settings_hea {
     right: 38px;
 }
 
-.modal section {
+.modal .drad-drop {
     background: #ececec;
     padding: 20px 0px 36px 0px;
     text-align: center;
@@ -3986,8 +4049,8 @@ h1.settings_hea {
     cursor: pointer;
 }
 
-.modal section img {
-    width: 176px !important;
+.modal section.drad-drop img {
+    width: 176px;
 }
 .modal p.Upload_text {
     text-align: center;

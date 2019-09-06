@@ -195,16 +195,18 @@ handleChange13 = (e) =>
             </div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley </p>
             <h4>PAYMENT OF MILESTONES</h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
               {/* <input type="text" name="x2" className={this.state.x2Active} placeholder="Minimally 10 days before start new milestone" value={this.state.x2} onChange={this.handleChange2} /> */}
-              <div class="tooltip">
-                <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
+              
               <select name="x2" className={this.state.x2Active}  value={this.state.x2} onChange={this.handleChange2}>
               <option value="">Minimally 10 days before start new milestone</option>
               <option value="20 days">20 days</option>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
               </select>
+              <div class="go-icon"></div>
+              <div class="tooltip">
+                <img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley </p>
             <h2>Communication</h2>
@@ -223,7 +225,7 @@ handleChange13 = (e) =>
               <input type="text" name="x4" className={this.state.x4Active} placeholder="WED, Fri" value={this.state.x4} onChange={this.handleChange4} />
               <span className="FildEror">{this.state.x4Err}</span>
             </div>
-            <div className="input_box hlf rgt">
+            <div className="input_box dropdown hlf rgt">
               {/* <input type="text" name="x5" className={this.state.x5Active} placeholder="9:00 AM (EPT)" value={this.state.x5} onChange={this.handleChange5} /> */}
               {/* <span className="FildEror">{this.state.x5Err}</span> */}
               <select name="x5" className={this.state.x5Active}  value={this.state.x5} onChange={this.handleChange5}>
@@ -236,7 +238,7 @@ handleChange13 = (e) =>
             </div>
             <div className="clearfix"></div>
             <h4>MEDIUM</h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
          
               {/* <input type="text" name="x6" placeholder="Skype"  className={this.state.x6Active} value={this.state.x6} onChange={this.handleChange6} /> */}
@@ -247,6 +249,8 @@ handleChange13 = (e) =>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
@@ -254,7 +258,7 @@ handleChange13 = (e) =>
           <div className="agreements_rht">
             <h1>Procedures</h1>
             <h4>SPRINTS START ON</h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
            
 
@@ -266,10 +270,12 @@ handleChange13 = (e) =>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <h4>WILL USE GROW LABS MANAGMENT TOOL</h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
     
               {/* <input type="text" name="x8" placeholder="Yes" className={this.state.x8Active} value={this.state.x8} onChange={this.handleChange8} />
@@ -278,10 +284,12 @@ handleChange13 = (e) =>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <h4>WILL USE GROW LABS COMMUNICATION TOOL</h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
 
               {/* <input type="text" name="x9" placeholder="Yes" value={this.state.x9} className={this.state.x9Active} onChange={this.handleChange9} /> */}
@@ -290,11 +298,13 @@ handleChange13 = (e) =>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <br /> <br />
             <h4>WILL ALWAYS FILL IN SPRINT DESCRIPTION AND STORIES </h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
               
 
@@ -304,11 +314,12 @@ handleChange13 = (e) =>
               <option value="">3 Days in Advance</option>
               <option value="No 4days">No 4days</option>
               </select>
+              <div class="go-icon"></div>
 
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <h4>ALWAYS FILL IN FINAL MILESTONE DESCRIPTION IN ADVANCE </h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
               
 
@@ -318,16 +329,20 @@ handleChange13 = (e) =>
               <option value="">1 Sprint in advance</option>
               <option value="No 4days">No 4days</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <h4>ALWAYS FILL IN FINAL MILESTONE DESCRIPTION IN ADVANCE </h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
               {/* <input type="text" name="x12" placeholder="1 Sprint in advance" className={this.state.x12Active} value={this.state.x12} onChange={this.handleChange12} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x12Err}</span> */}
               <select name="x12"  className={this.state.x12Active} value={this.state.x12} onChange={this.handleChange12}>
               <option value="">1 Sprint in advance</option>
               <option value="No 4days">No 4days</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <br /> <br />
@@ -343,7 +358,7 @@ handleChange13 = (e) =>
             </div>
             <br></br>
             <h4>STORY POINTS </h4>
-            <div className="input_box">
+            <div className="input_box dropdown">
 
               
 
@@ -353,6 +368,8 @@ handleChange13 = (e) =>
               <option value="yes">yes</option>
               <option value="no">no</option>
               </select>
+              <div class="go-icon"></div>
+
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
             </div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
