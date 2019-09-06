@@ -1796,6 +1796,42 @@ img.profile-fix-img {
 .input_box {
     position: relative;
 }
+.input_box.dropdown select {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+}
+.input_box.dropdown .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid white;
+    right: 8%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 15px;
+    opacity: 0.6;
+}
+.input_box.dropdown select option {
+ 
+    color: #000;
+}
+.input_box.dropdown .tooltip img {
+    top: 12px;
+}
+.agreements_flt .input_box.hlf.rgt select {
+    margin-top: -8px;
+}
 .agreements_form p {
     color: #BBBBBB;
     font-family: "Open Sans";
