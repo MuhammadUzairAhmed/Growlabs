@@ -1,29 +1,33 @@
 import React , {Component} from 'react';
-import Password from './../password'
-class PASSWORD extends Component
+class Password extends Component
 {
     constructor(props){
         super(props)
         this.state = {
             oldData : {
-                password: "testing",
-                newpass:"testing",
-                confirm:"testing"
+                password_old: "testing",
+                password_new:"testing",
+                password_repeat:"testing"
             },
             newData : {
-                password:'',
-                newpass:'',
-                confirm:''
+                password_old:'',
+                password_new:'',
+                password_repeat:''
             },
             status:false,
             delayFor:true,
             active:false
         }
     }
-    componentWillReceiveProps(nextprops)
+    componentDidMount()
     {
-       fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_operations")
-       .then(res => res)
+        this.getPassData()
+
+    }
+  
+    getPassData=()=>{
+        fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/profile_password_old")
+       .then(res => res.json())
        .then(data =>
           console.log(data,'xyz')
        );
@@ -31,9 +35,9 @@ class PASSWORD extends Component
 
     buttonFunction(){
         this.setState({status:false,newData : {
-            password:'',
-            newpass:'',
-            confirm:''
+            password_old:'',
+            password_new:'',
+            password_repeat:''
         }})
     }
     handleChange(x, state){
@@ -47,10 +51,11 @@ class PASSWORD extends Component
     handleSave =()=>
      {
         var values ={
-            password:this.state.newData.password,
-            newpass:this.state.newData.newpass,
-            confirm:this.state.newData.confirm,
+            password_old:this.state.newData.password_old,
+            password_new:this.state.newData.password_new,
+            password_repeat:this.state.newData.password_repeat,
         }
+        console.log('password_olds',values)
         this.falseData()
         setTimeout(
            function(){this.getData(values)}.bind(this)
@@ -73,7 +78,7 @@ class PASSWORD extends Component
 
     getData(values){
      if(this.state.delayFor){
-           fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_operations', {
+           fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/profile_password_old', {
               method: 'post',
               body: JSON.stringify(values)
            }).then((response) => {
@@ -100,27 +105,27 @@ class PASSWORD extends Component
                 </div>
             <div className="personal_main" onBlur={this.handleSave}>
                 {/*2nd column*/}
-                     <div className="password_sec">
+                     <div className="password_old_sec">
                 <div className="feild">
-                       <label>CURRENT PASSWORD</label>
-                       <input onChange={(x)=> this.handleChange(x,'password')} type="text" name="currentPass" value={this.state.status ? this.state.newData.password : this.state.oldData.password} placeholder="input" />
+                       <label>CURRENT password_old</label>
+                       <input onChange={(x)=> this.handleChange(x,'password_old')} type="text" name="currentPass" value={this.state.status ? this.state.newData.password_old : this.state.oldData.password_old} placeholder="input" />
                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
      
                  </div>
                  <div className="feild">
-                       <label>NEW PASSWORD</label>
-                       <input onChange={(x)=> this.handleChange(x,'newpass')} type="text" name="nexPass" value={this.state.status ? this.state.newData.newpass : this.state.oldData.newpass} placeholder="input" />
+                       <label>NEW password_old</label>
+                       <input onChange={(x)=> this.handleChange(x,'password_new')} type="text" name="nexPass" value={this.state.status ? this.state.newData.password_new : this.state.oldData.password_new} placeholder="input" />
                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
      
                  </div>
                  <div className="feild">
-                       <label>CONFIRM PASSWORD</label>
-                       <input onChange={(x)=> this.handleChange(x,'confirm')} type="text" name="confirmPass" value={this.state.status ? this.state.newData.confirm : this.state.oldData.confirm} placeholder="input" />
+                       <label>password_repeat password_old</label>
+                       <input onChange={(x)=> this.handleChange(x,'password_repeat')} type="text" name="password_repeatPass" value={this.state.status ? this.state.newData.password_repeat : this.state.oldData.password_repeat} placeholder="input" />
                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
      
                  </div>
          
-     {/* {this.state.nexPass != '' && this.state.nexPass  == this.state.confirmPass && this.state.confirmPass != ''?
+     {/* {this.state.nexPass != '' && this.state.nexPass  == this.state.password_repeatPass && this.state.password_repeatPass != ''?
                  <button color="primary" onClick={this.handleSave}>Request Approval</button>
      :''}           */}
        </div>
@@ -142,4 +147,4 @@ class PASSWORD extends Component
         )
     }
 }
-export default PASSWORD;
+export default Password;

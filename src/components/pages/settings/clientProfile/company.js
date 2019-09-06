@@ -5,28 +5,43 @@ class Company extends Component
     constructor(props){
         super(props);
         this.state={
-            companyName:'',
-            companyType:'',
-            companyIntro:'',
-            description:'',
-            companyURL:'',
-            twitterURL:'',
-            linkedURL:'',
-            facebookURL:'',
-            officeInCountries:'',
-            noOfteamMEMBER:'',
-            gitUser:'',
+            company_name:'',
+            company_type:'',
+            company_intro:'',
+            description_special:'',
+            website:'',
+            twitter:'',
+            linkedin:'',
+            facebook:'',
+            office_countries:'',
+            team_members:'',
+            github:'',
             delayFor:true,
             active:false
         }
     }
-    componentWillReceiveProps(nextprops)
+    componentDidMount()
     {
-       fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/client_company")
-       .then(res => res)
-       .then(data =>
-          console.log(data,'xyz')
-       );
+       this.getCompanyData()
+    }
+    getCompanyData=()=>{
+      fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/client_company")
+      .then(res => res.json())
+      .then(data =>
+      this.setState({
+         company_name:data.company_name,
+         company_type:data.company_type,
+         company_intro:data.company_intro,
+         description_special:data.description_special,
+         office_countries:data.office_countries,
+         team_members:data.team_members,
+         linkedin:data.linkedin,
+         twitter:data.twitter,
+         website:data.website,
+         facebook:data.facebook,
+         github:data.github,
+      })
+      );
     }
     handleChange = (e) => {
         this.setState({
@@ -37,17 +52,17 @@ class Company extends Component
      handleSave =()=>
      {
         var values ={
-            companyName:this.state.companyName,
-            companyType:this.state.companyType,
-            companyIntro:this.state.companyIntro,
-            description:this.state.description,
-            officeInCountries:this.state.officeInCountries,
-            noOfteamMEMBER:this.state.noOfteamMEMBER,
-            companyURL:this.state.companyURL,
-            twitterURL:this.state.twitterURL,
-            linkedURL:this.state.linkedURL,
-            facebookURL:this.state.facebookURL,
-            gitUser:this.state.gitUser,
+            company_name:this.state.company_name,
+            company_type:this.state.company_type,
+            company_intro:this.state.company_intro,
+            description_special:this.state.description_special,
+            office_countries:this.state.office_countries,
+            team_members:this.state.team_members,
+            linkedin:this.state.linkedin,
+            twitter:this.state.twitter,
+            website:this.state.website,
+            facebook:this.state.facebook,
+            github:this.state.github,
             
         }
         this.falseData()
@@ -58,6 +73,7 @@ class Company extends Component
       
      }
      stopPostData(){
+      this.getCompanyData()
         this.setState({
            delayFor:false,
            active:false
@@ -105,13 +121,13 @@ class Company extends Component
      <h1>General</h1>
            <div className="feild ">
                   <label>COMPANY NAME</label>
-                  <input onChange={this.handleChange} type="text" name="companyName" value={this.state.companyName} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="company_name" value={this.state.company_name} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
             </div>
             <div className="feild dropdown">
                   <label>COMPANY TYPE</label>
-                  <select  form="carform"  name="companyType" value={this.state.companyType} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                  <select  form="carform"  name="company_type" value={this.state.company_type} onChange={this.handleChange}>
+                  <option value="">{this.state.company_type}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
@@ -119,11 +135,11 @@ class Company extends Component
                   <div class="go-icon"></div>
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
-                  {/* <input onChange={this.handleChange} type="text" name="companyType" value={this.state.companyType} placeholder="input" /> */}
+                  {/* <input onChange={this.handleChange} type="text" name="company_type" value={this.state.company_type} placeholder="input" /> */}
             </div>
             <div className="feild ">
                   <label>GITHUB USERNAME</label>
-                  <input onChange={this.handleChange} type="text" name="gitUser" value={this.state.gitUser} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="github" value={this.state.github} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -138,38 +154,38 @@ class Company extends Component
             <h1>Links</h1>
             <div className="feild ">
                   <label>WEBSITE URL</label>
-                  <input onChange={this.handleChange} type="text" name="companyURL" value={this.state.companyURL} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="website" value={this.state.website} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild ">
                   <label>TWITTER URL</label>
-                  <input onChange={this.handleChange} type="text" name="twitterURL" value={this.state.twitterURL} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="twitter" value={this.state.twitter} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild ">
                   <label>LINKEDIN URL</label>
-                  <input onChange={this.handleChange} type="text" name="linkedURL" value={this.state.linkedURL} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="linkedin" value={this.state.linkedin} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild ">
                   <label>FACEBOOK URL</label>
-                  <input onChange={this.handleChange} type="text" name="facebookURL" value={this.state.facebookURL} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="facebook" value={this.state.facebook} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild ">
                 <label>NUMBER OF TEAM MEMBERS</label>
-                <input onChange={this.handleChange} type="text" name="noOfteamMEMBER" value={this.state.noOfteamMEMBER} placeholder="input" />
+                <input onChange={this.handleChange} type="text" name="team_members" value={this.state.team_members} placeholder="input" />
                 <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild dropdown">
                 <label>OFFICE IN COUNTRIES</label>
-                <select  form="carform"  name="officeInCountries" value={this.state.officeInCountries} onChange={this.handleChange}>
-                  <option value="volvo">Volvo</option>
+                <select  form="carform"  name="office_countries" value={this.state.office_countries} onChange={this.handleChange}>
+                  <option value="">{this.state.office_countries}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
                   <option value="audi">Audi</option>
@@ -182,16 +198,16 @@ class Company extends Component
             </div>
             {/*3rd column*/}
             <div className="third_row">
-            <h1>Descriptions</h1>
+            <h1>description_specials</h1>
              <div className="feild textarea">
               <label>COMPANY INTRODUCTION</label>
-              <textarea class="form-control" placeholder="input" rows="6" id="comment"></textarea>   
+              <textarea class="form-control" placeholder="input" rows="6" id="comment" name="company_intro" value={this.state.company_intro} onChange={this.handleChange}></textarea>   
              <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild textarea">
-              <label>DESCRIPTION WHAT MAKES US SPECAL?</label>
-              <textarea class="form-control" placeholder="input" rows="6" id="comment"></textarea> 
+              <label>description_special WHAT MAKES US SPECAL?</label>
+              <textarea class="form-control" placeholder="input" rows="6" id="comment" name="description_special" value={this.state.description_special} onChange={this.handleChange}></textarea> 
              <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>

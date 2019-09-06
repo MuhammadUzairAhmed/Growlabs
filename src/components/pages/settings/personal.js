@@ -11,13 +11,13 @@ class Personal extends Component
            formMainId: null,
            formChildId: null,
            childKey: '',
-           fname: '',
+           first_name: '',
            address: '',
            skype: '',
            phone: '',
-           mail: '',
+           email: '',
            zipcode: '',
-           lastname: '',
+           last_name: '',
            dob:'',
            image: '',
            city:'',
@@ -28,7 +28,30 @@ class Personal extends Component
            
         }
      }
-     
+     componentDidMount(){
+        if(this.props.projectType=='additionalInformationPopup' )
+        {
+         console.log('additionalInformationPopup' )
+        }else{
+      this.getOldData()}
+     }
+     componentWillReceiveProps(nextprops)
+     {
+        console.log(nextprops,'nextprops')
+        if(nextprops.dntShow){
+         this.getOldData()
+        }
+     }
+     getOldData=()=>{
+      fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/personal")
+      .then(res => res.json())
+      .then(data =>
+         this.setState({first_name:data.first_name,last_name:data.last_name,address:data.address,phone:data.phone,
+            email:data.email,zipcode: data.zipcode,dob:data.dob,city:data.city,country:data.country,skype:data.skype
+         })
+ 
+      );
+     }
     handleChange = (e) => {
         this.setState({
            [e.target.name]: e.target.value
@@ -38,23 +61,35 @@ class Personal extends Component
      handleSave =()=>
      {
          var values ={
-            first_name : this.state.fname,
-            last_name :this.state.lastname,
+            first_name : this.state.first_name,
+            last_name :this.state.last_name,
             dob : this.state.dob,
             skype : this.state.skype,
-            email :this.state.mail,
+            email :this.state.email,
             phone :this.state.phone,
             address :this.state.address,
             zipcode : this.state.zipcode,
             city : this.state.city,   
             country : this.state.country        
          }
-         this.props.buttonActive()
+         if(this.props.projectType=='additionalInformationPopup' ){
+            fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/moreinfo', {
+               method: 'post',
+               body: JSON.stringify(values)
+            }).then((response) => {
+               console.log(response,"resData")
+               return response.json();
+            }).then((data)=> {
+               console.log('Created List:', data);
+               //alert('as')
+            });
+         }
+         else{this.props.buttonActive()
          setTimeout(
             function(){this.props.getData(values)}.bind(this)
 
          ,15000)
-         console.log(values,'personal')
+         console.log(values,'personal')}
       
      }
      checkInfo(){
@@ -88,17 +123,18 @@ class Personal extends Component
                {this.props.currentPageStatus == "additionalInformationPopup" ? '':<h1>Genernal</h1>}
                <div className="feild ">
                   <label>First Name</label>
-                  <input onChange={this.handleChange} type="text" name="fname" value={this.state.fname} placeholder="Input" />
+                  <input onChange={this.handleChange} type="text" name="first_name" value={this.state.first_name} placeholder="Input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild ">
                   <label>Last Name </label>
-                  <input onChange={this.handleChange} type="text" name="lastname" value={this.state.lastname} placeholder="Input" />
+                  <input onChange={this.handleChange} type="text" name="last_name" value={this.state.last_name} placeholder="Input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                <div className="feild ">
                      <label>DATE OF BIRTH Date </label>
                      <MaskedInput
+                     value={this.state.dob}
                      name="dob"
                      onChange={this.handleChange}
                      guide={true}
@@ -115,7 +151,7 @@ class Personal extends Component
                </div>
                <div className="feild">
                   <label>Email address</label>
-                  <input onChange={this.handleChange} type="text" name="mail" value={this.state.mail} placeholder="Input" />
+                  <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="Input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                </div>
                

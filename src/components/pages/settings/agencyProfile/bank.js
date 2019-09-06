@@ -21,19 +21,19 @@ class Bank extends Component
         }
     }
     
-    componentWillReceiveProps(nextprops)
-    {
-       fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_bank")
-       .then(res => res)
-       .then(data =>
-          console.log(data,'xyz')
-       );
+    getOldData=()=>{
+      fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_bank")
+      .then(res => res.json())
+      .then(data =>{
+            this.setState({account:data.account,bic:data.bic,holder:data.holder,vat:data.holder,coc:data.coc})}
+      );
     }
     componentDidMount(){
-        if(this.props.bankData != '')
-        {   const { account,bic,holder,vat,coc } = this.props.bankData;
-            this.setState({account,bic,holder,vat,coc})
-        }
+      this.getOldData()
+      //   if(this.props.bankData != '')
+      //   {   const { account,bic,holder,vat,coc } = this.props.bankData;
+      //       this.setState({account,bic,holder,vat,coc})
+      //   }
     }
     handleChange = (e) => {
         this.setState({
@@ -65,6 +65,7 @@ class Bank extends Component
       
      }
     stopPostData(){
+      this.getOldData()
         this.setState({
            delayFor:false,
            active:false
