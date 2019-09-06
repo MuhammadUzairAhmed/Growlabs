@@ -67,12 +67,12 @@ class FileUpload extends Component
 {/* <h1>file Upload</h1> */}
 <Dropzone onDrop={this.fileUploader}>
   {({getRootProps, getInputProps}) => (
-    <section>
+    <section className="drad-drop">
       <div {...getRootProps()}>
         <input {...getInputProps()} />
         {this.props.getInput1=='PS' ? <img src='./assets/img/pancel_b.png' style={{width: '50%'}} />
         : this.props.getInput1 !='modal' && <img src='./assets/img/dragCloud.png' style={{width: '30%'}} />}
-        {this.props.getInput1=='modal'?  <img src='./assets/img/drad-drop.png' style={{width: '50%'}} /> :''}
+        {this.props.getInput1=='modal'?  <img src='./assets/img/drad-drop.png'  /> :''}
         {/* <p>Drag 'n' drop some files here, or click to select files</p> */}
       </div>
     </section>

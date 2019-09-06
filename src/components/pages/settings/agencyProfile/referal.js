@@ -808,6 +808,14 @@ class DatatablePage extends Component{
 
    <div className="Settings_profiles">
 
+   <div className="Referal_top">  
+                 <button class="one"><img src="./assets/img/serch.png"/><p>SEARCH</p></button>
+                 <input type="text" name="username" placeholder="" value=""/>
+            </div>
+
+
+
+
                 <div className="manage_test">
 
                 <div className="manage_header">
@@ -951,10 +959,15 @@ class DatatablePage extends Component{
 
 
 
-           
+ <div class="Button_sec"><div class="save_button"><label class="switch"><input type="checkbox"/><span class="slider round">Save Chages</span></label></div><button class="secd_button">Add google Authenticator</button><p>Request Account Removal</p></div>
+
 
 
         </div>
+
+
+
+
 
 
 

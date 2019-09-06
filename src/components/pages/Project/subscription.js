@@ -10,6 +10,7 @@ class Subscription extends Component {
         return(
             <div class="subscriptionforms">
                 <div class="content_pricing" id="pricing">
+                <div class="price_over">
                  <div class="price">
                     <div class="center">
                         <div class="package">
@@ -17,7 +18,7 @@ class Subscription extends Component {
                         </div>
                         <div class="heading">
                             <i class="fa fa-eur" aria-hidden="true"></i>
-                            <h1>0,00</h1>
+                            <h1><spna>&#8364;</spna>0,00</h1>
                             <small>/month</small>
                         </div>
                     </div>
@@ -37,11 +38,16 @@ class Subscription extends Component {
 
                         </ul>
                     </div>
-                    <button type="button">Seclect</button>
+                    
                 </div>
+                <button type="button">Seclect</button>
+                </div>
+
+                <div class="price_over active">
                 <div class="price active">
+               
                     <div class="mostPop">
-                        <span>Most populair</span>
+                        <span>Most <br/>populair</span>
                     </div>
                     <div class="center">
                         <div class="package">
@@ -49,7 +55,7 @@ class Subscription extends Component {
                         </div>
                         <div class="heading">
                             <i class="fa fa-eur" aria-hidden="true"></i>
-                            <h1>1.999</h1>
+                            <h1><spna>&#8364;</spna>1.999</h1>
                             <small>/month</small>
                         </div>
                     </div>
@@ -68,9 +74,12 @@ class Subscription extends Component {
                             <li class="disabled">Wireframe MVP Product</li>
                         </ul>
                     </div>
-                    <button type="button">Seclect</button>
-                </div>
-
+                    
+                </div> 
+                <button type="button">Seclect</button>
+                </div> 
+               
+                <div class="price_over">
                 <div class="price">
                     <div class="center">
                         <div class="package">
@@ -78,7 +87,7 @@ class Subscription extends Component {
                         </div>
                         <div class="heading">
                             <i class="fa fa-eur" aria-hidden="true"></i>
-                            <h1>3.999</h1>
+                            <h1><spna>&#8364;</spna>3.999</h1>
                             <small>/month</small>
                         </div>
                     </div>
@@ -97,7 +106,9 @@ class Subscription extends Component {
                             <li>Wireframe MVP Product</li>
                         </ul>
                     </div>
-                    <button type="button">Seclect</button>
+                   
+                </div>
+                <button type="button">Seclect</button>
                 </div>
             </div> 
         </div>

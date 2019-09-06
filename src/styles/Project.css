@@ -1160,6 +1160,18 @@ li.active {
     background: #e7e7e7;
 
 }
+.project .personal_upload section.drad-drop {
+    background: none;
+}
+section.project .modal.Personal .personal_rgt {
+    margin-top: 0;
+}
+section.project .modal.Personal .save_button {
+    display: none;
+}
+.project .modal.Personal .personal_user {
+    background: #ebebeb;
+}
 .project .pagenation_right .go-icon {
 
     border-top: 1px solid white;
@@ -1181,17 +1193,19 @@ a.button.save {
 }
 
 /*--------- As -------*/
-.content_pricing .price {
-    -webkit-transition: all 0.125s ease-in-out;
-    -moz-transition: all 0.125s ease-in-out;
-    -o-transition: all 0.125s ease-in-out;
-    transition: all 0.125s ease-in-out;
+.price_over {
+    position: relative;
     width: 24%;
+    margin: 5% 4%;
+    float: left;
+}
+.content_pricing .price {
+    transition: all 0.125s ease-in-out;
+    width: 100%;
     padding: 14px 16px;
     border-radius: 2px;
-    margin: 2%;
     position: relative;
-    float:left;
+    overflow: hidden;
 }
 
 .content_pricing .button button {
@@ -1212,19 +1226,41 @@ a.button.save {
     font-size: 22px;
     float: left;
 }
-
+.content_pricing .heading h1 spna {
+    font-size: 20px;
+    position: absolute;
+    top: 13px;
+    left: -9px;
+    font-weight: 600;
+}
+.mostPop {
+    position: absolute;
+    right: -65px;
+    top: -20px;
+    background: #143B52;
+    color: #fff;
+    webkit-transform: rotate(177deg);
+    transform: rotate(402deg);
+    padding: 38px 37px;
+    font-size: 12px;
+    height: 13px;
+    width: 100px;
+    text-align: center;
+    letter-spacing: 2px;
+}
 .content_pricing .heading h1 {
     float: left;
     margin: 0;
     padding: 0 5px 0 10px;
-    font-size: 54px;
+    font-size: 60px;
+    font-weight: 100;
 }
 
 .content_pricing .heading small {
-    top: 19%;
     position: absolute;
     font-size: 12px;
-    color: #919191;
+    color: #000000;
+    bottom: 19px;
 }
 
 .content_pricing .price .package {
@@ -1313,6 +1349,13 @@ a.button.save {
     border: 0;
     padding: 10px;
     width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.form button:hover {
+    background: #cdcccc;
 }
 .project .Referal_top {
     background: #ffffff;
