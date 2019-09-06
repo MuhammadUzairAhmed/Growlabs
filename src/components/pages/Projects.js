@@ -118,26 +118,33 @@ class Projects extends Component {
         )
         console.log('messsage',this.state.formData.reasoning)
     }
-    changeDate(e){
+    changeDate(from,to){
+        console.log(from,to,'dates came')
         this.setState({
             data : {
                 ...this.state.data,
                 [this.state.currentAgency]:{
                     ...this.state.data[this.state.currentAgency],
-                    timelineEnd:e.timelineEnd,
-                    timelineStart:e.timelineStart,
+                    timelineEnd:to,
+                    timelineStart:from,
                     }
-                }
+                },
+                
             }
         )
     }
     changeBudget(e){
+        console.log(e,'rangeDATA')
+
+        // this.state.data[this.state.currentAgency]
+        console.log(this.state.versions,'versions')
+console.log(this.state.data,'dataAgerncy')
         this.setState({
             data : {
                 ...this.state.data,
                 [this.state.currentAgency]:{
                     ...this.state.data[this.state.currentAgency],
-                    budget:e
+                    budget:e.toString()
                     }
                 }
             }
@@ -329,7 +336,7 @@ class Projects extends Component {
                     
                         <fieldset>
                             <h2 className="Profieldset_hea">TIMELINE</h2>
-                            <TDataPicker timelineStart={this.state.versions.timelineStart} timelineEnd={this.state.versions.timelineEnd} onChange={(e)=>this.changeDate(e)}/>
+                            <TDataPicker timelineStart={this.state.versions.timelineStart} timelineEnd={this.state.versions.timelineEnd} onChangeDate={this.changeDate}/>
                         </fieldset>
                         <fieldset>
                             <h3>Budget</h3>
