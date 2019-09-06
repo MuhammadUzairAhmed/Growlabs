@@ -16,13 +16,14 @@ class Legal extends Component {
     {
         fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/legal')
         .then(res=>res.json())
-        .then(data=>console.log(data,'legalData'))
-        if(this.props.legalData.nda != null)
-        {
-            this.setState({fileName: this.props.legalData.nda,
-            secondfileName: this.props.legalData.contract
-            })
-        }
+        .then((data)=>{
+            console.log(data,'legalData')
+        // if(this.props.legalData.nda != null)
+        // {
+            this.setState({fileName: data.nda,
+            secondfileName: data.contract
+            })})
+        // }
     }
     handleAccept = () => {
         var values = {
