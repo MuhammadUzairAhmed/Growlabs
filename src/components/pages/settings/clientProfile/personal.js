@@ -9,7 +9,8 @@ class Personal extends Component
         super(props);
         this.state={
             delayFor:true,
-            active:false
+            active:false,
+            dntShow:false,
         }
     }
     
@@ -43,6 +44,7 @@ class Personal extends Component
      }
      stopPostData(){
       this.setState({
+         dntShow:true,
          delayFor:false,
          active:false
         })
@@ -67,7 +69,7 @@ class Personal extends Component
                     <span class="slider round">Save Chages</span>
                     </label>
                 </div>
-                <PERSONAL buttonActive={this.falseData.bind(this)}   getData={this.handleSave}/>
+                <PERSONAL projectType=''  activeAdditional='' buttonActive={this.falseData.bind(this)} dntShow={this.state.dntShow}  getData={this.handleSave} currentPageStatus='' sendInfo=''/>
             </div>
     )
 }

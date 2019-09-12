@@ -3,6 +3,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 
 body {font-family: 'Open Sans', sans-serif;background: #1e262e;margin: 0px;}
+
+input.active {
+    border-bottom: 1px solid #19d192 !important;
+}
+
+select.active {
+    border-bottom: 1px solid #19d192 !important;
+}
+
 div#app {
     zoom: 0.80;
 }
@@ -94,7 +103,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     font-family: "Open Sans";
     font-size: 32px;
     font-weight: 300;
-    
+
 }
 .time_section p {
     margin: 0px 0px 0px 2px;
@@ -206,7 +215,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     position: relative;
     margin-bottom: 10px;
     width: -webkit-fill-available;
-    padding: 14px 27px 14px 32px;   
+    padding: 14px 27px 14px 32px;
     float: left;
     text-decoration: none;
     color: #6d6e6f;
@@ -938,7 +947,7 @@ section.Content_main:after {
     width: 17px;
     // top: 2.5px;
     // left: 1px;
-    
+
     top: 3px;
     left: 0px;
 

@@ -241,13 +241,13 @@ if(val+1 <= this.state.weeks){
 
 						<div className="timeframe_secound">
 							<label>NUMBER OF SPRINTS</label>
-							<input type="text" name="x5" placeholder="05" value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
+							<input type="text" name="x5" placeholder="05" className={item.input1 != 0 ? 'active':''} value={item.id == this.state.itemId ? this.state.x5 : item.input1} onInput={this.handleChange} onChange={()=>this.UpdateInput(item.id)} />
 							{/* <span style={{ color: 'red' }}>{item.input1 != 0 ? '' : 'Please Fill out this Field'}</span> */}
 						</div>
 
 						<div className="timeframe_third">
 							<label>MILESTONES DESCRIPTION</label>
-							<input type="text" name="x6" placeholder="Milestones 01" value={item.id == this.state.itemId2 ? this.state.x6 : item.input2} onInput={this.handleChange} onChange={()=>this.UpdateInput2(item.id)} />
+							<input type="text" name="x6" placeholder="Milestones 01" className={item.input2 != ''? 'active':''} value={item.id == this.state.itemId2 ? this.state.x6 : item.input2} onInput={this.handleChange} onChange={()=>this.UpdateInput2(item.id)} />
 							{/* <span style={{ color: 'red' }}>{item.input2 != '' ? '' : 'Please Fill out this field'}</span> */}
 						</div>
 

@@ -133,6 +133,16 @@ class Technology extends Component {
       // }
       // if(this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' )
       // {this.props.changeValue(2,values)}
+      var values ={
+         technology: this.state.x1,
+         framework:this.state.x2,
+         type:this.state.x3
+      }
+      fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology',{
+        method:'POST',
+        body: JSON.stringify(values)
+      }).then(res=>console.log('postData',res))
+      
     }
     componentDidUpdate()
     {

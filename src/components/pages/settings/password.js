@@ -47,19 +47,19 @@ class Bank extends Component
                 <div className="password_sec">
            <div className="feild">
                   <label>CURRENT PASSWORD</label>
-                  <input onChange={this.handleChange} type="text" name="currentPass" value={this.state.currentPass} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.currentPass != '' ? 'active':''} name="currentPass" value={this.state.currentPass} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>NEW PASSWORD</label>
-                  <input onChange={this.handleChange} type="text" name="nexPass" value={this.state.nexPass} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.nexPass != '' ? 'active':''} name="nexPass" value={this.state.nexPass} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>CONFIRM PASSWORD</label>
-                  <input onChange={this.handleChange} type="text" name="confirmPass" value={this.state.confirmPass} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.confirmPass != '' ? 'active':''} name="confirmPass" value={this.state.confirmPass} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>

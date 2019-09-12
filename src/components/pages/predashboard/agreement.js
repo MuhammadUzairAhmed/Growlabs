@@ -75,26 +75,28 @@ class Agreements extends Component {
 	{
     fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/agreements')
     .then(res=>res.json())
-    .then(data=>console.log('dataAgreement',data))
+    .then(data=>
+      {console.log('dataAgreement',data)
     console.log(data,'datas')
-		if(this.props.agreementData != ''){
+		// if(this.props.agreementData != ''){
       this.setState({
-        x1:this.props.agreementData.bonus,
-        x2:this.props.agreementData.payment,
-        x3:this.props.agreementData.github,
-        x4:this.props.agreementData.sprint_call_days,
-        x5:this.props.agreementData.sprint_call_time,
-        x6:this.props.agreementData.medium,
-        x7:this.props.agreementData.sprint_start,
-        x8:this.props.agreementData.grow_management_tool,
-        x9:this.props.agreementData.grow_communication_tool,
-        x10:this.props.agreementData.sprint_description,
-        x11:this.props.agreementData.milestone_description,
-        // x12:this.props.agreementData.x12,
-        x13:this.props.agreementData.story_points
+        x1:data.bonus,
+        x2:data.payment,
+        x3:data.github,
+        x4:data.sprint_call_days,
+        x5:data.sprint_call_time,
+        x6:data.medium,
+        x7:data.sprint_start,
+        x8:data.grow_management_tool,
+        x9:data.grow_communication_tool,
+        x10:data.sprint_description,
+        x11:data.milestone_description,
+        // x12:data.x12,
+        x13:data.story_points
 
       })
-		console.log(this.props.agreementData,'didMouhntData23')}
+      })
+		console.log(this.props.agreementData,'didMouhntData23')
 	}
   
 handleChange1 = (e) =>
@@ -174,7 +176,7 @@ handleChange13 = (e) =>
     }
   }
   render() {
-    
+    console.log(this.state,'chekcedd')
     const {x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13} = this.state;
     return (
       <section className={this.state.actDiv ? "agreements animations-disable" : "agreements animations-check" }>
@@ -188,7 +190,7 @@ handleChange13 = (e) =>
             <h1>Financial</h1>
             <h4>BONUS AMOUNT FOR ACHIEVING DEADLINE</h4>
             <div className="input_box">
-              <input type="text" name="x1" className={this.state.x1Active} placeholder="€0" value={this.state.x1} onChange={this.handleChange1} />
+              <input type="text" name="x1" className={this.state.x1 != '' ? 'active' :''} placeholder="€0" value={this.state.x1} onChange={this.handleChange1} />
               {/* <span className="FildEror">{this.state.x1Err}</span> */}
 
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
@@ -198,8 +200,8 @@ handleChange13 = (e) =>
             <div className="input_box dropdown">
               {/* <input type="text" name="x2" className={this.state.x2Active} placeholder="Minimally 10 days before start new milestone" value={this.state.x2} onChange={this.handleChange2} /> */}
               
-              <select name="x2" className={this.state.x2Active}  value={this.state.x2} onChange={this.handleChange2}>
-              <option value="">Minimally 10 days before start new milestone</option>
+              <select name="x2" className={this.state.x2 != '' ? 'active' :''}  value={this.state.x2} onChange={this.handleChange2}>
+              <option value="">{this.state.x2 != ''? this.state.x2: 'Minimally 10 days before start new milestone'}</option>
               <option value="20 days">20 days</option>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
@@ -222,14 +224,14 @@ handleChange13 = (e) =>
             <h4>SPRINTS CALLS</h4>
             <div className="input_box hlf">
 
-              <input type="text" name="x4" className={this.state.x4Active} placeholder="WED, Fri" value={this.state.x4} onChange={this.handleChange4} />
+              <input type="text" name="x4" className={this.state.x4 != '' ? 'active' :''} placeholder="WED, Fri" value={this.state.x4} onChange={this.handleChange4} />
               <span className="FildEror">{this.state.x4Err}</span>
             </div>
             <div className="input_box dropdown hlf rgt">
               {/* <input type="text" name="x5" className={this.state.x5Active} placeholder="9:00 AM (EPT)" value={this.state.x5} onChange={this.handleChange5} /> */}
               {/* <span className="FildEror">{this.state.x5Err}</span> */}
-              <select name="x5" className={this.state.x5Active}  value={this.state.x5} onChange={this.handleChange5}>
-              <option value="">9:00 AM (EPT)</option>
+              <select name="x5" className={this.state.x5 != '' ? 'active' :''}  value={this.state.x5} onChange={this.handleChange5}>
+              <option value="">{this.state.x5 != ''? this.state.x5 :'9:00 AM (EPT)'}</option>
               <option value="20 days">20 days</option>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
@@ -243,8 +245,8 @@ handleChange13 = (e) =>
          
               {/* <input type="text" name="x6" placeholder="Skype"  className={this.state.x6Active} value={this.state.x6} onChange={this.handleChange6} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x6Err}</span> */}
-              <select name="x6"  className={this.state.x6Active} value={this.state.x6} onChange={this.handleChange6}>
-              <option value="">9:00 AM (EPT)</option>
+              <select name="x6"  className={this.state.x6 != '' ? 'active' :''} value={this.state.x6} onChange={this.handleChange6}>
+              <option value="">{this.state.x6 != ''? this.state.x6 :'9:00 AM (EPT)'}</option>
               <option value="20 days">20 days</option>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
@@ -264,8 +266,8 @@ handleChange13 = (e) =>
 
               {/* <input type="text" name="x7" placeholder="Monday"  className={this.state.x7Active} value={this.state.x7} onChange={this.handleChange7} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x7Err}</span> */}
-              <select name="x7"  className={this.state.x7Active} value={this.state.x7} onChange={this.handleChange7}>
-              <option value="">Monday</option>
+              <select name="x7"  className={this.state.x7 != '' ? 'active' :''} value={this.state.x7} onChange={this.handleChange7}>
+              <option value="">{this.state.x7 != ''? this.state.x7:'Monday'}</option>
               <option value="20 days">20 days</option>
               <option value="30 days">30 days</option>
               <option value="40 days">40 days</option>
@@ -280,7 +282,8 @@ handleChange13 = (e) =>
     
               {/* <input type="text" name="x8" placeholder="Yes" className={this.state.x8Active} value={this.state.x8} onChange={this.handleChange8} />
               <span style={{ color: 'red' }}>{this.state.x8Err}</span> */}
- <select name="x8"  className={this.state.x8Active} value={this.state.x8} onChange={this.handleChange8}>
+ <select name="x8"  className={this.state.x8 != '' ? 'active' :''} value={this.state.x8} onChange={this.handleChange8}>
+              <option value="">{this.state.x8 != '' ? this.state.x8 :"Yes"}</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               </select>
@@ -294,7 +297,8 @@ handleChange13 = (e) =>
 
               {/* <input type="text" name="x9" placeholder="Yes" value={this.state.x9} className={this.state.x9Active} onChange={this.handleChange9} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x9Err}</span> */}
-              <select name="x9"  className={this.state.x9Active} value={this.state.x9} onChange={this.handleChange9}>
+              <select name="x9"  className={this.state.x9 != '' ? 'active' :''} value={this.state.x9} onChange={this.handleChange9}>
+              <option value="">{this.state.x9 != '' ? this.state.x9 :"Yes"}</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               </select>
@@ -310,9 +314,10 @@ handleChange13 = (e) =>
 
               {/* <input type="text" name="x10" placeholder="3 Days in Advance" className={this.state.x10Active} value={this.state.x10} onChange={this.handleChange10} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x10Err}</span> */}
-              <select name="x10"  className={this.state.x10Active} value={this.state.x10} onChange={this.handleChange10}>
-              <option value="">3 Days in Advance</option>
-              <option value="No 4days">No 4days</option>
+              <select name="x10"  className={this.state.x10 != '' ? 'active' :''} value={this.state.x10} onChange={this.handleChange10}>
+              <option value="">{this.state.x10 != '' ? this.state.x10 :"Yes"}</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
               </select>
               <div class="go-icon"></div>
 
@@ -325,8 +330,8 @@ handleChange13 = (e) =>
 
               {/* <input type="text" name="x11" placeholder="1 Sprint in advance" className={this.state.x11Active} value={this.state.x11} onChange={this.handleChange11} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x11Err}</span> */}
-              <select name="x11"  className={this.state.x11Active} value={this.state.x11} onChange={this.handleChange11}>
-              <option value="">1 Sprint in advance</option>
+              <select name="x11"  className={this.state.x11 != '' ? 'active' :''} value={this.state.x11} onChange={this.handleChange11}>
+              <option value="">{this.state.x11 != '' ? this.state.x11 :"1 Sprint in advance"}</option>
               <option value="No 4days">No 4days</option>
               </select>
               <div class="go-icon"></div>
@@ -337,8 +342,8 @@ handleChange13 = (e) =>
             <div className="input_box dropdown">
               {/* <input type="text" name="x12" placeholder="1 Sprint in advance" className={this.state.x12Active} value={this.state.x12} onChange={this.handleChange12} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x12Err}</span> */}
-              <select name="x12"  className={this.state.x12Active} value={this.state.x12} onChange={this.handleChange12}>
-              <option value="">1 Sprint in advance</option>
+              <select name="x12"  className={this.state.x12 != '' ? 'active' :''} value={this.state.x12} onChange={this.handleChange12}>
+              <option value="">{this.state.x12 != '' ? this.state.x12 :"1 Sprint in advance"}</option>
               <option value="No 4days">No 4days</option>
               </select>
               <div class="go-icon"></div>
@@ -351,7 +356,7 @@ handleChange13 = (e) =>
 
               
 
-              <input type="text" name="x3" placeholder="Baran127" value={this.state.x3} className={this.state.x3Active} onChange={this.handleChange3} />
+              <input type="text" name="x3" placeholder="Baran127" value={this.state.x3} className={this.state.x13 != '' ? 'active' :''} onChange={this.handleChange3} />
               {/* <span style={{ color: 'red' }}>{this.state.x13Err}</span> */}
               
               <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Tooltip text</span></div>
@@ -365,6 +370,7 @@ handleChange13 = (e) =>
               {/* <input type="text" name="x13" placeholder="Yes" value={this.state.x13} className={this.state.x13Active} onChange={this.handleChange13} /> */}
               {/* <span style={{ color: 'red' }}>{this.state.x13Err}</span> */}
               <select name="x13"  className={this.state.x13Active} value={this.state.x13} onChange={this.handleChange13}>
+              <option value="">{this.state.x13 != ''? this.state.x13:'yes'}</option>
               <option value="yes">yes</option>
               <option value="no">no</option>
               </select>

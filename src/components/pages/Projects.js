@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import { currentChatId } from '../../actions/fuelSavingsActions';
 import TDataPicker from './governanace/contractComponents/TdatePicker';
 import RangeSlider from './governanace/contractComponents/RangeSlider';
-import PERSONAL from './settings/agencyProfile/personal';
+import PERSONAL from './settings/personal';
 import FileUpload from './governanace/contractComponents/FileUpload';
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -25,7 +25,7 @@ class Projects extends Component {
             unmatch:{'status':false},
             changeVersion:false,
             versions:[],
-            userData: { pass:'',confirm:''},
+            userData: { password:'',password_r:''},
             currentVersion:0,
             finalizedAccount:false,
             activeAddition:false,
@@ -140,7 +140,7 @@ class Projects extends Component {
 
         // this.state.data[this.state.currentAgency]
         console.log(this.state.versions,'versions')
-console.log(this.state.data,'dataAgerncy')
+        console.log(this.state.data,'dataAgerncy')
         this.setState({
             data : {
                 ...this.state.data,
@@ -259,6 +259,20 @@ console.log(this.state.data,'dataAgerncy')
             activeAddition:true,
             finalizedAccount:true
         })
+        const{password, password_r}=this.state
+        var values= {
+            password, password_r
+        }
+        fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/finalizeAccount', {
+            method: 'post',
+            body: JSON.stringify(values)
+         }).then((response) => {
+            console.log(response,"resData")
+            return response.json();
+         }).then((data)=> {
+            console.log('Created List:', data);
+            //alert('as')
+         });
      }
      activeAd(){
         this.setState({
@@ -272,7 +286,7 @@ console.log(this.state.data,'dataAgerncy')
              <section className="dial_page">
                  {this.state.unmatch.status? <Unmatch closePopup={this.closePopup.bind(this)} id={this.state.unmatchID} deleteUnmatchData={this.getMatchesDelete.bind(this)}/>:''}
                  <div className="dp-matches clearfix">
-                     <h1>Final Proposala</h1>
+                     <h1>Final Proposal</h1>
                     <div className="dp-mt-matches-box">
                         {this.state.matches.companies ?
                             this.state.matches.companies.map((items,index)=> 
@@ -312,25 +326,24 @@ console.log(this.state.data,'dataAgerncy')
                      <div className="feild Finalize">
                         <label>PASSWORD</label>
                         <img src="./assets/img/lock.png" class="lock"/>
-                        <input onChange={this.handleChange} type="text" name="pass" value={this.state.userData.pass} placeholder="" />
+                        <input onChange={this.handleChange} type="text" name="password" value={this.state.userData.password} placeholder="" />
                         <img src="./assets/img/eyes.png" class="eyes"/>
                     </div>
                     <div className="feild Finalize">
                         <label>CONFIRM</label>
                         <img src="./assets/img/lock.png" class="lock"/>
-                        <input onChange={this.handleChange} type="text" name="confirm" value={this.state.userData.confirm} placeholder="" />
+                        <input onChange={this.handleChange} type="text" name="password_r" value={this.state.userData.password_r} placeholder="" />
                     </div>
-                     {this.state.userData.pass != '' && this.state.userData.pass  == this.state.userData.confirm && this.state.userData.confirm != '' ? <button className="account_but" color="primary" onClick={this.handleSave}>FINISH ACCOUNT</button>:''}
+                     {this.state.userData.password != '' && this.state.userData.password  == this.state.userData.password_r && this.state.userData.password_r != '' ? <button className="account_but" color="primary" onClick={this.handleSave}>FINISH ACCOUNT</button>:''}
                     
                 </div>
                 :''}
                 {this.state.activeAddition ? 
                     <div className="modal Personal">
                         <button class="cancel_but" color="primary" onClick={this.activeAd.bind(this)}>x</button>
-                        <PERSONAL projectType='additionalInformationPopup'  activeAdditional={this.activeAd.bind(this)} /> 
+                        <PERSONAL projectType='additionalInformationPopup'  activeAdditional={this.activeAd.bind(this)} getData='' buttonActive='' dntShow='' currentPageStatus='' sendInfo=''/>
                     </div>   
                     :''
-
                 }
                  <section className="multi_step_form" onBlur={()=>this.changeVersion(1)}>
 

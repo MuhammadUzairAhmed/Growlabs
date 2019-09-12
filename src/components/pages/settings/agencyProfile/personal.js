@@ -11,6 +11,7 @@ class Personal extends Component
       this.state = {
          delayFor:true,
          active:false,
+         dntShow:false
       }
    }
     
@@ -45,6 +46,7 @@ class Personal extends Component
      }
      stopPostData(){
       this.setState({
+         dntShow:true,
          delayFor:false,
          active:false
         })
@@ -70,7 +72,7 @@ class Personal extends Component
                   <span class="slider round">Save Chages</span>
                 </label>
               </div>
-            <PERSONAL getData={this.handleSave} buttonActive={this.falseData.bind(this)}  currentPageStatus={this.props.projectType} sendInfo={this.addInfo.bind(this)}/>
+            <PERSONAL projectType=''  activeAdditional='' getData={this.handleSave} buttonActive={this.falseData.bind(this)} dntShow={this.state.dntShow} currentPageStatus={this.props.projectType} sendInfo={this.addInfo.bind(this)}/>
             {/* <DayPicker 
             initialMonth={new Date(2017  , 3)}
             selectedDays={[from, {from, to}]}

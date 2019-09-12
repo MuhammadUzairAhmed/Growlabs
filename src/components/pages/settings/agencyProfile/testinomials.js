@@ -278,8 +278,8 @@ class DatatablePage extends Component{
        review:'',
 
        invite:false,
-       developerEmail:'',
-       developerName:'',
+       email:'',
+       name:'',
 
        testinomialRequest:false,
        testinomaila2: false,
@@ -305,7 +305,15 @@ class DatatablePage extends Component{
      this.manageTest()
      this.manageTestinomial()
      this.managePortfolio()
+     this.getManageTestData()
    }
+   getManageTestData=()=>{
+    fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_test")
+    .then(res => res.json())
+    .then(data =>{
+          this.setState({account:data.account,bic:data.bic,holder:data.holder,vat:data.holder,coc:data.coc})}
+    );
+  }
    manageTest =()=>{
     this.setState({paginationdummymanageTest: []})
     var lengthForinvitedDataPagination = this.state.manageTestData.length/3;
@@ -499,8 +507,19 @@ class DatatablePage extends Component{
     })
     var values ={
       test:this.state.test,
-      result:this.state.result
+      result:this.state.result,
+      file:this.state.img,
+      date:new Date()
     }
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_test', {
+      method: 'post',
+      body: JSON.stringify(values)
+   }).then((response) => {
+      console.log(response,"resData")
+      return response.json();
+   }).then((data)=> {
+      console.log('Created List:', data);
+    });
   }
 
   addTestinomial=()=>{
@@ -529,8 +548,21 @@ class DatatablePage extends Component{
 
   DeveloperRequest =() =>{
     this.setState({invite:false})
-    const {developerName,developerEmail} = this.state;
-    console.log(developerName,developerEmail,'developerRequest')
+    const {name,email} = this.state;
+    var values={
+      name,email
+    }
+    console.log(name,email,'developerRequest')
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_invite_dev', {
+                 method: 'post',
+                 body: JSON.stringify(values)
+              }).then((response) => {
+                 console.log(response,"resData")
+                 return response.json();
+              }).then((data)=> {
+                 console.log('Created List:', data);
+           
+              });
   }
 
 
@@ -740,7 +772,7 @@ this.manageTest()})
             <h1>Invite new developer</h1>
             <div className="feild dropdown Invite">
                <label>DEVELOPER NAME</label>
-                  <select name="developerName" form="carform" value={this.state.developerName} onChange={this.handleChange}>
+                  <select name="name" form="carform" value={this.state.name} onChange={this.handleChange}>
                
                   <option value="practical">practical</option>
                   <option value="technical">technical</option>
@@ -750,7 +782,7 @@ this.manageTest()})
                 </div>
                <div className="feild Invite">
                   <label>DEVELOPER EMAIL</label>
-                  <input onChange={this.handleChange} type="text" name="developerEmail" value={this.state.developerEmail} placeholder="INput" />
+                  <input onChange={this.handleChange} type="text" name="email" value={this.state.email} placeholder="INput" />
                   <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
                </div>
@@ -894,6 +926,7 @@ this.manageTest()})
                 </div>
                 <div className="feild dropdown Invite">
                 <label>PROJECT TECHNOLOGIES</label>
+                <input onChange={this.handleChange} type="text" name="x7" value={this.state.x7} placeholder="Input"/>
                   <select name="x7" form="carform" value={this.state.x7} onChange={this.handleChange}>
                   <option value="">Input</option>
                   <option value="JOHN">JOHN</option>
@@ -905,13 +938,14 @@ this.manageTest()})
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT QUOTE</label>
-                  <select name="x8" form="carform" value={this.state.x8} onChange={this.handleChange}>
+                  {/* <select name="x8" form="carform" value={this.state.x8} onChange={this.handleChange}>
                   <option value="">Input</option>
                   <option value="JOHN">JOHN</option>
                   <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
-                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div> */}
+  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
                 </div>
                 <div className="feild dropdown Invite">
