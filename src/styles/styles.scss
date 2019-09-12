@@ -4,6 +4,14 @@
 
 body {font-family: 'Open Sans', sans-serif;background: #1e262e;margin: 0px;}
 
+input.active {
+    border-bottom: 1px solid #19d192 !important;
+}
+
+select.active {
+    border-bottom: 1px solid #19d192 !important;
+}
+
 /* =========Start Sidbar css========= */
 section.sidebar {
     width: 230px;
@@ -1772,7 +1780,7 @@ img.profile-fix-img {
     bottom: -9px;
     border-top: 8px solid #202830;
 }
-.agreements_form input {
+input {
     width: 100%;
     background: none;
     border: 0px;
@@ -1784,9 +1792,7 @@ img.profile-fix-img {
     line-height: 29px;
     transition: all 1.5s ease;
 }
-.agreements_form input.active {
-    border-bottom: 1px solid #19d192;
-}
+
 .input_box img {
     position: absolute;
     right: 0;

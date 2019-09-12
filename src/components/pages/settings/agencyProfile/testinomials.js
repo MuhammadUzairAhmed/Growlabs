@@ -926,6 +926,7 @@ this.manageTest()})
                 </div>
                 <div className="feild dropdown Invite">
                 <label>PROJECT TECHNOLOGIES</label>
+                <input onChange={this.handleChange} type="text" name="x7" value={this.state.x7} placeholder="Input"/>
                   <select name="x7" form="carform" value={this.state.x7} onChange={this.handleChange}>
                   <option value="">Input</option>
                   <option value="JOHN">JOHN</option>
@@ -937,13 +938,14 @@ this.manageTest()})
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT QUOTE</label>
-                  <select name="x8" form="carform" value={this.state.x8} onChange={this.handleChange}>
+                  {/* <select name="x8" form="carform" value={this.state.x8} onChange={this.handleChange}>
                   <option value="">Input</option>
                   <option value="JOHN">JOHN</option>
                   <option value="WICK">WICK</option>
                  </select>
                  <div class="go-icon"></div>
-                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
+                 <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div> */}
+  <div class="tooltip"><img src="./assets/img/black_img.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
                 </div>
                 <div className="feild dropdown Invite">

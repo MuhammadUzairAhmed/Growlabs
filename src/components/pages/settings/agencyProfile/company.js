@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import FileUpload from './../../governanace/contractComponents/FileUpload';
+import $ from 'jquery'
 class Company extends Component
 {
     constructor(props){
@@ -20,11 +21,13 @@ class Company extends Component
             company_intro_video:'',
             company_intro_video_url:'',
             delayFor:true,
-            active:false
+            active:false,
+     
         }
     }
     componentDidMount()
     {
+    $("#err").fadeIn(1000)
      this.getoldData()
     }
     getoldData=()=>{
@@ -46,13 +49,36 @@ class Company extends Component
         company_banner:data.company_banner,
         company_intro_video:data.company_intro_video,
         company_intro_video_url:data.company_intro_video_url
-     })
+     },()=>{
+      $("#err").fadeOut(2000)
+      })
      
    );
 }
     handleChange = (e) => {
         this.setState({
            [e.target.name]: e.target.value
+        },()=>{
+           if(
+           this.state.company_name == '' ||
+            this.state.certification == '' ||
+           this.state.founded == '' ||
+            this.state.company_intro == '' ||
+           this.state.description_special == '' ||
+           this.state.description_deliver == '' ||
+            this.state.company_website == '' ||
+            this.state.twitter == '' ||
+           this.state.linkedin == '' ||
+            this.state.facebook == '' ||
+            this.state.github == '' ||
+            this.state.company_banner == '' ||
+            this.state.company_intro_video == '' ||
+            this.state.company_intro_video_url == '' 
+           ){
+            $("#err").fadeIn(1000)
+           }else{
+              $("#err").fadeOut(2000)
+           }
         })
      }
      handlecompany_banner =(name)=>{
@@ -91,6 +117,7 @@ class Company extends Component
       
      }
      stopPostData(){
+      $("#err").fadeIn()
       this.getoldData()
       this.setState({
          delayFor:false,
@@ -116,8 +143,6 @@ class Company extends Component
                console.log('Created List:', data);
                //alert('as')
             });
-         
-            
          }
      }
     render()
@@ -140,19 +165,19 @@ class Company extends Component
         <h1>General</h1>
            <div className="feild">
                   <label>COMPANY NAME</label>
-                  <input onChange={this.handleChange} type="text" name="company_name" value={this.state.company_name} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.company_name != ''? 'active' :'' } name="company_name" value={this.state.company_name} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>certification</label>
-                  <input onChange={this.handleChange} type="text" name="certification" value={this.state.certification} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.certification != ''? 'active' :'' } name="certification" value={this.state.certification} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>FOUNDED IN</label>
-                  <input onChange={this.handleChange} type="text" name="founded" value={this.state.founded} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.founded != ''? 'active' :'' } name="founded" value={this.state.founded} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -162,13 +187,13 @@ class Company extends Component
                   <label>COMPANY INTRODUCTION</label>
                   {/* <input onChange={this.handleChange} type="text" name="company_intro" value={this.state.company_intro} placeholder="input" />*/}
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
-                  <textarea class="form-control" placeholder="input" rows="6" id="comment" onChange={this.handleChange}  name="company_intro" value={this.state.company_intro}></textarea>
+                  <textarea class="form-control" placeholder="input" rows="6" id="comment" onChange={this.handleChange} className={this.state.company_intro != ''? 'active' :'' } name="company_intro" value={this.state.company_intro}></textarea>
 
             </div>
             <div className="feild textarea">
                   <label>description_special WHAT MAKES US SPECAL?</label>
                  {/* <input onChange={this.handleChange} type="text" name="description_special" value={this.state.description_special} placeholder="input" />*/}
-                  <textarea class="form-control" placeholder="input" rows="6" id="comment" onChange={this.handleChange}  name="description_special" value={this.state.description_special}></textarea>
+                  <textarea class="form-control" placeholder="input" rows="6" id="comment" onChange={this.handleChange} className={this.state.description_special != ''? 'active' :'' }  name="description_special" value={this.state.description_special}></textarea>
 
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
@@ -180,38 +205,38 @@ class Company extends Component
             <div className="feild textarea">
                   <label>DESCRIBE HOW YOU DELIVER A PROJECT</label>
                   {/*<input onChange={this.handleChange} type="text" name="description_deliver" value={this.state.description_deliver} placeholder="input" />*/}
-                  <textarea class="form-control" placeholder="input" rows="6" id="comment" onChange={this.handleChange}  name="description_deliver" value={this.state.description_deliver}></textarea>
+                  <textarea class="form-control" placeholder="input" rows="6" id="comment" onChange={this.handleChange} className={this.state.description_deliver != ''? 'active' :'' } name="description_deliver" value={this.state.description_deliver}></textarea>
 
             </div>
 
             <h1>Links</h1>
             <div className="feild">
                   <label>COMPANY WEBSITE URL</label>
-                  <input onChange={this.handleChange} type="text" name="company_website" value={this.state.company_website} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="company_website" className={this.state.company_website != ''? 'active' :'' } value={this.state.company_website} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>TWITTER URL</label>
-                  <input onChange={this.handleChange} type="text" name="twitter" value={this.state.twitter} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="twitter" className={this.state.twitter != ''? 'active' :'' } value={this.state.twitter} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>LINKEDIN URL</label>
-                  <input onChange={this.handleChange} type="text" name="linkedin" value={this.state.linkedin} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="linkedin" className={this.state.linkedin != ''? 'active' :'' } value={this.state.linkedin} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>FACEBOOK URL</label>
-                  <input onChange={this.handleChange} type="text" name="facebook" value={this.state.facebook} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.facebook != ''? 'active' :'' } name="facebook" value={this.state.facebook} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>GITHUB USERNAME</label>
-                  <input onChange={this.handleChange} type="text" name="github" value={this.state.github} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" name="github" className={this.state.github != ''? 'active' :'' } value={this.state.github} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -223,7 +248,7 @@ class Company extends Component
             <div className="feild upload">
                 <label>COMPANY company_banner PROFILE</label>
                 <FileUpload getInput={this.handlecompany_banner} getInput1='company_banner' />
-                <p class="Upload_text">Drag and Drop here</p>
+                <p class="Upload_text">{this.state.company_banner == undefined? 'Drag and Drop here': this.state.company_banner}</p>
                
             </div>
             <div className="feild upload">
@@ -233,7 +258,7 @@ class Company extends Component
             </div>
             <div className="feild">
                 <label>COMPANY INTRODUCTION VIDEO LINK</label>
-                <input onChange={this.handleChange} type="text" name="company_intro_video_url" value={this.state.company_intro_video_url} placeholder="input" />
+                <input className={this.state.company_intro_video_url != ''? 'active' :'' } onChange={this.handleChange} type="text" name="company_intro_video_url" value={this.state.company_intro_video_url} placeholder="input" />
                 <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -242,7 +267,7 @@ class Company extends Component
 
             <div className="Button_sec ">
                <button color="primary">Request Approval</button>
-                <p className="error">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
+              <p className="error" id="err">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
                <button className="secd_button">Add google Authenticator</button>
              <p>Request Account Removal</p>
                </div>

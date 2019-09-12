@@ -141,7 +141,7 @@ console.log(values,'operations')
      <div className="first_row">
            <div className="feild dropdown">
                   <label>LANGUAGES</label>
-                  <select  form="carform"  name="languages" value={this.state.languages} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.languages != ''?'active':''} name="languages" value={this.state.languages} onChange={this.handleChange}>
                   <option value="">{this.state.languages}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -156,7 +156,7 @@ console.log(values,'operations')
             <div className="feild dropdown">
                
                   <label>FOUNDED PROJECT DEVELOPMENT LANGUAGES</label>
-                  <select  form="carform"  name="development_languages" value={this.state.development_languages} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.development_languages != ''?'active':''} name="development_languages" value={this.state.development_languages} onChange={this.handleChange}>
                   <option value="">{this.state.development_languages}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -168,7 +168,7 @@ console.log(values,'operations')
             </div>
             <div className="feild dropdown">
                   <label>TEAM CHARACTERISTICS</label>
-                  <select  form="carform"  name="team_characteristics" value={this.state.team_characteristics} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.team_characteristics != ''?'active':''} name="team_characteristics" value={this.state.team_characteristics} onChange={this.handleChange}>
                   <option value="">{this.state.team_characteristics}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -181,7 +181,7 @@ console.log(values,'operations')
 
             <div className="feild dropdown">
                   <label>TEAM LOCATION</label>
-                  <select  form="carform"  name="team_location" value={this.state.team_location} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.team_location != ''?'active':''} name="team_location" value={this.state.team_location} onChange={this.handleChange}>
                   <option value="volvo">{this.state.team_location}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -192,7 +192,7 @@ console.log(values,'operations')
          </div>
             <div className="feild dropdown">
                   <label>OFFICES IN COUNTRIES</label>
-                  <select  form="carform"  name="office_countries" value={this.state.office_countries} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.office_countries != ''?'active':''} name="office_countries" value={this.state.office_countries} onChange={this.handleChange}>
                   <option value="">{this.state.office_countries}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -203,7 +203,7 @@ console.log(values,'operations')
          </div>
             <div className="feild dropdown">
                   <label>AVERAGE RATE (PER HOUR)</label>
-                  <select  form="carform"  name="average_rate" value={this.state.average_rate} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.average_rate != ''?'active':''}  name="average_rate" value={this.state.average_rate} onChange={this.handleChange}>
                   <option value="">{this.state.average_rate}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -214,7 +214,7 @@ console.log(values,'operations')
           </div>
             <div className="feild dropdown">
                   <label>MINIMUM BUDGET</label>
-                  <select name="min_budget" form="carform" value={this.state.min_budget} onChange={this.handleChange}>
+                  <select name="min_budget" className={this.state.min_budget != ''?'active':''} form="carform" value={this.state.min_budget} onChange={this.handleChange}>
                   <option value="">{this.state.min_budget}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -230,7 +230,7 @@ console.log(values,'operations')
             <div className="secd_row">
             <div className="feild dropdown">
                   <label>PROJECT FRAMEWORKS</label>
-                  <select  form="carform"  name="frameworks" value={this.state.frameworks} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.frameworks != ''?'active':''} name="frameworks" value={this.state.frameworks} onChange={this.handleChange}>
                   <option value="">{this.state.frameworks}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -243,7 +243,7 @@ console.log(values,'operations')
             
             <div className="feild dropdown">
                   <label>INDUSTRIES</label>
-                  <select  form="carform"  name="industries" value={this.state.industries} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.industries != ''?'active':''}  name="industries" value={this.state.industries} onChange={this.handleChange}>
                   <option value="">{this.state.industries}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -254,7 +254,7 @@ console.log(values,'operations')
          </div>
             <div className="feild dropdown">
                   <label>PROJECT OPERATING SYSTEMS</label>
-                  <select  form="carform"  name="operating_systems" value={this.state.operating_systems} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.operating_systems != ''?'active':''} name="operating_systems" value={this.state.operating_systems} onChange={this.handleChange}>
                   <option value="">{this.state.operating_systems}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -267,7 +267,7 @@ console.log(values,'operations')
             </div>
             <div className="feild dropdown">
                   <label>PROJECT DEVICES</label>
-                  <select  form="carform"  name="devices" value={this.state.devices} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.devices != ''?'active':''} name="devices" value={this.state.devices} onChange={this.handleChange}>
                   <option value="">{this.state.devices}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -280,7 +280,7 @@ console.log(values,'operations')
             </div>
             <div className="feild dropdown">
                   <label>NO. OF DEVELOPERS</label>
-                  <select  form="carform"  name="developers" value={this.state.developers} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.developers != ''?'active':''} name="developers" value={this.state.developers} onChange={this.handleChange}>
                   <option value="">{this.state.developers}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -293,7 +293,7 @@ console.log(values,'operations')
             </div>
             <div className="feild dropdown">
                   <label>NO. OF PRODUCT MANAGERS</label>
-                  <select  form="carform"  name="product_managers" value={this.state.product_managers} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.product_managers != ''?'active':''} name="product_managers" value={this.state.product_managers} onChange={this.handleChange}>
                   <option value="">{this.state.product_managers}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -307,7 +307,7 @@ console.log(values,'operations')
 
             <div className="feild dropdown">
                   <label>NO. OF OTHER MEMBERS</label>
-                  <select  form="carform"  name="other_members" value={this.state.other_members} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.other_members != ''?'active':''} name="other_members" value={this.state.other_members} onChange={this.handleChange}>
                   <option value="">{this.state.other_members}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -321,7 +321,7 @@ console.log(values,'operations')
 
             <div className="feild dropdown">
                   <label>TEAM DYNAMICS</label>
-                  <select  form="carform"  name="team_dynamics" value={this.state.team_dynamics} onChange={this.handleChange}>
+                  <select  form="carform" className={this.state.languages != ''?'active':''} name="team_dynamics" value={this.state.team_dynamics} onChange={this.handleChange}>
                   <option value="">{this.state.team_dynamics}</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>

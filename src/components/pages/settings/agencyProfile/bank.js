@@ -115,19 +115,19 @@ class Bank extends Component
      <h1>Bank</h1>
            <div className="feild">
                   <label>BANK ACCOUNT</label>
-                  <input onChange={this.handleChange} type="text" name="account" value={this.state.account} placeholder="input" />
+                  <input onChange={this.handleChange} className={this.state.account != ''? 'active':''} type="text" name="account" value={this.state.account} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>BANK ACCOUNT BIC/SWFT</label>
-                  <input onChange={this.handleChange} type="text" name="bic" value={this.state.bic} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.bic != ''? 'active':''} name="bic" value={this.state.bic} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>BANK ACCOUNT HOLDER</label>
-                  <input onChange={this.handleChange} type="text" name="holder" value={this.state.holder} placeholder="input"  />
+                  <input onChange={this.handleChange} type="text" className={this.state.holder != ''? 'active':''} name="holder" value={this.state.holder} placeholder="input"  />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
@@ -135,13 +135,13 @@ class Bank extends Component
 
             <div className="feild">
                   <label>COMPANY VAT ID</label>
-                  <input onChange={this.handleChange} type="text" name="vat" value={this.state.vat} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.vat != ''? 'active':''} name="vat" value={this.state.vat} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>
             <div className="feild">
                   <label>COMPANY COC NUMBER</label>
-                  <input onChange={this.handleChange} type="text" name="coc" value={this.state.coc} placeholder="input" />
+                  <input onChange={this.handleChange} type="text" className={this.state.coc != ''? 'active':''} name="coc" value={this.state.coc} placeholder="input" />
                   <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
             </div>

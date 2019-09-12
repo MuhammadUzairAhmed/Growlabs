@@ -108,19 +108,19 @@ class Password extends Component
                      <div className="password_old_sec">
                 <div className="feild">
                        <label>CURRENT password_old</label>
-                       <input onChange={(x)=> this.handleChange(x,'password_old')} type="text" name="currentPass" value={this.state.status ? this.state.newData.password_old : this.state.oldData.password_old} placeholder="input" />
+                       <input onChange={(x)=> this.handleChange(x,'password_old')} type="text" className={this.state.newData.password_old != '' ? 'active' : ''} name="currentPass" value={this.state.status ? this.state.newData.password_old : this.state.oldData.password_old} placeholder="input" />
                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
      
                  </div>
                  <div className="feild">
                        <label>NEW password_old</label>
-                       <input onChange={(x)=> this.handleChange(x,'password_new')} type="text" name="nexPass" value={this.state.status ? this.state.newData.password_new : this.state.oldData.password_new} placeholder="input" />
+                       <input onChange={(x)=> this.handleChange(x,'password_new')} className={this.state.newData.password_new != '' ? 'active' : ''} type="text" name="nexPass" value={this.state.status ? this.state.newData.password_new : this.state.oldData.password_new} placeholder="input" />
                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
      
                  </div>
                  <div className="feild">
                        <label>password_repeat password_old</label>
-                       <input onChange={(x)=> this.handleChange(x,'password_repeat')} type="text" name="password_repeatPass" value={this.state.status ? this.state.newData.password_repeat : this.state.oldData.password_repeat} placeholder="input" />
+                       <input onChange={(x)=> this.handleChange(x,'password_repeat')} className={this.state.newData.password_repeat != '' ? 'active' : ''} type="text" name="password_repeatPass" value={this.state.status ? this.state.newData.password_repeat : this.state.oldData.password_repeat} placeholder="input" />
                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
      
                  </div>
