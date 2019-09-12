@@ -29,6 +29,7 @@ class Projects extends Component {
             currentVersion:0,
             finalizedAccount:false,
             activeAddition:false,
+            animate: false,
             unmatchID:''
         }
         this.handleClick = this.handleClick.bind(this)
@@ -154,6 +155,7 @@ console.log(this.state.data,'dataAgerncy')
     getMatchesData(id,dataChat){
         this.setState({
             currentAgency:id,
+            animate:true,
         })
         this.props.currentState(id)
         if(this.state.data[id]){
@@ -171,6 +173,11 @@ console.log(this.state.data,'dataAgerncy')
             }
         }
         console.log(this.state)
+        setTimeout(function(){
+            this.setState({
+                animate:false
+            })
+        }.bind(this),2000)
      
     }
     deleteUnmatchDataFun(value,id){
@@ -328,7 +335,7 @@ console.log(this.state.data,'dataAgerncy')
                  <section className="multi_step_form" onBlur={()=>this.changeVersion(1)}>
 
                     {this.state.data[this.state.currentAgency] ? 
-                    <div className="content_form">
+                    <div className="content_form" animate={this.state.animate? 'active':''}>
                     
                         <fieldset>
                             <h2 className="Profieldset_hea">TIMELINE</h2>

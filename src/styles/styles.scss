@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 
 body {font-family: 'Open Sans', sans-serif;background: #1e262e;margin: 0px;}
-
+div#app {
+    zoom: 0.80;
+}
 /* =========Start Sidbar css========= */
 section.sidebar {
     width: 230px;
@@ -14,7 +16,8 @@ section.sidebar {
     z-index: 99999;
     top: 0;
     padding-top: 125px;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 section.sidebar:hover{
     overflow: auto;
@@ -62,6 +65,12 @@ section.sidebar::-webkit-scrollbar-thumb {
 .time_section_text {
     float: left;
     width:80%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .time_section_img {
     float: left;
@@ -85,6 +94,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     font-family: "Open Sans";
     font-size: 32px;
     font-weight: 300;
+    
 }
 .time_section p {
     margin: 0px 0px 0px 2px;
@@ -196,7 +206,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     position: relative;
     margin-bottom: 10px;
     width: -webkit-fill-available;
-    padding: 14px 22px;
+    padding: 14px 27px 14px 32px;   
     float: left;
     text-decoration: none;
     color: #6d6e6f;
@@ -864,11 +874,11 @@ section.Content_main:after {
     border: 1px solid #ffffff;
 }
 .colleborate_box {
-    float: left;
     text-align: center;
     position: relative;
-    width: 103px;
     cursor: pointer;
+    width: 100px;
+    float: left;
 }
 
 .colleborate_box h1 {
@@ -926,8 +936,12 @@ section.Content_main:after {
     background: #fff;
     height: 17px;
     width: 17px;
-    top: 2.5px;
-    left: 1px;
+    // top: 2.5px;
+    // left: 1px;
+    
+    top: 3px;
+    left: 0px;
+
 }
 .colleborate_box.active label.fancy-checkbox {
     border: 1.5px solid #fff;
@@ -2371,7 +2385,7 @@ section.multi_step_form .col-md-4 {
 }
 .according_header .status {
    float: left;
-   width: 12%;
+   width:11.5%;
 }
 .according_header {
    opacity: 0.6;
@@ -2381,36 +2395,41 @@ section.multi_step_form .col-md-4 {
    letter-spacing: 6px;
    line-height: 16px;
    clear: both;
-   padding: 0px 0px 0px 60px;
    margin-bottom: 12px;
 }
 .according_header .reference {
    float: left;
-   width: 16%;
+   width: 15.5%;
 }
 .according_header .submission {
    float: left;
-   width: 15%;
+   width: 13.5%;
 }
-.according_header .form {
+.according_header .from {
    float: left;
-   width: 9%;
+   width: 7%;
+}
+.according_header .arrow {
+    float: left;
+    width: 3%;
+    margin: 4px 0px;
+    opacity: 0;
 }
 .according_header .till {
    float: left;
-   width: 15%;
+   width: 14%;
 }
 .according_header .sprints {
    float: left;
-   width: 15%;
+   width: 13.7%;
 }
 .according_header .source {
    float: left;
    width: 11%;
 }
 .eur {
-   float: right;
-   width: 7%;
+   float: left;
+   width:6%;
 }
 .according_box {
      clear: both;
@@ -2425,10 +2444,13 @@ section.multi_step_form .col-md-4 {
    display: block;
    clear: both;
 }
-.according_box .check_box {
+.according_box .check_box, .according_header .check_box {
    float: left;
    width: 4.5%;
    position: relative;
+}
+.according_header .check_box .fancy-checkbox{
+    opacity:0;
 }
 .according_box .button {float: left;width: 11.5%;}
 .according_box .button a {
@@ -2538,7 +2560,7 @@ section.multi_step_form .col-md-4 {
    opacity: 0.8;
 }
 .according_box.paid:last-child .check_box:after {
-   height: 66px;
+   height: 70px;
 }
 .according_box .arrow {
    float: left;
@@ -2565,7 +2587,7 @@ section.multi_step_form .col-md-4 {
     left: 0px;
     right: 0;
     top: -19px;
-    height: 74px;
+    height: 91px;
     width: 0px;
     margin: 0 auto;
 }
@@ -2657,9 +2679,16 @@ section.multi_step_form .col-md-4 {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+.dashbord_center {
+    position: relative;
+    height: 100vh;
+}
 .dashbord_left {
     float: left;
-    width: calc(99% - 300px);
+    width: calc(98% - 30%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .dashbord_right .tooltip .tooltiptext:after {
     top: -8px;
@@ -2670,8 +2699,11 @@ section.multi_step_form .col-md-4 {
     left: 62px;
 }
 .dashbord_right {
-    width:300px;
-    float: right;
+    width: 30%;
+    right: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .dashbord_left canvas.chartjs-render-monitor {
     width: 100% !important;
@@ -2682,7 +2714,7 @@ section.multi_step_form .col-md-4 {
     padding-right: 9px;
 }
 .dashbord_left .colleborate_box {
-    width: 65px;
+    width: auto;
 }
 .dashbord_left .colleborate_box:before {
     display: none;
@@ -2698,6 +2730,10 @@ section.multi_step_form .col-md-4 {
 }
 .dashbord_left .colleborate_top {
     height: 68px;
+    display: grid;
+    margin: 10 auto;
+    grid-auto-flow: column;
+    text-align: center;
 }
 .score canvas#myChart {
     position: relative;

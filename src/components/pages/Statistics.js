@@ -280,7 +280,7 @@ var finalData = [...this.state.smallData,...datasetConst]
       />
     
     :  
-      <div>  <div className="dashbord_left">
+      <div class="dashbord_center">  <div className="dashbord_left">
           <section className="colleborate" >
             <div className="colleborate_top" >
               {displaySprint}

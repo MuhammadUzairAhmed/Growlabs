@@ -68,10 +68,16 @@ setChecked=(val)=>
           </div>
           <div className="according_main">
               <div className="according_header">
+                <div className="check_box">
+                    <label className="fancy-checkbox">
+                    <input type="checkbox"/>
+                    <span className="checkmark"></span> </label>
+                </div>
                 <div className="status"> STATUS    </div>
-                <div className                         ="reference"> PAY REFERENCE    </div>
+                <div className="reference"> PAY REFERENCE    </div>
                 <div className="submission"> SUBMISSION    </div>
-                <div className="form"> FROM    </div>
+                <div className="from"> FROM    </div>
+                <div className="arrow"> <img src="./assets/img/ARROW.png"/></div>
                 <div className="till"> TILL    </div>
                 <div className="sprints"> #SPRINTS    </div>
                 <div className="source"> SOURCE    </div>

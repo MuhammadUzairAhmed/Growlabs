@@ -85,6 +85,7 @@ class App extends React.Component {
                 <div className="center_part">
                     <Switch>
                         <Route exact path="/"  component={Statisitcs} />
+                        <Route exact path="/index.php"  component={Statisitcs} />
                         <Route path="/statistics" component={Statisitcs} />
                         <Route path="/collaboration" component={Collaboration} />
                         <Route path="/financial" component={Financial} />
@@ -125,21 +126,10 @@ class App extends React.Component {
     }
     if(this.state.status == ''){
       return (
-        <section className="project">
+        <section>
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
-            <Router history={history}>
-                <Sidebar status="projects" />
-                <div className="center_part project">
-                <Switch>
-                  <Route path="/settings" component={Settings} />
-                  <Route path="/application" component={Projects} />
-                  <Route path="/projects" component={ProjectReview} />
-                  <Route path="/subscription" component={Subscription} />
-                  <Route path="/" component={ProjectReview} />
-                </Switch>
-                </div>
-            </Router>
+            <Loader type="Oval" color="white" height="50" width="50" className="loading" />
           </section>
       </section>
       )

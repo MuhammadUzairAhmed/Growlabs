@@ -164,6 +164,20 @@ section.colleborate.milestone .colleborate_box {
     100% {margin-top:0px;opacity: 1;}
 }
 
+.content_form[animate="active"] {
+    -webkit-animation-name: leftRight;
+    -webkit-animation-duration: 2s;
+    animation-name: leftRight;
+    animation-duration: 2s;
+    position: relative;
+}
+@keyframes leftRight {
+    0%   {left:-1800px;opacity:0}
+    40%   {opacity:0}
+    100% {left:00px;opacity:1}
+}
+
+
 /*========xxx======= End PreDashboard Notification=======xxx==========*/
 
 /*==========Start PreDashboard Funding==============*/

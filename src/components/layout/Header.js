@@ -78,11 +78,18 @@ class Header extends Component {
         //     this.props.activeChat('true','ACTIVECHAT')
         //     this.props.backlogWidgetData(false,"backlogPlus");
         // }
-        this.setState({
-            status:"pre"
-        })
-        this.layoutChange("pre")
-        
+        if(this.state.status == "projects"){
+                
+            this.setState({
+                status:"pre"
+            })
+            this.layoutChange("pre")
+        }else{
+            this.setState({
+                status:"projects"
+            })
+            this.layoutChange("projects")
+    }   
     }
     layoutChange(s){
         this.props.checkData(s)

@@ -13,6 +13,9 @@ class Govermance extends Component {
       height:''
     }
   }
+  componentWillMount(){
+    
+  }
   CurrentPage(value,event){
       this.setState({
         activePage:value
