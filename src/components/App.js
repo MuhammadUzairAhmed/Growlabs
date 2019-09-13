@@ -59,7 +59,7 @@ class App extends React.Component {
   render() {
     if(this.state.status == 'pre'){
       return (
-        <section>
+        <section className="pre-main">
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
             <Router history={history}>
@@ -77,7 +77,7 @@ class App extends React.Component {
     }
     if(this.state.status == 'dashboard'){
       return (
-        <section>
+        <section className="dashboard-main">
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
             <Router history={history}>

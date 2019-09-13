@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 
-body {font-family: 'Open Sans', sans-serif;background: #1e262e;margin: 0px;}
+body {font-family: 'Open Sans', sans-serif;
+    background: #0c0e10;margin: 0px;}
 
 input.active {
     border-bottom: 1px solid #19d192 !important;
@@ -718,10 +719,13 @@ section.Content_main:after {
 .center_part {
     float: left;
     padding: 20px 20px;
-    width: calc(100% - 620px);
+    width: calc(100% - 619px);
     margin: 0 auto;
     margin-left: 229px;
-    padding-top: 154px;
+    margin-top: 125px;
+    background: #1e262e;
+    border-top-left-radius: 37px;
+    min-height: 100vh;
 }
 /* ======xxx=====End Content css======xxx====== */
 
