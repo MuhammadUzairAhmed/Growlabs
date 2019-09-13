@@ -2,6 +2,12 @@ import * as types from '../constants/actionTypes';
 
 import {getFormattedDateTime} from '../utils/dates';
 
+export const finalizeAccount =(values)=>{
+    return{
+        type:types.USER_TYPE,
+        payload: values
+    }
+}
 
    export const FetchSprintData = (lstData,barData,lineData) => dispatch => {
     var data={
@@ -29,6 +35,19 @@ export function saveFuelSavings(settings) {
     };
 }
 
+export const displayComponent =(actValue)=>{
+    return{
+        type: 'DISP_COMPONENT',
+        payload: actValue
+    }
+}
+
+export const stopData = (data) =>{
+    return {
+        type: types.STOP_POSTING,
+        payload: data
+    }
+}
 export function calculateFuelSavings(settings, fieldName, value) {
     return {
         type: types.CALCULATE_FUEL_SAVINGS,
@@ -37,6 +56,13 @@ export function calculateFuelSavings(settings, fieldName, value) {
         fieldName,
         value
     };
+}
+
+export const BankData = (values) =>{
+    return{
+        type:types.BANK_DATA,
+        payload: values
+    }
 }
 
 
@@ -61,6 +87,12 @@ export function itemsFetchDataSuccess(items,action) {
 export function currentStateDataAction(items){
     return{
         type:"BACKLOGCURRENTSTATE",
+        items
+    }
+}
+export function currentChatIdAction(items){
+    return{
+        type:"PROJECTCURRENTCHATID",
         items
     }
 }
@@ -101,6 +133,11 @@ export function itemsFetchData(url,action) {
 export function currentStateData(items,action){
     return (dispatch)=>{
         dispatch(currentStateDataAction(items))
+    }
+}
+export function currentChatId(items){
+    return (dispatch)=>{
+        dispatch(currentChatIdAction(items))
     }
 }
 export function activeChatSystem(items,action){

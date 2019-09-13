@@ -10,21 +10,32 @@ class RangeSlider extends Component
         super(props, context)
         this.state = {
           maxVolume: false,  
-          volume: this.props.range,
+          volume: this.props.range ? this.props.range: 1000,
         }
       }
-     
+    //   componentWillReceiveProps(nextProps){
+    //     this.state = {
+    //       volume: nextProps.range,
+    //     }
+    //   }
+    //  componentWillUpdate(props){
+    //    if(this.state.volume == props.volume){
+    //     this.state = {
+    //       volume: nextProps.range,
+    //     }
+    //    }
+    //  }
       handleOnChange = (value) => {
         this.setState({
           volume: value,
         },()=>{
-            if(this.state.volume == 50000)
-            {
-                this.setState({maxVolume: true})
-            }else
-            {
-                this.setState({maxVolume: false})
-            }
+            // if(value == 50000)
+            // {
+            //     this.setState({maxVolume: true})
+            // }else
+            // {
+            //     this.setState({maxVolume: false})
+            // }
         })
         this.props.changeRangeData(value)
       }
@@ -42,11 +53,11 @@ class RangeSlider extends Component
             orientation="horizontal"
             onChange={this.handleOnChange}
           />
-          {this.state.maxVolume &&
+          {this.state.volume == 50000 ?
           <span>
-              € <input type="text" value="250000" name="price" placeholder="Budget" className="btn btn-cb int-price">100</input>
-          </span>
-          }
+              € <input type="text" value="250000" name="price" placeholder="Budget" className="btn btn-cb int-price" />
+         </span>
+          :''}
           </div>
         )
       }

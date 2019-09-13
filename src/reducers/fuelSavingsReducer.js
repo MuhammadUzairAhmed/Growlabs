@@ -8,6 +8,11 @@ import initialState from './initialState';
 export default function fuelSavingsReducer(state = initialState.fuelSavings, action) {
 
     switch (action.type){
+        case 'USER_TYPE':
+        return{
+            ...state,
+            user:action.payload
+        }
         case 'SPRINT_ACTION':
         return {
             ...state,
@@ -68,6 +73,27 @@ export default function fuelSavingsReducer(state = initialState.fuelSavings, act
                 ...state,
                 BACKLOGWIDGET : {boolen:action.items, items:[action.id]},
             }
+            
+            case 'PROJECTCURRENTCHATID':
+                return {
+                    ...state,
+                    PROJECTCURRENTCHATID : action.items
+                }    
+             case 'BANK_DATA':
+            return {
+                ...state,
+                bankData : action.payload
+            }
+            case 'STOP_POSTING':
+                return{
+                    ...state,
+                    stopPosting: action.payload
+                }
+            case 'DISP_COMPONENT':
+                return {
+                    ...state,
+                    dispComp: action.payload
+                }
         default:
             return state;
     }

@@ -13,7 +13,12 @@ export default {
         ACTIVEWIDGET: [],
         USER_DETAILS : [],
         MILESTONE : [],
+        PROJECTCURRENTCHATID:[],
         IS_LOADING : false,
-        chartValues:{}
+        chartValues:{},
+        user:'',
+        bankData:'',
+        stopPosting:'',
+        dispComp:''
     }
 };

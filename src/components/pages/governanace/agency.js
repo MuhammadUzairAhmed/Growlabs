@@ -67,10 +67,11 @@ class Agency extends Component {
    }
    componentDidMount() {
 
-      if(this.props.storedDetail != '')
+      if(this.props.storedDetail != '' && this.props.chek == 'Predashboard')
       {
          this.setState({data:this.props.storedDetail})
       }
+      
       const method = "POST";
       const body = new FormData(this.form);
 
@@ -280,6 +281,7 @@ class Agency extends Component {
       },()=>{
          if(this.props.chek  && this.props.chek == 'Predashboard')
          {this.props.getValues(this.state.data)}
+         
       })
 
    }
@@ -411,8 +413,8 @@ class Agency extends Component {
                            subItem['lastname'] = this.state.lastname,
                            subItem['mail'] = this.state.mail,
                            subItem['Function'] = this.state.Function,
-                           subItem['image'] = this.state.image
-                        subItem['phone'] = this.state.phone,
+                           subItem['image'] = this.state.image,
+                           subItem['phone'] = this.state.phone,
                            subItem['skype'] = this.state.skype
                         subItem['address'] = this.state.address
                         return subItem;
@@ -632,32 +634,32 @@ class Agency extends Component {
                </div>
                <div className="feild half">
                   <label>first name</label>
-                  <input onChange={this.handleChange} type="text" name="fname" value={this.state.fname} placeholder="Name" />
+                  <input onChange={this.handleChange} type="text" name="fname" className={this.state.fname !=  '' ? 'active':''} value={this.state.fname} placeholder="Name" />
                </div>
                <div className="feild half">
                   <label>Last Name </label>
-                  <input onChange={this.handleChange} type="text" name="lastname" value={this.state.lastname} placeholder="Last name" />
+                  <input onChange={this.handleChange} type="text" name="lastname" className={this.state.lastname !=  '' ? 'active':''} value={this.state.lastname} placeholder="Last name" />
                </div>
                <div className="feild">
                   <label>function</label>
-                  <input onChange={this.handleChange} type="text" name="Function" value={this.state.Function} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="Function"  className={this.state.Function !=  '' ? 'active':''} value={this.state.Function} placeholder="Felix" />
                </div>
                <div className="feild">
                   <label>mail</label>
-                  <input onChange={this.handleChange} type="text" name="mail" value={this.state.mail} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="mail" className={this.state.mail !=  '' ? 'active':''} value={this.state.mail} placeholder="Felix" />
                </div>
                <div className="feild">
                   <label>Phone</label>
-                  <input onChange={this.handleChange} type="text" name="phone" value={this.state.phone} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="phone" className={this.state.phone !=  '' ? 'active':''} value={this.state.phone} placeholder="Felix" />
                </div>
 
                <div className="feild">
                   <label>skype</label>
-                  <input onChange={this.handleChange} type="text" name="skype" value={this.state.skype} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="skype" className={this.state.skype !=  '' ? 'active':''} value={this.state.skype} placeholder="Felix" />
                </div>
                <div className="feild">
                   <label>address</label>
-                  <input onChange={this.handleChange} type="text" name="address" value={this.state.address} placeholder="Felix" />
+                  <input onChange={this.handleChange} type="text" name="address" className={this.state.address !=  '' ? 'active':''} value={this.state.address} placeholder="Felix" />
                </div>
                <button color="primary" onClick={this.state.saveId ? this.handleSave : this.handleEdit}>Save</button>
 

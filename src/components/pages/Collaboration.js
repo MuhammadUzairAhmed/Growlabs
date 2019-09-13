@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import Iframe from "react-iframe";
 
 class Collaboration extends Component {
   render(){
     return (
-      <div>
-        <h1>Statisitics</h1>
-
-        <h2>Get Started</h2>
-        <ol>
-          <li>Review the demo app</li>
-          <li>Remove the demo and start coding: npm run remove-demo</li>
-        </ol>
-      </div>
+      <Iframe url="https://test.growlabs.tech/search/kanbanboard?id=233"
+              id="collaborationIframe"
+              className="collaborationIframe"
+              display="initial"
+              position="relative"/>
     );  
   };  
 };

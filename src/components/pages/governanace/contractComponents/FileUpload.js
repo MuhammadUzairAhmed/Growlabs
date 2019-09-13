@@ -3,13 +3,18 @@ import Dropzone from 'react-dropzone';
 // import files from '../../../../assets/img/dragCloud.png';
 
 var arr = [];
+
+const CLOUDINARY_UPLOAD_PRESET = '1';
+const CLOUDINARY_UPLOAD_URL = './assets/img';
+
 class FileUpload extends Component
 {
     constructor(props)
     {
         super(props);
         this.state={
-            arrayList:[]
+            arrayList:[],
+            uploadedFileCloudinaryUrl: ''
         }
     }
     formatBytes = (bytes,decimals)=> {
@@ -36,7 +41,9 @@ class FileUpload extends Component
           this.setState({arrayList: [...this.state.arrayList, dataList]})
           console.log('filePath ',this.state.arrayList)
         }
-        
+        if(this.props.getInput1=='PS'){this.props.getInput(this.state.arrayList)}
+        if(this.props.getInput1 == 'banner' || this.props.getInput1 == 'modal'){this.props.getInput(this.state.arrayList)}
+        if(this.props.getInput1 == 'video'){this.props.getInput(this.state.arrayList)}
         if(this.props.name && this.props.getInput ==''){
         this.props.getInput1(this.state.arrayList,this.props.name);}
         if(this.props.getInput1 =='')
@@ -45,7 +52,10 @@ class FileUpload extends Component
         {
             console.log('rejected ',rejected)
         }
-    }
+        
+
+      }    
+    
     render()
     {
         
@@ -57,10 +67,12 @@ class FileUpload extends Component
 {/* <h1>file Upload</h1> */}
 <Dropzone onDrop={this.fileUploader}>
   {({getRootProps, getInputProps}) => (
-    <section>
+    <section className="drad-drop">
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        <img src='./assets/img/dragCloud.png' style={{width: '30%'}} />
+        {this.props.getInput1=='PS' ? <img src='./assets/img/pancel_b.png' style={{width: '50%'}} />
+        : this.props.getInput1 !='modal' && <img src='./assets/img/dragCloud.png' style={{width: '30%'}} />}
+        {this.props.getInput1=='modal'?  <img src='./assets/img/drad-drop.png'  /> :''}
         {/* <p>Drag 'n' drop some files here, or click to select files</p> */}
       </div>
     </section>

@@ -1,4 +1,8 @@
 
+section.project {
+    background: #f2f2f2;
+    min-height: 100vh;
+}
 .project .preDashboard_notification {
     background: #F2F2F2;
 }
@@ -290,6 +294,7 @@
     list-style: none;
     display: table;
     margin: 0 auto;
+    padding: 0;
 }
 
 .version_tabs ul.ui-tabs-nav li {
@@ -427,7 +432,7 @@ h2.Profieldset_hea {
     font-weight: bold;
     border: 0px solid #FFFFFF;
 }
-.project .checklist label.box-label, .radioList label.box-label {
+.project .checklist label.box-label,.project .radioList label.box-label {
     border: 0px solid #d6d8da;
     box-shadow: none !important;
     background: none;
@@ -445,4 +450,914 @@ h2.Profieldset_hea {
 }
 .project .box label.check.box-label i.check {
     background: rgb(99, 99, 99) !important;
+}
+
+.Addproject_box {
+    width: 25%;
+    float: left;
+    margin: 40px 21px;
+}
+
+.Addproject_box .project_score {
+    background: #fff;
+    width: 49%;
+    height: 150px;
+    float: left;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.Addproject_box .project_comt_expen {
+    width: 49%;
+    height: 150px;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.Addproject_box .project_points {
+    background: #fff;
+    width: 47%;
+    height: 70px;
+    float: left;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+    padding: 0px 3px 0px 3px;
+}
+
+.Addproject_box .project_velocity {
+    background: #fff;
+    width: 46%;
+    height: 70px;
+    float: right;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+    position: relative;
+    padding: 0px 5px;
+}
+
+.project_comt_expen .project_comt {
+    background: #fff;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+    padding: 0px 12px;
+    position: relative;
+}
+
+.project_comt_expen  .project_expen {
+    background: #fff;
+    height: 69px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+    position: relative;
+    padding: 0px 12px;
+}
+
+.project_sprints {
+    background: #e6e6e6;
+    height: 66px;
+    clear: both;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.project_sprints:before {content: "";display: block;clear: both;}
+
+.project_plussec {
+    background: #e6e6e6;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 40px 0px 100px 0px;
+    min-height: 409px;
+    position: relative;
+}
+
+.project_plussec button {
+    width: 31%;
+    background: none;
+    border: 1.5px solid #000;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+.project_plussec button:hover {
+    background: #000;
+    color: #fff;
+}
+.project_plussec .project_namesec {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 130px;
+}
+
+.project_namesec .number {
+    border: 1px solid #FFFFFF;
+    background-color: #236991;
+    color: #fff;
+    width: 42px;
+    height: 32px;
+    border-radius: 100px;
+    padding: 10px 0px 0px 0px;
+    display: table;
+    margin: 0 auto;
+}
+
+.project_namesec .name {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.project_namesec .name h1 {
+    margin: 8px 0px;
+}
+
+.project_namesec .name_sub h2 {
+    color: #8D9F9C;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    margin: 0px 0px;
+}
+
+.Addproject_box.active .project_sprints {
+    background: #ffffff;
+}
+
+.Addproject_box.active .project_plussec{
+    background: rgba(255, 255, 255, 0.20);
+}
+.Addproject_box.active .project_plussec:hover{
+    background: #ffffff;
+}
+
+.Addproject_box .project_plussec  button {
+     display:none !important
+}
+.Addproject_box:hover .project_plussec  button  {
+    display:table !important
+}
+.project_plussing {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: table;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.project_plussing:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #000;
+    height: 3px;
+    margin-top: -5px;
+    top: 50%;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+}
+.project_plussing:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #000;
+    width: 3px;
+    margin-left: -5px;
+    left: 54%;
+    top: 2px;
+    bottom: 10px;
+    z-index: 9;
+}
+.Addproject_box.add .project_score {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+.Addproject_box.add  .project_comt {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+.Addproject_box.add .project_expen {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+.Addproject_box.add .project_points {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+
+.Addproject_box.add .project_velocity {
+    background: #e6e6e6;
+    box-shadow: none;
+}
+.project h1.settings_hea {
+    color: #000000;
+}
+.project .backlog ul.ui-tabs-nav li a {
+    color: #000;
+
+}
+.project .backlog ul.ui-tabs-nav li.active a {
+    opacity: 1;
+}
+.project .backlog ul.ui-tabs-nav li a:after {
+    border-bottom: 2px solid #0000004a;
+    content: "";
+    display: block;
+    padding: 0px 50px;
+    opacity: 0.5;
+    border-radius: 100px;
+}
+.project .backlog .active a:after {
+    border-bottom: 2px solid #000000;
+    opacity: 1 !important;
+}
+.project .save_button button.one {
+    opacity: 0.5;
+    color: #1E1E1E;
+}
+.project .save_button .slider.round {
+    font-weight: 500;
+    color: #ffffff;
+}
+.project .save_button .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 1px;
+    bottom: 1px;
+    background-color: #ffffff;
+    transition: .4s;
+}
+.project .personal_upload {
+    border: 3.5px solid #f2f2f2;
+}
+.project .personal_main .feild label {
+    color: #1E1E1E;
+}
+.project  .personal_main .feild input {
+    color: #000;
+}
+.project .content_form fieldset textarea{
+    width: 100%;
+    border: 0px;
+    padding: 40px 0px;
+    color: rgb(10, 10, 10);
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-family: "Open Sans", sans-serif;
+    overflow: hidden;
+    margin: 0px;
+    height: unset;
+}
+.project .personal_main h1 {
+    color: #000000;
+}
+.project ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #000;
+}
+.project ::-moz-placeholder { /* Firefox 19+ */
+    color: #000;
+}
+.project :-ms-input-placeholder { /* IE 10+ */
+    color: #000;
+}
+.project :-moz-placeholder { /* Firefox 18- */
+    color: #000;
+}
+.project .personal_main .Button_sec button {
+    background-color: #1E1E1E;
+    color: #fff;
+}
+.project .personal_main .Button_sec button.secd_button {
+    font-size: 11px;
+    background: #C1C1C1;
+}
+.project .personal_main .Button_sec p {
+    color: #1E1E1E;
+}
+.project .personal_main .feild.upload section {
+    background: #eceaea;
+    margin-top: 14px;
+    cursor: pointer;
+    padding: 26px 0px;
+}
+.project .personal_main .feild textarea#comment {
+    width: 100%;
+    background: #eceaea;
+    border: 0px;
+    color: #fff;
+    padding: 5px 6px;
+    margin-top: 9px;
+}
+.project .personal_main .feild.dropdown select {
+    color: #000;
+}
+
+/*------- Delete Matches ----------*/
+.project .dp-mt-loop-box {
+    display: none;
+}
+
+.project .dp-mt-loop-box[active="active"] {
+    display: block;
+}
+/* .loading > svg {
+    padding-top: 48vh;
+}
+.loading {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0 !important;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.47);
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+} */
+.unmatchForm {
+    background: #ffffff;
+    width: 21%;
+    margin: 0 auto;
+    padding: 30px 91px;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 12px 18px #0000002e;
+    padding-bottom: 69px;
+}
+
+.unmatchForm h1 {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+    margin-bottom: 85px;
+}
+.unmatchForm ul {
+    padding: 0px;
+    display: table;
+    margin: 0 auto;
+    list-style: none;
+    width: 100%;
+}
+
+.unmatchForm ul li {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    border-bottom: 1px solid #000;
+    padding: 10px 0px;
+    margin-bottom: 12px;
+    position: relative;
+    cursor: pointer;
+}
+.unmatchForm ul li:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000;
+    display: block;
+    position: absolute;
+    border-radius: 100px;
+    left: -28px;
+    top: 14px;
+}
+.unmatchForm ul li.active:after {
+    content: "";
+    color: #1a2027;
+    width: 5px;
+    height: 3px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(127deg);
+    top: 19px;
+    left: -23px;
+}
+.unmatchForm p {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 11px;
+}
+
+.unmatchForm textarea {
+    width: 100%;
+    border: 0px;
+    background-color: #d1d1d1;
+    height: 88px;
+    padding: 9px 9px;
+    opacity: 0.3;
+    margin-bottom: 78px;
+}
+
+.unmatchForm button {
+    border-radius: 3px;
+    background-color: #1b1b1b;
+    width: 100%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 18px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.unmatchForm small {
+    color: #989898;
+    font-family: "Open Sans";
+    font-size: 10px;
+    line-height: 2px;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+li.active {
+    font-weight: bold;
+}
+.unmatchForm ul li:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border: 1px solid #000;
+    display: block;
+    position: absolute;
+    border-radius: 100px;
+    left: -28px;
+    top: 14px;
+}
+.unmatchForm button.cancel_but {
+    background: none;
+    border: 0;
+    font-size: 20px;
+    position: absolute;
+    top: 40px;
+    right: 90px;
+    cursor: pointer;
+    color: #959595;
+    width: auto;
+}
+/*------- Delete Matches ----------*/
+
+.project .center_part.project .score_height {
+    height: 64px;
+    width: 133px;
+}
+
+.project .center_part.project .score {
+    box-shadow: 0px 0px 0px #0000004d;
+    padding: 0px;
+    margin: 25px 0px;
+}
+.project .center_part.project .scoreText {
+    margin-top: -26px;
+}
+.Addproject_box canvas#myChart {
+    width: 108px !important;
+    position: relative;
+    top: 20px;
+}
+.project_comt_expen .project_comt span {
+    position: absolute;
+    right: 8px;
+    top: 19px;
+}
+.project_comt_expen .project_comt p {
+    text-align: center;
+}
+.project_comt_expen .project_expen svg.rc-progress-line {
+    position: relative;
+    top: 18px;
+    width: 108px;
+}
+
+.project_comt_expen .project_expen p.score-para {
+    position: absolute;
+    right: 8px;
+    top: 9px;
+    color: #1bb496;
+    left: auto;
+}
+
+.project_comt_expen .project_expen p {
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}
+.Addproject_box .project_points p {
+    font-size: 8px !important;
+    margin: 0px;
+    position: relative;
+    top: 13px;
+}
+
+.Addproject_box .project_points text.CircularProgressbar-text {
+    fill: black;
+}
+
+.Addproject_box .project_points svg.CircularProgressbar {
+    position: relative;
+    top: 13px;
+}
+.Addproject_box .project_velocity p {
+    text-align: center;
+}
+.Addproject_box .project_velocity span {
+    position: absolute;
+    right: 8px;
+    top: 22px;
+}
+.Addproject_box .colleborate_top {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+}
+
+.Addproject_box .colleborate_box:before {
+    display: none;
+}
+
+.Addproject_box .colleborate_box:after {
+    border-top: 1px solid #000000cf;
+    z-index: 999;
+}
+
+.Addproject_box .colleborate_box h1 {
+    color: #000;
+    font-weight: 600;
+}
+
+.Addproject_box .colleborate_box p {
+    color: #000;
+    font-weight: 600;
+}
+.Addproject_box .fancy-checkbox .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #000000;
+    transition: .5s ease-in-out;
+    border-radius: 100px;
+    background: #ffffff;
+    z-index: 9999;
+    margin: 0 auto;
+}
+.Addproject_box .fancy-checkbox:after {
+    content: "";
+    border: 1px solid #000;
+    width: 31px;
+    height: 30px;
+    display: block;
+    border-radius: 100px;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+    right: 0;
+    margin: 0 auto;
+}
+.Addproject_box .fancy-checkbox input:checked ~ .checkmark {
+    background-color: #000000;
+    border: 1px solid #ffffff;
+}
+.Addproject_box .fancy-checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 9px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.Addproject_box .colleborate_box {
+    float: left;
+    text-align: center;
+    position: relative;
+    width: 105px;
+    cursor: pointer;
+}
+.project .jquery-accordion-menu a:hover {
+    background: #E1DFDF;
+}
+
+.project .jquery-accordion-menu a:hover img {
+    opacity: 1;
+}
+
+.project .jquery-accordion-menu a:hover span {
+    color: #000;
+}
+
+.project .jquery-accordion-menu .active {
+    background: #E1DFDF;
+}
+
+.project .jquery-accordion-menu .active span {
+    color: #000;
+}
+.project .manage_header .col_1 {
+    color: #000;
+    opacity: 1;
+}
+.project .manage_header {
+    color: #000;
+
+
+}
+.project .Settings_profiles .Add_box {
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.05);
+}
+.project .Add_box .plus {
+    background: #fff;
+    border: 1px solid #A8A8A8;
+}
+.project .Add_box .plus:before {
+    background-color: #A8A8A8;
+
+}
+.project .Add_box .plus:after {
+
+    background-color: #A8A8A8;
+
+}
+.project .Added_box {
+    border: 1px solid #A8A8A8;
+    color: #000;
+    font-weight: 600;
+}
+.project .Added_box .fancy-checkbox .checkmark {
+    border-radius: 3px;
+    background: #e5e5e5;
+    border: 1px solid #b2b2b2;
+}
+.project .Added_box:hover {
+    border: 1px solid #000000;
+}
+.project .manage_buttons button.delete {
+    background-color: #D8D8D8;
+    opacity: 0.4;
+}
+.project .manage_buttons button.delete_invite{
+    background-color: #e7e7e7;
+    border: 1px solid #afafaf;
+}
+.project .manage_buttons button.delete_invite img {
+    opacity: 0.3;
+}
+.project .pagenation_left .go-icon {
+
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+
+}
+.project .pagenation_left {
+
+    background: #e7e7e7;
+
+}
+.project .pagenation_right{
+
+    background: #e7e7e7;
+
+}
+.project .personal_upload section.drad-drop {
+    background: none;
+}
+section.project .modal.Personal .personal_rgt {
+    margin-top: 0;
+}
+section.project .modal.Personal .save_button {
+    display: none;
+}
+.project .modal.Personal .personal_user {
+    background: #ebebeb;
+}
+.project .pagenation_right .go-icon {
+
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+
+}
+.project .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+    background-color: rgb(241, 241, 241) !important;
+    color: #8E8D92;
+}
+
+a.button.save {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(270deg, #1d3884 0%, #2f7088 100%);
+    border: 0;
+}
+.modal.Personal {
+    width: 45%;
+    padding: 3% 1% !important;
+}
+
+/*--------- As -------*/
+.price_over {
+    position: relative;
+    width: 24%;
+    margin: 5% 4%;
+    float: left;
+}
+.content_pricing .price {
+    transition: all 0.125s ease-in-out;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content_pricing .button button {
+    padding: 3px 7px;
+    background: #D2D0D0;
+    border: 0;
+}
+
+.content_pricing .inform ul li {
+    list-style: none;
+    line-height: 38px;
+    font-size: 14px;
+}
+
+
+.content_pricing .heading i.fa {
+    padding-top: 10px;
+    font-size: 22px;
+    float: left;
+}
+.content_pricing .heading h1 spna {
+    font-size: 20px;
+    position: absolute;
+    top: 13px;
+    left: -9px;
+    font-weight: 600;
+}
+.mostPop {
+    position: absolute;
+    right: -65px;
+    top: -20px;
+    background: #143B52;
+    color: #fff;
+    webkit-transform: rotate(177deg);
+    transform: rotate(402deg);
+    padding: 38px 37px;
+    font-size: 12px;
+    height: 13px;
+    width: 100px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.content_pricing .heading h1 {
+    float: left;
+    margin: 0;
+    padding: 0 5px 0 10px;
+    font-size: 60px;
+    font-weight: 100;
+}
+
+.content_pricing .heading small {
+    position: absolute;
+    font-size: 12px;
+    color: #000000;
+    bottom: 19px;
+}
+
+.content_pricing .price .package {
+    text-transform: uppercase;
+    letter-spacing: 5.2px;
+    font-family: 'Space Mono';
+}
+
+.content_pricing .price .package p {
+    font-size: 11px;
+    margin: 0;
+}
+
+.content_pricing .inform .disabled {
+    color: #7F7F83;
+}
+
+.content_pricing .price .heading {
+    position: relative;
+    padding-bottom: 84px;
+}
+
+.content_pricing .inform {
+    position: relative;
+}
+
+.content_pricing .inform ul li:before {
+    content: '';
+    position: absolute;
+    left: 2%;
+    height: 22px;
+    width: 22px;
+    background-size: cover !important;
+    background: url(../assets/img/cross-active.png);
+    margin-top: 8px;
+}
+
+.content_pricing .inform ul li.disabled:before {
+    content: '';
+    position: absolute;
+    left: 2%;
+    height: 22px;
+    width: 22px;
+    background-size: cover !important;
+    background: url(../assets/img/cross.png);
+    margin-top: 8px;
+}
+
+.content_pricing .price .center {
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+.content_pricing .price.active, .content_pricing .price:hover {
+    background: #fff;
+    box-shadow: 0px 0px 14px #717171;
+}
+
+.content_pricing .button {
+    text-align: center;
+}
+
+
+.form {
+    position: fixed;
+    right: 0;
+    z-index: 999;
+    background: #161c20;
+    width: 308px;
+    padding: 20px;
+    height: 100%;
+    top: 120px;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    border: 0;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    background: #1e262e;
+}
+
+.form button {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.form button:hover {
+    background: #cdcccc;
+}
+.project .Referal_top {
+    background: #ffffff;
+    border: 1px solid #cccccc;
 }

@@ -6,10 +6,20 @@ class BacklogDataD extends Component {
     constructor(prop){
         super(prop)
         this.state = {isLoggedIn: false};
+        this.state = {
+            data : this.props.data
+        }
         //this.props.dispatchCurrentId('1');
     }
     backlogCreate(value,event){
         this.props.backlogWidgetData(value,event);
+        this.props.plus(value,event);
+    }
+    componentWillReceiveProps(props,state){
+            console.log(props.data)
+            this.setState({
+                data: props.data
+            })
     }
     render(){
         return(
@@ -19,7 +29,7 @@ class BacklogDataD extends Component {
                     <img src="./assets/img/plus.png" />
                 </div>
             </div>
-           {this.props.data.map((items)=>
+           {this.state.data.map((items)=>
                 <div className="backlog_box" key={items.id}>
                     <div className="backlog_box_flt">
                         <h1>{items.name}</h1>

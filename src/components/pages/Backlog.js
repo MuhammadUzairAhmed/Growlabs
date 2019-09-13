@@ -13,6 +13,7 @@ class Backlog extends Component {
     this.state = {
       categoryData:[],
       sprintData:[],
+      activeBacklogForm:false,
       CurrentId:'',
       SprintId:'',
       loaded: true
@@ -66,11 +67,37 @@ class Backlog extends Component {
         })
       }
     })
+
+  }
+  backlogFormActive(value,event){
+    this.setState({
+      activeBacklogForm:true
+    })
+  }
+  addBacklog(){
+    this.state.sprintData.push({
+      "id" :  this.state.sprintData.length + 1,
+      "type" : "active",
+      "category": this.state.CurrentId,
+      "name" :this.state.text,
+      "discription": this.state.description,
+      "feedback" :"",
+    })
+    this.setState({
+      activeBacklogForm:false
+    })
+   
+  }
+  handler = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+   
   }
   render(){
    
         return (
-          this.state.loaded ? <Loader
+          this.state.loaded ? <Loader 
             type="Oval"
             color="white"
             height="50"
@@ -81,7 +108,13 @@ class Backlog extends Component {
           <section className="backlog">
             <Category data={this.props.backlog.map((items)=> items.categoryId)} activeId={this.state.CurrentId} selectedCat={this.selectedCatId.bind(this)}  />
             <Sprints data={this.state.categoryData} selectedSpt={this.selectedSptId.bind(this)} />
-            <BacklogData data={this.state.sprintData} />
+            <BacklogData data={this.state.sprintData}  plus={this.backlogFormActive.bind(this)}/>
+            {this.state.activeBacklogForm ? 
+              <div class="form">
+                <input type="text" name="text" onChange={this.handler} value={this.state.text} placeholder="Add Text" />
+                <textarea value="" onChange={this.handler} value={this.state.decription} name="description" placeholder="Add Description"></textarea>
+                <button onClick={()=>this.addBacklog()}>Add Backlog</button>
+              </div>:''}
           </section>
         
         );  

@@ -21,7 +21,7 @@ class PreDashboard extends Component {
         {"name":"Milestons","id":"5","description":"Explaining What neeeds to happen at this particulair step","status":""},
         {"name":"Milestons","id":"6","description":"Explaining What neeeds to happen at this particulair step","status":""},
         {"name":"Milestons","id":"7","description":"Explaining What neeeds to happen at this particulair step","status":""}],
-      agreement:{},
+      agreement:'',
       description:{},
       technology:{},
       mileStone:{},
@@ -131,7 +131,7 @@ class PreDashboard extends Component {
 
   }
   render() {
-
+console.log(this.state,'chwekingPre')
     return (
       <section className="preDashboard">
         <div className="preDashboard_notification">

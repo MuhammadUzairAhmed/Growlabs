@@ -25,21 +25,11 @@ class Chatbot extends Component {
     offBacklogWidth(){
         this.props.backlogWidgetData(false,"backlogPlus");
     }
-    componentWillReceiveProps(){
-        this.setState({
-            CurrentChat:this.props.activeChatId
-        })
-        console.log(this.state,'ys')
+    componentDidUpdate(){
+        console.log(this.props.currentChatID)
     }
     render() {
         if(this.props.status != 'projects'){
-        if(this.props.backlogWidgetState.boolen){
-            return (
-            <section className="chat_room" active='true'>
-                    <h1 onClick={this.offBacklogWidth.bind(this)}>testing</h1>
-            </section>
-            )
-        }else{
             if(!this.state.showMe){
                 return (
                     <section className="chat_room" active={this.props.actionChat}>
@@ -57,7 +47,7 @@ class Chatbot extends Component {
                                     <div className="chatroom_header_text">
                                         <h2>{item.name} </h2>
                                         <p>{item.designation}</p>
-                                        <span className="message">TEsting data</span>
+                                        <span className="message">It Works; I Just it On ...</span>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +74,7 @@ class Chatbot extends Component {
                                     <div className="chatroom_header_text">
                                         <h2>{item.name} </h2>
                                         <p>{item.designation}</p>
-                                        <span className="message">TEsting data</span>
+                                        <span className="message">It Works; I Just it On ...</span>
                                     </div>
                                 </div>
                             </div>
@@ -95,11 +85,11 @@ class Chatbot extends Component {
                      </div>
                 )
             }
-        }
+       
 
     }else{
         
-        return (<StartChat dataID={this.state.CurrentChat ? this.state.CurrentChat:'1'} userDetails={this.state.CurrentChat ?  this.state.CurrentChat:'1' }  />)
+        return (<StartChat dataID={this.props.currentChatID ? this.props.currentChatID:'0'} userDetails={this.props.users.id ?  this.props.users.id :'0' }  />)
     }
 
     }
@@ -112,6 +102,7 @@ const mapStateToProps = (state) => {
         users:state.fuelSavings.USER_DETAILS,
         actionChat:state.fuelSavings.ACTIVEWIDGET,
         backlogWidgetState:state.fuelSavings.BACKLOGWIDGET,
+        currentChatID:state.fuelSavings.PROJECTCURRENTCHATID,
     };
 };
 const mapDispatchToProps = (dispatch) => {

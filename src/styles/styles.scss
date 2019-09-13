@@ -2,8 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 
-body {font-family: 'Open Sans', sans-serif;background: #1e262e;margin: 0px;}
+body {font-family: 'Open Sans', sans-serif;
+    background: #0c0e10;margin: 0px;}
 
+input.active {
+    border-bottom: 1px solid #19d192 !important;
+}
+
+select.active {
+    border-bottom: 1px solid #19d192 !important;
+}
+
+div#app {
+    zoom: 0.80;
+}
 /* =========Start Sidbar css========= */
 section.sidebar {
     width: 230px;
@@ -14,7 +26,8 @@ section.sidebar {
     z-index: 99999;
     top: 0;
     padding-top: 125px;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 section.sidebar:hover{
     overflow: auto;
@@ -62,6 +75,12 @@ section.sidebar::-webkit-scrollbar-thumb {
 .time_section_text {
     float: left;
     width:80%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .time_section_img {
     float: left;
@@ -85,6 +104,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     font-family: "Open Sans";
     font-size: 32px;
     font-weight: 300;
+
 }
 .time_section p {
     margin: 0px 0px 0px 2px;
@@ -196,7 +216,7 @@ section.sidebar::-webkit-scrollbar-thumb {
     position: relative;
     margin-bottom: 10px;
     width: -webkit-fill-available;
-    padding: 14px 22px;
+    padding: 14px 27px 14px 32px;
     float: left;
     text-decoration: none;
     color: #6d6e6f;
@@ -218,6 +238,9 @@ section.sidebar::-webkit-scrollbar-thumb {
 }
 .backlog ul.ui-tabs-nav img {
     width: 16px;
+    margin-bottom: 9px;
+    position: relative;
+    top: 4px;
 }
 /* ===xxx======End Sidbar css=====xxx===== */
 
@@ -323,10 +346,11 @@ section.header:after {
 .chatroom_header_boxes {
     border: 1px solid #2b363d;
     margin: 25px 20px 10px 20px;
-    padding: 12px 6px 6px 12px;
+    padding: 8px 6px 9px 12px;
     border-radius: 6px;
     position: relative;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 .chatroom_header_boxes .time {
     position: absolute;
@@ -364,12 +388,13 @@ section.header:after {
     padding: 4px 0px 0px 0px;
 }
 .chatroom_header_boxes .chatroom_header_text h2 {
-    margin: 4px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .chatroom_header_boxes p.message {color: #fff;opacity: 1;}
 .chatroom_header_boxes span.message {
     color: #d2d2d2;
-    font-size: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 .chatroom_header_boxes .chatroom_header_img {
     width: 64px;
@@ -378,8 +403,9 @@ section.header:after {
 .chatroom_header_boxes .chatroom_header_text p {
     margin: 0px 0px;
     opacity: 1;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px
 }
 .chatroom_header_boxes:after {
     content: "";
@@ -391,7 +417,7 @@ section.header:after {
     box-shadow: 6px 4px 36px #000;
 }
 section.chat_room_active .chatroom_header {
-    top: 141px;
+    top: 124px;
     z-index: 9999999;
 }
 section.chat_room {
@@ -674,6 +700,9 @@ section.chat_room[active="false"] {
 section.chat_room[active="true"] {
     // margin-right: 0;
 }
+.chatroom_footer input[error="error"] {
+    border: 1px solid red;
+}
 /* =======xxx=====End Chatroom css=====xxx======= */
 
 
@@ -690,10 +719,13 @@ section.Content_main:after {
 .center_part {
     float: left;
     padding: 20px 20px;
-    width: calc(100% - 620px);
+    width: calc(100% - 619px);
     margin: 0 auto;
     margin-left: 229px;
-    padding-top: 154px;
+    margin-top: 125px;
+    background: #1e262e;
+    border-top-left-radius: 37px;
+    min-height: 100vh;
 }
 /* ======xxx=====End Content css======xxx====== */
 
@@ -712,6 +744,7 @@ section.Content_main:after {
 .backlog_box_img {
     display: table;
     margin: 0 auto;
+    cursor: pointer;
 }
 .backlog_box_flt h1 {
     font-size: 20px;
@@ -754,6 +787,7 @@ section.Content_main:after {
     margin: 0px 10px;
     text-align: center;
     line-height: 26px;
+    cursor: pointer;
 }
 .backlog ul.ui-tabs-nav li a {
     color: #fff;
@@ -762,17 +796,19 @@ section.Content_main:after {
     opacity: 0.3;
     letter-spacing: 2px;
     font-family: "Space Mono";
+   
 }
 .backlog ul.ui-tabs-nav li.active a {
     opacity: 0.6;
 }
 .backlog ul.ui-tabs-nav li a:after {
-    border-bottom: 2px solid #ffffff47;
+    border-bottom: 1px solid #ffffff47;
     content: "";
     display: block;
     padding: 0px 50px;
     opacity: 0.5;
     border-radius: 100px;
+    height: 1px;
 }
 .backlog ul.ui-tabs-nav li a:focus {
     outline: none;
@@ -816,17 +852,16 @@ section.Content_main:after {
 .fancy-checkbox .checkmark {
     position: absolute;
     top: 2px;
-    left: 5px;
+    left: 0px;
+    right: 0px;
     height: 20px;
     width: 20px;
     border: 1px solid #fffcfc;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     border-radius: 100px;
     background: #192027;
     z-index: 9999;
+    margin: 0 auto;
 }
 .fancy-checkbox input:checked ~ .checkmark:after {
     display: block;
@@ -852,11 +887,11 @@ section.Content_main:after {
     border: 1px solid #ffffff;
 }
 .colleborate_box {
-    float: left;
     text-align: center;
     position: relative;
-    width: 103px;
     cursor: pointer;
+    width: 100px;
+    float: left;
 }
 
 .colleborate_box h1 {
@@ -914,8 +949,12 @@ section.Content_main:after {
     background: #fff;
     height: 17px;
     width: 17px;
+    // top: 2.5px;
+    // left: 1px;
+
     top: 3px;
-    left: 4px;
+    left: 0px;
+
 }
 .colleborate_box.active label.fancy-checkbox {
     border: 1.5px solid #fff;
@@ -1052,6 +1091,12 @@ input:focus {
     padding: 20px 20px;
     position: relative;
     margin: 8px 0px;
+    height: 135px;
+}
+.carousel.slide:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 .carousel-inner {
     display: table;
@@ -1778,6 +1823,42 @@ img.profile-fix-img {
 .input_box {
     position: relative;
 }
+.input_box.dropdown select {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+}
+.input_box.dropdown .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid white;
+    right: 8%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 15px;
+    opacity: 0.6;
+}
+.input_box.dropdown select option {
+ 
+    color: #000;
+}
+.input_box.dropdown .tooltip img {
+    top: 12px;
+}
+.agreements_flt .input_box.hlf.rgt select {
+    margin-top: -8px;
+}
 .agreements_form p {
     color: #BBBBBB;
     font-family: "Open Sans";
@@ -2317,7 +2398,7 @@ section.multi_step_form .col-md-4 {
 }
 .according_header .status {
    float: left;
-   width: 12%;
+   width:11.5%;
 }
 .according_header {
    opacity: 0.6;
@@ -2327,36 +2408,41 @@ section.multi_step_form .col-md-4 {
    letter-spacing: 6px;
    line-height: 16px;
    clear: both;
-   padding: 0px 0px 0px 60px;
    margin-bottom: 12px;
 }
 .according_header .reference {
    float: left;
-   width: 16%;
+   width: 15.5%;
 }
 .according_header .submission {
    float: left;
-   width: 15%;
+   width: 13.5%;
 }
-.according_header .form {
+.according_header .from {
    float: left;
-   width: 9%;
+   width: 7%;
+}
+.according_header .arrow {
+    float: left;
+    width: 3%;
+    margin: 4px 0px;
+    opacity: 0;
 }
 .according_header .till {
    float: left;
-   width: 15%;
+   width: 14%;
 }
 .according_header .sprints {
    float: left;
-   width: 15%;
+   width: 13.7%;
 }
 .according_header .source {
    float: left;
    width: 11%;
 }
 .eur {
-   float: right;
-   width: 7%;
+   float: left;
+   width:6%;
 }
 .according_box {
      clear: both;
@@ -2371,10 +2457,13 @@ section.multi_step_form .col-md-4 {
    display: block;
    clear: both;
 }
-.according_box .check_box {
+.according_box .check_box, .according_header .check_box {
    float: left;
    width: 4.5%;
    position: relative;
+}
+.according_header .check_box .fancy-checkbox{
+    opacity:0;
 }
 .according_box .button {float: left;width: 11.5%;}
 .according_box .button a {
@@ -2484,7 +2573,7 @@ section.multi_step_form .col-md-4 {
    opacity: 0.8;
 }
 .according_box.paid:last-child .check_box:after {
-   height: 66px;
+   height: 70px;
 }
 .according_box .arrow {
    float: left;
@@ -2511,7 +2600,7 @@ section.multi_step_form .col-md-4 {
     left: 0px;
     right: 0;
     top: -19px;
-    height: 74px;
+    height: 91px;
     width: 0px;
     margin: 0 auto;
 }
@@ -2603,9 +2692,16 @@ section.multi_step_form .col-md-4 {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+.dashbord_center {
+    position: relative;
+    height: 100vh;
+}
 .dashbord_left {
     float: left;
-    width: calc(99% - 300px);
+    width: calc(98% - 30%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .dashbord_right .tooltip .tooltiptext:after {
     top: -8px;
@@ -2616,8 +2712,11 @@ section.multi_step_form .col-md-4 {
     left: 62px;
 }
 .dashbord_right {
-    width:300px;
-    float: right;
+    width: 30%;
+    right: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .dashbord_left canvas.chartjs-render-monitor {
     width: 100% !important;
@@ -2625,9 +2724,10 @@ section.multi_step_form .col-md-4 {
 }
 .dashbord_left section.colleborate {
     margin-bottom: 20px;
+    padding-right: 9px;
 }
 .dashbord_left .colleborate_box {
-    width: 65px;
+    width: auto;
 }
 .dashbord_left .colleborate_box:before {
     display: none;
@@ -2643,6 +2743,10 @@ section.multi_step_form .col-md-4 {
 }
 .dashbord_left .colleborate_top {
     height: 68px;
+    display: grid;
+    margin: 10 auto;
+    grid-auto-flow: column;
+    text-align: center;
 }
 .score canvas#myChart {
     position: relative;
@@ -3356,6 +3460,749 @@ section.sidebar .score_section .scoreText {
 /*============xxx========= Matches ===============xxx============*/
 
 
+/*=====================Start Settings page ===========================*/
+
+
+h1.settings_hea {
+    color: #cccccc;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+}
+.personal_user {
+    display: table;
+    margin: 0 auto;
+    width: 112px;
+    height: 107px;
+    background: #fff;
+    border-radius: 100px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 18px;
+    border: 1.5px solid #fff;
+}
+
+.personal_user img.blank_user {
+    position: absolute;
+    bottom: 2px;
+    width: 80px;
+    left: 0;
+    right: 0;
+    display: table;
+    margin: 0 auto;
+    border-radius: 100%;}
+
+.personal_upload {
+    position: absolute;
+    z-index: 99999999;
+    background: #fff;
+    bottom: -6px;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    right: -13px;
+    border: 3.5px solid #1e262e;
+    cursor: pointer;
+}
+
+.personal_upload img {
+    width: 21px !important;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    margin: 0 auto;
+    top: 9px;
+}
+.personal_user img.upload_user {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    display: table;
+    margin: 0 auto;
+    top: 0px;
+    border-radius: 100px;
+    height: 100%;
+}
+.personal_flt {
+    float: left;
+    width: 45%;
+}
+
+.personal_rgt {
+    float: right;
+    width: 45%;
+    margin-top: 53px;
+}
+
+.personal_main {
+    width: 80%;
+    display: table;
+    margin: 0 auto;
+}
+
+.personal_main .feild {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.personal_main .feild label {
+    opacity: 0.3;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.personal_main .feild input {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 40px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+    text-transform: capitalize;
+}
+
+.personal_main h1 {
+    color: #d6d6d6;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.personal_main .Button_sec {
+    margin: 61px 0px;
+    clear: both;
+    position: relative;
+    top: 30px;
+}
+
+.personal_main .Button_sec button {
+    border-radius: 3px;
+    background-color: #cacaca;
+    width: 50%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 23px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.personal_main .Button_sec button.secd_button {
+    width: 26%;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 12px 0px;
+    border-radius: 100px;
+}
+
+.personal_main .Button_sec p {
+    opacity: 0.5;
+    color: #cacaca;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.personal_main .Button_sec button:hover {
+    background-color: #a9a8a8;
+}
+
+.personal_main .Button_sec button.secd_button:hover {
+    background-color: #a0a0a0;
+}
+
+.personal_main .Button_sec p:hover {
+    color: #ffffff;
+}
+.save_button .switch {
+    position: relative;
+    display: inline-block;
+    width: 127px;
+    height: 28px;
+  }
+  
+  .save_button .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .save_button .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s
+  }
+  
+  .save_button .slider:before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    left: 3px;
+    bottom: 1px;
+    background-color: #1e262e;
+    transition: .4s;
+  }
+  .save_button button.one:hover {
+    color: #868686;
+    cursor: pointer;
+}
+  .save_button  input:checked + .slider {
+    background-color: #0dc710;
+    text-align: left;
+    padding-left: 12px;
+  }
+  .save_button  input:checked +  .slider:before{
+    left: 7px;
+  }
+  
+  .save_button input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  .save_button input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(93px);
+  }
+  
+  /* Rounded sliders */
+  .save_button .slider.round {
+    border-radius: 34px;
+    padding-left: 34px;
+    font-size: 12px;
+    color: #1e262e;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-top: 5px;
+  }
+  
+  .save_button .slider.round:before {
+    border-radius: 50%;
+  }
+  .save_button {
+    float: right;
+    margin-top: -135px;
+}
+
+  .save_button button.one {
+      opacity: 0.5;
+      color: #ffffff;
+      font-family: "Open Sans";
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 17px;
+      text-align: center;
+      background: none;
+      border: 0px;
+      letter-spacing: 2px;
+      padding: 8px 13px;
+      text-transform: uppercase;
+      float: left;
+  }
+  .personal_main .feild .tooltip {
+    position: absolute;
+    right: 0px;
+}
+
+.personal_main .feild .tooltip img {
+    width: 16px;
+    top: 11px;
+}
+
+.personal_main .feild span.tooltiptext {
+    top: -71px;
+    right: 0;
+}
+.personal_main .feild .tooltip {
+    position: absolute;
+    right: 0px;
+}
+
+.personal_main .feild .tooltip img {
+    width: 16px;
+    top: 11px;
+}
+
+.personal_main .feild span.tooltiptext {
+    top: -71px;
+    right: 0;
+}
+
+.personal_main.company {
+    width: 95%;
+    margin-top: 70px;
+}
+
+.personal_main.company .first_row {
+    float: left;
+    width: 25%;
+    margin-right: 12%;
+}
+.personal_main.company p.Upload_text {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 2px;
+    color: #f6f6f6;
+    letter-spacing: 1.5px;
+}
+.personal_main .third_row {
+    float: right;
+    width: 25%;
+}
+
+.personal_main .secd_row {
+    float: left;
+    width: 25%;
+    margin-top: 34px;
+   
+}
+.personal_main .feild textarea#comment {
+    width: 100%;
+    background: #ffffff12;
+    border: 0px;
+    color: #fff;
+    padding: 5px 6px;
+    margin-top: 9px;
+}
+.personal_main .feild.textarea .tooltip {
+    position: absolute;
+    right: 6px;
+    top: 15px;
+}
+.personal_main.company button {
+    width: 26%;
+    font-size: 14px;
+    padding: 20px 0px;
+}
+
+.personal_main.company button.secd_button {
+    width: 19%;
+    font-size: 10px;
+}
+.personal_main p.error {
+    width: 26%;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 13px;
+    font-size: 12px;
+    color: #d82525;
+}
+.personal_main.company .Button_sec {
+    margin: 0px;
+    top: -28px;
+}
+.personal_main .feild.upload section img {
+    width: 20% !important;
+    display: table;
+    margin: 0 auto;
+}
+.personal_main .feild.upload section {
+    background: #2e353d;
+    margin-top: 14px;
+    cursor: pointer;
+    padding: 18px 0px 30px 0px;
+}
+.personal_main .feild.dropdown select {
+    border: 0px;
+    border-bottom: 1px solid #676767;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #ffff;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+}
+
+.personal_main .feild.dropdown label {
+    line-height: 34px;
+}
+.personal_main.oprations {
+    width: 66%;
+    margin-top: 75px;
+}
+.personal_main.oprations .Button_sec button.secd_button {
+    width: 37%;
+}
+.personal_main.oprations .first_row {
+    width: 42%;
+}
+
+.personal_main.oprations .secd_row {
+    width: 42%;
+    margin-top: 0;
+    float: right;
+}
+
+.personal_main .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid white;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid white;
+    right: 9%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 46px;
+    opacity: 0.6;
+}
+.personal_main .feild.dropdown select option {
+    background: #1e262e;
+}
+.password_sec {
+    width: 40%;
+    display: table;
+    margin: 0 auto;
+    padding-top: 128px;
+    padding-bottom: 56px;
+}
+
+/*============xxx========= End Settings page ===============xxx============*/
+
+/*============xxx========= Start popup page ===============xxx============*/
+
+.modal h1 {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+}
+.modal .feild {
+    margin-bottom: 30px;
+    position: relative;
+}
+.modal .feild input {
+    border: 0px;
+    border-bottom: 1px solid #c8c8c8;
+    background: none;
+    width: 100%;
+    line-height: 40px;
+    color: #000;
+    letter-spacing: 1.5px;
+}
+.modal .feild label {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.modal, .invitation {
+    background: #fff;
+    width: 25%;
+    height: auto;
+    padding: 3% 4% !important;
+    display: table;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:999999999;
+    box-shadow: 0px 0px 20px 0px #000000;
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+.modal.Portfolio {
+    height: 585px !important;
+    overflow: scroll;
+    display: flow-root;
+    position: fixed;
+    top: 53%;
+}
+.modal.Testinomials {
+    position: fixed;
+    top: 56%;
+}
+.modal.Invite {
+    position: fixed;
+    top: 53%;
+}
+.modal.Test {
+    position: fixed;
+    top: 53%;
+}
+.modal .feild.dropdown select {
+    border: 0px;
+    border-bottom:1px solid #c8c8c8;
+    background: none;
+    width: 100%;
+    line-height: 43px;
+    color: #000;
+    letter-spacing: 1.5px;
+    padding: 0px 0px !important;
+    height: 37px;
+    -webkit-appearance: none;
+    text-transform: capitalize;
+}
+.modal .feild.dropdown select option {
+    background: #ffffff;
+    color: #000;
+}
+.modal .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    right: 2%;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(135deg);
+    top: 24px;
+    opacity: 0.6;
+}
+.modal button.account_but:hover {
+    background-color: #1e262e;
+}
+.modal button.account_but {
+    border-radius: 3px;
+    background-color: #1b1b1b;
+    width: 100%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 18px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.modal button.cancel_but {
+    background: none;
+    border: 0;
+    font-size: 26px;
+    position: absolute;
+    top: 60px;
+    right: 127px;
+    cursor: pointer;
+    color: #959595;
+}
+.modal ::-webkit-input-placeholder {
+    /* Edge */
+    color: #000;
+}
+.modal :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+}
+.modal ::placeholder {
+    color: #000;
+}
+.feild.Finalize img.lock {
+    position: absolute;
+    width: 17px;
+    left: 0;
+    top: 25px;
+}
+
+.feild.Finalize  img.eyes {
+    position: absolute;
+    width: 30px;
+    right: 4px;
+    top: 20px;
+}
+
+.feild.Finalize input {
+    padding: 10px 0px 0px 26px;
+    line-height: 32px;
+    text-transform: capitalize;
+}
+
+.feild.Finalize label {
+    padding-left: 29px;
+}
+.feild.Invite .tooltip {
+    position: absolute;
+    right: 0px;
+}
+
+.feild.Invite .tooltip img {
+    width: 18px;
+    top: 11px;
+}
+
+.feild.Invite span.tooltiptext {
+    top: -82px;
+    right: -22px;
+}
+.feild.dropdown.Invite .go-icon {
+    right: 38px;
+}
+
+.modal .drad-drop {
+    background: #ececec;
+    padding: 20px 0px 36px 0px;
+    text-align: center;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.modal section.drad-drop img {
+    width: 176px;
+}
+.modal p.Upload_text {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 7px;
+}
+
+h2.no-span {
+    display: table;
+    white-space: nowrap;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 96%;
+    margin: auto;
+    margin-bottom: 14px;
+}
+h2.no-span:before {
+    right: 1.5%;
+}
+h2.no-span:before, h2.no-span:after {
+    border-top: 1px solid black;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.5em;
+    width: 45%;
+}
+h2.no-span:after {
+    left: 1.5%;
+}
+h2.no-span:before, h2.no-span:after {
+    border-top: 1px solid black;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.5em;
+    width: 45%;
+}
+.rating.textarea textarea#comment {
+    width: 100%;
+    background: #eaeaea;
+    border: 0px;
+    color: #fff;
+    padding: 5px 6px;
+    margin-top: 9px;
+}
+.rating.textarea  .tooltip {
+    position: absolute;
+    right: 6px;
+    top: 15px;
+}
+.rating.textarea label {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.rating.textarea .tooltip img {
+    width: 17px;
+    top: 13px;
+}
+.rating.textarea {
+    position: relative;
+    margin-bottom: 13px;
+    clear: both;
+    width: 100%;
+}
+.rating_main {
+    float: left;
+    width: 33%;
+    margin: 11px 0px;
+}
+
+.rating_main label {
+    opacity: 0.3;
+    color: #1E1E1E;
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+
+.rating_main .rating span {
+    font-size: 24px;
+}
+.personal_main.company .Button_sec.secd_comp {
+    top: 8px;
+}
+/*============xxx========= End popup page ===============xxx============*/
+
+
 
 
 
@@ -3381,4 +4228,11 @@ section.sidebar .score_section .scoreText {
     font-weight: 700;
     font-size: 17px;
     box-shadow: none;
+}
+
+.explorerIframe, .collaborationIframe {
+  width: 100%;
+  height: calc(100vh - 190px);
+  overflow: hidden;
+  border: none;
 }

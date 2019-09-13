@@ -14,18 +14,26 @@ class Legal extends Component {
     }
     componentDidMount()
     {
-        if(this.props.legalData.nda != null)
-        {
-            this.setState({fileName: this.props.legalData.nda,
-            secondfileName: this.props.legalData.contract
-            })
-        }
+        fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/legal')
+        .then(res=>res.json())
+        .then((data)=>{
+            console.log(data,'legalData')
+        // if(this.props.legalData.nda != null)
+        // {
+            this.setState({fileName: data.nda,
+            secondfileName: data.contract
+            })})
+        // }
     }
     handleAccept = () => {
         var values = {
             nda: this.state.fileName,
             contract: this.state.secondfileName
         }
+        fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/legal',{
+            method:'POST',
+            body: JSON.stringify(values)
+          }).then(res=>console.log('postData',res))
         this.setState({actDiv:true},()=>{
             setTimeout(() => {
                 this.props.changeValue(5, values)

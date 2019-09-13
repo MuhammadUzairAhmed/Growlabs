@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { itemsFetchData, currentStateData, activeChatSystem, backlogWidget } from '../../actions/fuelSavingsActions';
+import {browserHistory} from "react-router";
 import  Clock  from '../../components/widget/clock';
 import { setInterval } from 'timers';
 const URL = 'ws://localhost:3030'
@@ -77,10 +78,18 @@ class Header extends Component {
         //     this.props.activeChat('true','ACTIVECHAT')
         //     this.props.backlogWidgetData(false,"backlogPlus");
         // }
-        this.setState({
-            status:"projects"
-        })
-        this.layoutChange("projects")
+        if(this.state.status == "projects"){
+                
+            this.setState({
+                status:"pre"
+            })
+            this.layoutChange("pre")
+        }else{
+            this.setState({
+                status:"projects"
+            })
+            this.layoutChange("projects")
+    }   
     }
     layoutChange(s){
         this.props.checkData(s)
@@ -95,7 +104,7 @@ class Header extends Component {
                             <Clock />
                         </div>
                         <div className="time_section_img"   onClick={this.activeChat.bind(this)} >
-                            {/* <img src={"./assets/img/"+this.state.user.profileimage} /> */}
+                        <img src="./assets/img/time_user.png" />
                           
                         </div>
                         <div className="time_section_rgt">
@@ -153,8 +162,7 @@ class Header extends Component {
                         <Clock />
                     </div>
                     <div className="time_section_img"   onClick={this.activeChat.bind(this)} >
-                        {/* <img src={"./assets/img/"+this.state.user.profileimage} /> */}
-                      
+                        <img src="./assets/img/time_user.png" />
                     </div>
                     <div className="time_section_rgt">
                         <img src="./assets/img/time_icon.jpg" />
@@ -163,7 +171,7 @@ class Header extends Component {
 
                 <section className="preDashboard">
                     <div className="preDashboard_notification">
-                        {this.state.notificationsData.map((items, index)=> 
+                        {this.state.notificationsData.map((items, index)=>
                         <div className="NotiProgMain"  key={index} onClick={(e)=>this.changePage(index)}>
                             <div className="header_box">
                             <div className="header_top" >
@@ -179,7 +187,7 @@ class Header extends Component {
                                         <h1>{items.description}</h1>
                                     </div>
                                     <div className="header_rgt">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +198,7 @@ class Header extends Component {
                     </section>
             </section>
             )
-       
+
         }else{
             return <h1>Loading...</h1>
         }

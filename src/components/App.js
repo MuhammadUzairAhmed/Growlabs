@@ -13,6 +13,10 @@ import Backlog from "./pages/Backlog";
 import Files from "./pages/Files";
 import Governance from "./pages/Governance";
 import Financial from "./pages/Financial";
+import Settings from "./pages/Settings";
+import ProjectReview from "./pages/Project/index";
+import Subscription from "./pages/Project/subscription";
+
 import '../styles/layout.css';
 import '../styles/Project.css';
 import '../styles/preDashboard.css';
@@ -26,6 +30,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
 import { get } from "http";
+import { createBrowserHistory } from "history";
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -54,10 +59,10 @@ class App extends React.Component {
   render() {
     if(this.state.status == 'pre'){
       return (
-        <section>
+        <section className="pre-main">
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
-            <Router>
+            <Router history={history}>
                 <div className="center_part pre">
                     <Switch>
                         <Route exact path="/"  component={PreDashboard} />
@@ -72,20 +77,22 @@ class App extends React.Component {
     }
     if(this.state.status == 'dashboard'){
       return (
-        <section>
+        <section className="dashboard-main">
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
-            <Router>
+            <Router history={history}>
                 <Sidebar />
                 <div className="center_part">
                     <Switch>
                         <Route exact path="/"  component={Statisitcs} />
+                        <Route exact path="/index.php"  component={Statisitcs} />
                         <Route path="/statistics" component={Statisitcs} />
                         <Route path="/collaboration" component={Collaboration} />
                         <Route path="/financial" component={Financial} />
                         <Route path="/backlog" component={Backlog} />
                         <Route path="/files" component={Files} />
                         <Route path="/governance" component={Governance} />
+                        <Route path="/settings" component={Settings} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </div>
@@ -100,12 +107,18 @@ class App extends React.Component {
         <section className="project">
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
-            <Router>
-                <Sidebar />
+            <Router history={history}>
+                <Sidebar status="projects"  />
                 <div className="center_part project">
-                    <Projects activeChat={this.actveChatModule.bind(this)}/>
+                <Switch>
+                  <Route path="/settings" component={Settings} />
+                  <Route path="/application" component={Projects} />
+                  <Route path="/projects" component={ProjectReview} />
+                  <Route path="/subscription" component={Subscription} />
+                  <Route path="/" component={ProjectReview} />
+                </Switch>
                 </div>
-                <Chat activeChatId={this.state.ClientChatId} status="projects" />
+                <Chat status="projects" />
             </Router>
           </section>
       </section>
@@ -115,8 +128,10 @@ class App extends React.Component {
       return (
         <section>
           <Header checkData={this.layout.bind(this)}/>
-          <Loader type="Oval" color="white" height="50" width="50" className="loading" />
-        </section>
+          <section className="Content_main">
+            <Loader type="Oval" color="white" height="50" width="50" className="loading" />
+          </section>
+      </section>
       )
     }
   }

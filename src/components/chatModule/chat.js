@@ -19,13 +19,17 @@ class Chat extends Component {
     ws = new WebSocket(URL)
 
     componentDidMount() {
-        
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID.id+'.json')
-            .then(response => response.json())
-            .then((state) => {this.setState(state); console.log(this.state,'statess');
-            
-        })
+        if(this.props.dataID == ''){
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            fetch(proxyurl+'http://react2.zepcomtesting.com/api/1.json')
+                .then(response => response.json())
+                .then((state) => {this.setState(state); console.log(this.state,'statess');
+                
+            })
+        }
+           
+       
+       
 
         this.ws.onopen = () => {
             // on connecting, do nothing but log it to the console
@@ -66,13 +70,12 @@ class Chat extends Component {
 
     addMessage = message => {
         this.setState(state => ({ message: [message, ...state.message] }),()=>{
-            console.log('messa',message)
-            console.log(this.state)
+            //console.log('messa',message)
+            //console.log(this.state)
         })
     }
     submitMessage = (messageString,time) => {
-
-        console.log(time,'messages1')
+        //console.log(time,'messages1')
         fetch('http://demo2532200.mockable.io/meeting/'+this.props.dataID, {
             method: 'POST',
             body: JSON.stringify({id:this.props.dataID,message: messageString})
@@ -81,23 +84,23 @@ class Chat extends Component {
         const message = { id: this.state.id, message: messageString, time: time}
         this.ws.send(JSON.stringify(message))
         this.addMessage(message)
-
-
     }
     backHistory(){
         this.props.true()
     }
-    componentWillReceiveProps(){
-        console.log(this.props.dataID,'text')
+    // }
+    componentWillReceiveProps(props,state){
+        console.log(props, 'working')
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+this.props.dataID.id+'.json')
+        fetch(proxyurl+'http://react2.zepcomtesting.com/api/'+props.dataID+'.json')
             .then(response => response.json())
-            .then((state) => {this.setState(state); console.log(this.state,'statess');
+            .then((state) => {this.setState(state); console.log(state,'statess');
             
         })
     }
 
     render() {
+        {console.log(this.props.dataID,'text')}
         if(this.state.image == ''){
             return (
                 <section className="chat_room">

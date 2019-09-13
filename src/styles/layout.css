@@ -1,0 +1,622 @@
+
+.setcompany_fild {
+    margin-bottom: 30px;
+}
+
+.setcompany_fild input {
+    width: 100%;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid #5a5a5a;
+    border-radius: 1.5px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 15px;
+    line-height: 29px;
+    transition: all 1.5s ease;
+}
+
+.setcompany_fild label {
+    opacity: 0.3;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 10px;
+    font-weight: 400;
+}
+.first_row {
+    float: left;
+    width: 30%;
+    margin-right: 40px;
+}
+
+.secd_row {
+    float: left;
+    width: 30%;
+    margin-right: 40px;
+}
+
+.third_row {
+    float: left;
+    width: 30%;
+}
+
+
+.modal, .invitation
+{
+    background: white;
+    width: 50%;
+    height: 24vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+
+.test{
+    background: white;
+    width: 50%;
+    height: 37vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+.testinomials
+{
+    background: white;
+    width: 50%;
+    height: 57vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+
+.portfolio , .clienttestinomials
+{
+    background: white;
+    width: 50%;
+    height: 77vh;
+    margin-left: 21%;
+    padding-left: 100px;
+    padding-top: 27px;
+}
+
+.rating > span:hover:before {
+    content: "\2605";
+    position: absolute;
+ }
+
+
+
+/*===================== Settings Profiles page ===========================*/
+ .Add_box .plus {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: #fff6;
+    float: left;
+    position: relative;
+    top: -4px;
+    border: 1px solid #ffffff96;
+}
+.Add_box .plus:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 2px;
+    margin-left: -6px;
+    left: 68%;
+    top: 7px;
+    bottom: 6px;
+    z-index: 9;
+}
+.Add_box .plus:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    margin-top: -5px;
+    top: 61%;
+    left: 7px;
+    right: 5px;
+    z-index: 9;
+}
+.manage_pagenation div:hover {
+    opacity: 0.6;
+}
+.Settings_profiles .Add_box:hover {
+    background: #ffffff1f;
+    border: 1px solid #ffffff;
+}
+.Settings_profiles {
+    margin-top: 100px;
+}
+.Settings_profiles .Add_box {
+    background: #ffffff0f;
+    border: 1px solid #ffffff4a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.Settings_profiles .Add_box button {
+    background: none;
+    border: 0px;
+    color: #7f8488;
+    text-transform: capitalize;
+    width: 25%;
+    font-family: "Open Sans";
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.manage_header {
+    width: 100%;
+    color: #fff;
+    clear: both;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.manage_header .col_1 {
+    float: left;
+    width: 15%;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.6;
+    color: #fff;
+    position: relative;
+    top: -10px;
+}
+
+.manage_header .col_2 {
+    float: left;
+    color: #7f8488;
+    width: 12%;
+}
+
+.manage_header .col_3 {
+    float: left;
+    width: 14%;
+    color: #7f8488;
+    
+}
+
+.manage_header .col_4 {
+    float: left;
+    width: 15%;
+    color: #7f8488;
+   
+}
+
+.manage_header .col_5 {
+    float: left;
+    width: 14%;
+    color: #7f8488;
+   
+}
+
+.manage_header .col_6 {
+    float: left;
+    width: 14%;
+    color: #7f8488;
+    
+}
+
+.manage_header .col_7 {
+    float: right;
+    width: 16%;
+    color: #7f8488;
+   
+}
+
+.manage_header:after {
+    content: "";
+    display: block;
+    clear: both;}
+.manage_test {
+    padding: 0px 0px 0px 30px;
+    margin-bottom: 90px;
+}
+.manage_test:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.Added_box {
+    background: #ffffff00;
+    border: 1px solid #ffffff4a;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all 0.5s ease;
+}
+.Added_box:hover {
+    border: 1px solid #ffffff;
+}
+.Added_box:hover .col_1 p {
+    display: block;
+}
+.Added_box .Added_box_numer {
+    position: absolute;
+    left: -30px;
+    top: 13px;
+    font-weight: 600;
+}
+.Added_box .col_1 {
+    float: left;
+    width: 14%;
+    position: relative;
+    top: 1px;
+   
+}
+
+.Added_box .col_2 {
+    float: left;
+    width: 12%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_3 {
+    float: left;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_4 {
+    float: left;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_5 {
+    float: left;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_6 {
+    float: left;
+    width: 13%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box .col_7 {
+    float: right;
+    width: 15%;
+    position: relative;
+    top: 4px;
+}
+
+.Added_box:after {content: "";display: block;clear: both;}
+.Added_box .fancy-checkbox .checkmark {
+    border-radius: 3px;
+    background: #7f8488;
+}
+
+.Added_box .fancy-checkbox .checkmark {
+    border-radius: 3px;
+    background: #7f8488;
+}
+
+.manage_buttons {
+    float: left;
+    padding: 0px 0px 0px 52px;
+    margin-top: 10px;
+}
+
+.manage_buttons button.delete img {
+    width: 20px;
+}
+.manage_buttons button:hover {
+    opacity: 0.6;
+}
+.manage_buttons button.delete {
+    background: #ffffff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-right: 4px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.manage_buttons button.delete_invite img {
+    width: 20px;
+    margin-right: 8px;
+    float: left;
+}
+
+.manage_buttons button.delete_invite {
+    background: #ffffff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px 15px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.manage_buttons button.delete_invite p {
+    float: left;
+    margin: 5px 0px 0px 0px;
+    font-weight: 600;
+}
+.manage_pagenation {
+    float: right;
+    padding: 0px 22px 0px 0px;
+    margin-top: 10px;
+}
+
+.pagenation_left {
+    position: relative;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: left;
+    margin-right: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.pagenation_left .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    right: 8px;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(225deg);
+    top: 11px;
+}
+
+.pagenation_right {
+    position: relative;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: right;
+    margin-left: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.pagenation_right .go-icon {
+    color: #1a2027;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid black;
+    position: absolute;
+    cursor: pointer;
+    border-right: 1px solid black;
+    right: 13px;
+    -webkit-transform: rotate(-139deg);
+    transform: rotate(41deg);
+    top: 11px;
+}
+
+.manage_pagenation .pagenation_number {
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: left;
+    text-align: center;
+    margin: 0px 2px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 28px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.Added_box label.fancy-checkbox {
+    float: left;
+   
+}
+
+.Added_box .col_1 p {
+    position: relative;
+    top: 3px;
+    margin: 0px;
+    font-weight: 700;
+    display: none;
+}
+.sorting {
+    background: #7f8488;
+    width: 18px;
+    height: 20px;
+    float: right;
+    margin-right: 28px;
+    margin-top: 1px;
+    position: relative;
+    border-radius: 1px;
+}
+.sorting p {
+    margin: 0px;
+    text-align: center;
+    color: #fff;
+    opacity: 1;
+    z-index: 9999999999;
+    position: relative;
+    top: -2px;
+}
+.unsorting {
+    background: #7f8488;
+    width: 18px;
+    height: 20px;
+    float: right;
+    margin-right: 28px;
+    margin-top: 1px;
+    position: relative;
+    border-radius: 1px;
+}
+.unsorting p {
+    margin: 0px;
+    text-align: center;
+    color: #fff;
+    opacity: 1;
+    z-index: 9999999999;
+    position: relative;
+    top: 2px;
+    transform: rotate(177deg);
+}
+.modal.Testinomials {
+    position: fixed;
+    top: 56%;
+}
+
+.modal.Invite {
+    position: fixed;
+    top: 53%;
+}
+
+.modal.Test {}
+
+.Referal_top {
+    background: #2b323a;
+    border: 1px solid #ffffff21;
+    height: 250px;
+    padding: 30px 30px;
+    margin-bottom: 41px;
+    margin-left: 29px;
+}
+
+.Referal_top button.one {
+    background: #ccc;
+    border: 0;
+    float: right;
+    color: #fff;
+    line-height: 0px;
+    padding: 8px 35px;
+    border-radius: 100px;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+.Referal_top button.one img {
+    width: 15px;
+    margin-right: 4px;
+    float: left;
+    position: relative;
+    top: 2px;
+}
+
+.Referal_top button.one p {
+    float: left;
+    margin: 10px 0px;
+}
+
+.Referal_top input[type="text"] {
+    display: table;
+    margin: 0 auto;
+    position: relative;
+    top: 92px;
+    width: 51%;
+    background: #ccc;
+    border: 0px;
+    padding: 21px 21px;
+}
+
+
+.Settings_profiles .Button_sec {
+    display: table;
+    margin: 0 auto;
+    width: 25%;
+}
+.Settings_profiles .Button_sec button.secd_button:hover {
+    background-color: #a0a0a0;
+}
+
+.Settings_profiles .Button_sec button.secd_button {
+    width: 82%;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 12px 0px;
+    border-radius: 100px;
+}
+.Settings_profiles .Button_sec button {
+    border-radius: 3px;
+    background-color: #cacaca;
+    width: 50%;
+    border: 0px;
+    display: table;
+    margin: 0 auto;
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 23px 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.Settings_profiles .Button_sec p {
+    opacity: 0.5;
+    color: #cacaca;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    text-align: center;
+    cursor: pointer;
+}
+.Settings_profiles .Button_sec .save_button {
+    float: none;
+    margin-top: 0px;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 16px;
+}
+.Settings_profiles .save_button .slider:before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    left: 3px;
+    bottom: 2px;
+    background-color: #1e262e;
+    transition: .4s;
+}
+.price_over button {
+    position: absolute;
+    width: 100%;
+    background: none;
+    border: 1px solid #828282;
+    padding: 18px 0px;
+    border-radius: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    bottom: -90px;
+    left: 0;
+    right: 0;
+}
+
+.price_over.active button {
+    background: #e1e1e1;
+}
+.price_over:hover button {
+    background: #e1e1e1;
+}
+.subscriptionforms .price {
+    height: 574px;
+}
+
+
+/*===================== Settings Profiles page ===========================*/

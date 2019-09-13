@@ -116,15 +116,15 @@ section.preDashboard .timeframe_calander {
 }
 .delete_section {
     position: absolute;
-    right: -36px;
-    top: -13px;
+    right: -99px;
+    top: -8px
 }
 .delete_section img {
     width: 20px;
     opacity: 0.6;
 }
 section.colleborate.milestone .colleborate_box {
-    width: 201px;
+    width: auto;
 }
 .animations-check  {
     -webkit-animation-name: mymove; 
@@ -149,6 +149,35 @@ section.colleborate.milestone .colleborate_box {
     0%   {left:0px;}
     100% {left: -1900px;}
 }
+
+.modal, .invitation{
+    
+    -webkit-animation-name: popupMove; 
+    -webkit-animation-duration: 1s;
+    animation-name: popupMove;
+    animation-duration: 1s;
+}
+
+@keyframes popupMove {
+    0%   {margin-top:-900px;opacity: 0;}
+    50%   {opacity: 0;}
+    100% {margin-top:0px;opacity: 1;}
+}
+
+.content_form[animate="active"] {
+    -webkit-animation-name: leftRight;
+    -webkit-animation-duration: 2s;
+    animation-name: leftRight;
+    animation-duration: 2s;
+    position: relative;
+}
+@keyframes leftRight {
+    0%   {left:-1800px;opacity:0}
+    40%   {opacity:0}
+    100% {left:00px;opacity:1}
+}
+
+
 /*========xxx======= End PreDashboard Notification=======xxx==========*/
 
 /*==========Start PreDashboard Funding==============*/
@@ -726,7 +755,7 @@ section.timeframe a.buttons span {
     color: #FFFFFF;
     font-family: "Open Sans";
     font-size: 15px;
-    margin: 20px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .timeframe_box .timeframe_five p {
     opacity: 0.5;
@@ -938,6 +967,9 @@ section.colleborate.descriptions .colleborate_top {
     background: none;
     border: 0px;
     box-shadow: none;
+    display: grid;
+    margin: 10 auto;
+    grid-auto-flow: column;
 }
 section.descriptions {
     clear: both;
@@ -1101,7 +1133,10 @@ section.colleborate.milestone .colleborate_top {
     background: none;
     border: 0px;
     box-shadow: none;
-	    height: 76px;
+        height: 76px;
+        display: grid;
+    margin: 10 auto;
+    grid-auto-flow: column;
 }
 section.descriptions span.checkmark {
     border: 2px solid #fff;
@@ -1132,7 +1167,19 @@ section.colleborate.milestone .colleborate_box:after {
     margin: 10px 0px;
 }
 section.descriptions .colleborate_box {
-    width: 10%;
+    width: auto;
+}
+.milestone_slider.descriptions p {
+    font-size: 12px;
+    margin-bottom: 21px;
+}
+.descriptions_milestone_box .tooltip img {
+    width: 17px;
+}
+.descriptions_milestone_box .tooltip {
+    position: absolute;
+    right: 0px;
+    top: 20px;
 }
 /*========xxx======End Deccription css=======xxx========= */
 
@@ -1285,3 +1332,6 @@ section.legal a.button span {
     font-size: 13px;
 }
 /*==========xxxx======== End legal css==========xxx============= */
+.pre-main{
+    background: #1e262e;
+}

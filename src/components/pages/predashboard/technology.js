@@ -3,6 +3,11 @@ import { itemsFetchData } from '../../../actions/fuelSavingsActions';
 
 var count1 =0;
 var count2=0;
+const data = {
+   "technology" : "string",
+   "framework" : "string",
+   "type" : "string"
+ }
 class Technology extends Component {
    constructor(props)
    {
@@ -50,23 +55,14 @@ class Technology extends Component {
    }
    componentDidMount()
 	{
-		if(this.props.technologyData.frameVal != null){
-         this.setState({framework:this.props.technologyData.frameVal,
-             technology:this.props.technologyData.techVal},()=>{console.log('x11',this.state.framework)})
+      fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology')
+      .then(res=> res.json())
+      .then(data=>console.log('resTechData',data))
+      console.log(data,"techData")
+		if(this.props.technologyData.framework != null){
+         this.setState({framework:this.props.technologyData.framework,
+             technology:this.props.technologyData.technology},()=>{console.log('x11',this.state.framework)})
          
-      //    this.props.technologyData.frameVal.filter(items=>
-      //    this.setState({
-      //       framework: this.state.framework.filter((item)=>{
-      //        if(item.name == items.name )
-      //        {  
-      //           this.setState({frameCount: 1})
-      //           item['status']= true
-      //           return item
-      //        }
-      //        return item
-      //     })
-      //  })   
-         // )
 		console.log(this.props.technologyData,'technologyData')}
 	}
    activeTechnology =(name)=>
@@ -132,11 +128,21 @@ class Technology extends Component {
       // console.log(this.state.x3,'x3')
       // var values ={
       //    techVal: this.state.x1,
-      //    frameVal:this.state.x2,
-      //    projVal:this.state.x3
+      //    framework:this.state.x2,
+      //    type:this.state.x3
       // }
       // if(this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' )
       // {this.props.changeValue(2,values)}
+      var values ={
+         technology: this.state.x1,
+         framework:this.state.x2,
+         type:this.state.x3
+      }
+      fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology',{
+        method:'POST',
+        body: JSON.stringify(values)
+      }).then(res=>console.log('postData',res))
+      
     }
     componentDidUpdate()
     {
@@ -145,14 +151,17 @@ class Technology extends Component {
     }
     render(){
       var values ={
-         techVal: this.state.technology,
-         frameVal:this.state.framework,
-         projVal:this.state.x3
+         technology: this.state.technology,
+         framework:this.state.framework,
+         type:this.state.x3
       }
       console.log('values23',values)
       if(this.state.technology != '' && this.state.framework != '' && this.state.x3 != '' )
       {
-
+         fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology',{
+            method:'POST',
+            body: JSON.stringify(values)
+          }).then(res=>console.log('postData',res))   
             setTimeout(() => {
               this.props.changeValue(2,values)
             }, 1000);
