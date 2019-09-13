@@ -406,7 +406,7 @@ section.chat_room {
 .chatroom_header {
     background-color: #13181C;
     border-bottom: 1px solid #2b363d;
-    padding: 10px 20px 10px 20px;
+    padding: 12px 20px 12px 20px;
     position: relative;
 }
 .chatroom_header_lft {
@@ -417,16 +417,22 @@ section.chat_room {
 }
 .chatroom_header-rgt img {
     width: 14px;
-    margin: 28px 10px 0px 10px;
+    margin: 18px 10px 0px 10px;
     cursor: pointer;
+}
+.chatroom_header-rgt .tooltip img {
+    width: 19px;
+    position: relative;
+    top: 4px;
 }
 .chatroom_header_img {
     float: left;
-    width: 20%;
-    margin: 11px 10px 0px 0px;
+    width: 23%;
+    margin: 0px 15px 0px 0px;
 }
 .chatroom_header_text {
     float: left;
+    margin-top: 5px;
 }
 .chatroom_header_img img {
     width: 100%;
@@ -434,11 +440,12 @@ section.chat_room {
 .chatroom_header_text h2 {
     color: #fff;
     font-size: 15px;
-    margin-bottom: 0px;
+    margin: 0px;
     font-weight: 500;
 }
 .chatroom_header_text p {
-    margin-top: 4px;
+    margin: 0;
+    margin-top: 1px;
     color: #fff;
     opacity: 0.1;
     font-size: 12px;

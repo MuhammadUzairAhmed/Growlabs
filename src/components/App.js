@@ -54,11 +54,11 @@ class App extends React.Component {
   render() {
     if(this.state.status == 'pre'){
       return (
-        <section className="project">
+        <section>
             <Header checkData={this.layout.bind(this)}/>
             <section className="Content_main">
             <Router>
-                <div className="center_part project">
+                <div className="center_part pre">
                     <Switch>
                         <Route exact path="/"  component={PreDashboard} />
                         <Route component={PreDashboard}  />
@@ -97,11 +97,12 @@ class App extends React.Component {
     }
     if(this.state.status == 'projects'){
       return (
-        <section>
+        <section className="project">
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
             <Router>
-                <div className="center_part pre">
+                <Sidebar />
+                <div className="center_part project">
                     <Projects activeChat={this.actveChatModule.bind(this)}/>
                 </div>
                 <Chat activeChatId={this.state.ClientChatId} status="projects" />
