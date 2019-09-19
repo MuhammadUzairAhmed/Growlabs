@@ -21,6 +21,10 @@ class Backlog extends Component {
     this.props.fetchData('http://react2.zepcomtesting.com/api/backlog.json','BACKLOG');
   }
   componentDidMount(){
+    fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_dashboard/backlog")
+    .then(res => res.json())
+    .then(data =>console.log(data))
+
     this.props.backlog.filter((menu) => {
       if(this.props.currentStateID[0].currentID == menu.categoryId){
           this.setState({
@@ -75,6 +79,36 @@ class Backlog extends Component {
     })
   }
   addBacklog(){
+    var values ={
+      category: this.state.CurrentId,
+      title:this.state.text,
+      description:this.state.description
+    }
+    console.log(values,"backlog card form added")
+
+    ///backlog/category
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_dashboard/backlog/category', {
+      method: 'post',
+      body: JSON.stringify(values.category)
+   }).then((response) => {
+      console.log(response,"resData")
+      return response.json();
+   }).then((data)=> {
+      console.log('Created List:', data);
+      //alert('as')
+   });
+
+   //backlog/card
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_dashboard/backlog/card', {
+            method: 'post',
+            body: JSON.stringify(values)
+         }).then((response) => {
+            console.log(response,"resData")
+            return response.json();
+         }).then((data)=> {
+            console.log('Created List:', data);
+            //alert('as')
+         });
     this.state.sprintData.push({
       "id" :  this.state.sprintData.length + 1,
       "type" : "active",
@@ -82,7 +116,8 @@ class Backlog extends Component {
       "name" :this.state.text,
       "discription": this.state.description,
       "feedback" :"",
-    })
+    },()=>{
+    console.log(this.state.sprintData,'this.state.sprintData')})
     this.setState({
       activeBacklogForm:false
     })
@@ -136,4 +171,3 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Backlog);
-

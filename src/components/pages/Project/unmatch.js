@@ -9,7 +9,20 @@ class Unmatch extends Component {
         }
     }
     deleteMatch(id){
-        this.props.deleteUnmatchData(id);
+
+        var values ={
+            proposal_id:id[0],
+            reason:this.state.currentReview,
+            example:this.state.specificExample
+        }
+        console.log(values,"umnatch data")
+        fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/unmatch',{
+        method:'POST',
+        body: JSON.stringify(values)
+      }).then(res=>console.log('unmatchPostData',res))
+        // this.props.deleteUnmatchData(values);
+     console.log(id,'idsss')
+        this.props.deleteUnmatchData(id,this.state.currentReview,this.state.specificExample);
     }
     collectReview(x){
         this.setState({
@@ -41,4 +54,3 @@ class Unmatch extends Component {
 }
 
 export default Unmatch;
-  

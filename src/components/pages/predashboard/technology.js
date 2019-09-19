@@ -27,7 +27,7 @@ class Technology extends Component {
                {name:'PHP' , status: false},
                {name:'Perl' , status: false},
                {name:'C++' , status: false},
-               {name:'Other' , status: false},
+               // {name:'Other' , status: false},
             ],
             framework:[
                {name:'Angular.Js' , status: false},
@@ -50,16 +50,21 @@ class Technology extends Component {
             x1:[],
             x2:[],
             x3:'',
+            tech:'',
+            fram:'',
+            types:'',
          
       }
    }
    componentDidMount()
 	{
+      
       fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology')
       .then(res=> res.json())
       .then(data=>console.log('resTechData',data))
       console.log(data,"techData")
 		if(this.props.technologyData.framework != null){
+         this.setState({proCount:1,frameCount:1,techCount:1})
          this.setState({framework:this.props.technologyData.framework,
              technology:this.props.technologyData.technology},()=>{console.log('x11',this.state.framework)})
          
@@ -67,14 +72,12 @@ class Technology extends Component {
 	}
    activeTechnology =(name)=>
    { 
-      // var passtechNology = {id:count1++,name:name,status:true}
-      // this.setState({x1: [...this.state.x1,passtechNology]})
-      this.setState({
+     this.setState({
      
         technology: this.state.technology.filter((item)=>{
         
          if(item.name == name)
-         {  this.setState({techCount: 1})
+         {  this.setState({techCount: 1,tech:item.name})
          if(item['status'] == true){item['status']= false}
          else if(item['status'] == false){item['status']= true}
             return item
@@ -86,15 +89,12 @@ class Technology extends Component {
    }
    activeFramework =(name)=>
    {
-      
-      // var passtechNology = {id:count2++,name:name,status:true}
-      // this.setState({x2: [...this.state.x2,passtechNology]})
-      this.setState({
+     this.setState({
      
         framework: this.state.framework.filter((item)=>{
          if(item.name == name)
          {  
-            this.setState({frameCount: 1})
+            this.setState({frameCount: 1,fram:item.name})
             if(item['status'] == true){item['status']= false}
             else if(item['status'] == false){item['status']= true}
             return item
@@ -111,7 +111,7 @@ class Technology extends Component {
          item['status']= false;
          if(item.name == name)
          {  
-            this.setState({proCount: 1,x3:item.name})
+            this.setState({proCount: 1,types:item.name})
             item['status']= true
             return item
          }
@@ -122,26 +122,28 @@ class Technology extends Component {
    }
   
    handleAccepted =()=>{
-      // console.log('correct')
-      // console.log(this.state.x1,'x1')
-      // console.log(this.state.x2,'x2')
-      // console.log(this.state.x3,'x3')
-      // var values ={
-      //    techVal: this.state.x1,
-      //    framework:this.state.x2,
-      //    type:this.state.x3
-      // }
-      // if(this.state.x1 != '' && this.state.x2 != '' && this.state.x3 != '' )
-      // {this.props.changeValue(2,values)}
+      
       var values ={
-         technology: this.state.x1,
-         framework:this.state.x2,
+         technology: this.state.tech,
+         framework:this.state.fram,
+         type:this.state.types
+      }
+      var values2 ={
+         technology: this.state.technology,
+         framework:this.state.framework,
          type:this.state.x3
       }
-      fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology',{
-        method:'POST',
-        body: JSON.stringify(values)
-      }).then(res=>console.log('postData',res))
+      console.log('values23',values)
+     
+         fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology',{
+            method:'POST',
+            body: JSON.stringify(values)
+          }).then(res=>console.log('postData',res))   
+            setTimeout(() => {
+              this.props.changeValue(2,values2)
+            }, 1000);
+
+      
       
     }
     componentDidUpdate()
@@ -150,23 +152,7 @@ class Technology extends Component {
        console.log(this.props,'xyz2')
     }
     render(){
-      var values ={
-         technology: this.state.technology,
-         framework:this.state.framework,
-         type:this.state.x3
-      }
-      console.log('values23',values)
-      if(this.state.technology != '' && this.state.framework != '' && this.state.x3 != '' )
-      {
-         fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/technology',{
-            method:'POST',
-            body: JSON.stringify(values)
-          }).then(res=>console.log('postData',res))   
-            setTimeout(() => {
-              this.props.changeValue(2,values)
-            }, 1000);
-
-      }
+     
      const Technology = this.state.technology.map(item=>
          {
             return <div className={item.status ? "technology_box active": "technology_box"} onClick={()=>this.activeTechnology(item.name)}>
@@ -207,7 +193,7 @@ class Technology extends Component {
                  {ProjectType}
                </div>
                </div>
-               {this.state.techCount == 1 && this.state.frameCount ==1 && this.state.proCount ==1 ?
+               {this.state.proCount == 1 && this.state.frameCount == 1 && this.state.techCount == 1 ?
              
                <a target="_blank" className="button" onClick={this.handleAccepted}>Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
             :   

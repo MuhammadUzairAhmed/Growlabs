@@ -1325,7 +1325,7 @@ a.button.save {
 }
 
 
-.form {
+section.project .form {
     position: fixed;
     right: 0;
     z-index: 999;

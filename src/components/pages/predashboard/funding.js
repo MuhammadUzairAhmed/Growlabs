@@ -17,6 +17,9 @@ class Financial extends Component {
   }
   componentWillMount(){
     this.props.fetchData('http://react2.zepcomtesting.com/api/agreement-finanace.json','FINANCIAL');
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/funding')
+    .then(res=> res.json())
+    .then(data=>console.log('resfundData',data))
    
   }
   componentWillReceiveProps(props,state){

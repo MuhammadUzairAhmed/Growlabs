@@ -36,6 +36,7 @@ class Projects extends Component {
     }
     
     componentWillMount(){
+        this.getshortListData()
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         fetch(proxyurl+"http://react2.zepcomtesting.com/api/contract.json")
           .then(res => res.json())
@@ -44,6 +45,11 @@ class Projects extends Component {
           .then(res => res.json())
           .then(datas => this.setState({matches: datas, dataTrue:true, showdata:true}));
     }
+    getshortListData=()=>{
+        fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/shortlist")
+        .then(res => res.json())
+        .then(data =>console.log(data))}
+    
     handleInput =(x)=>
     {
         this.setState({fileUploaded: x})    
@@ -180,7 +186,8 @@ class Projects extends Component {
         }.bind(this),2000)
      
     }
-    deleteUnmatchDataFun(value,id){
+    deleteUnmatchDataFun(value,id,x,y){
+        console.log(x,y,'idddd')
         this.setState({
             unmatch:{status:true},
             unmatchID:[id]

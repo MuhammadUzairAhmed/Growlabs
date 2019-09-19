@@ -183,26 +183,38 @@ section.colleborate.milestone .colleborate_box {
 /*==========Start PreDashboard Funding==============*/
 
 .preFungingProgress {
-    width: 88%;
+    width: 75%;
     display: table;
     margin: 0 auto;
-    padding: 46px 7%;
+    padding: 56px 8%;
     background-color: rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    margin: 30px 0px 6px 0px;
+}
+.preFungingAccording_main .according_box .check_box:after {
+    height: 71px;
+    top: -14px;
+}
+.preFungingAccording_main .according_box.fund:hover {
+    background: #12161a;
+    border: 1px solid rgba(255, 255, 255, 0.77);
 }
 
+.preFungingAccording_main .according_main section.active .check_box:after {
+    height: 56px;
+    border: 0.6px solid #dadada;
+}
 .preFungingProgress .progress {
     margin: 0px 0px;
 }
 
 .preFungingAccording_main {
-    width: 94%;
+    width: 75%;
     display: table;
     margin: 0 auto;
-    padding: 54px 4%;
+    padding: 60px 8%;
     background-color: rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 8px;
 }
 .funding_top{
     text-align: center;
@@ -245,13 +257,22 @@ section.colleborate.milestone .colleborate_box {
     font-size: 10px;
 }
 .preFungingAccording_main .according_header .status {
-    width: 14%;
+    width: 18%;
 }
 .preFungingAccording_main .according_header .reference {
-    width: 17%;
+    width: 16.5%;
 }
 .preFungingAccording_main .according_header .form {
-    width: 18%;
+    width: 17%;
+    float: left;
+}
+.preFungingAccording_main .according_header .submission {
+    float: left;
+    width: 14.5%;
+}
+.preFungingAccording_main .eur {
+    float: right;
+    width: 6.5%;
 }
 .preFungingAccording_main .according_box .button {
     width: 13.5%;
@@ -277,7 +298,10 @@ section.colleborate.milestone .colleborate_box {
     border: 1px solid #ffffff75;
 }
 .preFungingAccording_main .according_main section.active {
-    background: #000;
+    background: rgba(0, 0, 0, 0.3);
+}
+.preFungingAccording_main .according_main section.active .according_box.fund {
+    border: 1px solid rgba(255,255,255,0.77);
 }
 /*=========xxxx=========End PreDashboard Funding ============xxx==========*/
 
@@ -382,12 +406,17 @@ section.ContactIfo a.button span {
 /* =========Start Technology css=========*/
 .technology_back {
     background: rgba(0, 0, 0, 0.15);
-    width: 900px;
+    width: 1090px;
     display: table;
     margin: 0 auto;
     padding: 40px 95px;
     margin-bottom: 9px;
     border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.technology_center:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 .technology_center {
     clear: both;
@@ -424,19 +453,37 @@ section.ContactIfo a.button span {
     padding: 25px 0px 5px 0px;
 }
 .technology_box {
-    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
     border: 1px solid #dbdbdbc9;
-    height: 60px;
-    width: 28%;
+    height: 70px;
+    width: 315px;
     float: left;
     margin: 3px 23px;
+    cursor: pointer;
+}
+.technology_box:hover {
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: 1px solid #D6D8DA;
+}
+
+.technology_box:hover p {
+    color: #323232;
+    font-weight: bold;
+}
+.pre-main section.chat_room_active .chatroom_header {
+    top: 141px;
+    z-index: 9999999;
+}
+.pre-main .agency {
+    top: 0px;
 }
 .technology_box p {
-        color: #8E8D92;
+    color: #8E8D92;
     /* font-family: "Avenir Next"; */
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30px;
     text-align: center;
     margin: 20px 0px;
     text-transform: capitalize;
@@ -1108,7 +1155,7 @@ section.descriptions .colleborate_box.actives:after {
 }
 .milestone_slider.descriptions {
     position: initial;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 .descriptions_milestone_center a.button {
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
@@ -1175,6 +1222,7 @@ section.descriptions .colleborate_box {
 }
 .descriptions_milestone_box .tooltip img {
     width: 17px;
+    top: 1px;
 }
 .descriptions_milestone_box .tooltip {
     position: absolute;

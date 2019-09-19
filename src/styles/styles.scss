@@ -208,6 +208,9 @@ section.sidebar::-webkit-scrollbar-thumb {
     float: left;
     opacity: 0.3;
 }
+.jquery-accordion-menu a:hover img {
+    opacity: 1;
+}
 .jquery-accordion-menu .active img {
     opacity: 1;
 }
@@ -443,7 +446,7 @@ section.chat_room {
 }
 .chatroom_header-rgt img {
     width: 14px;
-    margin: 18px 10px 0px 10px;
+    margin: 10px 10px 10px 10px;
     cursor: pointer;
 }
 .chatroom_header-rgt .tooltip img {
@@ -628,10 +631,14 @@ section.chat_room {
     color: #999c9e;
     font-size: 11px;
 }
+.chatroom_footer form.example {
+    margin-bottom: 0px;
+    position: relative;
+}
 .chatroom_footer {
     background-color: #13181C;
     border-top: 1px solid #2b363d;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 12px 20px 12px;
     clear: both;
     position: absolute;
     bottom: 27px;
@@ -654,9 +661,9 @@ section.chat_room {
     background: none;
     border: 0px;
     position: absolute;
-    right: 18px;
+    right: -3px;
     width: 41px;
-    top: 21px;
+    top: 1px;
 }
 .chatroom_footer button img {
     width: 100%;
@@ -718,13 +725,14 @@ section.Content_main:after {
 }
 .center_part {
     float: left;
-    padding: 20px 20px;
-    width: calc(100% - 619px);
+    padding: 40px 40px;
+    width: calc(100% - 655px);
     margin: 0 auto;
     margin-left: 229px;
     margin-top: 125px;
-    background: #1e262e;
+    background: #1F252B;
     border-top-left-radius: 37px;
+    border-bottom-left-radius: 37px;
     min-height: 100vh;
 }
 /* ======xxx=====End Content css======xxx====== */
@@ -821,11 +829,11 @@ section.Content_main:after {
 /* ===========Start colleborate css================ */
 .colleborate_top {
     height: 70px;
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 10px;
-    background-color: rgba(0,0,0,0.15);
+    border-radius: 0;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.24);
     overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+    background-color: rgba(0,0,0,0.15);
 }
 .fancy-checkbox {
     display: block;
@@ -988,7 +996,7 @@ section.Content_main:after {
     top: 6px;
 }
 .milestone_header {
-    padding: 30px 0px 20px 0px;
+    padding: 30px 0px 12px 0px
 }
 .milestone_section:after {
     content: "";
@@ -1004,6 +1012,7 @@ section.Content_main:after {
     font-size: 10px;
     margin: 0px 0px 2px 0px;
     color: #494C50;
+    font-family: Roboto;
 }
 .milestone_header_lft h2 {
     font-size: 15px;
@@ -1029,14 +1038,15 @@ section.Content_main:after {
     left: 9px;
 }
 .milestone_box {
+    border: 1px solid rgba(255, 255, 255, 0.15);
     background-color: rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 37.7%;
+    width: 28%;
     float: left;
-    margin: 10px 10px 10px 0px;
+    margin: 10px 0px 10px 0px;
     color: #fff;
-    padding: 20px 5.8%;
+    padding: 20px 10.8%;
     height: 150px;
+    border-radius: 4px;
 }
 .milestone_box h1 {
     text-align: center;
@@ -1055,6 +1065,7 @@ section.Content_main:after {
 }
 .milestone_box:nth-child(2) {
     margin-right: 0px;
+    float: right;
 }
 .milestone_box label {
     color: #494C50;
@@ -1087,7 +1098,7 @@ input:focus {
 }
 .carousel.slide {
     background-color: rgba(0,0,0,0.15);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
     padding: 20px 20px;
     position: relative;
     margin: 8px 0px;
@@ -1178,14 +1189,15 @@ a.right.carousel-control img {
 }
 ol.carousel-indicators {
     padding: 0px;
-    display: table;
-    margin: 0 auto;
     bottom: 12px;
     position: absolute;
     left: 0;
     right: 0;
     float: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    margin: 0 auto;
 }
 ol.carousel-indicators li {
     float: left;
@@ -1267,13 +1279,15 @@ overflow: hidden;
 
 /* ===========Start Dashboard agency==========*/
 .agency {
-    max-width: 1200px;
+    max-width: 1226px;
     margin: 0 auto;
+    position: relative;
+    top: 155px;
 }
 .agency .left_side {
     padding: 50px 90px;
     float: left;
-    width: 32%;
+    width: 34%;
     background-color: rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.05);
     opacity: 0.2;
@@ -1309,7 +1323,7 @@ overflow: hidden;
 }
 .agency .right_side {
     float: right;
-    width: 32%;
+    width: 34%;
     border: 1px solid rgba(255, 255, 255, 0.05);
     background-color: rgba(0, 0, 0, 0.15);
     position: relative;
@@ -2852,7 +2866,7 @@ section.multi_step_form .col-md-4 {
 }
 .dashbord_right .tooltip {
     position: absolute;
-    right: 6px;
+    right: 10px;
     top: 6px;
 }
 .dashbord_right .tooltip img {
@@ -3001,7 +3015,7 @@ section.multi_step_form .col-md-4 {
 .card-base1 .base-86 {
     background-color:#15181d;
     border: 1px solid rgba(255,255,255,0.15);
-    width: 67%;
+    width: 68%;
     float: right;
     height: 300px;
     position: relative;
@@ -3020,14 +3034,16 @@ section.multi_step_form .col-md-4 {
     padding: 110px 0px;
 }
 .base-420-text p {
-    color: #FFFFFF;
+    color: #2B333D;
     font-size: 11px;
     margin: 0;
     font-weight: 600;
-    opacity: 0.2;
+    margin-bottom: 8px;
+    font-family: "Open Sans";
+    letter-spacing: 1px;
 }
 .base-86-text {
-    text-align: center;padding: 74px 0px;
+    text-align: center;padding: 53px 0px;
 }
 .base-86-text p {
     color: #FFFFFF;
@@ -3065,7 +3081,7 @@ section.multi_step_form .col-md-4 {
     position: relative;
 }
 .card-base3-left .commits {
-    width: 46%;
+    width: 47%;
     height: 100px;
     float: left;
     background: #15181d;
@@ -3075,7 +3091,7 @@ section.multi_step_form .col-md-4 {
     border: 1px solid rgba(255,255,255,0.15);
 }
 .card-base3 .del-add {
-    width: 47%;
+    width: 48%;
     height: 100px;
     background-color: #15181d;
     float: left;
@@ -3103,10 +3119,11 @@ section.multi_step_form .col-md-4 {
 }
 .commits-text p {
     margin: 0;
-    color: #FFFFFF;
-    font-size: 9px;
+    color: #2B333D;
+    font-size: 11px;
     font-weight: 600;
- opacity: 0.3;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
 }
 .del-add .del-add-text {
     width: 50%;
@@ -3132,20 +3149,21 @@ section.multi_step_form .col-md-4 {
     margin: 0;
     font-size: 11px;
     font-weight: 600;
-    color: #FFFFFF;
-    opacity: 0.2;
+    color: #2B333D;
+    margin-bottom: 7px;
+    letter-spacing: 1px;
 }
 .commits-text img {
-    WIDTH: 11%;
+    width: 10px;
 }
 .base-420-text img {
-    WIDTH: 11%;
+    width: 10px;
 }
 .del-add-text img {
-    WIDTH: 11%;
+    width: 10px;
 }
 .average-code-text img {
-    WIDTH: 7%;
+    width: 10px;
 }
 .average-code-text span {
     font-size: 70px;
@@ -3158,17 +3176,20 @@ section.multi_step_form .col-md-4 {
     padding: 22px 0px;
 }
 .average-code-text P {
-    MARGIN: 0;
+    margin: 0;
     font-size: 11px;
     font-weight: 600;
-    color: #FFFFFF;
-    opacity: 0.2;
+    color: #2B333D;
+    letter-spacing: 1px;
+    line-height: 4px;
+    margin-bottom: 13px;
+    margin-top: 6px;
 }
 .oval .oval-text {
-    width: 23%;
+    width: 18%;
     float: left;
     text-align: center;
-    padding: 25px 0px 0px 0px;
+    padding: 20px 0px 0px 30px;
 }
 .oval-text h1 {
     font-size: 30px;
@@ -3193,6 +3214,7 @@ section.multi_step_form .col-md-4 {
     font-weight: 600;
     margin: 0;
     color: #2B333D;
+    letter-spacing: 1px;
 }
 .circleBar  .circle2 .CircularProgressbar {
     width: 38px;
@@ -3315,9 +3337,9 @@ path.rc-progress-line-trail {
     border: 0px;
 }
 .score_height {
-    height: 96px;
+    height: 121px;
     overflow: hidden;
-    width: 175px;
+    width: 235px;
     margin: 0 auto;
 }
 section.sidebar .score_height {
@@ -3329,8 +3351,13 @@ section.sidebar .score_section .scoreText {
     margin-top: -35px;
 }
 .base-86 .score .scoreText p {
-    color: #fff !important;
-    opacity: 0.3;
+    color: #2B333D!important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 1;
 }
 .score_section .score_height {
     height: 82px;
@@ -4235,4 +4262,9 @@ h2.no-span:before, h2.no-span:after {
   height: calc(100vh - 190px);
   overflow: hidden;
   border: none;
+ 
 }
+
+
+
+

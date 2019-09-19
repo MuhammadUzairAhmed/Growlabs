@@ -42,20 +42,20 @@ class Settings extends Component {
       userType:'',
       selectedType:'',
       activeModal:'modal',
-      activeState:true
+      activeState:true,
+      actState:1,
     }
   }
   componentDidMount(){
-    if(this.props.dispComp == '')
-    {
-      this.props.displayComponent(1)
+   
+    this.props.displayComponent(1)
       this.props.stopData('clear')
-    }
+    
   }
   componentWillReceiveProps(nextprops)
   {
     console.log(nextprops.user,'usertypess')
-    this.setState({selectedType:nextprops.user.userType, activePage: '1'})
+    this.setState({selectedType:nextprops.user.userType, activePage: '1',actState:nextprops.dispComp})
 
   }
   CurrentPage(value,event){
@@ -81,6 +81,7 @@ class Settings extends Component {
  handleSave =(e)=>
  {
    e.preventDefault()
+  
    this.setState({activeState:false})
    var values ={
      password: this.state.pass,
@@ -102,7 +103,8 @@ class Settings extends Component {
   this.props.stopData('clear')
 }
   render(){
-    const CurrentPageKey = this.props.dispComp
+    console.log('this.props.dispComp',this.state.actState)
+    const CurrentPageKey = this.state.actState
     let activePage;
     if(this.state.selectedType == 'Agency'){
     if(CurrentPageKey == 1){
@@ -187,8 +189,8 @@ class Settings extends Component {
             :''}
           <ul className="ui-tabs-nav">
               {this.state.selectedType == 'Agency' ?
-                this.state.TotalPage.map((items)=> <li className={items.id === this.props.dispComp ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)
-              : this.state.selectedType == 'Client' ? this.state.TotalPageClient.map((items)=> <li className={items.id === this.props.dispComp  ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>) :''}
+                this.state.TotalPage.map((items)=> <li className={items.id == this.state.actState ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>)
+              : this.state.selectedType == 'Client' ? this.state.TotalPageClient.map((items)=> <li className={items.id == this.state.actState  ? "active" : ""} key={items.id} onClick={(value,event)=> this.CurrentPage(items.id,event)}><a>{items.name}</a></li>) :''}
           </ul>
 
          {activePage}
@@ -211,4 +213,3 @@ const mapStateToProps = state => ({
 //   fetchData: (url, action) => dispatch(itemsFetchData(url, action)),
 // })
 export default connect(mapStateToProps,{finalizeAccount, stopData, displayComponent})(Settings);
-

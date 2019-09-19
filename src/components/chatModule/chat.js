@@ -88,6 +88,16 @@ class Chat extends Component {
     backHistory(){
         this.props.true()
     }
+    closeChatRoom(){
+        var animatedSection = $("#xyz");
+        console.log(animatedSection);
+        var this2 = this;
+        animatedSection.animate({left: 350}, 300, ()=>{
+            this2.setState({overflow: 'unset'})
+        });
+        setTimeout(function(){this2.props.true()}, 300);
+        
+    }
     // }
     componentWillReceiveProps(props,state){
         console.log(props, 'working')
@@ -114,7 +124,7 @@ class Chat extends Component {
                     position: 'fixed',
                     right: '0',
                     top: '0',
-                    height:'100vh',
+                    height:'100%',
                     overflowX:`${this.state.overflow}`,
                     overflowY:`${this.state.overflow}`
                 }}>
@@ -125,7 +135,7 @@ class Chat extends Component {
                     position: 'absolute',
                     right: '-400px',
                     top: '0',
-                    height:'100vh',
+                    height:'100%',
                    
                 }}>
                    
@@ -143,7 +153,8 @@ class Chat extends Component {
                         <div className="chatroom_header-rgt">
                            
                         <div className="tooltip"><img src="./assets/img/chat_exp.png" className="" />  <span className="tooltiptext">Tooltip text</span></div>
-                        <img src="./assets/img/400952499.png" onClick={this.backHistory.bind(this)} />
+                        <img src="./assets/img/400952499.png" onClick={this.closeChatRoom.bind(this)} />
+                        {/* <img src="./assets/img/400952499.png" onClick={this.backHistory.bind(this)} /> */}
                         </div>
                     </div>
                     <div className="messageScrollable">

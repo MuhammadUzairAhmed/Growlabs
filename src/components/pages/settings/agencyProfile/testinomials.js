@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { MDBDataTable } from 'mdbreact';
 import FileUpload from './../../../pages/governanace/contractComponents/FileUpload'
 import $ from 'jquery'
+import StarRatingComponent from 'react-star-rating-component';
 
 var sortedList;
 class DatatablePage extends Component{
@@ -298,6 +299,11 @@ class DatatablePage extends Component{
        x8:'',
        x9:'',
        x10:'',
+
+       rating: 0,
+       rating2: 0,
+       rating3: 0,
+       rating4: 0
       }
     }
   
@@ -306,14 +312,21 @@ class DatatablePage extends Component{
      this.manageTestinomial()
      this.managePortfolio()
      this.getManageTestData()
+     this.getManageTestinomialData()
+     this.getManagePortfolioData()
    }
    getManageTestData=()=>{
     fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_test")
     .then(res => res.json())
-    .then(data =>{
-          this.setState({account:data.account,bic:data.bic,holder:data.holder,vat:data.holder,coc:data.coc})}
-    );
-  }
+    .then(data =>console.log(data))}
+  getManageTestinomialData=()=>{
+    fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_testimonial")
+    .then(res => res.json())
+    .then(data =>console.log(data))}
+  getManagePortfolioData=()=>{
+    fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_portfolio")
+    .then(res => res.json())
+    .then(data =>console.log(data))}
    manageTest =()=>{
     this.setState({paginationdummymanageTest: []})
     var lengthForinvitedDataPagination = this.state.manageTestData.length/3;
@@ -544,6 +557,32 @@ class DatatablePage extends Component{
     })
    
     console.log(clientalues,'testinomialAdde')
+
+    var values ={
+      client_name:this.state.clientName,
+      client_email:this.state.clientEmail,
+      client_company:this.state.clientCompany,
+      client_website:this.state.clientWeb,
+      client_role:this.state.clientRole,
+      client_logo:this.state.img,
+      project_type:this.state.projectType,
+      review:this.state.review,
+      price_rating:this.state.rating,
+      quality_rating:this.state.rating2,
+      partnership_rating:this.state.rating3,
+      schedule_rating:this.state.rating4
+    }
+    console.log(values,'testinomialsAdded')
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_testimonial', {
+      method: 'post',
+      body: JSON.stringify(values)
+   }).then((response) => {
+      console.log(response,"resData")
+      return response.json();
+   }).then((data)=> {
+      console.log('Created List:', data);
+    });
+
   }
 
   DeveloperRequest =() =>{
@@ -571,6 +610,25 @@ class DatatablePage extends Component{
     const {clientName,clientCompany,clientWeb,clientEmail,clientRole}= this.state
     var clientalues ={clientName,clientCompany,clientWeb,clientEmail,clientRole}
     console.log(clientalues,'testinomialRequest')
+
+    var values ={
+      client_name:this.state.clientName,
+      client_email:this.state.clientEmail,
+      client_company:this.state.clientCompany,
+      client_website:this.state.clientWeb,
+      client_role:this.state.clientRole,
+      client_logo:this.state.img,
+     }
+    console.log(values,'agencytestinomialsRequest')
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_testimonial_request', {
+      method: 'post',
+      body: JSON.stringify(values)
+   }).then((response) => {
+      console.log(response,"resData")
+      return response.json();
+   }).then((data)=> {
+      console.log('Created List:', data);
+    });
    
   }
 
@@ -578,23 +636,40 @@ class DatatablePage extends Component{
     const {x1,x2,x3,x4,x5,x6,x7,x8,x9,x10}= this.state
     var clientalues ={x1,x2,x3,x4,x5,x6,x7,x8,x9,x10}
     this.setState({countId:this.state.countId+1,portfolio:false})
-    // var addChild ={
-    //   id:this.state.countId,
-    //   manageTest: <input type="checkbox" onClick={()=>this.mangeTest(this.state.countId)}/>,
-    //   clientName: this.state.clientName,
-    //   clientEmail: this.state.clientEmail,
-    //   test: 'test5',
-    //   clientComapny:this.state.clientCompany,
-    //   testinomialPosted:'yes',
-    //   date: '2011/04/25',
-     
-    // }
-    // this.setState({ portfolio:{ rows:[...this.state.portfolio['rows'], addChild] }})
+    
+    var values ={
+      title:this.state.x1,
+      link:this.state.x2,
+      type:this.state.x3,
+      operating_system:this.state.x4,
+      features:this.state.x5,
+      industry:this.state.x6,
+      technologies:this.state.x7,
+      quote:this.state.x8,
+      duration:this.state.x9,
+      image:this.state.img,
+      usecase:this.state.x10
+     }
+    console.log(values,'add new portfolio')
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_testimonial_request', {
+      method: 'post',
+      body: JSON.stringify(values)
+   }).then((response) => {
+      console.log(response,"resData")
+      return response.json();
+   }).then((data)=> {
+      console.log('Created List:', data);
+    });
+    
     var addValue = {id:this.state.managePortfolioData.length+1,title:'mbc',type:'xyz@gmail.com',category:'test7',link:'abc.com',addedOn:'yes',action:'october 11,2018 4:27 pm'}
    
     this.setState({managePortfolioData:[...this.state.managePortfolioData,addValue],itemIdMP:1},()=>{
       this.managePortfolio() 
     console.log(this.state.managePortfolioData,'managePortfolioData')
+
+
+
+
     })
   
     console.log(clientalues,'portfolioAdded')
@@ -679,9 +754,24 @@ this.manageTest()})
    console.log("imageName",x)
    this.setState({img:x[0].acceptedFile})
  }
+
+    onStarClick(nextValue, prevValue, name) {
+      this.setState({rating: nextValue});
+    }
+    onStarClick2(nextValue, prevValue, name) {
+      this.setState({rating2: nextValue});
+    }
+    onStarClick3(nextValue, prevValue, name) {
+      this.setState({rating3: nextValue});
+    }
+    onStarClick4(nextValue, prevValue, name) {
+      this.setState({rating4: nextValue});
+    }
   render(){
+    const { rating,rating2,rating3,rating4 } = this.state;
   return (
     <div >
+      
       {/*client add testinomials */}
      {this.state.addTestinomial && <div className="modal Portfolio" >
             <h1>Client Add Testinomials</h1>
@@ -742,24 +832,51 @@ this.manageTest()})
                <div className="rating_main">
                   <label>PRICE RATING</label>
                   <div class="rating">
+                  <StarRatingComponent 
+                  name="rate1" 
+                  starCount={5}
+                  value={rating}
+                  onStarClick={this.onStarClick.bind(this)}
+                  />
+                  </div>
+                  {/* <div class="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                </div>               </div>
+                </div>   */}
+                             </div>
                               <div className="rating_main">
                                   <label>QUALITY RATING</label>
                                   <div class="rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                {/* <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> */}
+                <StarRatingComponent 
+                  name="rate2" 
+                  starCount={5}
+                  value={rating2}
+                  onStarClick={this.onStarClick2.bind(this)}
+                  />
                 </div>
                               </div>
                               <div className="rating_main">
                                   <label>PARTNERSHIP RATING</label>
                                   <div class="rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                {/* <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> */}
+                <StarRatingComponent 
+                  name="rate3" 
+                  starCount={5}
+                  value={rating3}
+                  onStarClick={this.onStarClick3.bind(this)}
+                  />
                 </div>
                               </div>
                               <div className="rating_main">
                                   <label>SCHEDULE RATING</label>
                                   <div class="rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                {/* <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span> */}
+                <StarRatingComponent 
+                  name="rate4" 
+                  starCount={5}
+                  value={rating4}
+                  onStarClick={this.onStarClick4.bind(this)}
+                  />
                 </div>               </div>
              
             <button class="account_but" color="primary" onClick={this.addTestinomial}>REQUEST</button>
@@ -926,8 +1043,7 @@ this.manageTest()})
                 </div>
                 <div className="feild dropdown Invite">
                 <label>PROJECT TECHNOLOGIES</label>
-                <input onChange={this.handleChange} type="text" name="x7" value={this.state.x7} placeholder="Input"/>
-                  <select name="x7" form="carform" value={this.state.x7} onChange={this.handleChange}>
+                 <select name="x7" form="carform" value={this.state.x7} onChange={this.handleChange}>
                   <option value="">Input</option>
                   <option value="JOHN">JOHN</option>
                   <option value="WICK">WICK</option>
@@ -938,6 +1054,8 @@ this.manageTest()})
                 </div>
                 <div className="feild dropdown Invite">
                <label>PROJECT QUOTE</label>
+               <input onChange={this.handleChange} type="text" name="x8" value={this.state.x8} placeholder="Input"/>
+                
                   {/* <select name="x8" form="carform" value={this.state.x8} onChange={this.handleChange}>
                   <option value="">Input</option>
                   <option value="JOHN">JOHN</option>
