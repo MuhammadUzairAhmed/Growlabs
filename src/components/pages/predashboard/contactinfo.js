@@ -25,11 +25,15 @@ class ContactIfo extends Component {
     })
   }
   handleAccept = () => {
-      this.setState({actDiv:true},()=>{
-        setTimeout(() => {
-          this.props.changeValue(6, this.state.dataValues)
-        }, 1000);
-      })
+    this.setState({actDiv:true},()=>{
+      fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/contact', {
+        method: 'POST',
+        body: JSON.stringify(this.state.dataValues)
+      }).then(res => console.log('postData', res))
+      setTimeout(() => {
+        this.props.changeValue(6, this.state.dataValues)
+      }, 1000);
+    })
 
 }
     render(){

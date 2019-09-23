@@ -18,8 +18,8 @@ class TDataPicker extends Component {
       // }
       getInitialState() {
         return {
-          from: undefined,
-          to: undefined,
+          from: new Date('Fri Sep 13 2019 12:00:00 GMT+0500 (Pakistan Standard Time'),
+          to: new Date('Fri Nov 26 2019 12:00:00 GMT+0500 (Pakistan Standard Time'),
         };
       }
     

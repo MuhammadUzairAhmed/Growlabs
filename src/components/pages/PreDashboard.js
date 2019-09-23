@@ -136,7 +136,7 @@ console.log(this.state,'chwekingPre')
       <section className="preDashboard">
         <div className="preDashboard_notification">
           {this.state.numofpages.map((items,index)=>
-            <div className="NotiProgMain"  key={index} onClick={(e)=>this.changePage(index)}>
+            <div className={index <= this.state.index ?"NotiProgMain active": "NotiProgMain"}   key={index} onClick={(e)=>this.changePage(index)}>
             <div className="header_box">
               <div className="header_top" >
                   <ul>
@@ -154,7 +154,7 @@ console.log(this.state,'chwekingPre')
                     </div>
                 </div>
               </div>
-              <div className='PreNotifiProgress'>{items.status == 'disable' ? <div className="PreNotifiProgressadded"> </div> : items.status == 'active' ?  <div className="PreNotifiactive"> </div> : <div className="PreNotifidisable"> </div>  } </div>
+              <div className='PreNotifiProgress'>{index < this.state.index ? <div className="PreNotifiProgressadded"> </div> : index == this.state.index ?  <div className="PreNotifiactive"> </div> : <div className="PreNotifidisable"> </div>  } </div>
             </div>
           )}
         </div>

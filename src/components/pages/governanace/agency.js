@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import FileUpload from './../governanace/contractComponents/FileUpload';
 // import DummyTree from './dummyTree';
-
-
+var abcd ;
+var arrays=[]
 class Agency extends Component {
    constructor(props) {
       super(props)
@@ -67,6 +67,249 @@ class Agency extends Component {
    }
    componentDidMount() {
 
+      this.addUser(0, 'mid')
+      //=========================================
+      //according to new structure of API
+      if(this.props.storedDetail != '' && this.props.chek == 'Predashboard'){
+         fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_calibration/contact')
+         .then(res => res.json())
+         .then(data => console.log('resTechData', data))
+      }
+      abcd =[
+         {
+         layer: '1',
+         first_name: 'dsfsd',
+         last_name:'sfsd',
+         functions:' this.state.data[i].Function',
+         mail:'this.state.data[i].mail',
+         phone: 'this.state.data[i].phone',
+         skype: 'this.state.data[i].skype',
+         address: 'this.state.data[i].address'
+         },
+         {
+            layer: '2',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+            },
+         {
+            layer: '2',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+            },
+         {
+            layer: '3',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+         }
+         ,
+         {
+            layer: '4',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+         }
+         ,
+         {
+            layer: '4',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+         },
+         {
+            layer: '4',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+         },
+         {
+            layer: '5',
+            first_name: 'dsfsd',
+            last_name:'sfsd',
+            functions:' this.state.data[i].Function',
+            mail:'this.state.data[i].mail',
+            phone: 'this.state.data[i].phone',
+            skype: 'this.state.data[i].skype',
+            address: 'this.state.data[i].address'
+         }
+      ]
+      
+      //convert the above array that came through API into frontEnd Structure
+      var count =0;
+      var count2=0;
+      for(var i=0;i< abcd.length;i++){
+       if(i == 0){
+          console.log('parent created',count)
+            var values1={
+               id:count,
+               key: 'mid',
+               status: false,
+               fname: abcd[i].layer,
+               address: '',
+               skype: '',
+               phone: '',
+               mail: '',
+               Function: '',
+               lastname: '',
+               image: '',
+               Rchild: [],
+               Lchild: []
+          }
+          arrays.push(values1)
+          
+       }else{
+         if((abcd[i+1] != null || abcd[i+1] != undefined) && (abcd[i] != null || abcd[i] != undefined)){
+
+          if(abcd[i].layer == abcd[i+1].layer && abcd[i].layer != abcd[i-1].layer)
+          {
+            count++;
+            var values1={
+               id:count,
+               key: 'mid',
+               status: false,
+               fname: abcd[i].layer,
+               address: '',
+               skype: '',
+               phone: '',
+               mail: '',
+               Function: '',
+               lastname: '',
+               image: '',
+               Rchild: [],
+               Lchild: []
+            }
+            arrays.push(values1)
+             console.log('parent created',count)
+            
+          }else if(abcd[i].layer != abcd[i-1].layer && abcd[i].layer != abcd[i+1].layer){
+            console.log("parent created",count)
+            count++
+            var values1={
+               id:count,
+               key: 'mid',
+               status: false,
+               fname: abcd[i].layer,
+               address: '',
+               skype: '',
+               phone: '',
+               mail: '',
+               Function: '',
+               lastname: '',
+               image: '',
+               Rchild: [],
+               Lchild: []
+            }
+            arrays.push(values1)
+            
+          }
+          else if(abcd[i].layer == abcd[i-1].layer && abcd[i].layer != abcd[i+1].layer){
+             console.log("chiled of count",count,"child",count2)
+            
+             var values1={
+               id:count2,
+               key: 'RC',
+               status: false,
+               fname: abcd[i].layer,
+               address: '',
+               skype: '',
+               phone: '',
+               mail: '',
+               Function: '',
+               lastname: '',
+               image: '',
+            }
+            arrays[count].Rchild.push(values1)
+            count2++
+          }
+          else if(abcd[i].layer == abcd[i+1].layer){
+            console.log("chiled of count",count,"child",count2)
+            var values1={
+               id:count2,
+               key: 'RC',
+               status: false,
+               fname: abcd[i].layer,
+               address: '',
+               skype: '',
+               phone: '',
+               mail: '',
+               Function: '',
+               lastname: '',
+               image: '',
+            }
+            arrays[count].Rchild.push(values1)
+            count2++
+          }
+          
+         }else
+         {
+          if(abcd[i].layer == abcd[i-1].layer){
+            console.log("chiled of count",count,"child",count2)
+            var values1={
+               id:count2,
+               key: 'RC',
+               status: false,
+               fname: abcd[i].layer,
+               address: '',
+               skype: '',
+               phone: '',
+               mail: '',
+               Function: '',
+               lastname: '',
+               image: '',
+            }
+            arrays[count].Rchild.push(values1)
+            count2++
+          } else{
+            console.log("parent created",count)
+            count++
+         var values1={
+            id:count,
+            key: 'mid',
+            status: false,
+            fname: abcd[i].layer,
+            address: '',
+            skype: '',
+            phone: '',
+            mail: '',
+            Function: '',
+            lastname: '',
+            image: '',
+            Rchild: [],
+            Lchild: []
+         }
+         arrays.push(values1)
+          } 
+         }
+       }
+      }
+      console.log(arrays,'arrays')
+      //=======================================================
       if(this.props.storedDetail != '' && this.props.chek == 'Predashboard')
       {
          this.setState({data:this.props.storedDetail})
@@ -152,8 +395,9 @@ class Agency extends Component {
 
    }
 
-   rightClick = () => {
-      console.log(this.state.formMainId, this.state.formChildId, 'cheking')
+   rightClick = (mainId) => {
+      console.log(mainId,'layerId')
+    
       var rc = this.state.formChildId + 1;
       var ObjRC = {
          id: rc,
@@ -177,6 +421,44 @@ class Agency extends Component {
             return item;
          })
       },()=>{
+
+         //==================================
+         //new structure API
+         var arrr=[];
+         var i;
+         var rLayerValue;
+         for( i=1;i<this.state.data.length;i++){
+            var mainLayer ={
+               layer: this.state.data[i].id,
+               first_name: this.state.data[i].fname,
+               last_name:this.state.data[i].lastname,
+               functions: this.state.data[i].Function,
+               mail:this.state.data[i].mail,
+               phone: this.state.data[i].phone,
+               skype: this.state.data[i].skype,
+               address: this.state.data[i].address
+            }
+            console.log(this.state.data[i].Rchild.length,'rchildss')
+            for(var j=0 ;j<this.state.data[i].Rchild.length;j++){
+             
+               rLayerValue={
+                  layer: this.state.data[i].id,
+                  first_name: this.state.data[i].Rchild[j].fname,
+                  last_name:this.state.data[i].Rchild[j].lastname,
+                  functions: this.state.data[i].Rchild[j].Function,
+                  mail:this.state.data[i].Rchild[j].mail,
+                  phone: this.state.data[i].Rchild[j].phone,
+                  skype: this.state.data[i].Rchild[j].skype,
+                  address: this.state.data[i].Rchild[j].address
+               }
+               arrr.push(rLayerValue)
+            }
+            arrr.push(mainLayer)
+          
+         }
+         console.log(arrr,'pushedd')
+         //=====================================================
+         console.log(this.state.formMainId, this.state.formChildId, 'cheking')
          if(this.props.chek  && this.props.chek == 'Predashboard')
          {this.props.getValues(this.state.data)}
       })
@@ -434,8 +716,9 @@ class Agency extends Component {
             this.setState({ childKey: '', message: 'Right Child Created Successfully', Function: '', fname: '', lastname: '', skype: '', phone: '', mail: '', address: '', image: '' })
 
          })
-         if(this.state.formChildId < 1){
-         this.rightClick()}
+         // if(this.state.formChildId < 1){
+         this.rightClick(this.state.formMainId)
+      // }
       } else if (this.state.childKey === 'Lchild') {
          this.setState({
             data: this.state.data.map(item => {
@@ -514,37 +797,10 @@ class Agency extends Component {
             </div>
 
             {console.log('dataMap', data)}
-            {/* <ul>
-               <li>
-                  <div className="plus">
-                     <img src="./assets/img/close.png" />
-                     <p >add</p>
-                  </div>
-               </li>
-               <li>
-                  <div className="plus">
-                     <img src="./assets/img/close.png" />
-                     <p >add</p>
-                  </div>
-                  <ul>
-                     <li>
-                     <div className="plus">
-                        <img src="./assets/img/close.png" />
-                        <p >add</p>
-                     </div>
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  <div className="plus">
-                     <img src="./assets/img/close.png" />
-                     <p >add</p>
-                  </div>
-               </li>
-            </ul> */}
+            
            
             <div class="boxes">
-               <div className="left_box">
+               {/* <div className="left_box">
                   {Object.values(data.Lchild).map((subData, lid) =>
                      subData.status == true ?
                         <div className="profile"  attr={lid} onClick={() => this.editLeftChild(data.id, subData.id)}>
@@ -565,7 +821,7 @@ class Agency extends Component {
                         </div>
 
                   )}
-               </div>
+               </div> */}
                <div className="first_box">
                   <div className="mid">
                      {data.status === true ?
@@ -627,7 +883,9 @@ class Agency extends Component {
                   {/* {this.state.saveId
                      ? <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={} />
                      : <img src={this.state.image != '' ? this.state.image : './assets/img/close.png'} alt='sorry' />} */}
+<div className="main_user">
 <img src={this.state.image != '' ? this.state.image : './assets/img/user2.png'} alt='sorry' className={this.state.image != '' ? "upload_user":"blank_user"} />
+</div>
 <div className="proflie_upload">
                <FileUpload getInput={this.handleInput} getInput1='' />
               </div>

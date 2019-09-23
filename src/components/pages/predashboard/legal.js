@@ -20,9 +20,10 @@ class Legal extends Component {
             console.log(data,'legalData')
         // if(this.props.legalData.nda != null)
         // {
-            this.setState({fileName: data.nda,
-            secondfileName: data.contract
-            })})
+            // this.setState({fileName: data.nda,
+            // secondfileName: data.contract
+            // })
+        })
         // }
     }
     handleAccept = () => {
@@ -61,6 +62,9 @@ class Legal extends Component {
             })
         }
     }
+    downloading=(key)=>{
+        console.log(key,'file that should be download')
+    }
 
     render() {
         return (
@@ -79,7 +83,7 @@ class Legal extends Component {
                                 <FileUpload getInput='' getInput1={this.handleInput} name="1m" />
                             </div>
                             {/*<img src={this.state.image.length > 0 ? this.state.image : "./assets/img/download.png"} />*/}
-                             <img src="./assets/img/download.png" />
+                             <img src="./assets/img/download.png" onClick={()=>this.downloading('nds')}/>
 
                             <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
 
@@ -95,7 +99,7 @@ class Legal extends Component {
 
                             </div>
                             {/*<img src={this.state.image2.length > 0 ? this.state.image2 : "./assets/img/download.png"} />*/}
-                             <img src="./assets/img/download.png" />
+                             <img src="./assets/img/download.png" onClick={()=>this.downloading('contract')} />
                             <p className="last">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type </p>
 
                         </div>

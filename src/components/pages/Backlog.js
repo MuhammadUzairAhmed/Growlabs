@@ -145,7 +145,7 @@ class Backlog extends Component {
             <Sprints data={this.state.categoryData} selectedSpt={this.selectedSptId.bind(this)} />
             <BacklogData data={this.state.sprintData}  plus={this.backlogFormActive.bind(this)}/>
             {this.state.activeBacklogForm ? 
-              <div class="form">
+              <div class="Sidbar form ">
                 <input type="text" name="text" onChange={this.handler} value={this.state.text} placeholder="Add Text" />
                 <textarea value="" onChange={this.handler} value={this.state.decription} name="description" placeholder="Add Description"></textarea>
                 <button onClick={()=>this.addBacklog()}>Add Backlog</button>

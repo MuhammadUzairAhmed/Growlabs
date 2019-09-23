@@ -42,6 +42,11 @@ section.header.pre {
     border-bottom: 1px solid #19D192;
     width: 100%;
     float: left;
+    webkit-animation-name: leftRight;
+    -webkit-animation-duration: 2s;
+    animation-name: leftRight;
+    animation-duration: 1.5s;
+    position: relative;
 }
 .PreNotifiProgressadded:after {
     content: "";
@@ -88,6 +93,7 @@ section.header.pre {
     border-bottom: 1px solid #ffffffde;
     width: 100%;
     float: left;
+    transition: all 2.5s ease
 }
 .PreNotifiProgressadded:before {
     content: "";
@@ -98,7 +104,7 @@ section.header.pre {
     position: absolute;
     cursor: pointer;
     border-left: 1px solid whitesmoke;
-    right: 10%;
+    right: 29px;
     transform: rotate(-133deg);
     top: -6px;
     z-index: 99999;

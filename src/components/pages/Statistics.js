@@ -35,15 +35,16 @@ class Statistics extends Component {
       getRightSideData: [],
       dataValue: 0,
       dahsboardValues: {
-        daysLeft: '03',
-        stories: 45,
-        point: 560,
-        codeChanged: 0,
-        avgCodeQuality: '',
-        velocity: 0,
-        commits: 0,
-        add:0,
-        delete:0
+        days_left: '',
+          stories: '',
+          points: '',
+          changed_code: '',
+          code_quality: '',
+          velocity: '',
+          commits: '',
+          added_code:'',
+          deleted_code:'',
+          grow_score:'',
       },
       fetchListData: [],
       fetchBarData: [],
@@ -149,6 +150,24 @@ var finalData = [...this.state.smallData,...datasetConst]
   }
  
   componentDidMount() {
+    fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_dashboard/stats')
+    .then(res=>res.json())
+    .then(data=>
+      this.setState({
+        dahsboardValues: {
+          days_left: data.days_left,
+          stories: data.stories,
+          points: data.points,
+          changed_code: data.changed_code,
+          code_quality: data.code_quality,
+          velocity: data.velocity,
+          commits: data.commits,
+          added_code:data.added_code,
+          deleted_code:data.deleted_code,
+          grow_score:data.grow_score,
+        }
+      })
+      )
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     fetch(proxyurl+"http://react2.zepcomtesting.com/api/fetchSprintData.json")
     .then(res => res.json())
@@ -214,13 +233,14 @@ var finalData = [...this.state.smallData,...datasetConst]
           dahsboardValues: {
             velocity: data.velocity,
             commits: data.commits,
-            codeChanged: data.codeChanges,
-            avgCodeQuality: data.avgQuality,
-            daysLeft: '03',
+            changed_code: data.codeChanges,
+            code_quality: data.avgQuality,
+            days_left: '03',
             stories: 45,
-            point: 560,
-            add: data.charts.smallBarData.data[2],
-            delete: data.charts.smallBarData.data[1]
+            points: 560,
+            added_code: data.charts.smallBarData.data[2],
+            deleted_code: data.charts.smallBarData.data[1],
+            grow_score:'',
           }
         })
         // console.log('get it', data)
@@ -415,7 +435,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                 </div>
               </div>
               <div className="oval-text">
-                <h1>{this.state.dahsboardValues.daysLeft}</h1>
+                <h1>{this.state.dahsboardValues.days_left}</h1>
                 <p>DAYS LEFT</p>
               </div>
               <div className="oval-text">
@@ -448,7 +468,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                <span className="tooltiptext">Tooltip text</span>
             </div>
                 <div className="commits-text">
-                  <h1>{this.state.dahsboardValues.codeChanged}</h1>
+                  <h1>{this.state.dahsboardValues.changed_code}</h1>
                   <p>CODE CHANGED</p>
                   <img src="./assets/img/down@3x.png" />
                 </div>
@@ -463,7 +483,7 @@ var finalData = [...this.state.smallData,...datasetConst]
                <span className="tooltiptext">Tooltip text</span>
             </div>
                 <div className="average-code-text">
-                  <span >{this.state.dahsboardValues.avgCodeQuality}</span>
+                  <span >{this.state.dahsboardValues.code_quality}</span>
                   <p>AVERAGE</p><p>CODE QUALITY</p>
                   <img src="./assets/img/Up@3x.png" />
                 </div>
@@ -473,13 +493,13 @@ var finalData = [...this.state.smallData,...datasetConst]
             <div className="del-add">
               <div className="del-add-text">
                 {/* <span >{this.state.dispSpecificRedValue.y || '0'}</span> */}
-                <span>{this.state.dahsboardValues.delete}</span>
+                <span>{this.state.dahsboardValues.deleted_code}</span>
                 <p>DELETED</p>
                 <img src="images/Up@3x.png" />
               </div>
               <div className="del-add-text">
                 {/* <h1>{this.state.dispSpecificGreenValue.y || '0'}</h1> */}
-                <h1>{this.state.dahsboardValues.add}</h1>
+                <h1>{this.state.dahsboardValues.added_code}</h1>
                 <p>ADDED</p>
                 <img src="./assets/img/same@3x.png" />
               </div>

@@ -1007,6 +1007,9 @@ li.active {
 .Addproject_box .colleborate_top {
     background-color: rgba(0, 0, 0, 0);
     box-shadow: none;
+    display: grid;
+    margin: 0px auto;
+    grid-auto-flow: column;
 }
 
 .Addproject_box .colleborate_box:before {
@@ -1072,7 +1075,7 @@ li.active {
     float: left;
     text-align: center;
     position: relative;
-    width: 105px;
+    width: auto;
     cursor: pointer;
 }
 .project .jquery-accordion-menu a:hover {
@@ -1325,7 +1328,7 @@ a.button.save {
 }
 
 
-section.project .form {
+.Sidbar.form {
     position: fixed;
     right: 0;
     z-index: 999;
