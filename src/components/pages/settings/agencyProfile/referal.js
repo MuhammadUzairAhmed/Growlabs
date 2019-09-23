@@ -959,7 +959,7 @@ class DatatablePage extends Component{
 
 
 
- <div class="Button_sec"><div class="save_button"><label class="switch"><input type="checkbox"/><span class="slider round">Save Chages</span></label></div><button class="secd_button">Add google Authenticator</button><p>Request Account Removal</p></div>
+ <div class="Button_sec"><div class="save_button"><label class="switch"><input type="checkbox"/><span class="slider round">Save Changes</span></label></div><button class="secd_button">Add google Authenticator</button><p>Request Account Removal</p></div>
 
 
 

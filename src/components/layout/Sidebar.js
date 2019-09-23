@@ -17,7 +17,7 @@ const routes = [
     { path: '/financial', name: 'Financial', icon:'401385359'},
     { path: '/files', name: 'Files', icon:'401385364'},
     { path: '/Governance', name: 'Governance', icon:'401385365' },
-    { path: '/settings', name: 'Settings', icon:'401385365' },
+    // { path: '/settings', name: 'Settings', icon:'401385365' },
     // { path: '/Settings', name: 'Settings', icon:'401385365' },
 ]
 const projectRoutes = [
@@ -26,7 +26,7 @@ const projectRoutes = [
     { path: '/subscription', name: 'Subscription', icon:'Pre401385359' },
     { path: '/application', name: 'Application', icon:'Pre401382288' },
     { path: '/umbrella', name: 'Umbrella', icon:'Pre401382365' },
-    { path: '/settings', name: 'Settings', icon:'Pre401382365' },
+    // { path: '/settings', name: 'Settings', icon:'Pre401382365' },
 ]
 const tension =  {tension: 0}
 const tnesion2 = {}
@@ -52,7 +52,7 @@ class Sidebar extends Component {
     }
     componentWillReceiveProps(nextprops)
     {
-        console.log('next ',nextprops)
+        // console.log('next ',nextprops)
         if(nextprops.Chart.sprintId>0){
         if (this.state.count === 1) {
             for (var i = 0; i < nextprops.Chart.length; i++) {
@@ -66,7 +66,7 @@ class Sidebar extends Component {
             this.setState({ count: 2 })
         }
     }
-        console.log(this.state.fetchLineData,'lningData')
+        // console.log(this.state.fetchLineData,'lningData')
     }
    
     render() {
@@ -82,12 +82,14 @@ class Sidebar extends Component {
                     <div className="score ">
                         {/* <img src="./assets/img/img_2.png" /> */}
                         <table>
+                            <tbody>
                             <tr>
-                                <td><ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/></td>
-                                <td><ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/></td>
-                                <td><ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/></td>
-                                <td><ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/></td>
+                              <td><ProgressBars dataValue={45} textValue={`456`} dispValue={`Points`}/></td>
+                              <td><ProgressBars dataValue={67} textValue={`03`} dispValue={`Days`}/></td>
+                              <td><ProgressBars dataValue={20} textValue={`07`} dispValue={`Sprint`}/></td>
+                              <td><ProgressBars dataValue={95} textValue={`01`} dispValue={`Milestone`}/></td>
                             </tr>
+                            </tbody>
                         </table>
 
                     </div>
@@ -96,13 +98,15 @@ class Sidebar extends Component {
                         {/* <h2>Line chart</h2>
                 <img src="./assets/img/img_3.png" /> */}
                         <table>
+                            <tbody>
                             <tr>
-                                <td>
-                                    <div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels} data={this.state.fetchLineData} tension={tnesion2} color={'#1E9D74'}/>
-                                    </div>
-                                </td>
-                                <td style={{color: '#1E9D74'}}>32</td>
+                              <td>
+                                <div className="line_chatw"><CommitLineChart xaxes={this.state.xAxisLabels} data={this.state.fetchLineData} tension={tnesion2} color={'#1E9D74'}/>
+                                </div>
+                              </td>
+                              <td style={{color: '#1E9D74'}}>32</td>
                             </tr>
+                            </tbody>
                         </table>
 
                         <p style={{fontSize: '10px', color: '#64696D'}}>Velocity</p>
@@ -114,11 +118,13 @@ class Sidebar extends Component {
                     <div className="col-sm-6">6</div>
                 </div> */}
                         <table>
+                            <tbody>
                             <tr>
-                                <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels}
-                                                    tension={tension} color={'#4355C8'}/></td>
-                                <td style={{color: '#4355C8'}}>16</td>
+                              <td><CommitLineChart data={this.state.fetchListData} xaxes={this.state.xAxisLabels}
+                                                   tension={tension} color={'#4355C8'}/></td>
+                              <td style={{color: '#4355C8'}}>16</td>
                             </tr>
+                            </tbody>
                         </table>
 
                         <p style={{fontSize: '10px', color: '#64696D'}}>Commits</p>

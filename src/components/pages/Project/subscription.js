@@ -8,33 +8,33 @@ class Subscription extends Component {
     }
     render(){
         return(
-            <div class="subscriptionforms">
-                <div class="content_pricing" id="pricing">
-                <div class="price_over">
-                 <div class="price">
-                    <div class="center">
-                        <div class="package">
+            <div className="subscriptionforms">
+                <div className="content_pricing" id="pricing">
+                <div className="price_over">
+                 <div className="price">
+                    <div className="center">
+                        <div className="package">
                             <p>freemium</p>
                         </div>
-                        <div class="heading">
-                            <i class="fa fa-eur" aria-hidden="true"></i>
+                        <div className="heading">
+                            <i className="fa fa-eur" aria-hidden="true"></i>
                             <h1><spna>&#8364;</spna>0,00</h1>
                             <small>/month</small>
                         </div>
                     </div>
-                    <div class="inform">
+                    <div className="inform">
                         <ul>
                             <li>Build Any IT Product Quickly And Easily</li>
                             <li>Connect With The Developers Worldwide</li>
                             <li>Receive Proposals Within 24 Hours</li>
                             <li>Secure Payment System</li>
                             <li>Code Quality Assurance</li>
-                            <li class="disabled">Software Vulnerability Scan</li>
-                            <li class="disabled">Technical Specifications Manual</li>
-                            <li class="disabled">Development Agencies Preselection</li>
-                            <li class="disabled">Agencies Discovery Calls</li>
-                            <li class="disabled">In-house Project Management</li>
-                            <li class="disabled">Wireframe MVP Product</li>
+                            <li className="disabled">Software Vulnerability Scan</li>
+                            <li className="disabled">Technical Specifications Manual</li>
+                            <li className="disabled">Development Agencies Preselection</li>
+                            <li className="disabled">Agencies Discovery Calls</li>
+                            <li className="disabled">In-house Project Management</li>
+                            <li className="disabled">Wireframe MVP Product</li>
 
                         </ul>
                     </div>
@@ -43,23 +43,23 @@ class Subscription extends Component {
                 <button type="button">Seclect</button>
                 </div>
 
-                <div class="price_over active">
-                <div class="price active">
+                <div className="price_over active">
+                <div className="price active">
                
-                    <div class="mostPop">
+                    <div className="mostPop">
                         <span>Most <br/>populair</span>
                     </div>
-                    <div class="center">
-                        <div class="package">
+                    <div className="center">
+                        <div className="package">
                             <p>Advanced</p>
                         </div>
-                        <div class="heading">
-                            <i class="fa fa-eur" aria-hidden="true"></i>
+                        <div className="heading">
+                            <i className="fa fa-eur" aria-hidden="true"></i>
                             <h1><spna>&#8364;</spna>1.999</h1>
                             <small>/month</small>
                         </div>
                     </div>
-                    <div class="inform">
+                    <div className="inform">
                         <ul>
                             <li>Build Any IT Product Quickly And Easily</li>
                             <li>Connect With The Developers Worldwide</li>
@@ -70,8 +70,8 @@ class Subscription extends Component {
                             <li>Technical Specifications Manual</li>
                             <li>Development Agencies Preselection</li>
                             <li>Agencies Discovery Calls</li>
-                            <li class="disabled">In-house Project Management</li>
-                            <li class="disabled">Wireframe MVP Product</li>
+                            <li className="disabled">In-house Project Management</li>
+                            <li className="disabled">Wireframe MVP Product</li>
                         </ul>
                     </div>
                     
@@ -79,19 +79,19 @@ class Subscription extends Component {
                 <button type="button">Seclect</button>
                 </div> 
                
-                <div class="price_over">
-                <div class="price">
-                    <div class="center">
-                        <div class="package">
+                <div className="price_over">
+                <div className="price">
+                    <div className="center">
+                        <div className="package">
                             <p>premium</p>
                         </div>
-                        <div class="heading">
-                            <i class="fa fa-eur" aria-hidden="true"></i>
+                        <div className="heading">
+                            <i className="fa fa-eur" aria-hidden="true"></i>
                             <h1><spna>&#8364;</spna>3.999</h1>
                             <small>/month</small>
                         </div>
                     </div>
-                    <div class="inform">
+                    <div className="inform">
                         <ul>
                             <li>Build Any IT Product Quickly And Easily</li>
                             <li>Connect With The Developers Worldwide</li>
@@ -117,4 +117,3 @@ class Subscription extends Component {
 }
 
 export default Subscription;
-  

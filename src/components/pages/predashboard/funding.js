@@ -150,7 +150,7 @@ setChecked=(val)=>
         
           </div>
           </div>
-          <a target="_blank" onClick={this.handleAccept} className="button">Accept Funding<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a> 
+          <a target="_blank" onClick={this.handleAccept} className="button">Accept Funding<br /><span> Accept setup as the grounds on which to finalize partnership</span></a>
            
               
         </section>

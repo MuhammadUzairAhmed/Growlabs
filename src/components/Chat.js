@@ -26,7 +26,7 @@ class Chatbot extends Component {
         this.props.backlogWidgetData(false,"backlogPlus");
     }
     componentDidUpdate(){
-        console.log(this.props.currentChatID)
+        // console.log(this.props.currentChatID)
     }
     render() {
         if(this.props.status != 'projects'){

@@ -21,11 +21,9 @@ class CommitLineChart extends Component {
         }
     }
     componentWillReceiveProps(nextprops){
-        console.log('datassss',nextprops)
+        // console.log('datassss',nextprops)
     }
     componentDidMount() {
-console.log('gett',this.props.data)
-
         output = this.props.xaxes.map((data, i) => ({
             id: i + 1,
             listValue: this.props.data[i],

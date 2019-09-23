@@ -6,7 +6,6 @@ import Sidebar from './layout/Sidebar';
 import Chat from './Chat';
 import HomePage from "./HomePage";
 import PreDashboard from "./pages/PreDashboard";
-import Projects from "./pages/Projects";
 import Statisitcs from "./pages/Statistics";
 import Collaboration from "./pages/Collaboration";
 import Backlog from "./pages/Backlog";
@@ -16,6 +15,12 @@ import Financial from "./pages/Financial";
 import Settings from "./pages/Settings";
 import ProjectReview from "./pages/Project/index";
 import Subscription from "./pages/Project/subscription";
+import Agreements from './pages/predashboard/agreement';
+import Description from './pages/predashboard/descriptions';
+import ContactIfo from './pages/predashboard/contactinfo';
+import Milestone from './pages/predashboard/milestone';
+import Technology from './pages/predashboard/technology';
+import Projects from './pages/Projects';
 
 import '../styles/layout.css';
 import '../styles/Project.css';
@@ -93,6 +98,12 @@ class App extends React.Component {
                         <Route path="/files" component={Files} />
                         <Route path="/governance" component={Governance} />
                         <Route path="/settings" component={Settings} />
+                        <Route path="/calibration_agreements" component={Agreements} />
+                        <Route path="/calibration_technology" component={Technology} />
+                        <Route path="/calibration_timeframe" component={Milestone} />
+                        <Route path="/calibration_descriptions" component={Description} />
+                        <Route path="/calibration_contacts" component={ContactIfo} />
+                        <Route path="/projects" component={ProjectReview} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </div>
@@ -129,7 +140,7 @@ class App extends React.Component {
         <section>
           <Header checkData={this.layout.bind(this)}/>
           <section className="Content_main">
-            <Loader type="Oval" color="white" height="50" width="50" className="loading" />
+            <Loader type="Oval" color="white" className="loading" />
           </section>
       </section>
       )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Agency from "./../governanace/agency"
+import {Link} from "react-router-dom";
 
 class ContactIfo extends Component {
   constructor(props)
@@ -12,6 +13,8 @@ class ContactIfo extends Component {
   }
   componentDidMount()
   {
+    console.log('contactdata');
+    console.log(this.props.contactData);
     if(this.props.contactData != '')
     {
       this.setState({dataValues: this.props.contactData})
@@ -35,19 +38,16 @@ class ContactIfo extends Component {
     render(){
       return (
         <section className={this.state.actDiv ? "ContactIfo animations-disable" : "ContactIfo animations-check" }>
-              <div class="ContactIfo_top">
+              <div className="ContactIfo_top">
                 <h1>Contact information</h1><p>Provide a sufficient number of people for your partner to contact</p>
               </div>
                   
               <Agency getValues={this.getValues} storedDetail={this.props.contactData != ''? this.props.contactData :''} chek='Predashboard'/>
-              <div class="clearfix"></div>
-           {this.state.dataValues != ''  || this.props.contactData != ''? <a target="_blank" onClick={this.handleAccept} class="button">Accept information<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>
-              :  <a target="_blank" style={{background:'rgb(212, 217, 221)'}} class="button">Accept information<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
-
+              <div className="clearfix"></div>
+          <Link to="/calibration_legal" className="button" style={{background: `#19D192`}}>Accept Agreement<br/><span> Accept setup as the grounds on which to finalize partnership</span></Link>
         </section>
       );  
     };  
   };
   
   export default ContactIfo;
-  

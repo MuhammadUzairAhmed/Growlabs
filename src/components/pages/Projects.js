@@ -27,7 +27,7 @@ class Projects extends Component {
             versions:[],
             userData: { password:'',password_r:''},
             currentVersion:0,
-            finalizedAccount:false,
+            finalizedAccount:true,
             activeAddition:false,
             animate: false,
             unmatchID:''
@@ -256,7 +256,7 @@ class Projects extends Component {
      handleSave =(e)=>
      {
         this.setState({
-            activeAddition:true,
+            activeAddition:false,
             finalizedAccount:true
         })
         const{password, password_r}=this.state
@@ -304,11 +304,11 @@ class Projects extends Component {
                                 </div>
                             </div>
                             )    
-                        : <Loader type="Oval" color="white" height="50" width="50" className="loading" />}
+                        : <Loader type="Oval" color="white" className="loading" />}
                    
                     </div>
                     <div className="dp_maches_button">
-                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.getVersionData(this.state.data[this.state.currentAgency])}>Send updated proposal to {this.state.matches.companies[this.state.currentAgency] ? this.state.matches.companies[this.state.currentAgency].name:'[agency]'}<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Partner up with  {this.state.matches.companies[this.state.currentAgency] ? this.state.matches.companies[this.state.currentAgency].name:'[agency]'}<br/><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
+                       {this.state.changeVersion ? <a class="button save"  onClick={(data)=>this.getVersionData(this.state.data[this.state.currentAgency])}>Send updated proposal to {this.state.matches.companies[this.state.currentAgency] ? this.state.matches.companies[this.state.currentAgency].name:'[agency]'}<br/><span> Accept setup as the grounds on which to finalize partnership</span></a> : <a class="button"  onClick={(data)=>this.sendDataApi(this.state.formData)}>Partner up with  {this.state.matches.companies[this.state.currentAgency] ? this.state.matches.companies[this.state.currentAgency].name:'[agency]'}<br/><span> Accept setup as the grounds on which to finalize partnership</span></a>}
                     </div>
                 </div>
                 <div className="version_tabs">
@@ -320,7 +320,7 @@ class Projects extends Component {
                 </div>
                         
                 {
-                this.state.finalizedAccount == false ? 
+                this.state.finalizedAccount == false ?
                 <div className="modal Finalize">
                     <h1>Finalize Account</h1>
                      <div className="feild Finalize">
@@ -384,7 +384,7 @@ class Projects extends Component {
                             <h3>Description</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <textarea type="text" className="input_textable" value={this.state.data[this.state.currentAgency].description} onChange={(x,v,s)=>this.changeTextData(x,'description')}> </textarea>
+                                    <textarea type="text" rows={8} className="input_textable" value={this.state.data[this.state.currentAgency].description} onChange={(x,v,s)=>this.changeTextData(x,'description')}> </textarea>
                                    
                                 </div>
                             </div>
@@ -393,7 +393,7 @@ class Projects extends Component {
                             <h3>Reasoning behind project</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <textarea type="text" className="input_textable" value={this.state.data[this.state.currentAgency].reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')}></textarea>
+                                    <textarea type="text" rows={8} className="input_textable" value={this.state.data[this.state.currentAgency].reasoning} onChange={(x,v)=>this.changeTextData(x,'reasoning')}></textarea>
                                 
                                 </div>
                             </div>
@@ -402,7 +402,7 @@ class Projects extends Component {
                             <h3>Similar products</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <textarea type="text" className="input_textable" value={this.state.data[this.state.currentAgency].products} onChange={(x,v)=>this.changeTextData(x,'products')}></textarea>
+                                    <textarea type="text" rows={8} className="input_textable" value={this.state.data[this.state.currentAgency].products} onChange={(x,v)=>this.changeTextData(x,'products')}></textarea>
                                 </div>
                             </div>
                         </fieldset>
@@ -595,34 +595,6 @@ class Projects extends Component {
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset className="half">
-                            <div className="form-group custom">
-                                <h3>first name</h3>
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].firstName} onChange={(x,v)=>this.changeTextData(x,'firstName')}></textarea>
-                            </div>
-                            <div className="form-group custom">
-                                <h3>phone</h3>
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].phone} onChange={(x,v)=>this.changeTextData(x,'phone')}></textarea>
-                            </div>
-                        </fieldset>
-                        <fieldset className="half rt">
-                            <div className="form-group custom">
-                                <h3>skype</h3>
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].skype} onChange={(x,v)=>this.changeTextData(x,'skype')}></textarea>
-                            </div>
-                            <div className="form-group custom">
-                                <h3>last name</h3>
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].lastname} onChange={(x,v)=>this.changeTextData(x,'lastname')}></textarea>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <div className="form-row">
-                                <div className="form-group custom_email">
-                                    <h3>Email</h3>
-                                    <textarea type="text" value={this.state.data[this.state.currentAgency].email} onChange={(x,v)=>this.changeTextData(x,'email')}></textarea>
-                                </div>
-                            </div>
-                        </fieldset>
                     </div>
             :  <section class="multi_step_form">
                     <div class="content_form">
@@ -644,7 +616,7 @@ class Projects extends Component {
                 <section class="multi_step_form">
                     <div class="content_form">
                         <fieldset>
-                            <Loader type="Oval" color="white" height="50" width="50" className="loading" />
+                            <Loader type="Oval" color="white" className="loading" />
                         </fieldset>
                     </div>
                 </section>

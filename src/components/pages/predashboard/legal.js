@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FileUpload from './../governanace/contractComponents/FileUpload';
+import {Link} from "react-router-dom";
 
 class Legal extends Component {
     constructor(props) {
@@ -101,9 +102,7 @@ class Legal extends Component {
                         </div>
                     </div>
                 </div>
-                {this.state.fileName != '' && this.state.secondfileName != '' ?
-                <a target="_blank" onClick={this.handleAccept} className="button">Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>
-               : <a target="_blank"  className="button" style={{background:'rgb(212, 217, 221)'}}>Accept [Section]<br /><span> Accept setup as the grounds on which to finalize parthnership</span></a>}
+              <Link to="/statistics" className="button" style={{background: `#19D192`}}>Accept Agreement<br/><span> Accept setup as the grounds on which to finalize partnership</span></Link>
             </section>
         );
     };

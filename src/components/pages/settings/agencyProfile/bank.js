@@ -22,7 +22,9 @@ class Bank extends Component
     }
     
     getOldData=()=>{
-      fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_bank")
+      fetch("http://localhost/growlabs/api_projects/agency_bank", {
+        headers: {'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTA1IiwidXNlcl9lbWFpbCI6InRlc3Rjb21wYW55QGdyb3dsYWJzLnRlY2giLCJleHBpcmF0aW9uIjoxNTY5MzkwOTkyLCJzZWNyZXQiOiIwMjIxOWE2OWU4MjhhZDY2OTNiMDc3ZDExMzQ0Mzk3ZTY5MTUxMGQ2MGUyMDRkNjFkNjJjYzdhYWJlODIyN2NmNjhkMmZkMGM0ZjllOWIzNDZkM2YwYjU2ZDc0YTZmMGI1M2M3YWQ2YTIzOWNlYzk1NWRhYTJkZWJkNTBkMjdkMCJ9.ePj6Wnt3slJA6lNMCt8s68VmsVKGyOlSe0BhiC6SZ9s'}
+      })
       .then(res => res.json())
       .then(data =>{
             this.setState({account:data.account,bic:data.bic,holder:data.holder,vat:data.holder,coc:data.coc})}
@@ -60,7 +62,7 @@ class Bank extends Component
         this.falseData()
         setTimeout(
            function(){this.getData(values)}.bind(this)
-        ,15000)
+        ,15)
         console.log(values,'Bank')
       
      }
@@ -80,12 +82,16 @@ class Bank extends Component
   
        getData(values){
         if(this.state.delayFor){
-              fetch('https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_projects/agency_bank', {
-                 method: 'post',
+              fetch('http://localhost/growlabs/api_projects/agency_bank', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTA1IiwidXNlcl9lbWFpbCI6InRlc3Rjb21wYW55QGdyb3dsYWJzLnRlY2giLCJleHBpcmF0aW9uIjoxNTY5MzkwOTkyLCJzZWNyZXQiOiIwMjIxOWE2OWU4MjhhZDY2OTNiMDc3ZDExMzQ0Mzk3ZTY5MTUxMGQ2MGUyMDRkNjFkNjJjYzdhYWJlODIyN2NmNjhkMmZkMGM0ZjllOWIzNDZkM2YwYjU2ZDc0YTZmMGI1M2M3YWQ2YTIzOWNlYzk1NWRhYTJkZWJkNTBkMjdkMCJ9.ePj6Wnt3slJA6lNMCt8s68VmsVKGyOlSe0BhiC6SZ9s'
+                },
                  body: JSON.stringify(values)
               }).then((response) => {
                  console.log(response,"resData")
-                 return response.json();
+                 return response.text();
               }).then((data)=> {
                  console.log('Created List:', data);
                  //alert('as')
@@ -104,7 +110,7 @@ class Bank extends Component
                   <button className="one" onClick={this.stopPostData.bind(this)}>Cancel</button> 
                   <label class={this.state.active?'active switch':'switch'}>
                   <input type="checkbox" checked={this.state.active?'checked':''}/>
-                        <span class="slider round">Save Chages</span>
+                        <span class="slider round">Save Changes</span>
                   </label>
             </div>
 

@@ -111,7 +111,7 @@ class Company extends Component
             <button className="one" onClick={this.stopPostData.bind(this)}>Cancel</button> 
             <label class={this.state.active?'active switch':'switch'}>
             <input type="checkbox" checked={this.state.active?'checked':''}/>
-                <span class="slider round">Save Chages</span>
+                <span class="slider round">Save Changes</span>
             </label>
         </div>
        <div className="personal_main company" onBlur={this.handleSave}>
