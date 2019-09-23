@@ -11,12 +11,39 @@ class Financial extends Component {
       paid:'',
       funded:'',
       data: '',
-      fundChecked: false
+      fundChecked: false,
+      fetchedDATA:''
     }
     
   }
   componentWillMount(){
     this.props.fetchData('http://react2.zepcomtesting.com/api/financial.json','FINANCIAL');
+    fetch("https://virtserver.swaggerhub.com/GROW-Labs/GROWLabs_API/1.0.0/api_dashboard/funding")
+    .then(res => res.json())
+    .then(data => {console.log(data,'funding data')
+    var values ={
+      paid: data.paid,
+      funded: data.funded,
+      runway: data.runway,
+      project_timeline: data.project_timeline,
+      milestones: [
+        {
+          id: data.id,
+          status: data.status,
+          title: data.title,
+          fundURL: data.fundURL,
+          submission: data.submission,
+          from: data.from,
+          till: data.till,
+          sprints: data.sprints,
+          source: data.source,
+          value: data.value,
+          previous: true
+        }
+      ]
+    }
+    this.setState({fetchedDATA:values},()=>{console.log(this.state.fetchedDATA,'fetchedData')})
+  });
    
   }
   componentWillReceiveProps(props,state){
@@ -53,16 +80,19 @@ setChecked=(val)=>
         {console.log(this.state)}
           <div className="progress">
               <div className="progress-bar" role="progressbar" style={paidPer} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                ${this.props.financial.paid}
+                {/* ${this.props.financial.paid} */}
+                ${this.state.fetchedDATA.paid}
                 <div className="progress_paid"> PAID</div>
               </div>
               <div className="progress-bar-sec" role="progressbar" style={fundedPer} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                ${this.props.financial.funded}
+                {/* ${this.props.financial.funded} */}
+                ${this.state.fetchedDATA.funded}
                 <div className="progress_funded"> FUNDED</div>
               </div>
               <div className="progress-bar-third" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 <div className="progress_doller"> ${this.props.financial.total}</div>
-                ${this.props.financial.runaway}
+                {/* ${this.props.financial.runaway} */}
+                ${this.state.fetchedDATA.runway}
                 <div className="progress_runway"> RUNWAY</div>
               </div>
           </div>

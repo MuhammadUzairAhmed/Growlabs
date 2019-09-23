@@ -105,7 +105,7 @@ class Password extends Component
                 </div>
             <div className="personal_main" onBlur={this.handleSave}>
                 {/*2nd column*/}
-                     <div className="password_old_sec">
+                     <div className="password_sec">
                 <div className="feild">
                        <label>CURRENT password_old</label>
                        <input onChange={(x)=> this.handleChange(x,'password_old')} type="text" className={this.state.newData.password_old != '' ? 'active' : ''} name="currentPass" value={this.state.status ? this.state.newData.password_old : this.state.oldData.password_old} placeholder="input" />

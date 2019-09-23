@@ -22,7 +22,22 @@ class Agreements extends Component {
         // fetch(proxyurl+"http://react2.zepcomtesting.com/api/agreement.json")
         //   .then(res => res.json())
         //   .then(data => ));
-          this.setState({formData: this.props.milestone.agreements})
+         var dummyVlues={
+            bonus_amount:'345',
+            milestone_payment:'123',
+            sprints_start_on:'10:00',
+            sprint_calls_day:'Monday',
+            sprint_calls_time:'6:00',
+            medium:'yes',
+            grow_management_tool:true,
+            grow_communication_tool:true,
+            sprint_details:'abcd',
+            milestone_details:'xyz',
+            github:'felix',
+            story_points:'43'
+         }
+        //   this.setState({formData: this.props.milestone.agreements})
+        this.setState({formData: dummyVlues})
     }
    
     
@@ -36,7 +51,7 @@ class Agreements extends Component {
                         <h1>Financial</h1>
                         <h4>BONUS AMOUNT FOR ACHIEVING DEADLINE</h4>
                         <div className="input_box">
-                            <input type="text" readOnly name="amount" value={this.state.formData.bonus_amount}/>
+                            <input type="text" readOnly name="amount" value={this.state.formData.bonus_amount }/>
                             <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class=""/><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
                         </div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley </p>

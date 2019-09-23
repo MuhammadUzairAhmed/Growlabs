@@ -856,7 +856,7 @@ class DatatablePage extends Component{
 
 <div class="manage_pagenation">
 {this.state.manageTestinomialData[3] != undefined ?  <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMP-1,'managePortfolio')}><div class="go-icon"></div></div>:''}
-  {this.state.paginationmanagePortfolio.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'managePortfolio')}>{item}</div>)}
+  {this.state.paginationmanagePortfolio.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'managePortfolio')} style={{background:`${this.state.itemIdMP != item ? '#979797' :'#fff'}`}}>{item}</div>)}
   {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMP+1,'managePortfolio')} ><div class="go-icon"></div></div>:''}
 </div>
 </div> 
@@ -905,7 +905,7 @@ class DatatablePage extends Component{
 
           <div class="manage_pagenation">
           {this.state.manageTestinomialData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMTS-1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
-            {this.state.paginationdummymanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')}>{item}</div>)}
+            {this.state.paginationdummymanageTestinomial.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTestinomial')} style={{background:`${this.state.itemIdMTS != item ? '#979797' :'#fff'}`}}>{item}</div>)}
             {this.state.manageTestinomialData[3] != undefined ?  <div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMTS+1,'manageTestinomial')}><div class="go-icon"></div></div>:''}
           </div>
           </div> 
@@ -952,7 +952,7 @@ class DatatablePage extends Component{
 
  <div class="manage_pagenation">
   {this.state.manageTestData[3] != undefined ? <div class="pagenation_left" onClick={()=>this.changePage(this.state.itemIdMT-1,'manageTest')}><div class="go-icon"></div></div>:''}
-   {this.state.paginationmanageTest.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTest')}>{item}</div>)}
+   {this.state.paginationmanageTest.map(item=> <div class="pagenation_number" key={item} onClick={()=>this.changePage(item,'manageTest')} style={{background:`${this.state.itemIdMT != item ? '#979797' :'#fff'}`}}>{item}</div>)}
    {this.state.manageTestData[3] != undefined?<div class="pagenation_right" onClick={()=>this.changePage(this.state.itemIdMT+1,'manageTest')}><div class="go-icon"></div></div>:''}
  </div>
  </div>

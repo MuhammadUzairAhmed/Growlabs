@@ -110,7 +110,7 @@ class PreDashboard extends Component {
     }
   }
   changePage = (val)=>{
-    console.log(val)
+    console.log(val,this.state.index,'indexValue')
     if(val == 0 && this.state.aggVal > 0)
     {
       this.setState({index: val,changeWidth:'240px'})
@@ -126,6 +126,13 @@ class PreDashboard extends Component {
     }else  if(val == 4 && this.state.legalVal > 0)
     {
       this.setState({index: val,changeWidth:'1250px'})
+    }
+    else  if(val == 5 && this.state.contact > 0)
+    {
+      this.setState({index: val,changeWidth:'1450px'})
+    }else  if(val == 6 && this.state.funding > 0)
+    {
+      this.setState({index: val,changeWidth:'1650px'})
     }
 
 

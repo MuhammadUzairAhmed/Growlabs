@@ -136,7 +136,8 @@ class Personal extends Component
                </div>
                <div className="feild ">
                      <label>DATE OF BIRTH Date </label>
-                     <MaskedInput
+                     <input onChange={this.handleChange} className={this.state.dob != '' ? 'active' : ''}  type="text" name="dob" value={this.state.dob} placeholder="00-00-0000" />
+           {/* <MaskedInput
                      className={this.state.dob != '' ? 'active' : ''}
                      value={this.state.dob}
                      name="dob"
@@ -144,7 +145,7 @@ class Personal extends Component
                      guide={true}
                      mask={[ /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
                      placeholder="00-00-0000"
-                     />
+                     /> */}
                                        <div class="tooltip"><img src="./assets/img/1024px-Infobox_info_icon.svg Copy 4.png" class="" /><span class="tooltiptext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
 
                </div>
