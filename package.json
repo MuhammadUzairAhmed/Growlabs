@@ -35,7 +35,7 @@
     "chartjs-plugin-datalabels": "0.6.0",
     "connected-react-router": "6.4.0",
     "express": "4.17.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "lodash": "4.17.14",
     "mdbreact": "4.19.2",
     "object-assign": "4.1.1",
